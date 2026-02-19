@@ -1,10 +1,16 @@
 # Northscore MCP Server
 
+> **This is an early demo/prototype.** The server is functional but still under active development.
+
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
-![Status](https://img.shields.io/badge/status-in%20development-orange)
+![Status](https://img.shields.io/badge/status-prototype-orange)
 <a href="https://modelcontextprotocol.io/clients" target="_blank"><img src="https://badge.mcpx.dev/?type=server" /></a>
 
 MCP (Model Context Protocol) server for [**Northscore**](https://www.northscore.ca).
+
+![Demo: Northscore MCP in Claude Code](assets/northscore_mcp_v0_demo.gif)
+
+*Demo showing Claude Code using the Northscore MCP — fetching league standings, then following up to get the top scorer using the same conversation context.*
 
 Built with TypeScript following [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) and [OpenAI Apps SDK](https://developers.openai.com/apps-sdk) standards.
 
