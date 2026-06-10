@@ -11,6 +11,10 @@ try {
 
 export type TransportMode = 'stdio' | 'http';
 
+// Ordered low → high; the logger relies on this order to filter by severity.
+export const LOG_LEVELS = ['debug', 'info', 'warn', 'error'] as const;
+export type LogLevel = (typeof LOG_LEVELS)[number];
+
 interface Config {
   northScoreApiKey: string;
   apiBaseUrl: string;
@@ -18,6 +22,7 @@ interface Config {
   host: string;
   port: number;
   nodeEnv: string;
+  logLevel: LogLevel;
 }
 
 function getEnvVar(key: string, defaultValue?: string): string {
@@ -36,6 +41,14 @@ function getTransport(): TransportMode {
   return value;
 }
 
+function getLogLevel(): LogLevel {
+  const value = getEnvVar('LOG_LEVEL', 'info').toLowerCase();
+  if (!LOG_LEVELS.includes(value as LogLevel)) {
+    throw new Error(`LOG_LEVEL must be one of ${LOG_LEVELS.join(', ')}, got "${value}"`);
+  }
+  return value as LogLevel;
+}
+
 export const config: Config = {
   northScoreApiKey: getEnvVar('NORTHSCORE_STATS_API_KEY'),
   apiBaseUrl: getEnvVar('NORTHSCORE_API_BASE_URL', 'https://api.northscore.ca/api/v1').replace(
@@ -46,6 +59,7 @@ export const config: Config = {
   host: getEnvVar('HOST', '127.0.0.1'),
   port: parseInt(getEnvVar('PORT', '3002'), 10),
   nodeEnv: getEnvVar('NODE_ENV', 'development'),
+  logLevel: getLogLevel(),
 };
 
 /**

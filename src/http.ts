@@ -10,6 +10,7 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js';
 import type { Transport } from '@modelcontextprotocol/sdk/shared/transport.js';
 import { config } from './config/env.js';
+import { logger } from './logger.js';
 import { createServer, SERVER_INFO } from './server.js';
 
 function methodNotAllowed(res: Response): void {
@@ -37,7 +38,9 @@ export function startHttpServer(): void {
         void server.close();
       });
     } catch (error) {
-      console.error('Error handling MCP request:', error);
+      logger.error('Error handling MCP request', {
+        error: error instanceof Error ? error.message : String(error),
+      });
       if (!res.headersSent) {
         res.status(500).json({
           jsonrpc: '2.0',
@@ -57,8 +60,9 @@ export function startHttpServer(): void {
   });
 
   app.listen(config.port, config.host, () => {
-    console.info(
-      `${SERVER_INFO.name} listening on http://${config.host}:${config.port}/mcp (Streamable HTTP, stateless)`,
-    );
+    logger.info('northscore-mcp listening (Streamable HTTP, stateless)', {
+      url: `http://${config.host}:${config.port}/mcp`,
+      apiBaseUrl: config.apiBaseUrl,
+    });
   });
 }

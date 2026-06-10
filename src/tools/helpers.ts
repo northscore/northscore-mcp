@@ -4,6 +4,7 @@
 
 import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { CHARACTER_LIMIT } from '../constants/index.js';
+import { logger } from '../logger.js';
 import { NorthScoreApiClientError } from '../services/index.js';
 
 /**
@@ -39,6 +40,8 @@ export function errorResult(error: unknown): CallToolResult {
     error: message,
     ...(error instanceof NorthScoreApiClientError && { status_code: error.statusCode }),
   };
+
+  logger.warn('Tool returned error', { error: message });
 
   return {
     content: [{ type: 'text', text: JSON.stringify(output, null, 2) }],

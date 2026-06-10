@@ -9,6 +9,7 @@
 
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { config, validateConfig } from './config/env.js';
+import { logger } from './logger.js';
 import { createServer } from './server.js';
 import { startHttpServer } from './http.js';
 
@@ -23,10 +24,10 @@ async function main(): Promise<void> {
   const server = createServer();
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('northscore-mcp running on stdio');
+  logger.info('northscore-mcp running on stdio', { apiBaseUrl: config.apiBaseUrl });
 }
 
 main().catch((error: unknown) => {
-  console.error('Server error:', error instanceof Error ? error.message : error);
+  logger.error('Server error', { error: error instanceof Error ? error.message : String(error) });
   process.exit(1);
 });

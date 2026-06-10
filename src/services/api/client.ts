@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-base-to-string */
 import { config } from '../../config/env.js';
+import { logger } from '../../logger.js';
 import type { StandardResponse, ValidationErrorDetail } from '../../types/api.js';
 import { isApiError } from '../../types/api.js';
 import { API_TIMEOUT_MS } from '../../constants/index.js';
@@ -177,14 +178,27 @@ export async function fetchData<T>(
 
   const url = `${BASE_URL}${endpoint}${qs}`;
 
-  // Make the API request
-  const wrapped = await apiClient<StandardResponse<T>>(url, {
-    method: 'GET',
-    headers: {
-      'X-API-KEY': config.northScoreApiKey,
-      'Content-Type': 'application/json',
-    },
-  });
+  // Make the API request (log endpoint + duration; never log the API key)
+  const startedAt = Date.now();
+  let wrapped: StandardResponse<T>;
+  try {
+    wrapped = await apiClient<StandardResponse<T>>(url, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': config.northScoreApiKey,
+        'Content-Type': 'application/json',
+      },
+    });
+    logger.debug('API request ok', { endpoint: `${endpoint}${qs}`, ms: Date.now() - startedAt });
+  } catch (error) {
+    logger.error('API request failed', {
+      endpoint: `${endpoint}${qs}`,
+      ms: Date.now() - startedAt,
+      error: error instanceof Error ? error.message : String(error),
+      ...(error instanceof NorthScoreApiClientError && { status: error.statusCode }),
+    });
+    throw error;
+  }
 
   // Unwrap StandardResponse
   if (!wrapped.success || !wrapped.data) {
