@@ -7,263 +7,121 @@ import {
   normalizeStandings,
   normalizeLeaderboard,
   normalizeTeamStats,
+  normalizeAggregateGames,
 } from '@/services/api/normalizers.js';
-import type { GenericStandings, GenericPlayerLeaderboard, GenericTeamStat } from '@/types/games.js';
+import type {
+  GenericGame,
+  GenericPlayerLeaderboard,
+  GenericStandings,
+  GenericTeamStat,
+} from '@/types/index.js';
+
+function makeTeam(id: string) {
+  return { id, name: { en: id } };
+}
+
+function makeStanding(id: string, rank: number): GenericStandings {
+  return { team: makeTeam(id), wins: 5, losses: 2, rank, league_id: 'test' };
+}
+
+function makeLeader(name: string, statType: string): GenericPlayerLeaderboard {
+  return {
+    player: { id: name, name },
+    value: 10,
+    rank: 1,
+    league_id: 'test',
+    stat_type: statType,
+  };
+}
+
+function makeGame(id: string, date: string, league: string): GenericGame {
+  return {
+    id,
+    date,
+    status: 'SCHEDULED',
+    home_team: { team: makeTeam('home') },
+    away_team: { team: makeTeam('away') },
+    league_id: league,
+  };
+}
 
 describe('normalizeStandings', () => {
-  it('should return array as-is when already an array', () => {
-    const input: GenericStandings[] = [
-      {
-        team_id: '1',
-        team_name: 'Team A',
-        wins: 10,
-        losses: 5,
-        rank: 1,
-        league_id: 'cebl',
-        additional_stats: {},
-      },
-      {
-        team_id: '2',
-        team_name: 'Team B',
-        wins: 8,
-        losses: 7,
-        rank: 2,
-        league_id: 'cebl',
-        additional_stats: {},
-      },
-    ];
-
-    const result = normalizeStandings(input);
-    expect(result).toEqual(input);
-    expect(result).toHaveLength(2);
+  it('passes arrays through', () => {
+    const data = [makeStanding('a', 1), makeStanding('b', 2)];
+    expect(normalizeStandings(data)).toEqual(data);
   });
 
-  it('should flatten dict with single group to array', () => {
-    const input: Record<string, GenericStandings[]> = {
-      'East Conference': [
-        {
-          team_id: '1',
-          team_name: 'Team A',
-          wins: 10,
-          losses: 5,
-          rank: 1,
-          league_id: 'cebl',
-          additional_stats: {},
-        },
-      ],
-    };
-
-    const result = normalizeStandings(input);
-    expect(result).toHaveLength(1);
-    expect(result[0]?.team_name).toBe('Team A');
-  });
-
-  it('should flatten dict with multiple groups to array', () => {
-    const input: Record<string, GenericStandings[]> = {
-      East: [
-        {
-          team_id: '1',
-          team_name: 'Team A',
-          wins: 10,
-          losses: 5,
-          rank: 1,
-          league_id: 'cebl',
-          additional_stats: {},
-        },
-      ],
-      West: [
-        {
-          team_id: '2',
-          team_name: 'Team B',
-          wins: 8,
-          losses: 7,
-          rank: 2,
-          league_id: 'cebl',
-          additional_stats: {},
-        },
-        {
-          team_id: '3',
-          team_name: 'Team C',
-          wins: 6,
-          losses: 9,
-          rank: 3,
-          league_id: 'cebl',
-          additional_stats: {},
-        },
-      ],
-    };
-
-    const result = normalizeStandings(input);
+  it('flattens dicts keyed by division', () => {
+    const east = [makeStanding('a', 1)];
+    const west = [makeStanding('b', 1), makeStanding('c', 2)];
+    const result = normalizeStandings({ east, west });
     expect(result).toHaveLength(3);
-    expect(result.map((s) => s.team_name)).toEqual(['Team A', 'Team B', 'Team C']);
+    expect(result.map((s) => s.team.id)).toEqual(['a', 'b', 'c']);
   });
 });
 
 describe('normalizeLeaderboard', () => {
-  it('should flatten simple dict to array', () => {
-    const input: Record<string, GenericPlayerLeaderboard[]> = {
-      POINTS: [
-        {
-          player_id: '1',
-          player_name: 'Player A',
-          value: '25.5',
-          rank: 1,
-          league_id: 'cebl',
-          stat_type: 'POINTS',
-          player_profile: {
-            photo_url: '',
-            date_of_birth: '',
-            height: '',
-            weight: '',
-            position: '',
-            jersey_number: '',
-          },
-        },
-      ],
-      ASSISTS: [
-        {
-          player_id: '2',
-          player_name: 'Player B',
-          value: '8.2',
-          rank: 1,
-          league_id: 'cebl',
-          stat_type: 'ASSISTS',
-          player_profile: {
-            photo_url: '',
-            date_of_birth: '',
-            height: '',
-            weight: '',
-            position: '',
-            jersey_number: '',
-          },
-        },
-      ],
+  it('flattens stat-keyed dicts', () => {
+    const data = {
+      POINTS: [makeLeader('p1', 'POINTS')],
+      ASSISTS: [makeLeader('p2', 'ASSISTS')],
     };
-
-    const result = normalizeLeaderboard(input);
-    expect(result).toHaveLength(2);
-    expect(result.map((l) => l.stat_type)).toEqual(['POINTS', 'ASSISTS']);
+    expect(normalizeLeaderboard(data)).toHaveLength(2);
   });
 
-  it('should filter by stat type when provided', () => {
-    const input: Record<string, GenericPlayerLeaderboard[]> = {
-      POINTS: [
-        {
-          player_id: '1',
-          player_name: 'Player A',
-          value: '25.5',
-          rank: 1,
-          league_id: 'cebl',
-          stat_type: 'POINTS',
-          player_profile: {
-            photo_url: '',
-            date_of_birth: '',
-            height: '',
-            weight: '',
-            position: '',
-            jersey_number: '',
-          },
-        },
-      ],
-      ASSISTS: [
-        {
-          player_id: '2',
-          player_name: 'Player B',
-          value: '8.2',
-          rank: 1,
-          league_id: 'cebl',
-          stat_type: 'ASSISTS',
-          player_profile: {
-            photo_url: '',
-            date_of_birth: '',
-            height: '',
-            weight: '',
-            position: '',
-            jersey_number: '',
-          },
-        },
-      ],
+  it('flattens nested category dicts', () => {
+    const data = {
+      OFFENCE: { POINTS: [makeLeader('p1', 'POINTS')] },
+      DEFENCE: { BLOCKS: [makeLeader('p2', 'BLOCKS')] },
     };
-
-    const result = normalizeLeaderboard(input, 'POINTS');
-    expect(result).toHaveLength(1);
-    expect(result[0]?.stat_type).toBe('POINTS');
+    expect(normalizeLeaderboard(data)).toHaveLength(2);
   });
 
-  it('should handle nested dict structure', () => {
-    const input: Record<string, Record<string, GenericPlayerLeaderboard[]>> = {
-      OFFENSE: {
-        POINTS: [
-          {
-            player_id: '1',
-            player_name: 'Player A',
-            value: '25.5',
-            rank: 1,
-            league_id: 'cfl',
-            stat_type: 'POINTS',
-            player_profile: {
-              photo_url: '',
-              date_of_birth: '',
-              height: '',
-              weight: '',
-              position: '',
-              jersey_number: '',
-            },
-          },
-        ],
-      },
+  it('filters by stat type fragment, case-insensitively', () => {
+    const data = {
+      POINTS_PER_GAME: [makeLeader('p1', 'POINTS_PER_GAME')],
+      ASSISTS: [makeLeader('p2', 'ASSISTS')],
     };
-
-    const result = normalizeLeaderboard(input);
+    const result = normalizeLeaderboard(data, 'points');
     expect(result).toHaveLength(1);
-    expect(result[0]?.player_name).toBe('Player A');
+    expect(result[0]!.player.name).toBe('p1');
+  });
+
+  it('returns everything when the stat filter matches nothing', () => {
+    const data = { POINTS: [makeLeader('p1', 'POINTS')] };
+    expect(normalizeLeaderboard(data, 'goals')).toHaveLength(1);
   });
 });
 
 describe('normalizeTeamStats', () => {
-  const singleTeamStat: GenericTeamStat = {
-    team_id: '1',
-    team_name: 'Team A',
-    league_id: 'cebl',
-    games_played: 20,
-    stats: { points: 2000 },
-    rankings: { points: 1 },
-  };
+  const stat: GenericTeamStat = { team: makeTeam('a'), league_id: 'test' };
 
-  it('should extract single item from array when team_name provided', () => {
-    const input: GenericTeamStat[] = [singleTeamStat];
-
-    const result = normalizeTeamStats(input, 'Team A');
-    expect(result).toEqual(singleTeamStat);
-    expect(Array.isArray(result)).toBe(false);
+  it('extracts a single item when team_name was provided', () => {
+    expect(normalizeTeamStats([stat], 'a')).toEqual(stat);
   });
 
-  it('should return array as-is when team_name not provided', () => {
-    const input: GenericTeamStat[] = [
-      singleTeamStat,
-      {
-        team_id: '2',
-        team_name: 'Team B',
-        league_id: 'cebl',
-        stats: {},
-      },
-    ];
+  it('returns arrays unchanged without team_name', () => {
+    expect(normalizeTeamStats([stat])).toEqual([stat]);
+  });
+});
 
-    const result = normalizeTeamStats(input);
-    expect(result).toEqual(input);
-    expect(Array.isArray(result)).toBe(true);
+describe('normalizeAggregateGames', () => {
+  it('flattens league-keyed games and counts per league', () => {
+    const data = {
+      cfl: [makeGame('g2', '2026-06-10', 'cfl')],
+      cebl: [makeGame('g1', '2026-06-09', 'cebl'), makeGame('g3', '2026-06-11', 'cebl')],
+    };
+    const { games, leagueCounts } = normalizeAggregateGames(data);
+    expect(games).toHaveLength(3);
+    expect(leagueCounts).toEqual({ cfl: 1, cebl: 2 });
   });
 
-  it('should return single object as-is', () => {
-    const result = normalizeTeamStats(singleTeamStat);
-    expect(result).toEqual(singleTeamStat);
-  });
-
-  it('should return array as-is when empty', () => {
-    const input: GenericTeamStat[] = [];
-
-    const result = normalizeTeamStats(input, 'Team A');
-    expect(result).toEqual([]);
-    expect(Array.isArray(result)).toBe(true);
+  it('sorts games by date across leagues', () => {
+    const data = {
+      cfl: [makeGame('late', '2026-06-12', 'cfl')],
+      cebl: [makeGame('early', '2026-06-09', 'cebl')],
+    };
+    const { games } = normalizeAggregateGames(data);
+    expect(games.map((g) => g.id)).toEqual(['early', 'late']);
   });
 });

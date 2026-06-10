@@ -1,34 +1,30 @@
 /**
- * Games service - Fetch games from Northscore API
+ * Games service — single-league schedules and scores.
  */
 
-import type { GenericGame } from '../types/games.js';
-import type { GamesQueryParams } from '../types/params.js';
-import type { LeagueSystem } from '../types/leagues.js';
+import type { GenericGame, LeagueSystem } from '../types/index.js';
 import { fetchData } from './api/client.js';
 import { buildGamesEndpoint } from './api/endpoints.js';
-import { validateTeamForLeague, normalizeTeamName } from '../utils/validation.js';
 
-/**
- * Fetch games from Northscore API
- * @param leagueSystem - Combined league identifier (e.g., 'cebl', 'usports_mbb')
- * @param params - Optional query parameters
- * @returns Array of games
- */
+export interface GamesParams {
+  /** Filter to a specific team (query param, league-specific naming) */
+  team_name?: string;
+  /** Season year — PSL only (e.g. 2026) */
+  year?: number;
+  /** Season label — MWBA/NSL only */
+  season?: string;
+}
+
 export default async function fetchGames(
   leagueSystem: LeagueSystem,
-  params?: GamesQueryParams,
+  params?: GamesParams,
 ): Promise<GenericGame[]> {
-  if (params?.team_name) {
-    validateTeamForLeague(leagueSystem, params.team_name);
-  }
   const endpoint = buildGamesEndpoint(leagueSystem);
-  const queryParams: Record<string, string> = {};
+  const queryParams: Record<string, string | number> = {};
 
-  if (params?.team_name) {
-    queryParams.team_name = normalizeTeamName(leagueSystem, params.team_name);
-  }
+  if (params?.team_name) queryParams.team_name = params.team_name;
+  if (params?.year) queryParams.year = params.year;
+  if (params?.season) queryParams.season = params.season;
 
-  const games = await fetchData<GenericGame[]>(endpoint, queryParams);
-  return games;
+  return fetchData<GenericGame[]>(endpoint, queryParams);
 }

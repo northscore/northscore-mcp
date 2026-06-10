@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-base-to-string */
 import { config } from '../../config/env.js';
-import type { StandardResponse } from '../../types/api.js';
+import type { StandardResponse, ValidationErrorDetail } from '../../types/api.js';
 import { isApiError } from '../../types/api.js';
-import type { ValidationErrorDetail } from '../../types/responses.js';
-import { NORTHSCORE_API_BASE_URL, API_TIMEOUT_MS } from '../../constants/index.js';
+import { API_TIMEOUT_MS } from '../../constants/index.js';
 
-const BASE_URL = NORTHSCORE_API_BASE_URL;
+const BASE_URL = config.apiBaseUrl;
 
 /**
  * Custom error class for Northscore API errors with improved error details

@@ -24,5 +24,6 @@ Thumbs.db
 *.swp
 *.swo
 
+.claude/
 CLAUDE.md
 CRITICAL_ISSUES.md
