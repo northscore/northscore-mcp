@@ -4,7 +4,7 @@
 
 import type { GenericPlayerLeaderboard, LeaderboardLeague } from '../types/index.js';
 import { fetchData } from './api/client.js';
-import { buildLeaderboardEndpoint } from './api/endpoints.js';
+import { buildLeaderboardEndpoint, supportsMode } from './api/endpoints.js';
 import { normalizeLeaderboard } from './api/normalizers.js';
 
 export interface LeaderboardParams {
@@ -16,9 +16,6 @@ export interface LeaderboardParams {
   limit?: number;
 }
 
-/** Leagues whose leaderboard endpoint takes a required/optional mode param */
-const MODE_LEAGUES_PREFIXES = ['cebl', 'usports_'];
-
 export default async function fetchLeaderboard(
   leagueSystem: LeaderboardLeague,
   params?: LeaderboardParams,
@@ -26,8 +23,7 @@ export default async function fetchLeaderboard(
   const endpoint = buildLeaderboardEndpoint(leagueSystem);
   const queryParams: Record<string, string | number> = {};
 
-  const supportsMode = MODE_LEAGUES_PREFIXES.some((prefix) => leagueSystem.startsWith(prefix));
-  if (supportsMode) {
+  if (supportsMode(leagueSystem)) {
     queryParams.mode = params?.mode ?? 'PER_GAME';
   }
   if (params?.limit) queryParams.limit = params.limit;

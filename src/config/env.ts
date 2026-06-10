@@ -49,12 +49,10 @@ export const config: Config = {
 };
 
 /**
- * Validate that all required environment variables are present
+ * Validate derived config that the eager getters above can't guarantee.
+ * (Required string vars already throw at module load via getEnvVar.)
  */
 export function validateConfig(): void {
-  if (!config.northScoreApiKey) {
-    throw new Error('NORTHSCORE_STATS_API_KEY environment variable is required');
-  }
   if (Number.isNaN(config.port) || config.port <= 0) {
     throw new Error('PORT must be a positive integer');
   }

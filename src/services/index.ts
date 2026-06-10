@@ -13,6 +13,7 @@ export {
   buildTeamInfoEndpoint,
   buildTeamRosterEndpoint,
   buildAggregateGamesEndpoint,
+  supportsMode,
 } from './api/endpoints.js';
 export {
   normalizeStandings,

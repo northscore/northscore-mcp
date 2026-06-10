@@ -36,6 +36,10 @@ export interface ParsedLeagueSystem {
   basePath: string;
 }
 
+/**
+ * Membership check that widens the `as const` league tuples to plain string
+ * arrays, so any LeagueSystem can be tested without type assertions.
+ */
 function includes(haystack: readonly string[], needle: string): boolean {
   return haystack.includes(needle);
 }
@@ -76,6 +80,11 @@ export function parseLeagueSystem(leagueSystem: LeagueSystem): ParsedLeagueSyste
   );
 }
 
+/**
+ * Guard for endpoints that only some league families expose.
+ * Throws with the full list of supported leagues so callers (and the LLM)
+ * can self-correct.
+ */
 function assertSupported(
   leagueSystem: LeagueSystem,
   supported: readonly string[],
@@ -96,25 +105,30 @@ export function buildGamesEndpoint(leagueSystem: LeagueSystem): string {
   return leagueSystem === 'mwba' ? `${basePath}/schedule` : `${basePath}/games`;
 }
 
+/** Standings endpoint — available for every league family. */
 export function buildStandingsEndpoint(leagueSystem: LeagueSystem): string {
   return `${parseLeagueSystem(leagueSystem).basePath}/standings`;
 }
 
+/** Leaderboard endpoint — not available for NSL, MWBA, CHL or PSL. */
 export function buildLeaderboardEndpoint(leagueSystem: LeagueSystem): string {
   assertSupported(leagueSystem, LEADERBOARD_LEAGUES, 'leaderboards (get_leaderboard)');
   return `${parseLeagueSystem(leagueSystem).basePath}/leaderboard`;
 }
 
+/** Team statistics endpoint — not available for MWBA or PSL. */
 export function buildTeamStatsEndpoint(leagueSystem: LeagueSystem): string {
   assertSupported(leagueSystem, TEAM_STATS_LEAGUES, 'team statistics (get_team_stats)');
   return `${parseLeagueSystem(leagueSystem).basePath}/teams/statistics`;
 }
 
+/** Team info endpoint — team name is URL-encoded (handles "Queen's" etc.). */
 export function buildTeamInfoEndpoint(leagueSystem: LeagueSystem, teamName: string): string {
   const { basePath } = parseLeagueSystem(leagueSystem);
   return `${basePath}/teams/${encodeURIComponent(teamName)}/info`;
 }
 
+/** Team roster endpoint — not available for NSL, CHL or PSL. */
 export function buildTeamRosterEndpoint(leagueSystem: LeagueSystem, teamName: string): string {
   assertSupported(leagueSystem, TEAM_ROSTER_LEAGUES, 'rosters (get_team_roster)');
   const { basePath } = parseLeagueSystem(leagueSystem);
@@ -126,4 +140,15 @@ export function buildTeamRosterEndpoint(leagueSystem: LeagueSystem, teamName: st
  */
 export function buildAggregateGamesEndpoint(scope: AggregateScope): string {
   return `/aggregate/games/${scope}`;
+}
+
+/** League prefixes whose endpoints accept a PER_GAME/TOTALS `mode` param */
+const MODE_LEAGUE_PREFIXES = ['cebl', 'usports_'];
+
+/**
+ * Whether a league's leaderboard/team-stats/roster endpoint takes a `mode`
+ * query param (required for CEBL, supported by U SPORTS).
+ */
+export function supportsMode(leagueSystem: string): boolean {
+  return MODE_LEAGUE_PREFIXES.some((prefix) => leagueSystem.startsWith(prefix));
 }

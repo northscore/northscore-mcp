@@ -4,7 +4,7 @@
 
 import type { GenericTeamStat, TeamStatsLeague } from '../types/index.js';
 import { fetchData } from './api/client.js';
-import { buildTeamStatsEndpoint } from './api/endpoints.js';
+import { buildTeamStatsEndpoint, supportsMode } from './api/endpoints.js';
 import { normalizeTeamStats } from './api/normalizers.js';
 
 export interface TeamStatsParams {
@@ -14,9 +14,6 @@ export interface TeamStatsParams {
   mode?: 'PER_GAME' | 'TOTALS';
 }
 
-/** Leagues whose team-stats endpoint takes a mode param (required for CEBL) */
-const MODE_LEAGUES_PREFIXES = ['cebl', 'usports_'];
-
 export default async function fetchTeamStats(
   leagueSystem: TeamStatsLeague,
   params?: TeamStatsParams,
@@ -24,8 +21,7 @@ export default async function fetchTeamStats(
   const endpoint = buildTeamStatsEndpoint(leagueSystem);
   const queryParams: Record<string, string | number> = {};
 
-  const supportsMode = MODE_LEAGUES_PREFIXES.some((prefix) => leagueSystem.startsWith(prefix));
-  if (supportsMode) {
+  if (supportsMode(leagueSystem)) {
     queryParams.mode = params?.mode ?? 'PER_GAME';
   }
   if (params?.team_name) queryParams.team_name = params.team_name;

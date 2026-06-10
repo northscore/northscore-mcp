@@ -170,17 +170,10 @@ export async function fetchData<T>(
   params?: Record<string, string | number | boolean>,
 ): Promise<T> {
   // Build query string
-  const qs = params
-    ? `?${new URLSearchParams(
-        Object.entries(params).reduce(
-          (acc, [k, v]) => {
-            acc[k] = String(v);
-            return acc;
-          },
-          {} as Record<string, string>,
-        ),
-      ).toString()}`
-    : '';
+  const entries: [string, string][] = params
+    ? Object.entries(params).map(([k, v]) => [k, String(v)])
+    : [];
+  const qs = entries.length > 0 ? `?${new URLSearchParams(entries).toString()}` : '';
 
   const url = `${BASE_URL}${endpoint}${qs}`;
 
