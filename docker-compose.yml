@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  northscore-mcp:
+    build: .
+    ports:
+      - "3002:3002"
+    environment:
+      NODE_ENV: development
+      MCP_TRANSPORT: http
+      HOST: 0.0.0.0
+      PORT: 3002
+      NORTHSCORE_API_BASE_URL: http://localhost:8080/api/v1
+      NORTHSCORE_STATS_API_KEY: 123
+      SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET:-your-test-secret}
+    depends_on:
+      - northscore-api
+    networks:
+      - northscore
+
+  northscore-api:
+    image: northscore-api:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - ENVIRONMENT=local
+    networks:
+      - northscore
+
+networks:
+  northscore:
+    driver: bridge
