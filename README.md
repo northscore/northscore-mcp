@@ -85,6 +85,18 @@ pnpm format       # Format code with Prettier
 pnpm test         # Run tests (Vitest)
 ```
 
+### Local Docker Setup
+
+For local development with Docker:
+
+```bash
+docker-compose -f docker-compose.local.yml up
+```
+
+Requires: `.env` file with `NORTHSCORE_STATS_API_KEY` and `SUPABASE_JWT_SECRET`.
+
+**Note:** Railway uses native builds and does not require Docker files for deployment.
+
 ### Debugging with MCP Inspector
 
 ```bash
