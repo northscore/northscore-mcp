@@ -1,5 +1,5 @@
 /**
- * Response normalizers for the NorthScore API.
+ * Response normalizers for the Northscore API.
  * Response shapes vary by league (arrays vs keyed dicts) — normalize to
  * consistent shapes for the tool layer.
  */

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * NorthScore MCP server entry point.
+ * Northscore MCP server entry point.
  *
  * Transport is selected via MCP_TRANSPORT:
  *   - stdio (default): local clients like Claude Desktop

@@ -1,7 +1,7 @@
 /**
  * Integration smoke test — one real API call per league family + aggregate.
  *
- * Manual-only (not part of `pnpm test`). Requires the NorthScore API running
+ * Manual-only (not part of `pnpm test`). Requires the Northscore API running
  * locally and a valid .env. Run with: pnpm test:integration
  */
 

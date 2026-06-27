@@ -1,5 +1,5 @@
 /**
- * NorthScore API services — centralized exports.
+ * Northscore API services — centralized exports.
  */
 
 // Core API utilities

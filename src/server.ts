@@ -13,7 +13,7 @@ import { registerGetTeamRosterTool } from './tools/team-roster.js';
 
 export const SERVER_INFO = {
   name: 'northscore-mcp',
-  title: 'NorthScore — Canadian Sports Statistics',
+  title: 'Northscore',
   version: '0.0.1',
 } as const;
 

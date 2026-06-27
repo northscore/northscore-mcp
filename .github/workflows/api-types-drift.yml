@@ -1,7 +1,7 @@
 name: API types drift check
 
 # Regenerates src/types/generated.ts from the live OpenAPI spec and fails
-# if it differs from what's committed — catches NorthScore API changes
+# if it differs from what's committed — catches Northscore API changes
 # without manual checking. Re-run `pnpm gen:types` locally and commit to fix.
 
 on:
@@ -32,6 +32,6 @@ jobs:
       - name: Fail if generated types drifted
         run: |
           if ! git diff --exit-code src/types/generated.ts; then
-            echo "::error::NorthScore API schema changed — run 'pnpm gen:types' locally, review the diff, and commit."
+            echo "::error::Northscore API schema changed — run 'pnpm gen:types' locally, review the diff, and commit."
             exit 1
           fi

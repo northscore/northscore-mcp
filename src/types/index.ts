@@ -2,7 +2,7 @@
  * Centralized type exports.
  *
  * Domain types are aliased from src/types/generated.ts, which is produced
- * from the live NorthScore OpenAPI spec (`pnpm gen:types`). Do not hand-edit
+ * from the live Northscore OpenAPI spec (`pnpm gen:types`). Do not hand-edit
  * generated.ts — regenerate it when the API changes.
  */
 

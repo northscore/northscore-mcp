@@ -1,5 +1,5 @@
 /**
- * Endpoint builders for the NorthScore API.
+ * Endpoint builders for the Northscore API.
  *
  * Maps MCP league identifiers (underscored, e.g. `psl_opl_1_mens`) to API
  * paths (e.g. `/psl/opl-1-mens/games`) and encodes team names safely.

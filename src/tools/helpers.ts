@@ -79,7 +79,7 @@ export function truncateList<T>(items: T[]): { items: T[]; info: TruncationInfo 
 
 /**
  * Format a Date as YYYY-MM-DD in the America/Toronto timezone
- * (NorthScore is Canadian sports data — "today" means Toronto's today).
+ * (Northscore is Canadian sports data — "today" means Toronto's today).
  */
 export function torontoDateString(date: Date): string {
   return new Intl.DateTimeFormat('en-CA', {

@@ -3,7 +3,7 @@
  *
  * MCP identifiers use underscores (e.g. `psl_opl_1_mens`); the endpoint
  * builders map them to API path segments (e.g. `/psl/opl-1-mens`).
- * Per-tool enums below include only the league families each NorthScore
+ * Per-tool enums below include only the league families each Northscore
  * endpoint actually supports, so unsupported leagues never appear as
  * valid options to the model.
  */
