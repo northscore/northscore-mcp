@@ -1,42 +1,40 @@
 /**
- * Response normalizers for Northscore API
- * Handles different response structures across leagues
+ * Response normalizers for the Northscore API.
+ * Response shapes vary by league (arrays vs keyed dicts) — normalize to
+ * consistent shapes for the tool layer.
  */
 
 import type {
-  GenericStandings,
+  AggregateGames,
+  GenericGame,
   GenericPlayerLeaderboard,
+  GenericStandings,
   GenericTeamStat,
-} from '../../types/games.js';
+} from '../../types/index.js';
 
 /**
- * Normalize standings response
- * Some leagues return arrays, some return dicts - normalize to array
+ * Standings: some leagues return arrays, some return dicts keyed by
+ * division/conference — flatten to a single array.
  */
 export function normalizeStandings(
   data: GenericStandings[] | Record<string, GenericStandings[]>,
 ): GenericStandings[] {
-  // Already an array
   if (Array.isArray(data)) {
     return data;
   }
 
-  // Flatten dict to array
   const standings: GenericStandings[] = [];
   for (const group of Object.values(data)) {
     if (Array.isArray(group)) {
-      for (const item of group) {
-        standings.push(item);
-      }
+      standings.push(...group);
     }
   }
-
   return standings;
 }
 
 /**
- * Normalize leaderboard response
- * API returns dict with stat names as keys - flatten to array or filter by stat
+ * Leaderboard: API returns a dict keyed by stat name (sometimes nested one
+ * level, e.g. category → stat). Flatten, optionally filtering to one stat.
  */
 export function normalizeLeaderboard(
   data:
@@ -47,11 +45,10 @@ export function normalizeLeaderboard(
   const flatData: Record<string, GenericPlayerLeaderboard[]> = {};
   for (const [key, value] of Object.entries(data)) {
     if (Array.isArray(value)) {
-      flatData[key] = value as GenericPlayerLeaderboard[];
-    } else if (typeof value === 'object') {
-      for (const [nestedKey, nestedValue] of Object.entries(
-        value as Record<string, GenericPlayerLeaderboard[]>,
-      )) {
+      flatData[key] = value;
+    } else if (typeof value === 'object' && value !== null) {
+      const nested = value as Record<string, GenericPlayerLeaderboard[]>;
+      for (const [nestedKey, nestedValue] of Object.entries(nested)) {
         if (Array.isArray(nestedValue)) {
           flatData[`${key}_${nestedKey}`] = nestedValue;
         }
@@ -59,37 +56,54 @@ export function normalizeLeaderboard(
     }
   }
 
-  // If stat type specified, return only that stat
-  if (statType && flatData[statType]) {
-    return flatData[statType] ?? [];
-  }
-
-  // Otherwise, flatten all stats into single array
-  const leaders: GenericPlayerLeaderboard[] = [];
-  for (const statLeaders of Object.values(flatData)) {
-    if (Array.isArray(statLeaders)) {
-      for (const leader of statLeaders) {
-        leaders.push(leader);
-      }
+  if (statType) {
+    const match = Object.keys(flatData).find((key) =>
+      key.toLowerCase().includes(statType.toLowerCase()),
+    );
+    if (match) {
+      return flatData[match] ?? [];
     }
   }
 
+  const leaders: GenericPlayerLeaderboard[] = [];
+  for (const statLeaders of Object.values(flatData)) {
+    leaders.push(...statLeaders);
+  }
   return leaders;
 }
 
 /**
- * Normalize team stats response
- * When team_name query param provided, API returns list with single item - extract it
+ * Team stats: when team_name is provided the API returns a single-item list —
+ * extract the item.
  */
 export function normalizeTeamStats(
   data: GenericTeamStat[] | GenericTeamStat,
   teamName?: string,
 ): GenericTeamStat | GenericTeamStat[] {
-  // If team_name was provided and we got an array, extract single item
   if (teamName && Array.isArray(data) && data.length > 0) {
     return data[0]!;
   }
-
-  // Return as-is
   return data;
+}
+
+/**
+ * Aggregate games: flatten { league: games[] } to a single array, retaining
+ * each game's league_id, plus per-league counts for context.
+ */
+export function normalizeAggregateGames(data: AggregateGames): {
+  games: GenericGame[];
+  leagueCounts: Record<string, number>;
+} {
+  const games: GenericGame[] = [];
+  const leagueCounts: Record<string, number> = {};
+
+  for (const [league, leagueGames] of Object.entries(data)) {
+    if (Array.isArray(leagueGames)) {
+      leagueCounts[league] = leagueGames.length;
+      games.push(...leagueGames);
+    }
+  }
+
+  games.sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
+  return { games, leagueCounts };
 }

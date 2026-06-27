@@ -16,19 +16,29 @@ Built with TypeScript following [MCP TypeScript SDK](https://github.com/modelcon
 
 ## Overview
 
-The Northscore MCP Server is designed to enable AI agents to query Northscore's sports data securely.
+The Northscore MCP Server enables AI agents to query Northscore's sports data securely — 7 tools covering 10 Canadian league families (CEBL, CFL, CPL, HoopQueens, NSL, MWBA, CHL, U SPORTS, OCAA, PSL), served over **stdio** (local clients like Claude Desktop) and **Streamable HTTP** (remote hosts like ChatGPT and Claude web).
+
+### Tools
+
+| Tool | Purpose |
+|---|---|
+| `get_games_by_date` | Cross-league games for today / this week / a date range |
+| `get_games` | Single-league schedule and scores |
+| `get_standings` | League standings |
+| `get_leaderboard` | Top stat leaders |
+| `get_team_info` | Team record, division, streak |
+| `get_team_stats` | Team statistics |
+| `get_team_roster` | Team roster |
+
+Each tool exposes only the leagues its endpoint actually supports (per-tool enums) — see [CLAUDE.md](./CLAUDE.md) for the full coverage matrix.
 
 ## Documentation
 
-To understand how to go about researching how to make an MCP server that's compatible with the ChatGPT Apps SDK, AgentKit and ChatKit, please refer to the documentation in the `docs` folder.
+Project context, tool definitions, and architecture live in [CLAUDE.md](./CLAUDE.md). Future plans are in [ROADMAP.md](./ROADMAP.md). External references:
 
-- [Concepts](./docs/concepts.md)
-- [Plan](./docs/plan.md)
-- [Build](./docs/build.md)
-- [Deploy](./docs/deploy.md)
-- [Guides](./docs/guides.md)
-- [Northscore MCP Tools](./docs/northscore-mcp-tools.md)
-- [Building a Standalone In-App Assistant](./docs/in-app-assistant.md)
+- [MCP Apps overview](https://modelcontextprotocol.io/extensions/apps/overview) and [build guide](https://modelcontextprotocol.io/extensions/apps/build)
+- [OpenAI Apps SDK — MCP Apps in ChatGPT](https://developers.openai.com/apps-sdk/mcp-apps-in-chatgpt)
+- [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) for local debugging
 
 ## Prerequisites
 
@@ -72,6 +82,13 @@ pnpm start        # Run compiled version
 pnpm type-check   # Type checking
 pnpm lint         # Run ESLint
 pnpm format       # Format code with Prettier
+pnpm test         # Run tests (Vitest)
+```
+
+### Debugging with MCP Inspector
+
+```bash
+npx @modelcontextprotocol/inspector node dist/index.js
 ```
 
 ## References

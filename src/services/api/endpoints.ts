@@ -1,27 +1,24 @@
 /**
- * API endpoint builders for Northscore API
- * Moved from utils/league-parser.ts for better modularity
+ * Endpoint builders for the Northscore API.
+ *
+ * Maps MCP league identifiers (underscored, e.g. `psl_opl_1_mens`) to API
+ * paths (e.g. `/psl/opl-1-mens/games`) and encodes team names safely.
  */
 
-import type { LeagueSystem } from '../../types/leagues.js';
+import {
+  CHL_LEAGUES,
+  LEADERBOARD_LEAGUES,
+  OCAA_LEAGUES,
+  PSL_LEAGUES,
+  SIMPLE_LEAGUES,
+  TEAM_ROSTER_LEAGUES,
+  TEAM_STATS_LEAGUES,
+  USPORTS_LEAGUES,
+} from '../../constants/leagues.js';
+import type { AggregateScope, LeagueSystem } from '../../constants/leagues.js';
 
-/**
- * Parsed league system information
- */
-export interface ParsedLeagueSystem {
-  type: 'simple' | 'usports' | 'ocaa';
-  baseLeague: string;
-  sport?: 'basketball' | 'football' | 'ice_hockey' | 'soccer' | 'volleyball';
-  league?: 'mbb' | 'wbb' | 'mvb' | 'wvb' | 'mfb' | 'msoc' | 'wsoc' | 'mhky' | 'whky';
-}
-
-/**
- * Map U SPORTS/OCAA league codes to sport types
- */
-const LEAGUE_TO_SPORT_MAP: Record<
-  string,
-  'basketball' | 'football' | 'ice_hockey' | 'soccer' | 'volleyball'
-> = {
+/** College sport-code → sport path segment (U SPORTS and OCAA) */
+const LEAGUE_TO_SPORT_MAP: Record<string, string> = {
   mbb: 'basketball',
   wbb: 'basketball',
   mvb: 'volleyball',
@@ -33,181 +30,125 @@ const LEAGUE_TO_SPORT_MAP: Record<
   whky: 'ice_hockey',
 };
 
+export interface ParsedLeagueSystem {
+  family: 'simple' | 'chl' | 'usports' | 'ocaa' | 'psl';
+  /** API base path for the league, e.g. `/usports/basketball/mbb` */
+  basePath: string;
+}
+
 /**
- * Parse combined league system identifier into components
+ * Membership check that widens the `as const` league tuples to plain string
+ * arrays, so any LeagueSystem can be tested without type assertions.
+ */
+function includes(haystack: readonly string[], needle: string): boolean {
+  return haystack.includes(needle);
+}
+
+/**
+ * Parse an MCP league identifier into its family and API base path.
  */
 export function parseLeagueSystem(leagueSystem: LeagueSystem): ParsedLeagueSystem {
-  // Simple leagues
-  if (['cebl', 'cfl', 'cpl', 'hoopqueens'].includes(leagueSystem)) {
-    return {
-      type: 'simple',
-      baseLeague: leagueSystem,
-    };
+  if (includes(SIMPLE_LEAGUES, leagueSystem)) {
+    return { family: 'simple', basePath: `/${leagueSystem}` };
   }
 
-  // U SPORTS leagues
-  if (leagueSystem.startsWith('usports_')) {
-    const league = leagueSystem.replace('usports_', '') as
-      | 'mbb'
-      | 'wbb'
-      | 'mvb'
-      | 'wvb'
-      | 'mfb'
-      | 'msoc'
-      | 'wsoc'
-      | 'mhky'
-      | 'whky';
+  if (includes(CHL_LEAGUES, leagueSystem)) {
+    const league = leagueSystem.replace('chl_', '');
+    return { family: 'chl', basePath: `/chl/${league}` };
+  }
+
+  if (includes(USPORTS_LEAGUES, leagueSystem) || includes(OCAA_LEAGUES, leagueSystem)) {
+    const [family, league] = leagueSystem.split('_') as [string, string];
     const sport = LEAGUE_TO_SPORT_MAP[league];
-
     if (!sport) {
-      throw new Error(`Unknown U SPORTS league: ${league}`);
+      throw new Error(`Unknown ${family.toUpperCase()} league code: ${league}`);
     }
-
     return {
-      type: 'usports',
-      baseLeague: 'usports',
-      sport,
-      league,
+      family: family as 'usports' | 'ocaa',
+      basePath: `/${family}/${sport}/${league}`,
     };
   }
 
-  // OCAA leagues
-  if (leagueSystem.startsWith('ocaa_')) {
-    const league = leagueSystem.replace('ocaa_', '') as
-      | 'mbb'
-      | 'wbb'
-      | 'mvb'
-      | 'wvb'
-      | 'mfb'
-      | 'msoc'
-      | 'wsoc'
-      | 'mhky'
-      | 'whky';
-    const sport = LEAGUE_TO_SPORT_MAP[league];
-
-    if (!sport) {
-      throw new Error(`Unknown OCAA league: ${league}`);
-    }
-
-    return {
-      type: 'ocaa',
-      baseLeague: 'ocaa',
-      sport,
-      league,
-    };
+  if (includes(PSL_LEAGUES, leagueSystem)) {
+    const slug = leagueSystem.replace('psl_', '').replaceAll('_', '-');
+    return { family: 'psl', basePath: `/psl/${slug}` };
   }
 
-  throw new Error(`Unsupported league system: ${leagueSystem}`);
+  throw new Error(
+    `Unsupported league system: ${leagueSystem}. ` +
+      `Supported families: cebl, cfl, cpl, hoopqueens, nsl, mwba, chl_*, usports_*, ocaa_*, psl_*.`,
+  );
 }
 
 /**
- * Build API endpoint for games
+ * Guard for endpoints that only some league families expose.
+ * Throws with the full list of supported leagues so callers (and the LLM)
+ * can self-correct.
+ */
+function assertSupported(
+  leagueSystem: LeagueSystem,
+  supported: readonly string[],
+  capability: string,
+): void {
+  if (!includes(supported, leagueSystem)) {
+    throw new Error(
+      `${leagueSystem} does not support ${capability}. Supported leagues: ${supported.join(', ')}.`,
+    );
+  }
+}
+
+/**
+ * Games / schedule endpoint. MWBA exposes its schedule at /mwba/schedule.
  */
 export function buildGamesEndpoint(leagueSystem: LeagueSystem): string {
-  const parsed = parseLeagueSystem(leagueSystem);
-
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/games`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/games`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/games`;
-  }
+  const { basePath } = parseLeagueSystem(leagueSystem);
+  return leagueSystem === 'mwba' ? `${basePath}/schedule` : `${basePath}/games`;
 }
 
-/**
- * Build API endpoint for standings
- */
+/** Standings endpoint — available for every league family. */
 export function buildStandingsEndpoint(leagueSystem: LeagueSystem): string {
-  const parsed = parseLeagueSystem(leagueSystem);
-
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/standings`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/standings`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/standings`;
-  }
+  return `${parseLeagueSystem(leagueSystem).basePath}/standings`;
 }
 
-/**
- * Build API endpoint for leaderboard
- */
+/** Leaderboard endpoint — not available for NSL, MWBA, CHL or PSL. */
 export function buildLeaderboardEndpoint(leagueSystem: LeagueSystem): string {
-  const parsed = parseLeagueSystem(leagueSystem);
-
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/leaderboard`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/leaderboard`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/leaderboard`;
-  }
+  assertSupported(leagueSystem, LEADERBOARD_LEAGUES, 'leaderboards (get_leaderboard)');
+  return `${parseLeagueSystem(leagueSystem).basePath}/leaderboard`;
 }
 
-/**
- * Build API endpoint for team statistics
- */
+/** Team statistics endpoint — not available for MWBA or PSL. */
 export function buildTeamStatsEndpoint(leagueSystem: LeagueSystem): string {
-  const parsed = parseLeagueSystem(leagueSystem);
-
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/teams/statistics`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/teams/statistics`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/teams/statistics`;
-  }
+  assertSupported(leagueSystem, TEAM_STATS_LEAGUES, 'team statistics (get_team_stats)');
+  return `${parseLeagueSystem(leagueSystem).basePath}/teams/statistics`;
 }
 
-/**
- * Build API endpoint for team info
- */
+/** Team info endpoint — team name is URL-encoded (handles "Queen's" etc.). */
 export function buildTeamInfoEndpoint(leagueSystem: LeagueSystem, teamName: string): string {
-  const parsed = parseLeagueSystem(leagueSystem);
-
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/teams/${teamName}/info`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/teams/${teamName}/info`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/teams/${teamName}/info`;
-  }
+  const { basePath } = parseLeagueSystem(leagueSystem);
+  return `${basePath}/teams/${encodeURIComponent(teamName)}/info`;
 }
 
-/**
- * Build API endpoint for team roster
- */
+/** Team roster endpoint — not available for NSL, CHL or PSL. */
 export function buildTeamRosterEndpoint(leagueSystem: LeagueSystem, teamName: string): string {
-  const parsed = parseLeagueSystem(leagueSystem);
-
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/teams/${teamName}/roster`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/teams/${teamName}/roster`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/teams/${teamName}/roster`;
-  }
+  assertSupported(leagueSystem, TEAM_ROSTER_LEAGUES, 'rosters (get_team_roster)');
+  const { basePath } = parseLeagueSystem(leagueSystem);
+  return `${basePath}/teams/${encodeURIComponent(teamName)}/roster`;
 }
 
 /**
- * Build API endpoint for team comparison
+ * Cross-league aggregate games endpoint — /aggregate/games/{scope}.
  */
-export function buildTeamComparisonEndpoint(leagueSystem: LeagueSystem): string {
-  const parsed = parseLeagueSystem(leagueSystem);
+export function buildAggregateGamesEndpoint(scope: AggregateScope): string {
+  return `/aggregate/games/${scope}`;
+}
 
-  switch (parsed.type) {
-    case 'simple':
-      return `/${parsed.baseLeague}/teams/comparison`;
-    case 'usports':
-      return `/usports/${parsed.sport}/${parsed.league}/teams/comparison`;
-    case 'ocaa':
-      return `/ocaa/${parsed.sport}/${parsed.league}/teams/comparison`;
-  }
+/** League prefixes whose endpoints accept a PER_GAME/TOTALS `mode` param */
+const MODE_LEAGUE_PREFIXES = ['cebl', 'usports_'];
+
+/**
+ * Whether a league's leaderboard/team-stats/roster endpoint takes a `mode`
+ * query param (required for CEBL, supported by U SPORTS).
+ */
+export function supportsMode(leagueSystem: string): boolean {
+  return MODE_LEAGUE_PREFIXES.some((prefix) => leagueSystem.startsWith(prefix));
 }

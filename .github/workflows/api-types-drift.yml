@@ -1,0 +1,37 @@
+name: API types drift check
+
+# Regenerates src/types/generated.ts from the live OpenAPI spec and fails
+# if it differs from what's committed — catches Northscore API changes
+# without manual checking. Re-run `pnpm gen:types` locally and commit to fix.
+
+on:
+  schedule:
+    - cron: '0 12 * * 1' # Mondays 12:00 UTC
+  workflow_dispatch:
+
+jobs:
+  check-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Regenerate types from production OpenAPI
+        run: pnpm gen:types
+        env:
+          NORTHSCORE_API_BASE_URL: https://api.northscore.ca/api/v1
+
+      - name: Fail if generated types drifted
+        run: |
+          if ! git diff --exit-code src/types/generated.ts; then
+            echo "::error::Northscore API schema changed — run 'pnpm gen:types' locally, review the diff, and commit."
+            exit 1
+          fi

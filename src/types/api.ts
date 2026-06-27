@@ -24,6 +24,15 @@ export interface ApiError {
 }
 
 /**
+ * Validation error detail (flattened from API error details)
+ */
+export interface ValidationErrorDetail {
+  location: string;
+  message: string;
+  type: string;
+}
+
+/**
  * Type guard to check if response is an API error
  */
 export function isApiError(response: unknown): response is ApiError {
