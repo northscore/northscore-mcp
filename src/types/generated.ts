@@ -4,10337 +4,9367 @@
  */
 
 export interface paths {
-  '/api/v1/health/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Health
-     * @description Check health of all services
-     */
-    get: operations['health_api_v1_health__get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/health/redis': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Health Redis
-     * @description Check Redis health
-     */
-    get: operations['health_redis_api_v1_health_redis_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/health/postgres': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Health Postgres
-     * @description Check PostgreSQL health
-     */
-    get: operations['health_postgres_api_v1_health_postgres_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/aggregate/games/pro': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Pro Games
-     * @description Get games from pro leagues (CFL, CPL, CEBL, CHL, HoopQueens, NSL).
-     */
-    get: operations['get_pro_games_api_v1_aggregate_games_pro_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/aggregate/games/usports': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Usports Games
-     * @description Get games from USports leagues (fetched sequentially).
-     */
-    get: operations['get_usports_games_api_v1_aggregate_games_usports_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/aggregate/games/ocaa': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Ocaa Games
-     * @description Get games from OCAA leagues (fetched sequentially).
-     */
-    get: operations['get_ocaa_games_api_v1_aggregate_games_ocaa_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Fetch CEBL games for the current season, optionally filtered by team.
-     */
-    get: operations['get_games_api_v1_cebl_games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Fetch current CEBL standings grouped by conference (EAST / WEST).
-     */
-    get: operations['get_standings_api_v1_cebl_standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/leaderboard': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Leaders
-     * @description Fetch CEBL statistical leaders grouped by stat category.
-     */
-    get: operations['get_leaders_api_v1_cebl_leaderboard_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Fetch info for a single team (from standings data).
-     */
-    get: operations['get_team_info_api_v1_cebl_teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Fetch roster and per-player stats for a single CEBL team.
-     */
-    get: operations['get_team_roster_api_v1_cebl_teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Fetch aggregated team statistics for all CEBL teams, optionally filtered by team name.
-     */
-    get: operations['get_team_statistics_api_v1_cebl_teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/players/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Statistics
-     * @description Fetch aggregated player statistics.
-     */
-    get: operations['get_player_statistics_api_v1_cebl_players_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Compare aggregated stats and rankings for two CEBL teams side-by-side.
-     */
-    get: operations['get_team_comparison_api_v1_cebl_teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/players': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Players
-     * @description Fetch all active CEBL players across all teams, optionally filtered by team.
-     */
-    get: operations['get_players_api_v1_cebl_players_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/players/compare': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Comparison
-     * @description Compare current season stats for two CEBL players side-by-side.
-     *
-     *     Fetches all players' per-game and totals stats once and caches them by league
-     *     (not per player pair), so any two-player comparison shares the same cached dataset.
-     */
-    get: operations['get_player_comparison_api_v1_cebl_players_compare_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/games/{livestats_id}/box-score': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Box Score
-     * @description Full game box score: scores, quarter breakdown, team totals, per-player stats.
-     */
-    get: operations['get_box_score_api_v1_cebl_games__livestats_id__box_score_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/games/{livestats_id}/shots': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Shots
-     * @description Shot chart data for both teams.
-     */
-    get: operations['get_shots_api_v1_cebl_games__livestats_id__shots_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/games/{livestats_id}/play-by-play': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Play By Play
-     * @description Play-by-play events. Use since_action_number to poll incrementally.
-     */
-    get: operations['get_play_by_play_api_v1_cebl_games__livestats_id__play_by_play_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cebl/transactions': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Cebl Transactions
-     * @description Fetch CEBL transactions, protected players, and draft picks.
-     */
-    get: operations['get_cebl_transactions_api_v1_cebl_transactions_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Fetch CFL games for the current season, optionally filtered by team.
-     */
-    get: operations['get_games_api_v1_cfl_games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Fetch CFL standings grouped by East and West divisions.
-     */
-    get: operations['get_standings_api_v1_cfl_standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/leaderboard': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Leaderboard
-     * @description Fetch CFL player leaderboards across offence, defence, and special teams.
-     */
-    get: operations['get_leaderboard_api_v1_cfl_leaderboard_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Fetch team information.
-     */
-    get: operations['get_team_info_api_v1_cfl_teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Fetch a CFL team's roster with per-player season stats.
-     */
-    get: operations['get_team_roster_api_v1_cfl_teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Fetch team stats. Without team_name returns all 9 teams with per-stat rankings populated.
-     */
-    get: operations['get_team_statistics_api_v1_cfl_teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/players': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Players
-     * @description Fetch the full CFL player directory. Filters (position, team) applied in-memory.
-     */
-    get: operations['get_players_api_v1_cfl_players_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/players/compare': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Comparison
-     * @description Compare current season stats for two CFL players side-by-side.
-     */
-    get: operations['get_player_comparison_api_v1_cfl_players_compare_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/players/statistics/{player_id}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Statistics
-     * @description Fetch all player stats.
-     */
-    get: operations['get_player_statistics_api_v1_cfl_players_statistics__player_id__get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Compare current season team stats for two CFL teams side-by-side.
-     */
-    get: operations['get_team_comparison_api_v1_cfl_teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/analytics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Analytics
-     * @description Rank all 9 CFL teams across 9 efficiency/situational categories.
-     */
-    get: operations['get_analytics_api_v1_cfl_analytics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/teams/{team_name}/form': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Form
-     * @description Last-N-game averages vs season averages for a single CFL team.
-     */
-    get: operations['get_team_form_api_v1_cfl_teams__team_name__form_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cfl/transactions': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Transactions
-     * @description Fetch recent transactions. Optionally filter by player_id.
-     */
-    get: operations['get_transactions_api_v1_cfl_transactions_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Fetch CPL games in standardized format.
-     */
-    get: operations['get_games_api_v1_cpl_games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Fetch CPL standings in standardized format.
-     */
-    get: operations['get_standings_api_v1_cpl_standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/leaderboard': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Leaderboard
-     * @description Fetch CPL leaderboards in standardized format.
-     */
-    get: operations['get_leaderboard_api_v1_cpl_leaderboard_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Fetch team information for a CPL team.
-     */
-    get: operations['get_team_info_api_v1_cpl_teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Fetch roster for a specific CPL team in standardized format.
-     */
-    get: operations['get_team_roster_api_v1_cpl_teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Fetch team statistics.
-     */
-    get: operations['get_team_statistics_api_v1_cpl_teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/players/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Statistics
-     * @description Fetch player statistics.
-     */
-    get: operations['get_player_statistics_api_v1_cpl_players_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/cpl/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Fetch and compare statistics for two teams.
-     */
-    get: operations['get_team_comparison_api_v1_cpl_teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Get Games — filter by ?season=2025|2026 and/or ?assigned_only=true to exclude unassigned playoff slots
-     */
-    get: operations['get_games_api_v1_hoopqueens_games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/games/{game_id}/boxscore': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Game Box Score
-     * @description Get full box score for a completed game. Returns 404 if game is not final or not found.
-     */
-    get: operations['get_game_box_score_api_v1_hoopqueens_games__game_id__boxscore_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Get Standings
-     */
-    get: operations['get_standings_api_v1_hoopqueens_standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/leaderboard': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Leaderboard
-     * @description Get leaders for all categories
-     */
-    get: operations['get_leaderboard_api_v1_hoopqueens_leaderboard_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Get Teams Info
-     */
-    get: operations['get_team_info_api_v1_hoopqueens_teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Get Team Roster
-     */
-    get: operations['get_team_roster_api_v1_hoopqueens_teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Get Team Statistics
-     */
-    get: operations['get_team_statistics_api_v1_hoopqueens_teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/players/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Statistics
-     * @description Get Player Statistics
-     */
-    get: operations['get_player_statistics_api_v1_hoopqueens_players_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/players/statistics/{player_id}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player
-     * @description Get individual player details
-     */
-    get: operations['get_player_api_v1_hoopqueens_players_statistics__player_id__get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/players': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Players
-     * @description Fetch the full HoopQueens player directory, optionally filtered by team.
-     */
-    get: operations['get_players_api_v1_hoopqueens_players_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/players/compare': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Comparison
-     * @description Compare current season stats for two HoopQueens players side-by-side.
-     */
-    get: operations['get_player_comparison_api_v1_hoopqueens_players_compare_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/hoopqueens/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Get Team Comparison
-     */
-    get: operations['get_team_comparison_api_v1_hoopqueens_teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/chl/{league}/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Get CHL games schedule for a league
-     */
-    get: operations['get_games_api_v1_chl__league__games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/chl/{league}/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Get CHL standings for a league
-     */
-    get: operations['get_standings_api_v1_chl__league__standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/chl/{league}/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Get specific CHL team information
-     */
-    get: operations['get_team_info_api_v1_chl__league__teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/chl/{league}/teams/{team_name}/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Get CHL team statistics for a specific team
-     */
-    get: operations['get_team_statistics_api_v1_chl__league__teams__team_name__statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/chl/{league}/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get All Team Statistics
-     * @description Get CHL team statistics for all teams in the league
-     */
-    get: operations['get_all_team_statistics_api_v1_chl__league__teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/chl/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Get CHL team comparison across leagues.
-     */
-    get: operations['get_team_comparison_api_v1_chl_teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/mwba/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Retrieve current MWBA standings.
-     */
-    get: operations['get_standings_api_v1_mwba_standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/mwba/schedule': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Schedule
-     * @description Retrieve MWBA schedule, optionally filtered by team.
-     */
-    get: operations['get_schedule_api_v1_mwba_schedule_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/mwba/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Retrieve info and current season stats for a specific MWBA team.
-     */
-    get: operations['get_team_info_api_v1_mwba_teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/mwba/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Retrieve roster for a specific MWBA team.
-     */
-    get: operations['get_team_roster_api_v1_mwba_teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/nsl/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Retrieve NSL games, optionally filtered by date range and team name.
-     */
-    get: operations['get_games_api_v1_nsl_games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/nsl/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Retrieve current NSL standings
-     */
-    get: operations['get_standings_api_v1_nsl_standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/nsl/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Retrieve NSL team statistics, optionally filtered by team name
-     */
-    get: operations['get_team_statistics_api_v1_nsl_teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/nsl/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Compare statistics for two NSL teams side-by-side
-     */
-    get: operations['get_team_comparison_api_v1_nsl_teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/nsl/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Retrieve detailed information and statistics for a specific NSL team
-     */
-    get: operations['get_team_info_api_v1_nsl_teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/wrestling/{league}/rankings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Wrestling Rankings
-     * @description Get wrestling individual rankings, grouped by weight class.
-     */
-    get: operations['get_wrestling_rankings_api_v1_usports_wrestling__league__rankings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/wrestling/{league}/teams': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Wrestling Team Rankings
-     * @description Get wrestling team rankings (computed from sum of individual points per school).
-     */
-    get: operations['get_wrestling_team_rankings_api_v1_usports_wrestling__league__teams_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/track-and-field/{league}/results': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Track Results
-     * @description Get track and field results, grouped by event.
-     */
-    get: operations['get_track_results_api_v1_usports_track_and_field__league__results_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/track-and-field/{league}/qualified': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Track Qualified
-     * @description Get athletes who met qualification standards, grouped by event.
-     */
-    get: operations['get_track_qualified_api_v1_usports_track_and_field__league__qualified_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/track-and-field/{league}/teams': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Track Team Rankings
-     * @description Get track and field team rankings by total points from event placements.
-     */
-    get: operations['get_track_team_rankings_api_v1_usports_track_and_field__league__teams_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/swimming/years': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Swimming Years
-     * @description Get all available championship years for swimming.
-     */
-    get: operations['get_swimming_years_api_v1_usports_swimming_years_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/swimming/{league}/results': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Swimming Results
-     * @description Get individual swimming results for a championship year.
-     */
-    get: operations['get_swimming_results_api_v1_usports_swimming__league__results_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/swimming/{league}/events': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Swimming Events
-     * @description Get unique swimming events for a championship year.
-     */
-    get: operations['get_swimming_events_api_v1_usports_swimming__league__events_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/swimming/{league}/relays': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Swimming Relays
-     * @description Get relay results for a championship year.
-     */
-    get: operations['get_swimming_relays_api_v1_usports_swimming__league__relays_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/swimming/{league}/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Swimming Standings
-     * @description Get team point standings for a championship year.
-     */
-    get: operations['get_swimming_standings_api_v1_usports_swimming__league__standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/swimming/{league}/medals': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Swimming Medals
-     * @description Get medal tally (gold/silver/bronze) per school for a championship year.
-     */
-    get: operations['get_swimming_medals_api_v1_usports_swimming__league__medals_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/track-and-field/{league}/events': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Track Events
-     * @description Get list of unique events for dropdowns/filters.
-     */
-    get: operations['get_track_events_api_v1_usports_track_and_field__league__events_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Get games/schedule for a sport and league.
-     */
-    get: operations['get_games_api_v1_usports__sport___league__games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Get standings for a sport and league.
-     */
-    get: operations['get_standings_api_v1_usports__sport___league__standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/leaderboard': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Leaderboard
-     * @description Get statistical leaders for a sport and league
-     */
-    get: operations['get_leaderboard_api_v1_usports__sport___league__leaderboard_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Get team information by team name
-     */
-    get: operations['get_team_info_api_v1_usports__sport___league__teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Get team roster for a sport and league
-     */
-    get: operations['get_team_roster_api_v1_usports__sport___league__teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Get team statistics for a sport and league
-     */
-    get: operations['get_team_statistics_api_v1_usports__sport___league__teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/players/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Statistics
-     * @description Get player statistics for a sport and league
-     */
-    get: operations['get_player_statistics_api_v1_usports__sport___league__players_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/{sport}/{league}/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Get comparison between two teams
-     */
-    get: operations['get_team_comparison_api_v1_usports__sport___league__teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/usports/basketball/{league}/teams/{team_name}/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Basketball Team Comparison
-     * @description Get basketball team vs opponent statistical comparison
-     */
-    get: operations['get_basketball_team_comparison_api_v1_usports_basketball__league__teams__team_name__comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Get games/schedule for a sport and league.
-     */
-    get: operations['get_games_api_v1_ocaa__sport___league__games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Get standings for a sport and league.
-     *
-     *     Note: OCAA returns a single list (no conference grouping)
-     */
-    get: operations['get_standings_api_v1_ocaa__sport___league__standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/leaderboard': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Leaderboard
-     * @description Get statistical leaders for a sport and league
-     */
-    get: operations['get_leaderboard_api_v1_ocaa__sport___league__leaderboard_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Get team information by team name
-     */
-    get: operations['get_team_info_api_v1_ocaa__sport___league__teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/teams/{team_name}/roster': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Roster
-     * @description Get team roster for a sport and league
-     */
-    get: operations['get_team_roster_api_v1_ocaa__sport___league__teams__team_name__roster_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/teams/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Statistics
-     * @description Get team statistics for a sport and league
-     */
-    get: operations['get_team_statistics_api_v1_ocaa__sport___league__teams_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/players/statistics': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Player Statistics
-     * @description Get player statistics for a sport and league
-     */
-    get: operations['get_player_statistics_api_v1_ocaa__sport___league__players_statistics_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/{sport}/{league}/teams/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Comparison
-     * @description Get comparison between two teams
-     */
-    get: operations['get_team_comparison_api_v1_ocaa__sport___league__teams_comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/ocaa/basketball/{league}/teams/{team_name}/comparison': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Basketball Team Comparison
-     * @description Get basketball team vs opponent statistical comparison
-     */
-    get: operations['get_basketball_team_comparison_api_v1_ocaa_basketball__league__teams__team_name__comparison_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/psl/{league}/standings': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Standings
-     * @description Fetch PSL standings for the given league and season.
-     */
-    get: operations['get_standings_api_v1_psl__league__standings_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/psl/{league}/games': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Games
-     * @description Fetch PSL scheduled games for the given league and season.
-     */
-    get: operations['get_games_api_v1_psl__league__games_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/psl/{league}/teams/{team_name}/info': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Team Info
-     * @description Fetch team information for a PSL team in the given league and season.
-     */
-    get: operations['get_team_info_api_v1_psl__league__teams__team_name__info_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
+    "/api/v1/health/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Health
+         * @description Check health of all services
+         */
+        get: operations["health_api_v1_health__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/health/redis": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Health Redis
+         * @description Check Redis health
+         */
+        get: operations["health_redis_api_v1_health_redis_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/health/postgres": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Health Postgres
+         * @description Check PostgreSQL health
+         */
+        get: operations["health_postgres_api_v1_health_postgres_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/aggregate/games/pro": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Pro Games
+         * @description Get games from pro leagues (CFL, CPL, CEBL, CHL, HoopQueens, NSL).
+         */
+        get: operations["get_pro_games_api_v1_aggregate_games_pro_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/aggregate/games/usports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Usports Games
+         * @description Get games from USports leagues (fetched sequentially).
+         */
+        get: operations["get_usports_games_api_v1_aggregate_games_usports_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/aggregate/games/ocaa": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Ocaa Games
+         * @description Get games from OCAA leagues (fetched sequentially).
+         */
+        get: operations["get_ocaa_games_api_v1_aggregate_games_ocaa_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Fetch CEBL games for the current season, optionally filtered by team.
+         */
+        get: operations["get_games_api_v1_cebl_games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Fetch current CEBL standings grouped by conference (EAST / WEST).
+         */
+        get: operations["get_standings_api_v1_cebl_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaders
+         * @description Fetch CEBL statistical leaders grouped by stat category.
+         */
+        get: operations["get_leaders_api_v1_cebl_leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Fetch info for a single team (from standings data).
+         */
+        get: operations["get_team_info_api_v1_cebl_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Fetch roster and per-player stats for a single CEBL team.
+         */
+        get: operations["get_team_roster_api_v1_cebl_teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Fetch aggregated team statistics for all CEBL teams, optionally filtered by team name.
+         */
+        get: operations["get_team_statistics_api_v1_cebl_teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Fetch aggregated player statistics.
+         */
+        get: operations["get_player_statistics_api_v1_cebl_players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Compare aggregated stats and rankings for two CEBL teams side-by-side.
+         */
+        get: operations["get_team_comparison_api_v1_cebl_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/players": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Players
+         * @description Fetch all active CEBL players across all teams, optionally filtered by team.
+         */
+        get: operations["get_players_api_v1_cebl_players_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/players/compare": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Comparison
+         * @description Compare current season stats for two CEBL players side-by-side.
+         *
+         *     Fetches all players' per-game and totals stats once and caches them by league
+         *     (not per player pair), so any two-player comparison shares the same cached dataset.
+         */
+        get: operations["get_player_comparison_api_v1_cebl_players_compare_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/games/{livestats_id}/box-score": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Box Score
+         * @description Full game box score: scores, quarter breakdown, team totals, per-player stats.
+         */
+        get: operations["get_box_score_api_v1_cebl_games__livestats_id__box_score_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/games/{livestats_id}/shots": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Shots
+         * @description Shot chart data for both teams.
+         */
+        get: operations["get_shots_api_v1_cebl_games__livestats_id__shots_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/games/{livestats_id}/play-by-play": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Play By Play
+         * @description Play-by-play events. Use since_action_number to poll incrementally.
+         */
+        get: operations["get_play_by_play_api_v1_cebl_games__livestats_id__play_by_play_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cebl/transactions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Cebl Transactions
+         * @description Fetch CEBL transactions, protected players, and draft picks.
+         */
+        get: operations["get_cebl_transactions_api_v1_cebl_transactions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Fetch CFL games for the current season, optionally filtered by team.
+         */
+        get: operations["get_games_api_v1_cfl_games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Fetch CFL standings grouped by East and West divisions.
+         */
+        get: operations["get_standings_api_v1_cfl_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Fetch CFL player leaderboards across offence, defence, and special teams.
+         */
+        get: operations["get_leaderboard_api_v1_cfl_leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Fetch team information.
+         */
+        get: operations["get_team_info_api_v1_cfl_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Fetch a CFL team's roster with per-player season stats.
+         */
+        get: operations["get_team_roster_api_v1_cfl_teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Fetch team stats. Without team_name returns all 9 teams with per-stat rankings populated.
+         */
+        get: operations["get_team_statistics_api_v1_cfl_teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/players": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Players
+         * @description Fetch the full CFL player directory. Filters (position, team) applied in-memory.
+         */
+        get: operations["get_players_api_v1_cfl_players_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/players/compare": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Comparison
+         * @description Compare current season stats for two CFL players side-by-side.
+         */
+        get: operations["get_player_comparison_api_v1_cfl_players_compare_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/players/statistics/{player_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Fetch all player stats.
+         */
+        get: operations["get_player_statistics_api_v1_cfl_players_statistics__player_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Compare current season team stats for two CFL teams side-by-side.
+         */
+        get: operations["get_team_comparison_api_v1_cfl_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/analytics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Analytics
+         * @description Rank all 9 CFL teams across 9 efficiency/situational categories.
+         */
+        get: operations["get_analytics_api_v1_cfl_analytics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/teams/{team_name}/form": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Form
+         * @description Last-N-game averages vs season averages for a single CFL team.
+         */
+        get: operations["get_team_form_api_v1_cfl_teams__team_name__form_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cfl/transactions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Transactions
+         * @description Fetch recent transactions. Optionally filter by player_id.
+         */
+        get: operations["get_transactions_api_v1_cfl_transactions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Fetch CPL games in standardized format.
+         */
+        get: operations["get_games_api_v1_cpl_games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Fetch CPL standings in standardized format.
+         */
+        get: operations["get_standings_api_v1_cpl_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Fetch CPL leaderboards in standardized format.
+         */
+        get: operations["get_leaderboard_api_v1_cpl_leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Fetch team information for a CPL team.
+         */
+        get: operations["get_team_info_api_v1_cpl_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Fetch roster for a specific CPL team in standardized format.
+         */
+        get: operations["get_team_roster_api_v1_cpl_teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Fetch team statistics.
+         */
+        get: operations["get_team_statistics_api_v1_cpl_teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Fetch player statistics.
+         */
+        get: operations["get_player_statistics_api_v1_cpl_players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cpl/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Fetch and compare statistics for two teams.
+         */
+        get: operations["get_team_comparison_api_v1_cpl_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get Games — filter by ?season=2025|2026 and/or ?assigned_only=true to exclude unassigned playoff slots
+         */
+        get: operations["get_games_api_v1_hoopqueens_games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/games/{game_id}/boxscore": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Game Box Score
+         * @description Get full box score for a completed game. Returns 404 if game is not final or not found.
+         */
+        get: operations["get_game_box_score_api_v1_hoopqueens_games__game_id__boxscore_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get Standings
+         */
+        get: operations["get_standings_api_v1_hoopqueens_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get leaders for all categories
+         */
+        get: operations["get_leaderboard_api_v1_hoopqueens_leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get Teams Info
+         */
+        get: operations["get_team_info_api_v1_hoopqueens_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get Team Roster
+         */
+        get: operations["get_team_roster_api_v1_hoopqueens_teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get Team Statistics
+         */
+        get: operations["get_team_statistics_api_v1_hoopqueens_teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get Player Statistics
+         */
+        get: operations["get_player_statistics_api_v1_hoopqueens_players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/players/statistics/{player_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player
+         * @description Get individual player details
+         */
+        get: operations["get_player_api_v1_hoopqueens_players_statistics__player_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/players": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Players
+         * @description Fetch the full HoopQueens player directory, optionally filtered by team.
+         */
+        get: operations["get_players_api_v1_hoopqueens_players_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/players/compare": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Comparison
+         * @description Compare current season stats for two HoopQueens players side-by-side.
+         */
+        get: operations["get_player_comparison_api_v1_hoopqueens_players_compare_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/hoopqueens/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get Team Comparison
+         */
+        get: operations["get_team_comparison_api_v1_hoopqueens_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get the NPL game schedule.
+         */
+        get: operations["get_games_api_v1_npl_games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/games/{game_id}/boxscore": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Game Box Score
+         * @description Get box score for a completed game. Returns 404 if game is not final or not found.
+         */
+        get: operations["get_game_box_score_api_v1_npl_games__game_id__boxscore_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get NPL standings.
+         */
+        get: operations["get_standings_api_v1_npl_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team info.
+         */
+        get: operations["get_team_info_api_v1_npl_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster.
+         */
+        get: operations["get_team_roster_api_v1_npl_teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics.
+         */
+        get: operations["get_team_statistics_api_v1_npl_teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics.
+         */
+        get: operations["get_player_statistics_api_v1_npl_players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/players/statistics/{player_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player
+         * @description Get individual player details.
+         */
+        get: operations["get_player_api_v1_npl_players_statistics__player_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get leaderboard for all categories.
+         */
+        get: operations["get_leaderboard_api_v1_npl_leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/npl/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Compare two teams.
+         */
+        get: operations["get_team_comparison_api_v1_npl_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/chl/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get CHL games schedule for a league
+         */
+        get: operations["get_games_api_v1_chl__league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/chl/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get CHL standings for a league
+         */
+        get: operations["get_standings_api_v1_chl__league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/chl/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get specific CHL team information
+         */
+        get: operations["get_team_info_api_v1_chl__league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/chl/{league}/teams/{team_name}/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get CHL team statistics for a specific team
+         */
+        get: operations["get_team_statistics_api_v1_chl__league__teams__team_name__statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/chl/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get All Team Statistics
+         * @description Get CHL team statistics for all teams in the league
+         */
+        get: operations["get_all_team_statistics_api_v1_chl__league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/chl/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get CHL team comparison across leagues.
+         */
+        get: operations["get_team_comparison_api_v1_chl_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mwba/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Retrieve current MWBA standings.
+         */
+        get: operations["get_standings_api_v1_mwba_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mwba/schedule": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Schedule
+         * @description Retrieve MWBA schedule, optionally filtered by team.
+         */
+        get: operations["get_schedule_api_v1_mwba_schedule_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mwba/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Retrieve info and current season stats for a specific MWBA team.
+         */
+        get: operations["get_team_info_api_v1_mwba_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mwba/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Retrieve roster for a specific MWBA team.
+         */
+        get: operations["get_team_roster_api_v1_mwba_teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/nsl/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Retrieve NSL games, optionally filtered by date range and team name.
+         */
+        get: operations["get_games_api_v1_nsl_games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/nsl/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Retrieve current NSL standings
+         */
+        get: operations["get_standings_api_v1_nsl_standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/nsl/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Retrieve NSL team statistics, optionally filtered by team name
+         */
+        get: operations["get_team_statistics_api_v1_nsl_teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/nsl/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Compare statistics for two NSL teams side-by-side
+         */
+        get: operations["get_team_comparison_api_v1_nsl_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/nsl/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Retrieve detailed information and statistics for a specific NSL team
+         */
+        get: operations["get_team_info_api_v1_nsl_teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/wrestling/{league}/rankings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Wrestling Rankings
+         * @description Get wrestling individual rankings, grouped by weight class.
+         */
+        get: operations["get_wrestling_rankings_api_v1_usports_wrestling__league__rankings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/wrestling/{league}/teams": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Wrestling Team Rankings
+         * @description Get wrestling team rankings (computed from sum of individual points per school).
+         */
+        get: operations["get_wrestling_team_rankings_api_v1_usports_wrestling__league__teams_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/track-and-field/{league}/results": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Track Results
+         * @description Get track and field results, grouped by event.
+         */
+        get: operations["get_track_results_api_v1_usports_track_and_field__league__results_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/track-and-field/{league}/qualified": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Track Qualified
+         * @description Get athletes who met qualification standards, grouped by event.
+         */
+        get: operations["get_track_qualified_api_v1_usports_track_and_field__league__qualified_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/track-and-field/{league}/teams": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Track Team Rankings
+         * @description Get track and field team rankings by total points from event placements.
+         */
+        get: operations["get_track_team_rankings_api_v1_usports_track_and_field__league__teams_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/swimming/years": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Swimming Years
+         * @description Get all available championship years for swimming.
+         */
+        get: operations["get_swimming_years_api_v1_usports_swimming_years_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/swimming/{league}/results": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Swimming Results
+         * @description Get individual swimming results for a championship year.
+         */
+        get: operations["get_swimming_results_api_v1_usports_swimming__league__results_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/swimming/{league}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Swimming Events
+         * @description Get unique swimming events for a championship year.
+         */
+        get: operations["get_swimming_events_api_v1_usports_swimming__league__events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/swimming/{league}/relays": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Swimming Relays
+         * @description Get relay results for a championship year.
+         */
+        get: operations["get_swimming_relays_api_v1_usports_swimming__league__relays_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/swimming/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Swimming Standings
+         * @description Get team point standings for a championship year.
+         */
+        get: operations["get_swimming_standings_api_v1_usports_swimming__league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/swimming/{league}/medals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Swimming Medals
+         * @description Get medal tally (gold/silver/bronze) per school for a championship year.
+         */
+        get: operations["get_swimming_medals_api_v1_usports_swimming__league__medals_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/track-and-field/{league}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Track Events
+         * @description Get list of unique events for dropdowns/filters.
+         */
+        get: operations["get_track_events_api_v1_usports_track_and_field__league__events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get games/schedule for a sport and league.
+         */
+        get: operations["get_games_api_v1_usports__sport___league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get standings for a sport and league.
+         */
+        get: operations["get_standings_api_v1_usports__sport___league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get statistical leaders for a sport and league
+         */
+        get: operations["get_leaderboard_api_v1_usports__sport___league__leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team information by team name
+         */
+        get: operations["get_team_info_api_v1_usports__sport___league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster for a sport and league
+         */
+        get: operations["get_team_roster_api_v1_usports__sport___league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics for a sport and league
+         */
+        get: operations["get_team_statistics_api_v1_usports__sport___league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics for a sport and league
+         */
+        get: operations["get_player_statistics_api_v1_usports__sport___league__players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/{sport}/{league}/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get comparison between two teams
+         */
+        get: operations["get_team_comparison_api_v1_usports__sport___league__teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/usports/basketball/{league}/teams/{team_name}/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Basketball Team Comparison
+         * @description Get basketball team vs opponent statistical comparison
+         */
+        get: operations["get_basketball_team_comparison_api_v1_usports_basketball__league__teams__team_name__comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get games/schedule for a sport and league.
+         */
+        get: operations["get_games_api_v1_ocaa__sport___league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get standings for a sport and league.
+         *
+         *     Note: OCAA returns a single list (no conference grouping)
+         */
+        get: operations["get_standings_api_v1_ocaa__sport___league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get statistical leaders for a sport and league
+         */
+        get: operations["get_leaderboard_api_v1_ocaa__sport___league__leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team information by team name
+         */
+        get: operations["get_team_info_api_v1_ocaa__sport___league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster for a sport and league
+         */
+        get: operations["get_team_roster_api_v1_ocaa__sport___league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics for a sport and league
+         */
+        get: operations["get_team_statistics_api_v1_ocaa__sport___league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics for a sport and league
+         */
+        get: operations["get_player_statistics_api_v1_ocaa__sport___league__players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/{sport}/{league}/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get comparison between two teams
+         */
+        get: operations["get_team_comparison_api_v1_ocaa__sport___league__teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/ocaa/basketball/{league}/teams/{team_name}/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Basketball Team Comparison
+         * @description Get basketball team vs opponent statistical comparison
+         */
+        get: operations["get_basketball_team_comparison_api_v1_ocaa_basketball__league__teams__team_name__comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/psl/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Fetch PSL standings for the given league and season.
+         */
+        get: operations["get_standings_api_v1_psl__league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/psl/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Fetch PSL scheduled games for the given league and season.
+         */
+        get: operations["get_games_api_v1_psl__league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/psl/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Fetch team information for a PSL team in the given league and season.
+         */
+        get: operations["get_team_info_api_v1_psl__league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-  schemas: {
-    /**
-     * AthleteInfo
-     * @description Athlete information for individual sports.
-     */
-    AthleteInfo: {
-      /**
-       * Id
-       * @description Athlete identifier
-       */
-      id: string;
-      /**
-       * Name
-       * @description Athlete full name
-       */
-      name: string;
-      /**
-       * School Name
-       * @description School/university full name
-       */
-      school_name: string;
-      /**
-       * School Abbrev
-       * @description School abbreviation
-       */
-      school_abbrev?: string | null;
-      /**
-       * School Normalized
-       * @description Normalized school identifier for API filtering
-       */
-      school_normalized?: string | null;
-    };
-    /**
-     * BasketballOpponentStats
-     * @description Basketball opponent statistical performance against this team
-     */
-    BasketballOpponentStats: {
-      /**
-       * Points Per Game Against
-       * @description Average points allowed per game
-       * @default 0
-       */
-      points_per_game_against: number;
-      /**
-       * Field Goal Percentage Against
-       * @description Opponent field goal shooting percentage
-       * @default 0
-       */
-      field_goal_percentage_against: number;
-      /**
-       * Three Pointers Made Per Game Against
-       * @description Average three-pointers allowed per game
-       * @default 0
-       */
-      three_pointers_made_per_game_against: number;
-      /**
-       * Three Point Percentage Against
-       * @description Opponent three-point shooting percentage
-       * @default 0
-       */
-      three_point_percentage_against: number;
-      /**
-       * Total Rebounds Per Game Against
-       * @description Average rebounds allowed per game
-       * @default 0
-       */
-      total_rebounds_per_game_against: number;
-      /**
-       * Offensive Rebounds Per Game Against
-       * @description Average offensive rebounds allowed per game
-       * @default 0
-       */
-      offensive_rebounds_per_game_against: number;
-      /**
-       * Defensive Rebounds Per Game Against
-       * @description Average defensive rebounds allowed per game
-       * @default 0
-       */
-      defensive_rebounds_per_game_against: number;
-      /**
-       * Assists Per Game Against
-       * @description Average assists allowed per game
-       * @default 0
-       */
-      assists_per_game_against: number;
-      /**
-       * Steals Per Game Against
-       * @description Average steals allowed per game
-       * @default 0
-       */
-      steals_per_game_against: number;
-      /**
-       * Blocks Per Game Against
-       * @description Average blocks allowed per game
-       * @default 0
-       */
-      blocks_per_game_against: number;
-      /**
-       * Turnovers Per Game Against
-       * @description Average turnovers forced per game
-       * @default 0
-       */
-      turnovers_per_game_against: number;
-      /**
-       * Fouls Per Game Against
-       * @description Average fouls drawn per game
-       * @default 0
-       */
-      fouls_per_game_against: number;
-      /**
-       * Ppp Against
-       * @description Opponent points per possession
-       * @default 0
-       */
-      ppp_against: number;
-    };
-    /**
-     * BasketballTeamComparison
-     * @description Complete basketball team vs opponent statistical comparison
-     * @example {
-     *       "conference": "OUA East",
-     *       "games_played": 24,
-     *       "league_entity_id": "usports_mbb",
-     *       "league_id": "usports_basketball",
-     *       "opponent_stats": {
-     *         "assists_per_game_against": 13.7,
-     *         "blocks_per_game_against": 3.8,
-     *         "defensive_rebounds_per_game_against": 26.3,
-     *         "field_goal_percentage_against": 42.1,
-     *         "fouls_per_game_against": 17.3,
-     *         "offensive_rebounds_per_game_against": 8.9,
-     *         "points_per_game_against": 74.3,
-     *         "ppp_against": 1.02,
-     *         "steals_per_game_against": 6.5,
-     *         "three_point_percentage_against": 32.4,
-     *         "three_pointers_made_per_game_against": 6.8,
-     *         "total_rebounds_per_game_against": 35.2,
-     *         "turnovers_per_game_against": 14.2
-     *       },
-     *       "team": {
-     *         "id": "1",
-     *         "name": {
-     *           "en": "Carleton Ravens"
-     *         }
-     *       },
-     *       "team_stats": {
-     *         "assists_per_game": 16.3,
-     *         "blocks_per_game": 4.2,
-     *         "defensive_rebounds_per_game": 27.8,
-     *         "field_goal_percentage": 47.2,
-     *         "fouls_per_game": 18.7,
-     *         "offensive_rebounds_per_game": 10.2,
-     *         "points_per_game": 82.5,
-     *         "ppp": 1.12,
-     *         "steals_per_game": 7.8,
-     *         "three_point_percentage": 35.8,
-     *         "three_pointers_made_per_game": 8.5,
-     *         "total_rebounds_per_game": 38,
-     *         "turnovers_per_game": 12.5
-     *       }
-     *     }
-     */
-    BasketballTeamComparison: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Team identity */
-      team: components['schemas']['TeamInfo'];
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Conference
-       * @description Conference name (None for leagues without conferences)
-       */
-      conference?: string | null;
-      /**
-       * Games Played
-       * @description Number of games played
-       */
-      games_played: number;
-      /** @description Team offensive and overall statistics */
-      team_stats: components['schemas']['BasketballTeamStats'];
-      /** @description Statistics against this team (defensive performance) */
-      opponent_stats: components['schemas']['BasketballOpponentStats'];
-    };
-    /**
-     * BasketballTeamStats
-     * @description Basketball team statistical performance
-     */
-    BasketballTeamStats: {
-      /**
-       * Points Per Game
-       * @description Average points scored per game
-       * @default 0
-       */
-      points_per_game: number;
-      /**
-       * Field Goal Percentage
-       * @description Field goal shooting percentage
-       * @default 0
-       */
-      field_goal_percentage: number;
-      /**
-       * Three Pointers Made Per Game
-       * @description Average three-pointers made per game
-       * @default 0
-       */
-      three_pointers_made_per_game: number;
-      /**
-       * Three Point Percentage
-       * @description Three-point shooting percentage
-       * @default 0
-       */
-      three_point_percentage: number;
-      /**
-       * Total Rebounds Per Game
-       * @description Average total rebounds per game
-       * @default 0
-       */
-      total_rebounds_per_game: number;
-      /**
-       * Offensive Rebounds Per Game
-       * @description Average offensive rebounds per game
-       * @default 0
-       */
-      offensive_rebounds_per_game: number;
-      /**
-       * Defensive Rebounds Per Game
-       * @description Average defensive rebounds per game
-       * @default 0
-       */
-      defensive_rebounds_per_game: number;
-      /**
-       * Assists Per Game
-       * @description Average assists per game
-       * @default 0
-       */
-      assists_per_game: number;
-      /**
-       * Steals Per Game
-       * @description Average steals per game
-       * @default 0
-       */
-      steals_per_game: number;
-      /**
-       * Blocks Per Game
-       * @description Average blocks per game
-       * @default 0
-       */
-      blocks_per_game: number;
-      /**
-       * Turnovers Per Game
-       * @description Average turnovers per game
-       * @default 0
-       */
-      turnovers_per_game: number;
-      /**
-       * Fouls Per Game
-       * @description Average personal fouls per game
-       * @default 0
-       */
-      fouls_per_game: number;
-      /**
-       * Ppp
-       * @description Points per possession
-       * @default 0
-       */
-      ppp: number;
-    };
-    /** CeblBoxScore */
-    CeblBoxScore: {
-      /** Livestats Id */
-      livestats_id: string;
-      /** League Id */
-      league_id: string;
-      /**
-       * League Entity Id
-       * @default cebl
-       */
-      league_entity_id: string;
-      /** Period */
-      period: number;
-      /** Clock */
-      clock: string;
-      /** In Ot */
-      in_ot: boolean;
-      home_team: components['schemas']['CeblBoxScoreTeam'];
-      away_team: components['schemas']['CeblBoxScoreTeam'];
-      /** Home Players */
-      home_players: components['schemas']['CeblBoxScorePlayer'][];
-      /** Away Players */
-      away_players: components['schemas']['CeblBoxScorePlayer'][];
-    };
-    /** CeblBoxScorePlayer */
-    CeblBoxScorePlayer: {
-      player: components['schemas']['PlayerInfo'];
-      /** Starter */
-      starter: boolean;
-      /** Minutes */
-      minutes: string;
-      /** Points */
-      points: number;
-      /** Field Goals Made */
-      field_goals_made: number;
-      /** Field Goals Attempted */
-      field_goals_attempted: number;
-      /** Field Goal Percentage */
-      field_goal_percentage: number;
-      /** Three Pointers Made */
-      three_pointers_made: number;
-      /** Three Pointers Attempted */
-      three_pointers_attempted: number;
-      /** Three Point Percentage */
-      three_point_percentage: number;
-      /** Free Throws Made */
-      free_throws_made: number;
-      /** Free Throws Attempted */
-      free_throws_attempted: number;
-      /** Free Throw Percentage */
-      free_throw_percentage: number;
-      /** Rebounds Total */
-      rebounds_total: number;
-      /** Rebounds Offensive */
-      rebounds_offensive: number;
-      /** Rebounds Defensive */
-      rebounds_defensive: number;
-      /** Assists */
-      assists: number;
-      /** Steals */
-      steals: number;
-      /** Blocks */
-      blocks: number;
-      /** Turnovers */
-      turnovers: number;
-      /** Fouls */
-      fouls: number;
-    };
-    /** CeblBoxScoreTeam */
-    CeblBoxScoreTeam: {
-      team: components['schemas']['TeamInfo'];
-      /** Logo Url */
-      logo_url?: string | null;
-      /** Score */
-      score: number;
-      /** Quarters */
-      quarters: components['schemas']['CeblQuarterScore'][];
-      /** Field Goals Made */
-      field_goals_made: number;
-      /** Field Goals Attempted */
-      field_goals_attempted: number;
-      /** Field Goal Percentage */
-      field_goal_percentage: number;
-      /** Three Pointers Made */
-      three_pointers_made: number;
-      /** Three Pointers Attempted */
-      three_pointers_attempted: number;
-      /** Three Point Percentage */
-      three_point_percentage: number;
-      /** Free Throws Made */
-      free_throws_made: number;
-      /** Free Throws Attempted */
-      free_throws_attempted: number;
-      /** Free Throw Percentage */
-      free_throw_percentage: number;
-      /** Rebounds Total */
-      rebounds_total: number;
-      /** Rebounds Offensive */
-      rebounds_offensive: number;
-      /** Rebounds Defensive */
-      rebounds_defensive: number;
-      /** Assists */
-      assists: number;
-      /** Steals */
-      steals: number;
-      /** Blocks */
-      blocks: number;
-      /** Turnovers */
-      turnovers: number;
-      /** Fouls */
-      fouls: number;
-      /** Points In Paint */
-      points_in_paint: number;
-      /** Fast Break Points */
-      fast_break_points: number;
-      /** Bench Points */
-      bench_points: number;
-      /** Second Chance Points */
-      second_chance_points: number;
-      /** Points From Turnovers */
-      points_from_turnovers: number;
-      /** Lead Changes */
-      lead_changes: number;
-      /** Time Leading */
-      time_leading: number;
-    };
-    /** CeblPlayByPlayEvent */
-    CeblPlayByPlayEvent: {
-      /** Action Number */
-      action_number: number;
-      /** Action Type */
-      action_type: string;
-      /** Sub Type */
-      sub_type: string;
-      /** Clock */
-      clock: string;
-      /** Period */
-      period: number;
-      /** Player Name */
-      player_name: string;
-      /** Player Shirt Number */
-      player_shirt_number: string;
-      /** Team No */
-      team_no: number;
-      /** Score Home */
-      score_home: number;
-      /** Score Away */
-      score_away: number;
-      /** Is Scoring Play */
-      is_scoring_play: boolean;
-      /** Lead */
-      lead: number;
-    };
-    /**
-     * CeblPlayerComparison
-     * @description Side-by-side season stats for two CEBL players.
-     */
-    CeblPlayerComparison: {
-      /** League Id */
-      league_id: string;
-      player1?: components['schemas']['GenericPlayerStat'] | null;
-      player2?: components['schemas']['GenericPlayerStat'] | null;
-      /** Player1 Rankings */
-      player1_rankings?: {
-        [key: string]: number;
-      } | null;
-      /** Player2 Rankings */
-      player2_rankings?: {
-        [key: string]: number;
-      } | null;
-      /**
-       * Errors
-       * @default []
-       */
-      errors: string[];
-    };
-    /**
-     * CeblPlayerEntry
-     * @description A single player in the CEBL player directory.
-     */
-    CeblPlayerEntry: {
-      /** Player Id */
-      player_id: number;
-      /** Name */
-      name: string;
-      /** Position */
-      position?: string | null;
-      /** Jersey Number */
-      jersey_number?: number | null;
-      /** Photo Url */
-      photo_url?: string | null;
-      /** Birthdate */
-      birthdate?: string | null;
-      /** Nationality */
-      nationality: string;
-      /** League Id */
-      league_id: string;
-      /** League Entity Id */
-      league_entity_id: string;
-      /** Team Id */
-      team_id?: number | null;
-      /** Team Name */
-      team_name?: string | null;
-      /** Team Name Fr */
-      team_name_fr?: string | null;
-      /** Team Short Name */
-      team_short_name?: string | null;
-      /** Team Entity Id */
-      team_entity_id?: string | null;
-      /** Team Logo Url */
-      team_logo_url?: string | null;
-    };
-    /** CeblQuarterScore */
-    CeblQuarterScore: {
-      /** Quarter */
-      quarter: number;
-      /** Score */
-      score: number;
-    };
-    /** CeblShotChart */
-    CeblShotChart: {
-      /** Livestats Id */
-      livestats_id: string;
-      /** League Id */
-      league_id: string;
-      /**
-       * League Entity Id
-       * @default cebl
-       */
-      league_entity_id: string;
-      /** Home Shots */
-      home_shots: components['schemas']['CeblShotEvent'][];
-      /** Away Shots */
-      away_shots: components['schemas']['CeblShotEvent'][];
-    };
-    /** CeblShotEvent */
-    CeblShotEvent: {
-      /** Player Name */
-      player_name: string;
-      /** Player Id */
-      player_id: string;
-      /** Team No */
-      team_no: number;
-      /** Period */
-      period: number;
-      /** Shot Type */
-      shot_type: string;
-      /** Shot Sub Type */
-      shot_sub_type: string;
-      /** Made */
-      made: boolean;
-      /** X */
-      x: number;
-      /** Y */
-      y: number;
-    };
-    /**
-     * CflAnalytics
-     * @description All 9 CFL teams ranked across 9 efficiency/situational categories.
-     */
-    CflAnalytics: {
-      /** League Id */
-      league_id: string;
-      /** Season */
-      season: number;
-      /** Categories */
-      categories: {
-        [key: string]: components['schemas']['CflAnalyticsTeamEntry'][];
-      };
-    };
-    /**
-     * CflAnalyticsTeamEntry
-     * @description One team's rank and value within a single analytics category.
-     */
-    CflAnalyticsTeamEntry: {
-      /** Rank */
-      rank: number;
-      team: components['schemas']['TeamInfo'];
-      /** Value */
-      value: number;
-      /** Label */
-      label: string;
-    };
-    /**
-     * CflPlayerComparison
-     * @description Side-by-side 2025 season stats for two CFL players.
-     */
-    CflPlayerComparison: {
-      /** League Id */
-      league_id: string;
-      player1?: components['schemas']['GenericPlayerStat'] | null;
-      player2?: components['schemas']['GenericPlayerStat'] | null;
-      /**
-       * Errors
-       * @default []
-       */
-      errors: string[];
-    };
-    /**
-     * CflPlayerEntry
-     * @description A single player in the CFL player directory.
-     */
-    CflPlayerEntry: {
-      /** Player Id */
-      player_id: number;
-      /** Name */
-      name: string;
-      /** First Name */
-      first_name: string;
-      /** Last Name */
-      last_name: string;
-      /** Position */
-      position?: string | null;
-      /** Jersey No */
-      jersey_no?: number | null;
-      /** Team Id */
-      team_id: number;
-      /** Team Name */
-      team_name?: string | null;
-      /** Team Abbreviation */
-      team_abbreviation?: string | null;
-      /** Team Entity Id */
-      team_entity_id?: string | null;
-      /** Photo Url */
-      photo_url: string;
-      /** Birthdate */
-      birthdate?: string | null;
-      /** Height Ft */
-      height_ft?: number | null;
-      /** Height In */
-      height_in?: number | null;
-      /** Weight Lbs */
-      weight_lbs?: number | null;
-      /** College */
-      college?: string | null;
-      /** State */
-      state?: string | null;
-      /** Available Roster */
-      available_roster: boolean;
-    };
-    /**
-     * CflTeamForm
-     * @description Last-N-games averages vs season averages for a single CFL team.
-     */
-    CflTeamForm: {
-      team: components['schemas']['TeamInfo'];
-      /** League Id */
-      league_id: string;
-      /** Season */
-      season: number;
-      /** Games Requested */
-      games_requested: number;
-      /** Games Available */
-      games_available: number;
-      /** Last N Avg */
-      last_n_avg: {
-        [key: string]: number;
-      };
-      /** Season Avg */
-      season_avg: {
-        [key: string]: number;
-      };
-      /** Trend */
-      trend: {
-        [key: string]: number;
-      };
-    };
-    /**
-     * CollegeLeagueAverages
-     * @description League-wide average metrics for college comparison.
-     */
-    CollegeLeagueAverages: {
-      /**
-       * Averages
-       * @description Average stats across the college league
-       */
-      averages?: {
-        [key: string]: number;
-      };
-    };
-    /**
-     * CollegeRadarCategories
-     * @description Radar axes stored as flexible key-value pairs.
-     */
-    CollegeRadarCategories: {
-      /**
-       * Metrics
-       * @description Performance metrics as flexible key-value pairs
-       */
-      metrics?: {
-        [key: string]: number;
-      };
-    };
-    /**
-     * CollegeRadarData
-     * @description Radar chart data for two college teams.
-     */
-    CollegeRadarData: {
-      /** @description Radar data for the first college team */
-      team1: components['schemas']['CollegeRadarCategories'];
-      /** @description Radar data for the second college team */
-      team2: components['schemas']['CollegeRadarCategories'];
-      /**
-       * Metadata
-       * @description Definitions and short names for radar metrics
-       */
-      metadata: {
-        [key: string]: components['schemas']['RadarMetricMetadata'];
-      };
-    };
-    /**
-     * CollegeTeamComparison
-     * @description Extended comparison for U SPORTS / CCAA / college leagues.
-     * @example {
-     *       "league_averages": {
-     *         "averages": {
-     *           "points_per_game": 76,
-     *           "rebounds_per_game": 35
-     *         }
-     *       },
-     *       "radar": {
-     *         "metadata": {
-     *           "defense": {
-     *             "definition": "Defensive strength",
-     *             "short_name": "DEF"
-     *           },
-     *           "offense": {
-     *             "definition": "Offensive efficiency",
-     *             "short_name": "OFF"
-     *           },
-     *           "overall": {
-     *             "definition": "Overall team rating",
-     *             "short_name": "OVR"
-     *           }
-     *         },
-     *         "team1": {
-     *           "metrics": {
-     *             "defense": 0.91,
-     *             "offense": 0.85,
-     *             "overall": 0.88
-     *           }
-     *         },
-     *         "team2": {
-     *           "metrics": {
-     *             "defense": 0.85,
-     *             "offense": 0.94,
-     *             "overall": 0.92
-     *           }
-     *         }
-     *       },
-     *       "teams": {
-     *         "team1": {
-     *           "league_id": "usports_basketball",
-     *           "rankings": {
-     *             "points_per_game": 4,
-     *             "rebounds_per_game": 6
-     *           },
-     *           "stats": {
-     *             "points_per_game": 78.2,
-     *             "rebounds_per_game": 36.5
-     *           },
-     *           "team": {
-     *             "id": "18",
-     *             "name": {
-     *               "en": "Laurier Golden Hawks"
-     *             }
-     *           }
-     *         },
-     *         "team2": {
-     *           "league_id": "usports_basketball",
-     *           "rankings": {
-     *             "points_per_game": 2,
-     *             "rebounds_per_game": 3
-     *           },
-     *           "stats": {
-     *             "points_per_game": 82.5,
-     *             "rebounds_per_game": 38
-     *           },
-     *           "team": {
-     *             "id": "4",
-     *             "name": {
-     *               "en": "Carleton Ravens"
-     *             }
-     *           }
-     *         }
-     *       }
-     *     }
-     */
-    CollegeTeamComparison: {
-      /** @description Basic team stat comparison */
-      teams: components['schemas']['GenericTeamComparison'];
-      /** @description Radar metrics for college teams */
-      radar: components['schemas']['CollegeRadarData'];
-      /** @description League average metrics */
-      league_averages: components['schemas']['CollegeLeagueAverages'];
-    };
-    /**
-     * EventInfo
-     * @description Event/discipline information for individual sports.
-     */
-    EventInfo: {
-      /**
-       * Id
-       * @description Event identifier (e.g., '100m', '86kg')
-       */
-      id: string;
-      /** @description Event name with translations */
-      name: components['schemas']['LocalizedText'];
-      /**
-       * Type
-       * @description Event type (e.g., 'track', 'field', 'wrestling')
-       */
-      type: string;
-      /**
-       * Gender
-       * @description Gender category: 'm', 'w', or None
-       */
-      gender?: string | null;
-    };
-    /**
-     * GameCompetition
-     * @description Type of competition for a game.
-     * @enum {string}
-     */
-    GameCompetition: 'REGULAR' | 'PLAYOFFS' | 'CHAMPIONSHIP' | 'ALL_STAR' | 'PRE_SEASON';
-    /**
-     * GameStatus
-     * @description Possible statuses for a game.
-     * @enum {string}
-     */
-    GameStatus:
-      | 'SCHEDULED'
-      | 'LIVE'
-      | 'FINAL'
-      | 'FINAL - OT'
-      | 'FINAL - 2OT'
-      | 'FINAL - 3OT'
-      | 'POSTPONED'
-      | 'CANCELLED'
-      | 'UNKNOWN';
-    /**
-     * GenericAthleteResult
-     * @description Single result for an individual sport athlete.
-     * @example {
-     *       "athlete": {
-     *         "id": "A1234",
-     *         "name": "Andre De Grasse",
-     *         "school_abbrev": "TOR",
-     *         "school_name": "University of Toronto"
-     *       },
-     *       "event": {
-     *         "gender": "m",
-     *         "id": "100m",
-     *         "name": {
-     *           "en": "100 Metres"
-     *         },
-     *         "type": "track"
-     *       },
-     *       "league_id": "usports_track",
-     *       "meet_date": "2025-02-15",
-     *       "meet_name": "OUA Championships",
-     *       "qualified": true,
-     *       "rank": 1,
-     *       "result": {
-     *         "display": "10.24",
-     *         "numeric": 10.24,
-     *         "unit": "time"
-     *       },
-     *       "season": "2024-25"
-     *     }
-     */
-    GenericAthleteResult: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Athlete information */
-      athlete: components['schemas']['AthleteInfo'];
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /** @description Event information */
-      event: components['schemas']['EventInfo'];
-      /** @description Performance result */
-      result: components['schemas']['ResultValue'];
-      /**
-       * Rank
-       * @description Rank in the event
-       */
-      rank: number;
-      /**
-       * Qualified
-       * @description Whether athlete met qualification standard
-       * @default false
-       */
-      qualified: boolean;
-      /**
-       * Meet Name
-       * @description Competition/meet name
-       */
-      meet_name?: string | null;
-      /**
-       * Meet Date
-       * @description Meet date
-       */
-      meet_date?: string | null;
-      /**
-       * Season
-       * @description Season year (e.g., '2024-25')
-       */
-      season?: string | null;
-    };
-    /**
-     * GenericBoxScore
-     * @description Full box score for one game, with team and player stats.
-     * @example {
-     *       "away_players": [],
-     *       "away_team": {
-     *         "league_id": "hoopqueens",
-     *         "rankings": {},
-     *         "stats": {
-     *           "field_goal_percentage": 0.423,
-     *           "score": 71,
-     *           "total_rebounds": 34
-     *         },
-     *         "team": {
-     *           "abbreviation": "BLZ",
-     *           "id": "Blaze",
-     *           "name": {
-     *             "en": "Blaze"
-     *           },
-     *           "team_entity_id": "hoopqueens-blaze"
-     *         }
-     *       },
-     *       "date": "2025-06-08T19:00:00Z",
-     *       "game_id": "5",
-     *       "home_players": [],
-     *       "home_team": {
-     *         "league_id": "hoopqueens",
-     *         "rankings": {},
-     *         "stats": {
-     *           "field_goal_percentage": 0.471,
-     *           "score": 82,
-     *           "total_rebounds": 38
-     *         },
-     *         "team": {
-     *           "abbreviation": "CHR",
-     *           "id": "Charge",
-     *           "name": {
-     *             "en": "Charge"
-     *           },
-     *           "team_entity_id": "hoopqueens-charge"
-     *         }
-     *       },
-     *       "league_id": "hoopqueens",
-     *       "season": 2025,
-     *       "slug": "2025-06-08-charge-vs-blaze",
-     *       "status": "FINAL",
-     *       "venue": "Scotiabank Arena"
-     *     }
-     */
-    GenericBoxScore: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /**
-       * Game Id
-       * @description Game identifier
-       */
-      game_id: string;
-      /**
-       * Slug
-       * @description Human-readable URL slug, e.g. 2025-06-08-charge-vs-blaze
-       */
-      slug?: string | null;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Season
-       * @description Season year
-       */
-      season?: number | null;
-      /**
-       * Date
-       * @description ISO 8601 date/time of the game
-       */
-      date?: string | null;
-      /**
-       * Venue
-       * @description Game venue
-       */
-      venue?: string | null;
-      /**
-       * @description Game status
-       * @default FINAL
-       */
-      status: components['schemas']['GameStatus'];
-      /** @description Home team stats for this game */
-      home_team: components['schemas']['GenericTeamStat'];
-      /** @description Away team stats for this game */
-      away_team: components['schemas']['GenericTeamStat'];
-      /**
-       * Home Players
-       * @description Home team player stats
-       */
-      home_players?: components['schemas']['GenericPlayerStat'][];
-      /**
-       * Away Players
-       * @description Away team player stats
-       */
-      away_players?: components['schemas']['GenericPlayerStat'][];
-    };
-    /**
-     * GenericGame
-     * @description Schedule or result for a single game.
-     * @example {
-     *       "away_team": {
-     *         "score": 17,
-     *         "team": {
-     *           "abbreviation": "HAM",
-     *           "id": "HAM",
-     *           "name": {
-     *             "en": "Hamilton Tiger-Cats"
-     *           },
-     *           "team_entity_id": "cfl_hamilton_tiger_cats"
-     *         }
-     *       },
-     *       "broadcast": [
-     *         "CBC"
-     *       ],
-     *       "competition": "REGULAR",
-     *       "date": "2025-04-25T19:30:00Z",
-     *       "home_team": {
-     *         "score": 24,
-     *         "team": {
-     *           "abbreviation": "TOR",
-     *           "id": "TOR",
-     *           "name": {
-     *             "en": "Toronto Argonauts"
-     *           },
-     *           "team_entity_id": "cfl_toronto_argonauts"
-     *         }
-     *       },
-     *       "id": "CFL-2025-04-25-TOR-HAM",
-     *       "league_entity_id": "cfl",
-     *       "league_id": "cfl",
-     *       "status": "FINAL",
-     *       "venue": "BMO Field"
-     *     }
-     */
-    GenericGame: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /**
-       * Id
-       * @description Unique game identifier
-       */
-      id: string;
-      /**
-       * Livestats Id
-       * @description Live stats game ID for gamecast routes
-       */
-      livestats_id?: string | null;
-      /**
-       * Slug
-       * @description Human-readable URL slug, e.g. 2026-07-04-brampton-at-calgary
-       */
-      slug?: string | null;
-      /**
-       * Date
-       * @description ISO 8601 date/time of the game
-       */
-      date?: string | null;
-      /** @description Current status of the game */
-      status: components['schemas']['GameStatus'];
-      /** @description Home team details and score */
-      home_team: components['schemas']['TeamScore'];
-      /** @description Away team details and score */
-      away_team: components['schemas']['TeamScore'];
-      /**
-       * League Id
-       * @description Identifier for the league
-       */
-      league_id: string;
-      /** @description Competition type */
-      competition?: components['schemas']['GameCompetition'] | null;
-      /** Venue */
-      venue?: string | null;
-      /** Broadcast */
-      broadcast?: string[];
-      /** Sport */
-      sport?: string | null;
-    };
-    /**
-     * GenericPlayerLeaderboard
-     * @description Entry for a top player in a statistical leaderboard.
-     * @example {
-     *       "league_id": "cebl",
-     *       "player": {
-     *         "id": "17",
-     *         "jersey_number": "23",
-     *         "name": "Tristan Jass",
-     *         "photo_url": "https://example.com/tjass.jpg",
-     *         "position": "Guard"
-     *       },
-     *       "rank": 1,
-     *       "stat_type": "POINTS",
-     *       "team": {
-     *         "abbreviation": "VAN",
-     *         "id": "VAN01",
-     *         "name": {
-     *           "en": "Vancouver Bandits"
-     *         },
-     *         "team_entity_id": "cebl_vancouver"
-     *       },
-     *       "value": 89
-     *     }
-     */
-    GenericPlayerLeaderboard: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Player identity */
-      player: components['schemas']['PlayerInfo'];
-      /** @description Team identity */
-      team?: components['schemas']['TeamInfo'] | null;
-      /**
-       * Value
-       * @description Statistical value achieved
-       */
-      value: number;
-      /**
-       * Rank
-       * @description Position in the leaderboard
-       */
-      rank: number;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Stat Type
-       * @description Type of statistic (e.g., points)
-       */
-      stat_type: string;
-      /**
-       * Category
-       * @description Grouping category (e.g., OFFENCE, DEFENCE)
-       */
-      category?: string | null;
-    };
-    /**
-     * GenericPlayerStat
-     * @description Seasonal aggregates for a player.
-     * @example {
-     *       "league_id": "cpl",
-     *       "player": {
-     *         "id": "14",
-     *         "name": "Marcos Diaz",
-     *         "position": "Forward"
-     *       },
-     *       "stats": {
-     *         "assists": 5,
-     *         "goals": 12,
-     *         "minutes_played": 1980
-     *       },
-     *       "team": {
-     *         "abbreviation": "MTL",
-     *         "id": "MTL",
-     *         "name": {
-     *           "en": "Montreal FC"
-     *         },
-     *         "team_entity_id": "cpl_montreal"
-     *       }
-     *     }
-     */
-    GenericPlayerStat: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Player identity */
-      player: components['schemas']['PlayerInfo'];
-      /** @description Team identity */
-      team?: components['schemas']['TeamInfo'] | null;
-      /** Games Played */
-      games_played?: number | null;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Stats
-       * @description Player's cumulative or average stats
-       */
-      stats?: {
-        [key: string]: number | string;
-      };
-    };
-    /**
-     * GenericRelayResult
-     * @description A relay team result from a swimming championship event.
-     */
-    GenericRelayResult: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /**
-       * School
-       * @description School/team name
-       */
-      school: string;
-      /**
-       * School Normalized
-       * @description Normalized school identifier for API filtering
-       */
-      school_normalized?: string | null;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /** @description Event information */
-      event: components['schemas']['EventInfo'];
-      /**
-       * Relay Letter
-       * @description Relay team letter (A, B, C...)
-       */
-      relay_letter: string;
-      /**
-       * Place
-       * @description Finishing place
-       */
-      place?: number | null;
-      /** @description Time result */
-      result: components['schemas']['ResultValue'];
-      /**
-       * Championship Year
-       * @description Championship year
-       */
-      championship_year: number;
-      /**
-       * Swimmers
-       * @description Relay swimmers
-       */
-      swimmers?: components['schemas']['SwimmerEntry'][];
-      /**
-       * Is Dq
-       * @description Whether the result was disqualified
-       * @default false
-       */
-      is_dq: boolean;
-      /**
-       * Met Standard
-       * @description Whether the result met the qualifying standard
-       * @default false
-       */
-      met_standard: boolean;
-      /**
-       * Record Flags
-       * @description Record flags (e.g., 'CAN', 'OUA')
-       * @default
-       */
-      record_flags: string;
-    };
-    /**
-     * GenericRosterPlayer
-     * @description Single player entry on a team roster.
-     * @example {
-     *       "games_played": 27,
-     *       "player": {
-     *         "id": "95132",
-     *         "jersey_number": "19",
-     *         "name": "Alphonso Davies",
-     *         "photo_url": "https://example.com/davies.jpg",
-     *         "position": "Left Back"
-     *       },
-     *       "profile": {
-     *         "date_of_birth": "2000-11-02",
-     *         "height": "5'11\"",
-     *         "nationality": "Canada",
-     *         "weight": "168 lbs"
-     *       },
-     *       "stats": {
-     *         "assists": 11,
-     *         "goals": 8,
-     *         "minutes_played": 2340
-     *       }
-     *     }
-     */
-    GenericRosterPlayer: {
-      /** @description Player identity */
-      player: components['schemas']['PlayerInfo'];
-      /**
-       * Games Played
-       * @description Games played this season
-       */
-      games_played: number;
-      /**
-       * Stats
-       * @description Player's season stats
-       */
-      stats?: {
-        [key: string]: unknown;
-      };
-      /** @description Player biographical info */
-      profile?: components['schemas']['PlayerProfile'];
-    };
-    /**
-     * GenericSchoolRanking
-     * @description School/team ranking for individual sports (computed from athlete points).
-     * @example {
-     *       "athlete_count": 18,
-     *       "gender": "m",
-     *       "league_id": "usports_track",
-     *       "rank": 1,
-     *       "school_abbrev": "GUE",
-     *       "school_name": "University of Guelph",
-     *       "total_points": 142.5
-     *     }
-     */
-    GenericSchoolRanking: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /**
-       * Rank
-       * @description Team rank
-       */
-      rank: number;
-      /**
-       * School Name
-       * @description School full name
-       */
-      school_name: string;
-      /**
-       * School Abbrev
-       * @description School abbreviation
-       */
-      school_abbrev?: string | null;
-      /**
-       * School Normalized
-       * @description Normalized school identifier for API filtering
-       */
-      school_normalized?: string | null;
-      /**
-       * Total Points
-       * @description Total points from all athletes
-       */
-      total_points: number;
-      /**
-       * Athlete Count
-       * @description Number of ranked athletes
-       */
-      athlete_count: number;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Gender
-       * @description Gender category
-       */
-      gender?: string | null;
-    };
-    /**
-     * GenericStandings
-     * @description Basic win/loss standing for a team.
-     * @example {
-     *       "division": "West",
-     *       "league_id": "cebl",
-     *       "losses": 6,
-     *       "rank": 2,
-     *       "stats": {
-     *         "goal_difference": 18,
-     *         "points": 42
-     *       },
-     *       "team": {
-     *         "abbreviation": "VAN",
-     *         "id": "VAN01",
-     *         "name": {
-     *           "en": "Vancouver Bandits"
-     *         },
-     *         "short_name": {
-     *           "en": "Vancouver"
-     *         },
-     *         "team_entity_id": "cebl_vancouver"
-     *       },
-     *       "wins": 12
-     *     }
-     */
-    GenericStandings: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Team identity */
-      team: components['schemas']['TeamInfo'];
-      /**
-       * Wins
-       * @description Number of wins
-       */
-      wins: number;
-      /**
-       * Losses
-       * @description Number of losses
-       */
-      losses: number;
-      /**
-       * Rank
-       * @description Current rank in the standings
-       */
-      rank: number;
-      /**
-       * League Id
-       * @description Identifier for the league
-       */
-      league_id: string;
-      /**
-       * Division
-       * @description Division or group name
-       */
-      division?: string | null;
-      /**
-       * Stats
-       * @description Additional stats relevant to standings
-       */
-      stats?: {
-        [key: string]: number | string;
-      };
-    };
-    /**
-     * GenericTeamComparison
-     * @description Side-by-side comparison of two teams' season stats.
-     * @example {
-     *       "team1": {
-     *         "league_id": "cfl",
-     *         "rankings": {
-     *           "points_against": 3,
-     *           "points_for": 2
-     *         },
-     *         "stats": {
-     *           "points_against": 350,
-     *           "points_for": 380
-     *         },
-     *         "team": {
-     *           "abbreviation": "HAM",
-     *           "id": "HAM",
-     *           "name": {
-     *             "en": "Hamilton Tiger-Cats"
-     *           }
-     *         }
-     *       },
-     *       "team2": {
-     *         "league_id": "cfl",
-     *         "rankings": {
-     *           "points_against": 1,
-     *           "points_for": 1
-     *         },
-     *         "stats": {
-     *           "points_against": 320,
-     *           "points_for": 420
-     *         },
-     *         "team": {
-     *           "abbreviation": "TOR",
-     *           "id": "TOR",
-     *           "name": {
-     *             "en": "Toronto Argonauts"
-     *           }
-     *         }
-     *       }
-     *     }
-     */
-    GenericTeamComparison: {
-      /** @description First team's stats */
-      team1: components['schemas']['GenericTeamStat'];
-      /** @description Second team's stats */
-      team2: components['schemas']['GenericTeamStat'];
-    };
-    /**
-     * GenericTeamInfo
-     * @description Basic info and stats for a team.
-     * @example {
-     *       "division": "West",
-     *       "league_id": "cebl",
-     *       "losses": 6,
-     *       "rank": 2,
-     *       "stats": {
-     *         "goal_difference": 18,
-     *         "last_five": "WWLWW",
-     *         "points": 42
-     *       },
-     *       "streak": "W3",
-     *       "team": {
-     *         "abbreviation": "VAN",
-     *         "id": "VAN01",
-     *         "name": {
-     *           "en": "Vancouver Bandits"
-     *         },
-     *         "short_name": {
-     *           "en": "Vancouver"
-     *         },
-     *         "team_entity_id": "cebl_vancouver"
-     *       },
-     *       "wins": 12
-     *     }
-     */
-    GenericTeamInfo: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Team identity */
-      team: components['schemas']['TeamInfo'];
-      /**
-       * Wins
-       * @description Number of wins
-       */
-      wins: number;
-      /**
-       * Losses
-       * @description Number of losses
-       */
-      losses: number;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /** Division */
-      division?: string | null;
-      /** Rank */
-      rank?: number | null;
-      /** Streak */
-      streak?: string | null;
-      /** Tickets Url */
-      tickets_url?: string | null;
-      /**
-       * Stats
-       * @description Additional team info stats
-       */
-      stats?: {
-        [key: string]: number | string;
-      };
-    };
-    /**
-     * GenericTeamRoster
-     * @description Complete roster for a team.
-     * @example {
-     *       "league_id": "cpl",
-     *       "players": [],
-     *       "team": {
-     *         "abbreviation": "VAN",
-     *         "id": "VAN",
-     *         "name": {
-     *           "en": "Vancouver Whitecaps"
-     *         },
-     *         "team_entity_id": "cpl_vancouver"
-     *       }
-     *     }
-     */
-    GenericTeamRoster: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Team identity */
-      team: components['schemas']['TeamInfo'];
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Players
-       * @description List of roster players
-       */
-      players?: components['schemas']['GenericRosterPlayer'][];
-    };
-    /**
-     * GenericTeamStat
-     * @description Seasonal aggregates for a team with rankings.
-     * @example {
-     *       "league_id": "cebl",
-     *       "rankings": {
-     *         "points_per_game": 1,
-     *         "rebounds_per_game": 3
-     *       },
-     *       "stats": {
-     *         "points_per_game": 102.3,
-     *         "rebounds_per_game": 44.1
-     *       },
-     *       "team": {
-     *         "abbreviation": "VAN",
-     *         "id": "VAN",
-     *         "name": {
-     *           "en": "Vancouver Bandits"
-     *         },
-     *         "short_name": {
-     *           "en": "Vancouver"
-     *         },
-     *         "team_entity_id": "cebl_vancouver"
-     *       }
-     *     }
-     */
-    GenericTeamStat: {
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** @description Team identity */
-      team: components['schemas']['TeamInfo'];
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /** Games Played */
-      games_played?: number | null;
-      /**
-       * Stats
-       * @description Cumulative or average stats for the team
-       */
-      stats?: {
-        [key: string]: number | string;
-      };
-      /**
-       * Rankings
-       * @description Team's rank per statistic within the league
-       */
-      rankings?: {
-        [key: string]: number;
-      };
-    };
-    /** HTTPValidationError */
-    HTTPValidationError: {
-      /** Detail */
-      detail?: components['schemas']['ValidationError'][];
-    };
-    /**
-     * HealthCheckResponse
-     * @description Health check response model
-     */
-    HealthCheckResponse: {
-      /** Status */
-      status: string;
-      /** Details */
-      details: {
-        [key: string]: string;
-      };
-    };
-    /**
-     * HoopQueensPlayerComparison
-     * @description Side-by-side season stats for two HoopQueens players.
-     */
-    HoopQueensPlayerComparison: {
-      /** League Id */
-      league_id: string;
-      player1?: components['schemas']['GenericPlayerStat'] | null;
-      player2?: components['schemas']['GenericPlayerStat'] | null;
-      /**
-       * Errors
-       * @default []
-       */
-      errors: string[];
-    };
-    /**
-     * HoopQueensPlayerEntry
-     * @description A single player in the HoopQueens player directory.
-     */
-    HoopQueensPlayerEntry: {
-      /** Player Id */
-      player_id: number;
-      /** Name */
-      name: string;
-      /** First Name */
-      first_name: string;
-      /** Last Name */
-      last_name: string;
-      /** Jersey Number */
-      jersey_number?: number | null;
-      /** Position */
-      position?: string | null;
-      /** Birth Date */
-      birth_date?: string | null;
-      /** Nationality */
-      nationality?: string | null;
-      /** School */
-      school?: string | null;
-      /** Team Id */
-      team_id: number;
-      /** Team Name */
-      team_name?: string | null;
-      /** Team Abbreviation */
-      team_abbreviation?: string | null;
-      /** Team Entity Id */
-      team_entity_id?: string | null;
-      /** League Id */
-      league_id: string;
-      /** League Entity Id */
-      league_entity_id?: string | null;
-      /** Season */
-      season: number;
-    };
-    /**
-     * LedgerTransaction
-     * @description Type hint for ledger transactions
-     */
-    LedgerTransaction: {
-      /** Transaction Id */
-      transaction_id: number;
-      /** Description */
-      description: string;
-      /** Accepted At */
-      accepted_at?: string;
-      /** Distributed At */
-      distributed_at: string;
-      /** Firstname */
-      firstname: string;
-      /** Lastname */
-      lastname: string;
-      /** Position */
-      position: string;
-      /** Nationality */
-      nationality: string;
-      /** College */
-      college: string | null;
-      /** Team Abbr */
-      team_abbr?: string | null;
-      /** Action */
-      action: string;
-      /** Is Distributed */
-      is_distributed: boolean;
-      /** Player Id */
-      player_id: number;
-      /** Resource Type */
-      resource_type: string;
-      /** State Change */
-      state_change: string | null;
-      /** Previous State */
-      previous_state: string | null;
-    };
-    /**
-     * LocalizedText
-     * @description Text with English and French translations.
-     */
-    LocalizedText: {
-      /**
-       * En
-       * @description English text
-       */
-      en: string;
-      /**
-       * Fr
-       * @description French text
-       */
-      fr?: string | null;
-    };
-    /**
-     * PlayerInfo
-     * @description Unified player identity — replaces scattered player fields.
-     */
-    PlayerInfo: {
-      /**
-       * Id
-       * @description Player identifier
-       */
-      id: string;
-      /**
-       * Name
-       * @description Player full name
-       */
-      name: string;
-      /**
-       * Position
-       * @description Player position
-       */
-      position?: string | null;
-      /**
-       * Jersey Number
-       * @description Jersey number
-       */
-      jersey_number?: string | null;
-      /**
-       * Photo Url
-       * @description Player photo URL
-       */
-      photo_url?: string | null;
-    };
-    /**
-     * PlayerProfile
-     * @description Player biographical information — used in roster context.
-     */
-    PlayerProfile: {
-      /** Height */
-      height?: string | null;
-      /** Height Unit */
-      height_unit?: string | null;
-      /** Weight */
-      weight?: string | null;
-      /** Weight Unit */
-      weight_unit?: string | null;
-      /** Date Of Birth */
-      date_of_birth?: string | null;
-      /** Nationality */
-      nationality?: string | null;
-      /** College */
-      college?: string | null;
-      /** Bio */
-      bio?: string | null;
-    };
-    /**
-     * RadarMetricMetadata
-     * @description Metadata for radar chart metrics.
-     */
-    RadarMetricMetadata: {
-      /**
-       * Short Name
-       * @description Short abbreviated name for the metric
-       */
-      short_name: string;
-      /**
-       * Definition
-       * @description Detailed definition of what the metric measures
-       */
-      definition: string;
-    };
-    /**
-     * ResultValue
-     * @description Structured result with display and sortable values.
-     */
-    ResultValue: {
-      /**
-       * Display
-       * @description Display value (e.g., '10.24', '2:03.84', '7.82m')
-       */
-      display: string;
-      /**
-       * Numeric
-       * @description Numeric value for sorting
-       */
-      numeric?: number | null;
-      /**
-       * Unit
-       * @description Unit type: 'time', 'distance', 'points', 'weight'
-       */
-      unit?: string | null;
-    };
-    /**
-     * StandardResponse
-     * @description Standard API response wrapper with metadata
-     */
-    StandardResponse: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: unknown | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[BasketballTeamComparison] */
-    StandardResponse_BasketballTeamComparison_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['BasketballTeamComparison'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CeblBoxScore] */
-    StandardResponse_CeblBoxScore_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CeblBoxScore'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CeblPlayerComparison] */
-    StandardResponse_CeblPlayerComparison_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CeblPlayerComparison'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CeblShotChart] */
-    StandardResponse_CeblShotChart_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CeblShotChart'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CflAnalytics] */
-    StandardResponse_CflAnalytics_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CflAnalytics'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CflPlayerComparison] */
-    StandardResponse_CflPlayerComparison_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CflPlayerComparison'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CflTeamForm] */
-    StandardResponse_CflTeamForm_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CflTeamForm'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[CollegeTeamComparison] */
-    StandardResponse_CollegeTeamComparison_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['CollegeTeamComparison'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[GenericBoxScore] */
-    StandardResponse_GenericBoxScore_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['GenericBoxScore'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[GenericPlayerStat] */
-    StandardResponse_GenericPlayerStat_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['GenericPlayerStat'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[GenericTeamComparison] */
-    StandardResponse_GenericTeamComparison_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['GenericTeamComparison'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[GenericTeamInfo] */
-    StandardResponse_GenericTeamInfo_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['GenericTeamInfo'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[GenericTeamRoster] */
-    StandardResponse_GenericTeamRoster_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['GenericTeamRoster'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[GenericTeamStat] */
-    StandardResponse_GenericTeamStat_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['GenericTeamStat'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[HoopQueensPlayerComparison] */
-    StandardResponse_HoopQueensPlayerComparison_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      data?: components['schemas']['HoopQueensPlayerComparison'] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[dict] */
-    StandardResponse_dict_: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: {
-        [key: string]: unknown;
-      } | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[dict[str, list[GenericAthleteResult]]] */
-    StandardResponse_dict_str__list_GenericAthleteResult___: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: {
-        [key: string]: components['schemas']['GenericAthleteResult'][];
-      } | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[dict[str, list[GenericGame]]] */
-    StandardResponse_dict_str__list_GenericGame___: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: {
-        [key: string]: components['schemas']['GenericGame'][];
-      } | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[dict[str, list[GenericPlayerLeaderboard]]] */
-    StandardResponse_dict_str__list_GenericPlayerLeaderboard___: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: {
-        [key: string]: components['schemas']['GenericPlayerLeaderboard'][];
-      } | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[dict[str, list[GenericStandings]]] */
-    StandardResponse_dict_str__list_GenericStandings___: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: {
-        [key: string]: components['schemas']['GenericStandings'][];
-      } | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[CeblPlayByPlayEvent]] */
-    StandardResponse_list_CeblPlayByPlayEvent__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['CeblPlayByPlayEvent'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[CeblPlayerEntry]] */
-    StandardResponse_list_CeblPlayerEntry__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['CeblPlayerEntry'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[CflPlayerEntry]] */
-    StandardResponse_list_CflPlayerEntry__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['CflPlayerEntry'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[EventInfo]] */
-    StandardResponse_list_EventInfo__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['EventInfo'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericAthleteResult]] */
-    StandardResponse_list_GenericAthleteResult__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericAthleteResult'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericGame]] */
-    StandardResponse_list_GenericGame__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericGame'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericPlayerStat]] */
-    StandardResponse_list_GenericPlayerStat__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericPlayerStat'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericRelayResult]] */
-    StandardResponse_list_GenericRelayResult__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericRelayResult'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericSchoolRanking]] */
-    StandardResponse_list_GenericSchoolRanking__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericSchoolRanking'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericStandings]] */
-    StandardResponse_list_GenericStandings__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericStandings'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[GenericTeamStat]] */
-    StandardResponse_list_GenericTeamStat__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['GenericTeamStat'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[HoopQueensPlayerEntry]] */
-    StandardResponse_list_HoopQueensPlayerEntry__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['HoopQueensPlayerEntry'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[LedgerTransaction]] */
-    StandardResponse_list_LedgerTransaction__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['LedgerTransaction'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[SwimMedalTally]] */
-    StandardResponse_list_SwimMedalTally__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: components['schemas']['SwimMedalTally'][] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /** StandardResponse[list[int]] */
-    StandardResponse_list_int__: {
-      /**
-       * Success
-       * @description Whether the request was successful
-       * @default true
-       */
-      success: boolean;
-      /** Data */
-      data?: number[] | null;
-      /** Error Message */
-      error_message?: string | null;
-      /**
-       * Request Id
-       * @description Unique request identifier
-       */
-      request_id?: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       * @description Response timestamp in UTC
-       */
-      timestamp?: string;
-      /** Message */
-      message?: string | null;
-    };
-    /**
-     * SwimMedalTally
-     * @description Medal count per school for a swimming championship.
-     */
-    SwimMedalTally: {
-      /**
-       * School
-       * @description School name
-       */
-      school: string;
-      /**
-       * School Normalized
-       * @description Normalized school identifier for API filtering
-       */
-      school_normalized?: string | null;
-      /**
-       * League Id
-       * @description League identifier
-       */
-      league_id: string;
-      /**
-       * Championship Year
-       * @description Championship year
-       */
-      championship_year: number;
-      /**
-       * Gold
-       * @description Gold medals (1st place)
-       * @default 0
-       */
-      gold: number;
-      /**
-       * Silver
-       * @description Silver medals (2nd place)
-       * @default 0
-       */
-      silver: number;
-      /**
-       * Bronze
-       * @description Bronze medals (3rd place)
-       * @default 0
-       */
-      bronze: number;
-      /**
-       * Total
-       * @description Total medals
-       * @default 0
-       */
-      total: number;
-    };
-    /**
-     * SwimmerEntry
-     * @description A single swimmer in a relay team.
-     */
-    SwimmerEntry: {
-      /** Name */
-      name: string;
-      /** Academic Year */
-      academic_year?: string | null;
-    };
-    /**
-     * SwimmingLeague
-     * @description Swimming league identifiers.
-     * @enum {string}
-     */
-    SwimmingLeague: 'mswim' | 'wswim';
-    /**
-     * TeamInfo
-     * @description Unified team identity — replaces all scattered team fields.
-     */
-    TeamInfo: {
-      /**
-       * Id
-       * @description Team identifier
-       */
-      id: string;
-      /** @description Team name (bilingual) */
-      name: components['schemas']['LocalizedText'];
-      /** @description Short team name (bilingual) */
-      short_name?: components['schemas']['LocalizedText'] | null;
-      /**
-       * Abbreviation
-       * @description Team abbreviation (e.g., 'TOR', 'VAN')
-       */
-      abbreviation?: string | null;
-      /**
-       * Team Entity Id
-       * @description Cross-platform team entity identifier
-       */
-      team_entity_id?: string | null;
-    };
-    /**
-     * TeamScore
-     * @description Team identity and score in a game.
-     * @example {
-     *       "score": 24,
-     *       "team": {
-     *         "abbreviation": "TOR",
-     *         "id": "TOR",
-     *         "name": {
-     *           "en": "Toronto Argonauts"
-     *         },
-     *         "short_name": {
-     *           "en": "Argonauts"
-     *         },
-     *         "team_entity_id": "cfl_toronto_argonauts"
-     *       }
-     *     }
-     */
-    TeamScore: {
-      /** @description Team identity */
-      team: components['schemas']['TeamInfo'];
-      /** Score */
-      score?: number | null;
-    };
-    /**
-     * TrackAndFieldLeague
-     * @description Track & Field league identifiers.
-     * @enum {string}
-     */
-    TrackAndFieldLeague: 'mtrack' | 'wtrack';
-    /**
-     * UnifiedHealthCheckResponse
-     * @description Unified health check response model
-     */
-    UnifiedHealthCheckResponse: {
-      /** Status */
-      status: string;
-      /**
-       * Timestamp
-       * Format: date-time
-       */
-      timestamp: string;
-      /** Services */
-      services: {
-        [key: string]: string;
-      };
-    };
-    /** ValidationError */
-    ValidationError: {
-      /** Location */
-      loc: (string | number)[];
-      /** Message */
-      msg: string;
-      /** Error Type */
-      type: string;
-    };
-    /**
-     * WrestlingLeague
-     * @description Wrestling league identifiers.
-     * @enum {string}
-     */
-    WrestlingLeague: 'mwres' | 'wwres';
-    /**
-     * League
-     * @description Valid OCAA leagues
-     * @enum {string}
-     */
-    app__api__v1__ocaa__constants__League: 'mbb' | 'wbb' | 'mvb' | 'wvb' | 'msoc' | 'wsoc';
-    /**
-     * SeasonOption
-     * @description Valid season options - OCAA only has regular and playoffs
-     * @enum {string}
-     */
-    app__api__v1__ocaa__constants__SeasonOption: 'regular' | 'playoffs';
-    /**
-     * Sport
-     * @description Valid OCAA sports
-     * @enum {string}
-     */
-    app__api__v1__ocaa__constants__Sport: 'basketball' | 'volleyball' | 'soccer';
-    /**
-     * League
-     * @description Valid USports leagues
-     * @enum {string}
-     */
-    app__api__v1__usports__constants__League:
-      | 'mbb'
-      | 'wbb'
-      | 'mvb'
-      | 'wvb'
-      | 'mfb'
-      | 'msoc'
-      | 'wsoc'
-      | 'mhky'
-      | 'whky';
-    /**
-     * SeasonOption
-     * @description Valid season options
-     * @enum {string}
-     */
-    app__api__v1__usports__constants__SeasonOption: 'regular' | 'playoffs' | 'championship';
-    /**
-     * Sport
-     * @description Valid USports sports
-     * @enum {string}
-     */
-    app__api__v1__usports__constants__Sport:
-      | 'basketball'
-      | 'football'
-      | 'ice_hockey'
-      | 'soccer'
-      | 'volleyball';
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+    schemas: {
+        /**
+         * AthleteInfo
+         * @description Athlete information for individual sports.
+         */
+        AthleteInfo: {
+            /**
+             * Id
+             * @description Athlete identifier
+             */
+            id: string;
+            /**
+             * Name
+             * @description Athlete full name
+             */
+            name: string;
+            /**
+             * School Name
+             * @description School/university full name
+             */
+            school_name: string;
+            /**
+             * School Abbrev
+             * @description School abbreviation
+             */
+            school_abbrev?: string | null;
+            /**
+             * School Normalized
+             * @description Normalized school identifier for API filtering
+             */
+            school_normalized?: string | null;
+        };
+        /**
+         * BasketballOpponentStats
+         * @description Basketball opponent statistical performance against this team
+         */
+        BasketballOpponentStats: {
+            /**
+             * Points Per Game Against
+             * @description Average points allowed per game
+             * @default 0
+             */
+            points_per_game_against: number;
+            /**
+             * Field Goal Percentage Against
+             * @description Opponent field goal shooting percentage
+             * @default 0
+             */
+            field_goal_percentage_against: number;
+            /**
+             * Three Pointers Made Per Game Against
+             * @description Average three-pointers allowed per game
+             * @default 0
+             */
+            three_pointers_made_per_game_against: number;
+            /**
+             * Three Point Percentage Against
+             * @description Opponent three-point shooting percentage
+             * @default 0
+             */
+            three_point_percentage_against: number;
+            /**
+             * Total Rebounds Per Game Against
+             * @description Average rebounds allowed per game
+             * @default 0
+             */
+            total_rebounds_per_game_against: number;
+            /**
+             * Offensive Rebounds Per Game Against
+             * @description Average offensive rebounds allowed per game
+             * @default 0
+             */
+            offensive_rebounds_per_game_against: number;
+            /**
+             * Defensive Rebounds Per Game Against
+             * @description Average defensive rebounds allowed per game
+             * @default 0
+             */
+            defensive_rebounds_per_game_against: number;
+            /**
+             * Assists Per Game Against
+             * @description Average assists allowed per game
+             * @default 0
+             */
+            assists_per_game_against: number;
+            /**
+             * Steals Per Game Against
+             * @description Average steals allowed per game
+             * @default 0
+             */
+            steals_per_game_against: number;
+            /**
+             * Blocks Per Game Against
+             * @description Average blocks allowed per game
+             * @default 0
+             */
+            blocks_per_game_against: number;
+            /**
+             * Turnovers Per Game Against
+             * @description Average turnovers forced per game
+             * @default 0
+             */
+            turnovers_per_game_against: number;
+            /**
+             * Fouls Per Game Against
+             * @description Average fouls drawn per game
+             * @default 0
+             */
+            fouls_per_game_against: number;
+            /**
+             * Ppp Against
+             * @description Opponent points per possession
+             * @default 0
+             */
+            ppp_against: number;
+        };
+        /**
+         * BasketballTeamComparison
+         * @description Complete basketball team vs opponent statistical comparison
+         * @example {
+         *       "conference": "OUA East",
+         *       "games_played": 24,
+         *       "league_entity_id": "usports_mbb",
+         *       "league_id": "usports_basketball",
+         *       "opponent_stats": {
+         *         "assists_per_game_against": 13.7,
+         *         "blocks_per_game_against": 3.8,
+         *         "defensive_rebounds_per_game_against": 26.3,
+         *         "field_goal_percentage_against": 42.1,
+         *         "fouls_per_game_against": 17.3,
+         *         "offensive_rebounds_per_game_against": 8.9,
+         *         "points_per_game_against": 74.3,
+         *         "ppp_against": 1.02,
+         *         "steals_per_game_against": 6.5,
+         *         "three_point_percentage_against": 32.4,
+         *         "three_pointers_made_per_game_against": 6.8,
+         *         "total_rebounds_per_game_against": 35.2,
+         *         "turnovers_per_game_against": 14.2
+         *       },
+         *       "team": {
+         *         "id": "1",
+         *         "name": {
+         *           "en": "Carleton Ravens"
+         *         }
+         *       },
+         *       "team_stats": {
+         *         "assists_per_game": 16.3,
+         *         "blocks_per_game": 4.2,
+         *         "defensive_rebounds_per_game": 27.8,
+         *         "field_goal_percentage": 47.2,
+         *         "fouls_per_game": 18.7,
+         *         "offensive_rebounds_per_game": 10.2,
+         *         "points_per_game": 82.5,
+         *         "ppp": 1.12,
+         *         "steals_per_game": 7.8,
+         *         "three_point_percentage": 35.8,
+         *         "three_pointers_made_per_game": 8.5,
+         *         "total_rebounds_per_game": 38,
+         *         "turnovers_per_game": 12.5
+         *       }
+         *     }
+         */
+        BasketballTeamComparison: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Team identity */
+            team: components["schemas"]["TeamInfo"];
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Conference
+             * @description Conference name (None for leagues without conferences)
+             */
+            conference?: string | null;
+            /**
+             * Games Played
+             * @description Number of games played
+             */
+            games_played: number;
+            /** @description Team offensive and overall statistics */
+            team_stats: components["schemas"]["BasketballTeamStats"];
+            /** @description Statistics against this team (defensive performance) */
+            opponent_stats: components["schemas"]["BasketballOpponentStats"];
+        };
+        /**
+         * BasketballTeamStats
+         * @description Basketball team statistical performance
+         */
+        BasketballTeamStats: {
+            /**
+             * Points Per Game
+             * @description Average points scored per game
+             * @default 0
+             */
+            points_per_game: number;
+            /**
+             * Field Goal Percentage
+             * @description Field goal shooting percentage
+             * @default 0
+             */
+            field_goal_percentage: number;
+            /**
+             * Three Pointers Made Per Game
+             * @description Average three-pointers made per game
+             * @default 0
+             */
+            three_pointers_made_per_game: number;
+            /**
+             * Three Point Percentage
+             * @description Three-point shooting percentage
+             * @default 0
+             */
+            three_point_percentage: number;
+            /**
+             * Total Rebounds Per Game
+             * @description Average total rebounds per game
+             * @default 0
+             */
+            total_rebounds_per_game: number;
+            /**
+             * Offensive Rebounds Per Game
+             * @description Average offensive rebounds per game
+             * @default 0
+             */
+            offensive_rebounds_per_game: number;
+            /**
+             * Defensive Rebounds Per Game
+             * @description Average defensive rebounds per game
+             * @default 0
+             */
+            defensive_rebounds_per_game: number;
+            /**
+             * Assists Per Game
+             * @description Average assists per game
+             * @default 0
+             */
+            assists_per_game: number;
+            /**
+             * Steals Per Game
+             * @description Average steals per game
+             * @default 0
+             */
+            steals_per_game: number;
+            /**
+             * Blocks Per Game
+             * @description Average blocks per game
+             * @default 0
+             */
+            blocks_per_game: number;
+            /**
+             * Turnovers Per Game
+             * @description Average turnovers per game
+             * @default 0
+             */
+            turnovers_per_game: number;
+            /**
+             * Fouls Per Game
+             * @description Average personal fouls per game
+             * @default 0
+             */
+            fouls_per_game: number;
+            /**
+             * Ppp
+             * @description Points per possession
+             * @default 0
+             */
+            ppp: number;
+        };
+        /** CeblBoxScore */
+        CeblBoxScore: {
+            /** Livestats Id */
+            livestats_id: string;
+            /** League Id */
+            league_id: string;
+            /**
+             * League Entity Id
+             * @default cebl
+             */
+            league_entity_id: string;
+            /** Period */
+            period: number;
+            /** Clock */
+            clock: string;
+            /** In Ot */
+            in_ot: boolean;
+            home_team: components["schemas"]["CeblBoxScoreTeam"];
+            away_team: components["schemas"]["CeblBoxScoreTeam"];
+            /** Home Players */
+            home_players: components["schemas"]["CeblBoxScorePlayer"][];
+            /** Away Players */
+            away_players: components["schemas"]["CeblBoxScorePlayer"][];
+        };
+        /** CeblBoxScorePlayer */
+        CeblBoxScorePlayer: {
+            player: components["schemas"]["PlayerInfo"];
+            /** Starter */
+            starter: boolean;
+            /** Minutes */
+            minutes: string;
+            /** Points */
+            points: number;
+            /** Field Goals Made */
+            field_goals_made: number;
+            /** Field Goals Attempted */
+            field_goals_attempted: number;
+            /** Field Goal Percentage */
+            field_goal_percentage: number;
+            /** Three Pointers Made */
+            three_pointers_made: number;
+            /** Three Pointers Attempted */
+            three_pointers_attempted: number;
+            /** Three Point Percentage */
+            three_point_percentage: number;
+            /** Free Throws Made */
+            free_throws_made: number;
+            /** Free Throws Attempted */
+            free_throws_attempted: number;
+            /** Free Throw Percentage */
+            free_throw_percentage: number;
+            /** Rebounds Total */
+            rebounds_total: number;
+            /** Rebounds Offensive */
+            rebounds_offensive: number;
+            /** Rebounds Defensive */
+            rebounds_defensive: number;
+            /** Assists */
+            assists: number;
+            /** Steals */
+            steals: number;
+            /** Blocks */
+            blocks: number;
+            /** Turnovers */
+            turnovers: number;
+            /** Fouls */
+            fouls: number;
+        };
+        /** CeblBoxScoreTeam */
+        CeblBoxScoreTeam: {
+            team: components["schemas"]["TeamInfo"];
+            /** Logo Url */
+            logo_url?: string | null;
+            /** Score */
+            score: number;
+            /** Quarters */
+            quarters: components["schemas"]["CeblQuarterScore"][];
+            /** Field Goals Made */
+            field_goals_made: number;
+            /** Field Goals Attempted */
+            field_goals_attempted: number;
+            /** Field Goal Percentage */
+            field_goal_percentage: number;
+            /** Three Pointers Made */
+            three_pointers_made: number;
+            /** Three Pointers Attempted */
+            three_pointers_attempted: number;
+            /** Three Point Percentage */
+            three_point_percentage: number;
+            /** Free Throws Made */
+            free_throws_made: number;
+            /** Free Throws Attempted */
+            free_throws_attempted: number;
+            /** Free Throw Percentage */
+            free_throw_percentage: number;
+            /** Rebounds Total */
+            rebounds_total: number;
+            /** Rebounds Offensive */
+            rebounds_offensive: number;
+            /** Rebounds Defensive */
+            rebounds_defensive: number;
+            /** Assists */
+            assists: number;
+            /** Steals */
+            steals: number;
+            /** Blocks */
+            blocks: number;
+            /** Turnovers */
+            turnovers: number;
+            /** Fouls */
+            fouls: number;
+            /** Points In Paint */
+            points_in_paint: number;
+            /** Fast Break Points */
+            fast_break_points: number;
+            /** Bench Points */
+            bench_points: number;
+            /** Second Chance Points */
+            second_chance_points: number;
+            /** Points From Turnovers */
+            points_from_turnovers: number;
+            /** Lead Changes */
+            lead_changes: number;
+            /** Time Leading */
+            time_leading: number;
+        };
+        /** CeblPlayByPlayEvent */
+        CeblPlayByPlayEvent: {
+            /** Action Number */
+            action_number: number;
+            /** Action Type */
+            action_type: string;
+            /** Sub Type */
+            sub_type: string;
+            /** Clock */
+            clock: string;
+            /** Period */
+            period: number;
+            /** Player Name */
+            player_name: string;
+            /** Player Shirt Number */
+            player_shirt_number: string;
+            /** Team No */
+            team_no: number;
+            /** Score Home */
+            score_home: number;
+            /** Score Away */
+            score_away: number;
+            /** Is Scoring Play */
+            is_scoring_play: boolean;
+            /** Lead */
+            lead: number;
+        };
+        /**
+         * CeblPlayerComparison
+         * @description Side-by-side season stats for two CEBL players.
+         */
+        CeblPlayerComparison: {
+            /** League Id */
+            league_id: string;
+            player1?: components["schemas"]["GenericPlayerStat"] | null;
+            player2?: components["schemas"]["GenericPlayerStat"] | null;
+            /** Player1 Rankings */
+            player1_rankings?: {
+                [key: string]: number;
+            } | null;
+            /** Player2 Rankings */
+            player2_rankings?: {
+                [key: string]: number;
+            } | null;
+            /**
+             * Errors
+             * @default []
+             */
+            errors: string[];
+        };
+        /**
+         * CeblPlayerEntry
+         * @description A single player in the CEBL player directory.
+         */
+        CeblPlayerEntry: {
+            /** Player Id */
+            player_id: number;
+            /** Name */
+            name: string;
+            /** Position */
+            position?: string | null;
+            /** Jersey Number */
+            jersey_number?: number | null;
+            /** Photo Url */
+            photo_url?: string | null;
+            /** Birthdate */
+            birthdate?: string | null;
+            /** Nationality */
+            nationality: string;
+            /** League Id */
+            league_id: string;
+            /** League Entity Id */
+            league_entity_id: string;
+            /** Team Id */
+            team_id?: number | null;
+            /** Team Name */
+            team_name?: string | null;
+            /** Team Name Fr */
+            team_name_fr?: string | null;
+            /** Team Short Name */
+            team_short_name?: string | null;
+            /** Team Entity Id */
+            team_entity_id?: string | null;
+            /** Team Logo Url */
+            team_logo_url?: string | null;
+        };
+        /** CeblQuarterScore */
+        CeblQuarterScore: {
+            /** Quarter */
+            quarter: number;
+            /** Score */
+            score: number;
+        };
+        /** CeblShotChart */
+        CeblShotChart: {
+            /** Livestats Id */
+            livestats_id: string;
+            /** League Id */
+            league_id: string;
+            /**
+             * League Entity Id
+             * @default cebl
+             */
+            league_entity_id: string;
+            /** Home Shots */
+            home_shots: components["schemas"]["CeblShotEvent"][];
+            /** Away Shots */
+            away_shots: components["schemas"]["CeblShotEvent"][];
+        };
+        /** CeblShotEvent */
+        CeblShotEvent: {
+            /** Player Name */
+            player_name: string;
+            /** Player Id */
+            player_id: string;
+            /** Team No */
+            team_no: number;
+            /** Period */
+            period: number;
+            /** Shot Type */
+            shot_type: string;
+            /** Shot Sub Type */
+            shot_sub_type: string;
+            /** Made */
+            made: boolean;
+            /** X */
+            x: number;
+            /** Y */
+            y: number;
+        };
+        /**
+         * CflAnalytics
+         * @description All 9 CFL teams ranked across 9 efficiency/situational categories.
+         */
+        CflAnalytics: {
+            /** League Id */
+            league_id: string;
+            /** Season */
+            season: number;
+            /** Categories */
+            categories: {
+                [key: string]: components["schemas"]["CflAnalyticsTeamEntry"][];
+            };
+        };
+        /**
+         * CflAnalyticsTeamEntry
+         * @description One team's rank and value within a single analytics category.
+         */
+        CflAnalyticsTeamEntry: {
+            /** Rank */
+            rank: number;
+            team: components["schemas"]["TeamInfo"];
+            /** Value */
+            value: number;
+            /** Label */
+            label: string;
+        };
+        /**
+         * CflPlayerComparison
+         * @description Side-by-side 2025 season stats for two CFL players.
+         */
+        CflPlayerComparison: {
+            /** League Id */
+            league_id: string;
+            player1?: components["schemas"]["GenericPlayerStat"] | null;
+            player2?: components["schemas"]["GenericPlayerStat"] | null;
+            /**
+             * Errors
+             * @default []
+             */
+            errors: string[];
+        };
+        /**
+         * CflPlayerEntry
+         * @description A single player in the CFL player directory.
+         */
+        CflPlayerEntry: {
+            /** Player Id */
+            player_id: number;
+            /** Name */
+            name: string;
+            /** First Name */
+            first_name: string;
+            /** Last Name */
+            last_name: string;
+            /** Position */
+            position?: string | null;
+            /** Jersey No */
+            jersey_no?: number | null;
+            /** Team Id */
+            team_id: number;
+            /** Team Name */
+            team_name?: string | null;
+            /** Team Abbreviation */
+            team_abbreviation?: string | null;
+            /** Team Entity Id */
+            team_entity_id?: string | null;
+            /** Photo Url */
+            photo_url: string;
+            /** Birthdate */
+            birthdate?: string | null;
+            /** Height Ft */
+            height_ft?: number | null;
+            /** Height In */
+            height_in?: number | null;
+            /** Weight Lbs */
+            weight_lbs?: number | null;
+            /** College */
+            college?: string | null;
+            /** State */
+            state?: string | null;
+            /** Available Roster */
+            available_roster: boolean;
+        };
+        /**
+         * CflTeamForm
+         * @description Last-N-games averages vs season averages for a single CFL team.
+         */
+        CflTeamForm: {
+            team: components["schemas"]["TeamInfo"];
+            /** League Id */
+            league_id: string;
+            /** Season */
+            season: number;
+            /** Games Requested */
+            games_requested: number;
+            /** Games Available */
+            games_available: number;
+            /** Last N Avg */
+            last_n_avg: {
+                [key: string]: number;
+            };
+            /** Season Avg */
+            season_avg: {
+                [key: string]: number;
+            };
+            /** Trend */
+            trend: {
+                [key: string]: number;
+            };
+        };
+        /**
+         * CollegeLeagueAverages
+         * @description League-wide average metrics for college comparison.
+         */
+        CollegeLeagueAverages: {
+            /**
+             * Averages
+             * @description Average stats across the college league
+             */
+            averages?: {
+                [key: string]: number;
+            };
+        };
+        /**
+         * CollegeRadarCategories
+         * @description Radar axes stored as flexible key-value pairs.
+         */
+        CollegeRadarCategories: {
+            /**
+             * Metrics
+             * @description Performance metrics as flexible key-value pairs
+             */
+            metrics?: {
+                [key: string]: number;
+            };
+        };
+        /**
+         * CollegeRadarData
+         * @description Radar chart data for two college teams.
+         */
+        CollegeRadarData: {
+            /** @description Radar data for the first college team */
+            team1: components["schemas"]["CollegeRadarCategories"];
+            /** @description Radar data for the second college team */
+            team2: components["schemas"]["CollegeRadarCategories"];
+            /**
+             * Metadata
+             * @description Definitions and short names for radar metrics
+             */
+            metadata: {
+                [key: string]: components["schemas"]["RadarMetricMetadata"];
+            };
+        };
+        /**
+         * CollegeTeamComparison
+         * @description Extended comparison for U SPORTS / CCAA / college leagues.
+         * @example {
+         *       "league_averages": {
+         *         "averages": {
+         *           "points_per_game": 76,
+         *           "rebounds_per_game": 35
+         *         }
+         *       },
+         *       "radar": {
+         *         "metadata": {
+         *           "defense": {
+         *             "definition": "Defensive strength",
+         *             "short_name": "DEF"
+         *           },
+         *           "offense": {
+         *             "definition": "Offensive efficiency",
+         *             "short_name": "OFF"
+         *           },
+         *           "overall": {
+         *             "definition": "Overall team rating",
+         *             "short_name": "OVR"
+         *           }
+         *         },
+         *         "team1": {
+         *           "metrics": {
+         *             "defense": 0.91,
+         *             "offense": 0.85,
+         *             "overall": 0.88
+         *           }
+         *         },
+         *         "team2": {
+         *           "metrics": {
+         *             "defense": 0.85,
+         *             "offense": 0.94,
+         *             "overall": 0.92
+         *           }
+         *         }
+         *       },
+         *       "teams": {
+         *         "team1": {
+         *           "league_id": "usports_basketball",
+         *           "rankings": {
+         *             "points_per_game": 4,
+         *             "rebounds_per_game": 6
+         *           },
+         *           "stats": {
+         *             "points_per_game": 78.2,
+         *             "rebounds_per_game": 36.5
+         *           },
+         *           "team": {
+         *             "id": "18",
+         *             "name": {
+         *               "en": "Laurier Golden Hawks"
+         *             }
+         *           }
+         *         },
+         *         "team2": {
+         *           "league_id": "usports_basketball",
+         *           "rankings": {
+         *             "points_per_game": 2,
+         *             "rebounds_per_game": 3
+         *           },
+         *           "stats": {
+         *             "points_per_game": 82.5,
+         *             "rebounds_per_game": 38
+         *           },
+         *           "team": {
+         *             "id": "4",
+         *             "name": {
+         *               "en": "Carleton Ravens"
+         *             }
+         *           }
+         *         }
+         *       }
+         *     }
+         */
+        CollegeTeamComparison: {
+            /** @description Basic team stat comparison */
+            teams: components["schemas"]["GenericTeamComparison"];
+            /** @description Radar metrics for college teams */
+            radar: components["schemas"]["CollegeRadarData"];
+            /** @description League average metrics */
+            league_averages: components["schemas"]["CollegeLeagueAverages"];
+        };
+        /**
+         * EventInfo
+         * @description Event/discipline information for individual sports.
+         */
+        EventInfo: {
+            /**
+             * Id
+             * @description Event identifier (e.g., '100m', '86kg')
+             */
+            id: string;
+            /** @description Event name with translations */
+            name: components["schemas"]["LocalizedText"];
+            /**
+             * Type
+             * @description Event type (e.g., 'track', 'field', 'wrestling')
+             */
+            type: string;
+            /**
+             * Gender
+             * @description Gender category: 'm', 'w', or None
+             */
+            gender?: string | null;
+        };
+        /**
+         * GameCompetition
+         * @description Type of competition for a game.
+         * @enum {string}
+         */
+        GameCompetition: "REGULAR" | "PLAYOFFS" | "CHAMPIONSHIP" | "ALL_STAR" | "PRE_SEASON";
+        /**
+         * GameStatus
+         * @description Possible statuses for a game.
+         * @enum {string}
+         */
+        GameStatus: "SCHEDULED" | "LIVE" | "FINAL" | "FINAL - OT" | "FINAL - 2OT" | "FINAL - 3OT" | "POSTPONED" | "CANCELLED" | "UNKNOWN";
+        /**
+         * GenericAthleteResult
+         * @description Single result for an individual sport athlete.
+         * @example {
+         *       "athlete": {
+         *         "id": "A1234",
+         *         "name": "Andre De Grasse",
+         *         "school_abbrev": "TOR",
+         *         "school_name": "University of Toronto"
+         *       },
+         *       "event": {
+         *         "gender": "m",
+         *         "id": "100m",
+         *         "name": {
+         *           "en": "100 Metres"
+         *         },
+         *         "type": "track"
+         *       },
+         *       "league_id": "usports_track",
+         *       "meet_date": "2025-02-15",
+         *       "meet_name": "OUA Championships",
+         *       "qualified": true,
+         *       "rank": 1,
+         *       "result": {
+         *         "display": "10.24",
+         *         "numeric": 10.24,
+         *         "unit": "time"
+         *       },
+         *       "season": "2024-25"
+         *     }
+         */
+        GenericAthleteResult: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Athlete information */
+            athlete: components["schemas"]["AthleteInfo"];
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /** @description Event information */
+            event: components["schemas"]["EventInfo"];
+            /** @description Performance result */
+            result: components["schemas"]["ResultValue"];
+            /**
+             * Rank
+             * @description Rank in the event
+             */
+            rank: number;
+            /**
+             * Qualified
+             * @description Whether athlete met qualification standard
+             * @default false
+             */
+            qualified: boolean;
+            /**
+             * Meet Name
+             * @description Competition/meet name
+             */
+            meet_name?: string | null;
+            /**
+             * Meet Date
+             * @description Meet date
+             */
+            meet_date?: string | null;
+            /**
+             * Season
+             * @description Season year (e.g., '2024-25')
+             */
+            season?: string | null;
+        };
+        /**
+         * GenericBoxScore
+         * @description Full box score for one game, with team and player stats.
+         * @example {
+         *       "away_players": [],
+         *       "away_team": {
+         *         "league_id": "hoopqueens",
+         *         "rankings": {},
+         *         "stats": {
+         *           "field_goal_percentage": 0.423,
+         *           "score": 71,
+         *           "total_rebounds": 34
+         *         },
+         *         "team": {
+         *           "abbreviation": "BLZ",
+         *           "id": "Blaze",
+         *           "name": {
+         *             "en": "Blaze"
+         *           },
+         *           "team_entity_id": "hoopqueens-blaze"
+         *         }
+         *       },
+         *       "date": "2025-06-08T19:00:00Z",
+         *       "game_id": "5",
+         *       "home_players": [],
+         *       "home_team": {
+         *         "league_id": "hoopqueens",
+         *         "rankings": {},
+         *         "stats": {
+         *           "field_goal_percentage": 0.471,
+         *           "score": 82,
+         *           "total_rebounds": 38
+         *         },
+         *         "team": {
+         *           "abbreviation": "CHR",
+         *           "id": "Charge",
+         *           "name": {
+         *             "en": "Charge"
+         *           },
+         *           "team_entity_id": "hoopqueens-charge"
+         *         }
+         *       },
+         *       "league_id": "hoopqueens",
+         *       "season": 2025,
+         *       "slug": "2025-06-08-charge-vs-blaze",
+         *       "status": "FINAL",
+         *       "venue": "Scotiabank Arena"
+         *     }
+         */
+        GenericBoxScore: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /**
+             * Game Id
+             * @description Game identifier
+             */
+            game_id: string;
+            /**
+             * Slug
+             * @description Human-readable URL slug, e.g. 2025-06-08-charge-vs-blaze
+             */
+            slug?: string | null;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Season
+             * @description Season year
+             */
+            season?: number | null;
+            /**
+             * Date
+             * @description ISO 8601 date/time of the game
+             */
+            date?: string | null;
+            /**
+             * Venue
+             * @description Game venue
+             */
+            venue?: string | null;
+            /**
+             * @description Game status
+             * @default FINAL
+             */
+            status: components["schemas"]["GameStatus"];
+            /** @description Home team stats for this game */
+            home_team: components["schemas"]["GenericTeamStat"];
+            /** @description Away team stats for this game */
+            away_team: components["schemas"]["GenericTeamStat"];
+            /**
+             * Home Players
+             * @description Home team player stats
+             */
+            home_players?: components["schemas"]["GenericPlayerStat"][];
+            /**
+             * Away Players
+             * @description Away team player stats
+             */
+            away_players?: components["schemas"]["GenericPlayerStat"][];
+        };
+        /**
+         * GenericGame
+         * @description Schedule or result for a single game.
+         * @example {
+         *       "away_team": {
+         *         "score": 17,
+         *         "team": {
+         *           "abbreviation": "HAM",
+         *           "id": "HAM",
+         *           "name": {
+         *             "en": "Hamilton Tiger-Cats"
+         *           },
+         *           "team_entity_id": "cfl_hamilton_tiger_cats"
+         *         }
+         *       },
+         *       "broadcast": [
+         *         "CBC"
+         *       ],
+         *       "competition": "REGULAR",
+         *       "date": "2025-04-25T19:30:00Z",
+         *       "home_team": {
+         *         "score": 24,
+         *         "team": {
+         *           "abbreviation": "TOR",
+         *           "id": "TOR",
+         *           "name": {
+         *             "en": "Toronto Argonauts"
+         *           },
+         *           "team_entity_id": "cfl_toronto_argonauts"
+         *         }
+         *       },
+         *       "id": "CFL-2025-04-25-TOR-HAM",
+         *       "league_entity_id": "cfl",
+         *       "league_id": "cfl",
+         *       "status": "FINAL",
+         *       "venue": "BMO Field"
+         *     }
+         */
+        GenericGame: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /**
+             * Id
+             * @description Unique game identifier
+             */
+            id: string;
+            /**
+             * Livestats Id
+             * @description Live stats game ID for gamecast routes
+             */
+            livestats_id?: string | null;
+            /**
+             * Slug
+             * @description Human-readable URL slug, e.g. 2026-07-04-brampton-at-calgary
+             */
+            slug?: string | null;
+            /**
+             * Date
+             * @description ISO 8601 date/time of the game
+             */
+            date?: string | null;
+            /** @description Current status of the game */
+            status: components["schemas"]["GameStatus"];
+            /** @description Home team details and score */
+            home_team: components["schemas"]["TeamScore"];
+            /** @description Away team details and score */
+            away_team: components["schemas"]["TeamScore"];
+            /**
+             * League Id
+             * @description Identifier for the league
+             */
+            league_id: string;
+            /** @description Competition type */
+            competition?: components["schemas"]["GameCompetition"] | null;
+            /** Venue */
+            venue?: string | null;
+            /** Broadcast */
+            broadcast?: string[];
+            /** Sport */
+            sport?: string | null;
+        };
+        /**
+         * GenericPlayerLeaderboard
+         * @description Entry for a top player in a statistical leaderboard.
+         * @example {
+         *       "league_id": "cebl",
+         *       "player": {
+         *         "id": "17",
+         *         "jersey_number": "23",
+         *         "name": "Tristan Jass",
+         *         "photo_url": "https://example.com/tjass.jpg",
+         *         "position": "Guard"
+         *       },
+         *       "rank": 1,
+         *       "stat_type": "POINTS",
+         *       "team": {
+         *         "abbreviation": "VAN",
+         *         "id": "VAN01",
+         *         "name": {
+         *           "en": "Vancouver Bandits"
+         *         },
+         *         "team_entity_id": "cebl_vancouver"
+         *       },
+         *       "value": 89
+         *     }
+         */
+        GenericPlayerLeaderboard: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Player identity */
+            player: components["schemas"]["PlayerInfo"];
+            /** @description Team identity */
+            team?: components["schemas"]["TeamInfo"] | null;
+            /**
+             * Value
+             * @description Statistical value achieved
+             */
+            value: number;
+            /**
+             * Rank
+             * @description Position in the leaderboard
+             */
+            rank: number;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Stat Type
+             * @description Type of statistic (e.g., points)
+             */
+            stat_type: string;
+            /**
+             * Category
+             * @description Grouping category (e.g., OFFENCE, DEFENCE)
+             */
+            category?: string | null;
+        };
+        /**
+         * GenericPlayerStat
+         * @description Seasonal aggregates for a player.
+         * @example {
+         *       "league_id": "cpl",
+         *       "player": {
+         *         "id": "14",
+         *         "name": "Marcos Diaz",
+         *         "position": "Forward"
+         *       },
+         *       "stats": {
+         *         "assists": 5,
+         *         "goals": 12,
+         *         "minutes_played": 1980
+         *       },
+         *       "team": {
+         *         "abbreviation": "MTL",
+         *         "id": "MTL",
+         *         "name": {
+         *           "en": "Montreal FC"
+         *         },
+         *         "team_entity_id": "cpl_montreal"
+         *       }
+         *     }
+         */
+        GenericPlayerStat: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Player identity */
+            player: components["schemas"]["PlayerInfo"];
+            /** @description Team identity */
+            team?: components["schemas"]["TeamInfo"] | null;
+            /** Games Played */
+            games_played?: number | null;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Stats
+             * @description Player's cumulative or average stats
+             */
+            stats?: {
+                [key: string]: number | string;
+            };
+        };
+        /**
+         * GenericRelayResult
+         * @description A relay team result from a swimming championship event.
+         */
+        GenericRelayResult: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /**
+             * School
+             * @description School/team name
+             */
+            school: string;
+            /**
+             * School Normalized
+             * @description Normalized school identifier for API filtering
+             */
+            school_normalized?: string | null;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /** @description Event information */
+            event: components["schemas"]["EventInfo"];
+            /**
+             * Relay Letter
+             * @description Relay team letter (A, B, C...)
+             */
+            relay_letter: string;
+            /**
+             * Place
+             * @description Finishing place
+             */
+            place?: number | null;
+            /** @description Time result */
+            result: components["schemas"]["ResultValue"];
+            /**
+             * Championship Year
+             * @description Championship year
+             */
+            championship_year: number;
+            /**
+             * Swimmers
+             * @description Relay swimmers
+             */
+            swimmers?: components["schemas"]["SwimmerEntry"][];
+            /**
+             * Is Dq
+             * @description Whether the result was disqualified
+             * @default false
+             */
+            is_dq: boolean;
+            /**
+             * Met Standard
+             * @description Whether the result met the qualifying standard
+             * @default false
+             */
+            met_standard: boolean;
+            /**
+             * Record Flags
+             * @description Record flags (e.g., 'CAN', 'OUA')
+             * @default
+             */
+            record_flags: string;
+        };
+        /**
+         * GenericRosterPlayer
+         * @description Single player entry on a team roster.
+         * @example {
+         *       "games_played": 27,
+         *       "player": {
+         *         "id": "95132",
+         *         "jersey_number": "19",
+         *         "name": "Alphonso Davies",
+         *         "photo_url": "https://example.com/davies.jpg",
+         *         "position": "Left Back"
+         *       },
+         *       "profile": {
+         *         "date_of_birth": "2000-11-02",
+         *         "height": "5'11\"",
+         *         "nationality": "Canada",
+         *         "weight": "168 lbs"
+         *       },
+         *       "stats": {
+         *         "assists": 11,
+         *         "goals": 8,
+         *         "minutes_played": 2340
+         *       }
+         *     }
+         */
+        GenericRosterPlayer: {
+            /** @description Player identity */
+            player: components["schemas"]["PlayerInfo"];
+            /**
+             * Games Played
+             * @description Games played this season
+             */
+            games_played: number;
+            /**
+             * Stats
+             * @description Player's season stats
+             */
+            stats?: {
+                [key: string]: unknown;
+            };
+            /** @description Player biographical info */
+            profile?: components["schemas"]["PlayerProfile"];
+        };
+        /**
+         * GenericSchoolRanking
+         * @description School/team ranking for individual sports (computed from athlete points).
+         * @example {
+         *       "athlete_count": 18,
+         *       "gender": "m",
+         *       "league_id": "usports_track",
+         *       "rank": 1,
+         *       "school_abbrev": "GUE",
+         *       "school_name": "University of Guelph",
+         *       "total_points": 142.5
+         *     }
+         */
+        GenericSchoolRanking: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /**
+             * Rank
+             * @description Team rank
+             */
+            rank: number;
+            /**
+             * School Name
+             * @description School full name
+             */
+            school_name: string;
+            /**
+             * School Abbrev
+             * @description School abbreviation
+             */
+            school_abbrev?: string | null;
+            /**
+             * School Normalized
+             * @description Normalized school identifier for API filtering
+             */
+            school_normalized?: string | null;
+            /**
+             * Total Points
+             * @description Total points from all athletes
+             */
+            total_points: number;
+            /**
+             * Athlete Count
+             * @description Number of ranked athletes
+             */
+            athlete_count: number;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Gender
+             * @description Gender category
+             */
+            gender?: string | null;
+        };
+        /**
+         * GenericStandings
+         * @description Basic win/loss standing for a team.
+         * @example {
+         *       "division": "West",
+         *       "league_id": "cebl",
+         *       "losses": 6,
+         *       "rank": 2,
+         *       "stats": {
+         *         "goal_difference": 18,
+         *         "points": 42
+         *       },
+         *       "team": {
+         *         "abbreviation": "VAN",
+         *         "id": "VAN01",
+         *         "name": {
+         *           "en": "Vancouver Bandits"
+         *         },
+         *         "short_name": {
+         *           "en": "Vancouver"
+         *         },
+         *         "team_entity_id": "cebl_vancouver"
+         *       },
+         *       "wins": 12
+         *     }
+         */
+        GenericStandings: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Team identity */
+            team: components["schemas"]["TeamInfo"];
+            /**
+             * Wins
+             * @description Number of wins
+             */
+            wins: number;
+            /**
+             * Losses
+             * @description Number of losses
+             */
+            losses: number;
+            /**
+             * Rank
+             * @description Current rank in the standings
+             */
+            rank: number;
+            /**
+             * League Id
+             * @description Identifier for the league
+             */
+            league_id: string;
+            /**
+             * Division
+             * @description Division or group name
+             */
+            division?: string | null;
+            /**
+             * Stats
+             * @description Additional stats relevant to standings
+             */
+            stats?: {
+                [key: string]: number | string;
+            };
+        };
+        /**
+         * GenericTeamComparison
+         * @description Side-by-side comparison of two teams' season stats.
+         * @example {
+         *       "team1": {
+         *         "league_id": "cfl",
+         *         "rankings": {
+         *           "points_against": 3,
+         *           "points_for": 2
+         *         },
+         *         "stats": {
+         *           "points_against": 350,
+         *           "points_for": 380
+         *         },
+         *         "team": {
+         *           "abbreviation": "HAM",
+         *           "id": "HAM",
+         *           "name": {
+         *             "en": "Hamilton Tiger-Cats"
+         *           }
+         *         }
+         *       },
+         *       "team2": {
+         *         "league_id": "cfl",
+         *         "rankings": {
+         *           "points_against": 1,
+         *           "points_for": 1
+         *         },
+         *         "stats": {
+         *           "points_against": 320,
+         *           "points_for": 420
+         *         },
+         *         "team": {
+         *           "abbreviation": "TOR",
+         *           "id": "TOR",
+         *           "name": {
+         *             "en": "Toronto Argonauts"
+         *           }
+         *         }
+         *       }
+         *     }
+         */
+        GenericTeamComparison: {
+            /** @description First team's stats */
+            team1: components["schemas"]["GenericTeamStat"];
+            /** @description Second team's stats */
+            team2: components["schemas"]["GenericTeamStat"];
+        };
+        /**
+         * GenericTeamInfo
+         * @description Basic info and stats for a team.
+         * @example {
+         *       "division": "West",
+         *       "league_id": "cebl",
+         *       "losses": 6,
+         *       "rank": 2,
+         *       "stats": {
+         *         "goal_difference": 18,
+         *         "last_five": "WWLWW",
+         *         "points": 42
+         *       },
+         *       "streak": "W3",
+         *       "team": {
+         *         "abbreviation": "VAN",
+         *         "id": "VAN01",
+         *         "name": {
+         *           "en": "Vancouver Bandits"
+         *         },
+         *         "short_name": {
+         *           "en": "Vancouver"
+         *         },
+         *         "team_entity_id": "cebl_vancouver"
+         *       },
+         *       "wins": 12
+         *     }
+         */
+        GenericTeamInfo: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Team identity */
+            team: components["schemas"]["TeamInfo"];
+            /**
+             * Wins
+             * @description Number of wins
+             */
+            wins: number;
+            /**
+             * Losses
+             * @description Number of losses
+             */
+            losses: number;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /** Division */
+            division?: string | null;
+            /** Rank */
+            rank?: number | null;
+            /** Streak */
+            streak?: string | null;
+            /** Tickets Url */
+            tickets_url?: string | null;
+            /**
+             * Stats
+             * @description Additional team info stats
+             */
+            stats?: {
+                [key: string]: number | string;
+            };
+        };
+        /**
+         * GenericTeamRoster
+         * @description Complete roster for a team.
+         * @example {
+         *       "league_id": "cpl",
+         *       "players": [],
+         *       "team": {
+         *         "abbreviation": "VAN",
+         *         "id": "VAN",
+         *         "name": {
+         *           "en": "Vancouver Whitecaps"
+         *         },
+         *         "team_entity_id": "cpl_vancouver"
+         *       }
+         *     }
+         */
+        GenericTeamRoster: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Team identity */
+            team: components["schemas"]["TeamInfo"];
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Players
+             * @description List of roster players
+             */
+            players?: components["schemas"]["GenericRosterPlayer"][];
+        };
+        /**
+         * GenericTeamStat
+         * @description Seasonal aggregates for a team with rankings.
+         * @example {
+         *       "league_id": "cebl",
+         *       "rankings": {
+         *         "points_per_game": 1,
+         *         "rebounds_per_game": 3
+         *       },
+         *       "stats": {
+         *         "points_per_game": 102.3,
+         *         "rebounds_per_game": 44.1
+         *       },
+         *       "team": {
+         *         "abbreviation": "VAN",
+         *         "id": "VAN",
+         *         "name": {
+         *           "en": "Vancouver Bandits"
+         *         },
+         *         "short_name": {
+         *           "en": "Vancouver"
+         *         },
+         *         "team_entity_id": "cebl_vancouver"
+         *       }
+         *     }
+         */
+        GenericTeamStat: {
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** @description Team identity */
+            team: components["schemas"]["TeamInfo"];
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /** Games Played */
+            games_played?: number | null;
+            /**
+             * Stats
+             * @description Cumulative or average stats for the team
+             */
+            stats?: {
+                [key: string]: number | string;
+            };
+            /**
+             * Rankings
+             * @description Team's rank per statistic within the league
+             */
+            rankings?: {
+                [key: string]: number;
+            };
+        };
+        /** HTTPValidationError */
+        HTTPValidationError: {
+            /** Detail */
+            detail?: components["schemas"]["ValidationError"][];
+        };
+        /**
+         * HealthCheckResponse
+         * @description Health check response model
+         */
+        HealthCheckResponse: {
+            /** Status */
+            status: string;
+            /** Details */
+            details: {
+                [key: string]: string;
+            };
+        };
+        /**
+         * HoopQueensPlayerComparison
+         * @description Side-by-side season stats for two HoopQueens players.
+         */
+        HoopQueensPlayerComparison: {
+            /** League Id */
+            league_id: string;
+            player1?: components["schemas"]["GenericPlayerStat"] | null;
+            player2?: components["schemas"]["GenericPlayerStat"] | null;
+            /**
+             * Errors
+             * @default []
+             */
+            errors: string[];
+        };
+        /**
+         * HoopQueensPlayerEntry
+         * @description A single player in the HoopQueens player directory.
+         */
+        HoopQueensPlayerEntry: {
+            /** Player Id */
+            player_id: number;
+            /** Name */
+            name: string;
+            /** First Name */
+            first_name: string;
+            /** Last Name */
+            last_name: string;
+            /** Jersey Number */
+            jersey_number?: number | null;
+            /** Position */
+            position?: string | null;
+            /** Birth Date */
+            birth_date?: string | null;
+            /** Nationality */
+            nationality?: string | null;
+            /** School */
+            school?: string | null;
+            /** Team Id */
+            team_id: number;
+            /** Team Name */
+            team_name?: string | null;
+            /** Team Abbreviation */
+            team_abbreviation?: string | null;
+            /** Team Entity Id */
+            team_entity_id?: string | null;
+            /** League Id */
+            league_id: string;
+            /** League Entity Id */
+            league_entity_id?: string | null;
+            /** Season */
+            season: number;
+        };
+        /**
+         * LedgerTransaction
+         * @description Type hint for ledger transactions
+         */
+        LedgerTransaction: {
+            /** Transaction Id */
+            transaction_id: number;
+            /** Description */
+            description: string;
+            /** Accepted At */
+            accepted_at?: string;
+            /** Distributed At */
+            distributed_at: string;
+            /** Firstname */
+            firstname: string;
+            /** Lastname */
+            lastname: string;
+            /** Position */
+            position: string;
+            /** Nationality */
+            nationality: string;
+            /** College */
+            college: string | null;
+            /** Team Abbr */
+            team_abbr?: string | null;
+            /** Action */
+            action: string;
+            /** Is Distributed */
+            is_distributed: boolean;
+            /** Player Id */
+            player_id: number;
+            /** Resource Type */
+            resource_type: string;
+            /** State Change */
+            state_change: string | null;
+            /** Previous State */
+            previous_state: string | null;
+        };
+        /**
+         * LocalizedText
+         * @description Text with English and French translations.
+         */
+        LocalizedText: {
+            /**
+             * En
+             * @description English text
+             */
+            en: string;
+            /**
+             * Fr
+             * @description French text
+             */
+            fr?: string | null;
+        };
+        /**
+         * PlayerInfo
+         * @description Unified player identity — replaces scattered player fields.
+         */
+        PlayerInfo: {
+            /**
+             * Id
+             * @description Player identifier
+             */
+            id: string;
+            /**
+             * Name
+             * @description Player full name
+             */
+            name: string;
+            /**
+             * Position
+             * @description Player position
+             */
+            position?: string | null;
+            /**
+             * Jersey Number
+             * @description Jersey number
+             */
+            jersey_number?: string | null;
+            /**
+             * Photo Url
+             * @description Player photo URL
+             */
+            photo_url?: string | null;
+        };
+        /**
+         * PlayerProfile
+         * @description Player biographical information — used in roster context.
+         */
+        PlayerProfile: {
+            /** Height */
+            height?: string | null;
+            /** Height Unit */
+            height_unit?: string | null;
+            /** Weight */
+            weight?: string | null;
+            /** Weight Unit */
+            weight_unit?: string | null;
+            /** Date Of Birth */
+            date_of_birth?: string | null;
+            /** Nationality */
+            nationality?: string | null;
+            /** College */
+            college?: string | null;
+            /** Bio */
+            bio?: string | null;
+        };
+        /**
+         * RadarMetricMetadata
+         * @description Metadata for radar chart metrics.
+         */
+        RadarMetricMetadata: {
+            /**
+             * Short Name
+             * @description Short abbreviated name for the metric
+             */
+            short_name: string;
+            /**
+             * Definition
+             * @description Detailed definition of what the metric measures
+             */
+            definition: string;
+        };
+        /**
+         * ResultValue
+         * @description Structured result with display and sortable values.
+         */
+        ResultValue: {
+            /**
+             * Display
+             * @description Display value (e.g., '10.24', '2:03.84', '7.82m')
+             */
+            display: string;
+            /**
+             * Numeric
+             * @description Numeric value for sorting
+             */
+            numeric?: number | null;
+            /**
+             * Unit
+             * @description Unit type: 'time', 'distance', 'points', 'weight'
+             */
+            unit?: string | null;
+        };
+        /**
+         * StandardResponse
+         * @description Standard API response wrapper with metadata
+         */
+        StandardResponse: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: unknown | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[BasketballTeamComparison] */
+        StandardResponse_BasketballTeamComparison_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["BasketballTeamComparison"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CeblBoxScore] */
+        StandardResponse_CeblBoxScore_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CeblBoxScore"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CeblPlayerComparison] */
+        StandardResponse_CeblPlayerComparison_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CeblPlayerComparison"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CeblShotChart] */
+        StandardResponse_CeblShotChart_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CeblShotChart"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CflAnalytics] */
+        StandardResponse_CflAnalytics_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CflAnalytics"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CflPlayerComparison] */
+        StandardResponse_CflPlayerComparison_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CflPlayerComparison"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CflTeamForm] */
+        StandardResponse_CflTeamForm_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CflTeamForm"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[CollegeTeamComparison] */
+        StandardResponse_CollegeTeamComparison_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["CollegeTeamComparison"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[GenericBoxScore] */
+        StandardResponse_GenericBoxScore_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["GenericBoxScore"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[GenericPlayerStat] */
+        StandardResponse_GenericPlayerStat_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["GenericPlayerStat"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[GenericTeamComparison] */
+        StandardResponse_GenericTeamComparison_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["GenericTeamComparison"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[GenericTeamInfo] */
+        StandardResponse_GenericTeamInfo_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["GenericTeamInfo"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[GenericTeamRoster] */
+        StandardResponse_GenericTeamRoster_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["GenericTeamRoster"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[GenericTeamStat] */
+        StandardResponse_GenericTeamStat_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["GenericTeamStat"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[HoopQueensPlayerComparison] */
+        StandardResponse_HoopQueensPlayerComparison_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            data?: components["schemas"]["HoopQueensPlayerComparison"] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[dict] */
+        StandardResponse_dict_: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: {
+                [key: string]: unknown;
+            } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[dict[str, list[GenericAthleteResult]]] */
+        StandardResponse_dict_str__list_GenericAthleteResult___: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: {
+                [key: string]: components["schemas"]["GenericAthleteResult"][];
+            } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[dict[str, list[GenericGame]]] */
+        StandardResponse_dict_str__list_GenericGame___: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: {
+                [key: string]: components["schemas"]["GenericGame"][];
+            } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[dict[str, list[GenericPlayerLeaderboard]]] */
+        StandardResponse_dict_str__list_GenericPlayerLeaderboard___: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: {
+                [key: string]: components["schemas"]["GenericPlayerLeaderboard"][];
+            } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[dict[str, list[GenericStandings]]] */
+        StandardResponse_dict_str__list_GenericStandings___: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: {
+                [key: string]: components["schemas"]["GenericStandings"][];
+            } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[CeblPlayByPlayEvent]] */
+        StandardResponse_list_CeblPlayByPlayEvent__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["CeblPlayByPlayEvent"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[CeblPlayerEntry]] */
+        StandardResponse_list_CeblPlayerEntry__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["CeblPlayerEntry"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[CflPlayerEntry]] */
+        StandardResponse_list_CflPlayerEntry__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["CflPlayerEntry"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[EventInfo]] */
+        StandardResponse_list_EventInfo__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["EventInfo"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericAthleteResult]] */
+        StandardResponse_list_GenericAthleteResult__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericAthleteResult"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericGame]] */
+        StandardResponse_list_GenericGame__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericGame"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericPlayerStat]] */
+        StandardResponse_list_GenericPlayerStat__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericPlayerStat"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericRelayResult]] */
+        StandardResponse_list_GenericRelayResult__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericRelayResult"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericSchoolRanking]] */
+        StandardResponse_list_GenericSchoolRanking__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericSchoolRanking"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericStandings]] */
+        StandardResponse_list_GenericStandings__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericStandings"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[GenericTeamStat]] */
+        StandardResponse_list_GenericTeamStat__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["GenericTeamStat"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[HoopQueensPlayerEntry]] */
+        StandardResponse_list_HoopQueensPlayerEntry__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["HoopQueensPlayerEntry"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[LedgerTransaction]] */
+        StandardResponse_list_LedgerTransaction__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["LedgerTransaction"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[SwimMedalTally]] */
+        StandardResponse_list_SwimMedalTally__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["SwimMedalTally"][] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[int]] */
+        StandardResponse_list_int__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: number[] | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /**
+         * SwimMedalTally
+         * @description Medal count per school for a swimming championship.
+         */
+        SwimMedalTally: {
+            /**
+             * School
+             * @description School name
+             */
+            school: string;
+            /**
+             * School Normalized
+             * @description Normalized school identifier for API filtering
+             */
+            school_normalized?: string | null;
+            /**
+             * League Id
+             * @description League identifier
+             */
+            league_id: string;
+            /**
+             * Championship Year
+             * @description Championship year
+             */
+            championship_year: number;
+            /**
+             * Gold
+             * @description Gold medals (1st place)
+             * @default 0
+             */
+            gold: number;
+            /**
+             * Silver
+             * @description Silver medals (2nd place)
+             * @default 0
+             */
+            silver: number;
+            /**
+             * Bronze
+             * @description Bronze medals (3rd place)
+             * @default 0
+             */
+            bronze: number;
+            /**
+             * Total
+             * @description Total medals
+             * @default 0
+             */
+            total: number;
+        };
+        /**
+         * SwimmerEntry
+         * @description A single swimmer in a relay team.
+         */
+        SwimmerEntry: {
+            /** Name */
+            name: string;
+            /** Academic Year */
+            academic_year?: string | null;
+        };
+        /**
+         * SwimmingLeague
+         * @description Swimming league identifiers.
+         * @enum {string}
+         */
+        SwimmingLeague: "mswim" | "wswim";
+        /**
+         * TeamInfo
+         * @description Unified team identity — replaces all scattered team fields.
+         */
+        TeamInfo: {
+            /**
+             * Id
+             * @description Team identifier
+             */
+            id: string;
+            /** @description Team name (bilingual) */
+            name: components["schemas"]["LocalizedText"];
+            /** @description Short team name (bilingual) */
+            short_name?: components["schemas"]["LocalizedText"] | null;
+            /**
+             * Abbreviation
+             * @description Team abbreviation (e.g., 'TOR', 'VAN')
+             */
+            abbreviation?: string | null;
+            /**
+             * Team Entity Id
+             * @description Cross-platform team entity identifier
+             */
+            team_entity_id?: string | null;
+        };
+        /**
+         * TeamScore
+         * @description Team identity and score in a game.
+         * @example {
+         *       "score": 24,
+         *       "team": {
+         *         "abbreviation": "TOR",
+         *         "id": "TOR",
+         *         "name": {
+         *           "en": "Toronto Argonauts"
+         *         },
+         *         "short_name": {
+         *           "en": "Argonauts"
+         *         },
+         *         "team_entity_id": "cfl_toronto_argonauts"
+         *       }
+         *     }
+         */
+        TeamScore: {
+            /** @description Team identity */
+            team: components["schemas"]["TeamInfo"];
+            /** Score */
+            score?: number | null;
+        };
+        /**
+         * TrackAndFieldLeague
+         * @description Track & Field league identifiers.
+         * @enum {string}
+         */
+        TrackAndFieldLeague: "mtrack" | "wtrack";
+        /**
+         * UnifiedHealthCheckResponse
+         * @description Unified health check response model
+         */
+        UnifiedHealthCheckResponse: {
+            /** Status */
+            status: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             */
+            timestamp: string;
+            /** Services */
+            services: {
+                [key: string]: string;
+            };
+        };
+        /** ValidationError */
+        ValidationError: {
+            /** Location */
+            loc: (string | number)[];
+            /** Message */
+            msg: string;
+            /** Error Type */
+            type: string;
+        };
+        /**
+         * WrestlingLeague
+         * @description Wrestling league identifiers.
+         * @enum {string}
+         */
+        WrestlingLeague: "mwres" | "wwres";
+        /**
+         * League
+         * @description Valid OCAA leagues
+         * @enum {string}
+         */
+        app__api__v1__ocaa__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "msoc" | "wsoc";
+        /**
+         * SeasonOption
+         * @description Valid season options - OCAA only has regular and playoffs
+         * @enum {string}
+         */
+        app__api__v1__ocaa__constants__SeasonOption: "regular" | "playoffs";
+        /**
+         * Sport
+         * @description Valid OCAA sports
+         * @enum {string}
+         */
+        app__api__v1__ocaa__constants__Sport: "basketball" | "volleyball" | "soccer";
+        /**
+         * League
+         * @description Valid USports leagues
+         * @enum {string}
+         */
+        app__api__v1__usports__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "mfb" | "msoc" | "wsoc" | "mhky" | "whky";
+        /**
+         * SeasonOption
+         * @description Valid season options
+         * @enum {string}
+         */
+        app__api__v1__usports__constants__SeasonOption: "regular" | "playoffs" | "championship";
+        /**
+         * Sport
+         * @description Valid USports sports
+         * @enum {string}
+         */
+        app__api__v1__usports__constants__Sport: "basketball" | "football" | "ice_hockey" | "soccer" | "volleyball";
+    };
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
 }
 export type $defs = Record<string, never>;
 export interface operations {
-  health_api_v1_health__get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UnifiedHealthCheckResponse'];
-        };
-      };
-    };
-  };
-  health_redis_api_v1_health_redis_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HealthCheckResponse'];
-        };
-      };
-    };
-  };
-  health_postgres_api_v1_health_postgres_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HealthCheckResponse'];
-        };
-      };
-    };
-  };
-  get_pro_games_api_v1_aggregate_games_pro_get: {
-    parameters: {
-      query?: {
-        start_date?: string;
-        end_date?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericGame___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_usports_games_api_v1_aggregate_games_usports_get: {
-    parameters: {
-      query?: {
-        start_date?: string;
-        end_date?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericGame___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_ocaa_games_api_v1_aggregate_games_ocaa_get: {
-    parameters: {
-      query?: {
-        start_date?: string;
-        end_date?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericGame___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_cebl_games_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'brampton'
-              | 'calgary'
-              | 'edmonton'
-              | 'montreal'
-              | 'niagara'
-              | 'ottawa'
-              | 'saskatoon'
-              | 'scarborough'
-              | 'vancouver'
-              | 'winnipeg'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_cebl_standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericStandings___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_leaders_api_v1_cebl_leaderboard_get: {
-    parameters: {
-      query: {
-        mode: 'PER_GAME' | 'TOTALS';
-        team_name?:
-          | (
-              | 'brampton'
-              | 'calgary'
-              | 'edmonton'
-              | 'montreal'
-              | 'niagara'
-              | 'ottawa'
-              | 'saskatoon'
-              | 'scarborough'
-              | 'vancouver'
-              | 'winnipeg'
-            )
-          | null;
-        competition?: ('REGULAR' | 'FINALS') | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericPlayerLeaderboard___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_cebl_teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'brampton'
-          | 'calgary'
-          | 'edmonton'
-          | 'montreal'
-          | 'niagara'
-          | 'ottawa'
-          | 'saskatoon'
-          | 'scarborough'
-          | 'vancouver'
-          | 'winnipeg';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_cebl_teams__team_name__roster_get: {
-    parameters: {
-      query: {
-        mode: 'PER_GAME' | 'TOTALS';
-      };
-      header?: never;
-      path: {
-        team_name:
-          | 'brampton'
-          | 'calgary'
-          | 'edmonton'
-          | 'montreal'
-          | 'niagara'
-          | 'ottawa'
-          | 'saskatoon'
-          | 'scarborough'
-          | 'vancouver'
-          | 'winnipeg';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_cebl_teams_statistics_get: {
-    parameters: {
-      query: {
-        mode: 'PER_GAME' | 'TOTALS';
-        team_name?:
-          | (
-              | 'brampton'
-              | 'calgary'
-              | 'edmonton'
-              | 'montreal'
-              | 'niagara'
-              | 'ottawa'
-              | 'saskatoon'
-              | 'scarborough'
-              | 'vancouver'
-              | 'winnipeg'
-            )
-          | null;
-        competition?: ('REGULAR' | 'FINALS') | null;
-        segment?:
-          | ('HOME' | 'AWAY' | 'L7D' | 'L5G' | 'L10G' | 'MAY' | 'JUNE' | 'JULY' | 'AUGUST')
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_statistics_api_v1_cebl_players_statistics_get: {
-    parameters: {
-      query: {
-        mode: 'PER_GAME' | 'TOTALS';
-        team_name?:
-          | (
-              | 'brampton'
-              | 'calgary'
-              | 'edmonton'
-              | 'montreal'
-              | 'niagara'
-              | 'ottawa'
-              | 'saskatoon'
-              | 'scarborough'
-              | 'vancouver'
-              | 'winnipeg'
-            )
-          | null;
-        player_id?: number | null;
-        competition?: ('REGULAR' | 'FINALS') | null;
-        segment?: ('EAST' | 'WEST' | 'HOME' | 'AWAY') | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericPlayerStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_cebl_teams_comparison_get: {
-    parameters: {
-      query: {
-        mode: 'PER_GAME' | 'TOTALS';
-        team1:
-          | 'brampton'
-          | 'calgary'
-          | 'edmonton'
-          | 'montreal'
-          | 'niagara'
-          | 'ottawa'
-          | 'saskatoon'
-          | 'scarborough'
-          | 'vancouver'
-          | 'winnipeg';
-        team2:
-          | 'brampton'
-          | 'calgary'
-          | 'edmonton'
-          | 'montreal'
-          | 'niagara'
-          | 'ottawa'
-          | 'saskatoon'
-          | 'scarborough'
-          | 'vancouver'
-          | 'winnipeg';
-        competition?: ('REGULAR' | 'FINALS') | null;
-        segment?:
-          | ('HOME' | 'AWAY' | 'L7D' | 'L5G' | 'L10G' | 'MAY' | 'JUNE' | 'JULY' | 'AUGUST')
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_players_api_v1_cebl_players_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'brampton'
-              | 'calgary'
-              | 'edmonton'
-              | 'montreal'
-              | 'niagara'
-              | 'ottawa'
-              | 'saskatoon'
-              | 'scarborough'
-              | 'vancouver'
-              | 'winnipeg'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_CeblPlayerEntry__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_comparison_api_v1_cebl_players_compare_get: {
-    parameters: {
-      query: {
-        p1: number;
-        p2: number;
-        competition?: ('REGULAR' | 'FINALS') | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CeblPlayerComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_box_score_api_v1_cebl_games__livestats_id__box_score_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        livestats_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CeblBoxScore_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_shots_api_v1_cebl_games__livestats_id__shots_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        livestats_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CeblShotChart_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_play_by_play_api_v1_cebl_games__livestats_id__play_by_play_get: {
-    parameters: {
-      query?: {
-        since_action_number?: number | null;
-      };
-      header?: never;
-      path: {
-        livestats_id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_CeblPlayByPlayEvent__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_cebl_transactions_api_v1_cebl_transactions_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_games_api_v1_cfl_games_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'alouettes'
-              | 'argonauts'
-              | 'bombers'
-              | 'stampeders'
-              | 'lions'
-              | 'redblacks'
-              | 'roughriders'
-              | 'tigercats'
-              | 'elks'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_cfl_standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericStandings___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_leaderboard_api_v1_cfl_leaderboard_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericPlayerLeaderboard___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_team_info_api_v1_cfl_teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'alouettes'
-          | 'argonauts'
-          | 'bombers'
-          | 'stampeders'
-          | 'lions'
-          | 'redblacks'
-          | 'roughriders'
-          | 'tigercats'
-          | 'elks';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_cfl_teams__team_name__roster_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'alouettes'
-          | 'argonauts'
-          | 'bombers'
-          | 'stampeders'
-          | 'lions'
-          | 'redblacks'
-          | 'roughriders'
-          | 'tigercats'
-          | 'elks';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_cfl_teams_statistics_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'alouettes'
-              | 'argonauts'
-              | 'bombers'
-              | 'stampeders'
-              | 'lions'
-              | 'redblacks'
-              | 'roughriders'
-              | 'tigercats'
-              | 'elks'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_players_api_v1_cfl_players_get: {
-    parameters: {
-      query?: {
-        position?:
-          | (
-              | 'QB'
-              | 'RB'
-              | 'FB'
-              | 'WR'
-              | 'TE'
-              | 'OL'
-              | 'DL'
-              | 'DE'
-              | 'DT'
-              | 'LB'
-              | 'DB'
-              | 'K'
-              | 'P'
-              | 'LS'
-            )
-          | null;
-        team?:
-          | (
-              | 'alouettes'
-              | 'argonauts'
-              | 'bombers'
-              | 'stampeders'
-              | 'lions'
-              | 'redblacks'
-              | 'roughriders'
-              | 'tigercats'
-              | 'elks'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_CflPlayerEntry__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_comparison_api_v1_cfl_players_compare_get: {
-    parameters: {
-      query: {
-        p1: number;
-        p2: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CflPlayerComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_statistics_api_v1_cfl_players_statistics__player_id__get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        player_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericPlayerStat_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_cfl_teams_comparison_get: {
-    parameters: {
-      query: {
-        team1:
-          | 'alouettes'
-          | 'argonauts'
-          | 'bombers'
-          | 'stampeders'
-          | 'lions'
-          | 'redblacks'
-          | 'roughriders'
-          | 'tigercats'
-          | 'elks';
-        team2:
-          | 'alouettes'
-          | 'argonauts'
-          | 'bombers'
-          | 'stampeders'
-          | 'lions'
-          | 'redblacks'
-          | 'roughriders'
-          | 'tigercats'
-          | 'elks';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_analytics_api_v1_cfl_analytics_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CflAnalytics_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_team_form_api_v1_cfl_teams__team_name__form_get: {
-    parameters: {
-      query?: {
-        games?: number;
-      };
-      header?: never;
-      path: {
-        team_name:
-          | 'alouettes'
-          | 'argonauts'
-          | 'bombers'
-          | 'stampeders'
-          | 'lions'
-          | 'redblacks'
-          | 'roughriders'
-          | 'tigercats'
-          | 'elks';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CflTeamForm_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_transactions_api_v1_cfl_transactions_get: {
-    parameters: {
-      query?: {
-        player_id?: number | null;
-        limit?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_LedgerTransaction__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_cpl_games_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'cavalry'
-              | 'wanderers'
-              | 'vancouver'
-              | 'pacific'
-              | 'forge'
-              | 'inter'
-              | 'atletico'
-              | 'supra'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_cpl_standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericStandings___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_leaderboard_api_v1_cpl_leaderboard_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericPlayerLeaderboard___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_team_info_api_v1_cpl_teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'cavalry'
-          | 'wanderers'
-          | 'vancouver'
-          | 'pacific'
-          | 'forge'
-          | 'inter'
-          | 'atletico'
-          | 'supra';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_cpl_teams__team_name__roster_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'cavalry'
-          | 'wanderers'
-          | 'vancouver'
-          | 'pacific'
-          | 'forge'
-          | 'inter'
-          | 'atletico'
-          | 'supra';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_cpl_teams_statistics_get: {
-    parameters: {
-      query: {
-        team_name:
-          | 'cavalry'
-          | 'wanderers'
-          | 'vancouver'
-          | 'pacific'
-          | 'forge'
-          | 'inter'
-          | 'atletico'
-          | 'supra';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_statistics_api_v1_cpl_players_statistics_get: {
-    parameters: {
-      query: {
-        team_name:
-          | 'cavalry'
-          | 'wanderers'
-          | 'vancouver'
-          | 'pacific'
-          | 'forge'
-          | 'inter'
-          | 'atletico'
-          | 'supra';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericPlayerStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_cpl_teams_comparison_get: {
-    parameters: {
-      query: {
-        team1:
-          | 'cavalry'
-          | 'wanderers'
-          | 'vancouver'
-          | 'pacific'
-          | 'forge'
-          | 'inter'
-          | 'atletico'
-          | 'supra';
-        team2:
-          | 'cavalry'
-          | 'wanderers'
-          | 'vancouver'
-          | 'pacific'
-          | 'forge'
-          | 'inter'
-          | 'atletico'
-          | 'supra';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json':
-            | components['schemas']['StandardResponse']
-            | components['schemas']['StandardResponse_GenericTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_hoopqueens_games_get: {
-    parameters: {
-      query?: {
-        team_name?: ('blaze' | 'charge' | 'reign' | 'tide') | null;
-        season?: number | null;
-        assigned_only?: boolean;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_game_box_score_api_v1_hoopqueens_games__game_id__boxscore_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        game_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericBoxScore_'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_hoopqueens_standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericStandings___'];
-        };
-      };
-    };
-  };
-  get_leaderboard_api_v1_hoopqueens_leaderboard_get: {
-    parameters: {
-      query?: {
-        limit?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericPlayerLeaderboard___'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_hoopqueens_teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name: 'blaze' | 'charge' | 'reign' | 'tide';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_hoopqueens_teams__team_name__roster_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name: 'blaze' | 'charge' | 'reign' | 'tide';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_hoopqueens_teams_statistics_get: {
-    parameters: {
-      query?: {
-        team_name?: ('blaze' | 'charge' | 'reign' | 'tide') | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_statistics_api_v1_hoopqueens_players_statistics_get: {
-    parameters: {
-      query?: {
-        team_name?: ('blaze' | 'charge' | 'reign' | 'tide') | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericPlayerStat__'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_api_v1_hoopqueens_players_statistics__player_id__get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        player_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericPlayerStat_'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_players_api_v1_hoopqueens_players_get: {
-    parameters: {
-      query?: {
-        team_name?: ('blaze' | 'charge' | 'reign' | 'tide') | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_HoopQueensPlayerEntry__'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_comparison_api_v1_hoopqueens_players_compare_get: {
-    parameters: {
-      query: {
-        p1: number;
-        p2: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_HoopQueensPlayerComparison_'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_hoopqueens_teams_comparison_get: {
-    parameters: {
-      query: {
-        team1: 'blaze' | 'charge' | 'reign' | 'tide';
-        team2: 'blaze' | 'charge' | 'reign' | 'tide';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamComparison_'];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_chl__league__games_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'brantford-bulldogs'
-              | 'peterborough-petes'
-              | 'ottawa-67s'
-              | 'oshawa-generals'
-              | 'kingston-frontenacs'
-              | 'london-knights'
-              | 'owen-sound-attack'
-              | 'kitchener-rangers'
-              | 'guelph-storm'
-              | 'erie-otters'
-              | 'niagara-icedogs'
-              | 'north-bay-battalion'
-              | 'brampton-steelheads'
-              | 'sudbury-wolves'
-              | 'barrie-colts'
-              | 'flint-firebirds'
-              | 'saginaw-spirit'
-              | 'windsor-spitfires'
-              | 'sault-ste-marie-greyhound'
-              | 'sarnia-sting'
-              | 'brandon-wheat-kings'
-              | 'swift-current-broncos'
-              | 'saskatoon-blades'
-              | 'regina-pats'
-              | 'prince-albert-raiders'
-              | 'moose-jaw-warriors'
-              | 'everett-silvertips'
-              | 'wenatchee-wild'
-              | 'tri-city-americans'
-              | 'spokane-chiefs'
-              | 'seattle-thunderbirds'
-              | 'portland-winterhawks'
-              | 'penticton-vees'
-              | 'victoria-royals'
-              | 'vancouver-giants'
-              | 'prince-george-cougars'
-              | 'kelowna-rockets'
-              | 'kamloops-blazers'
-              | 'calgary-hitmen'
-              | 'edmonton-oil-kings'
-              | 'red-deer-rebels'
-              | 'medicine-hat-tigers'
-              | 'lethbridge-hurricanes'
-              | 'rimouski-oceanic'
-              | 'chicoutimi-sagueneens'
-              | 'baie-comeau'
-              | 'quebec-remparts'
-              | 'drummondville-voltigeurs'
-              | 'shawinigan-cataractes'
-              | 'sherbrooke-phoenix'
-              | 'victoriaville-tigres'
-              | 'rouyn-noranda-huskies'
-              | 'blainville-boisbriand-armada'
-              | 'val-dor-foreurs'
-              | 'gatineau-olympiques'
-              | 'moncton-wildcats'
-              | 'cape-breton-eagles'
-              | 'acadie-bathurst-titan'
-              | 'charlottetown-islanders'
-              | 'halifax-mooseheads'
-              | 'saint-john-sea-dogs'
-            )
-          | null;
-      };
-      header?: never;
-      path: {
-        league: 'ohl' | 'whl' | 'qjmhl';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_chl__league__standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        league: 'ohl' | 'whl' | 'qjmhl';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericStandings__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_chl__league__teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        league: 'ohl' | 'whl' | 'qjmhl';
-        team_name:
-          | 'brantford-bulldogs'
-          | 'peterborough-petes'
-          | 'ottawa-67s'
-          | 'oshawa-generals'
-          | 'kingston-frontenacs'
-          | 'london-knights'
-          | 'owen-sound-attack'
-          | 'kitchener-rangers'
-          | 'guelph-storm'
-          | 'erie-otters'
-          | 'niagara-icedogs'
-          | 'north-bay-battalion'
-          | 'brampton-steelheads'
-          | 'sudbury-wolves'
-          | 'barrie-colts'
-          | 'flint-firebirds'
-          | 'saginaw-spirit'
-          | 'windsor-spitfires'
-          | 'sault-ste-marie-greyhound'
-          | 'sarnia-sting'
-          | 'brandon-wheat-kings'
-          | 'swift-current-broncos'
-          | 'saskatoon-blades'
-          | 'regina-pats'
-          | 'prince-albert-raiders'
-          | 'moose-jaw-warriors'
-          | 'everett-silvertips'
-          | 'wenatchee-wild'
-          | 'tri-city-americans'
-          | 'spokane-chiefs'
-          | 'seattle-thunderbirds'
-          | 'portland-winterhawks'
-          | 'penticton-vees'
-          | 'victoria-royals'
-          | 'vancouver-giants'
-          | 'prince-george-cougars'
-          | 'kelowna-rockets'
-          | 'kamloops-blazers'
-          | 'calgary-hitmen'
-          | 'edmonton-oil-kings'
-          | 'red-deer-rebels'
-          | 'medicine-hat-tigers'
-          | 'lethbridge-hurricanes'
-          | 'rimouski-oceanic'
-          | 'chicoutimi-sagueneens'
-          | 'baie-comeau'
-          | 'quebec-remparts'
-          | 'drummondville-voltigeurs'
-          | 'shawinigan-cataractes'
-          | 'sherbrooke-phoenix'
-          | 'victoriaville-tigres'
-          | 'rouyn-noranda-huskies'
-          | 'blainville-boisbriand-armada'
-          | 'val-dor-foreurs'
-          | 'gatineau-olympiques'
-          | 'moncton-wildcats'
-          | 'cape-breton-eagles'
-          | 'acadie-bathurst-titan'
-          | 'charlottetown-islanders'
-          | 'halifax-mooseheads'
-          | 'saint-john-sea-dogs';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_chl__league__teams__team_name__statistics_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        league: 'ohl' | 'whl' | 'qjmhl';
-        team_name:
-          | 'brantford-bulldogs'
-          | 'peterborough-petes'
-          | 'ottawa-67s'
-          | 'oshawa-generals'
-          | 'kingston-frontenacs'
-          | 'london-knights'
-          | 'owen-sound-attack'
-          | 'kitchener-rangers'
-          | 'guelph-storm'
-          | 'erie-otters'
-          | 'niagara-icedogs'
-          | 'north-bay-battalion'
-          | 'brampton-steelheads'
-          | 'sudbury-wolves'
-          | 'barrie-colts'
-          | 'flint-firebirds'
-          | 'saginaw-spirit'
-          | 'windsor-spitfires'
-          | 'sault-ste-marie-greyhound'
-          | 'sarnia-sting'
-          | 'brandon-wheat-kings'
-          | 'swift-current-broncos'
-          | 'saskatoon-blades'
-          | 'regina-pats'
-          | 'prince-albert-raiders'
-          | 'moose-jaw-warriors'
-          | 'everett-silvertips'
-          | 'wenatchee-wild'
-          | 'tri-city-americans'
-          | 'spokane-chiefs'
-          | 'seattle-thunderbirds'
-          | 'portland-winterhawks'
-          | 'penticton-vees'
-          | 'victoria-royals'
-          | 'vancouver-giants'
-          | 'prince-george-cougars'
-          | 'kelowna-rockets'
-          | 'kamloops-blazers'
-          | 'calgary-hitmen'
-          | 'edmonton-oil-kings'
-          | 'red-deer-rebels'
-          | 'medicine-hat-tigers'
-          | 'lethbridge-hurricanes'
-          | 'rimouski-oceanic'
-          | 'chicoutimi-sagueneens'
-          | 'baie-comeau'
-          | 'quebec-remparts'
-          | 'drummondville-voltigeurs'
-          | 'shawinigan-cataractes'
-          | 'sherbrooke-phoenix'
-          | 'victoriaville-tigres'
-          | 'rouyn-noranda-huskies'
-          | 'blainville-boisbriand-armada'
-          | 'val-dor-foreurs'
-          | 'gatineau-olympiques'
-          | 'moncton-wildcats'
-          | 'cape-breton-eagles'
-          | 'acadie-bathurst-titan'
-          | 'charlottetown-islanders'
-          | 'halifax-mooseheads'
-          | 'saint-john-sea-dogs';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamStat_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_all_team_statistics_api_v1_chl__league__teams_statistics_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        league: 'ohl' | 'whl' | 'qjmhl';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_chl_teams_comparison_get: {
-    parameters: {
-      query: {
-        team1:
-          | 'brantford-bulldogs'
-          | 'peterborough-petes'
-          | 'ottawa-67s'
-          | 'oshawa-generals'
-          | 'kingston-frontenacs'
-          | 'london-knights'
-          | 'owen-sound-attack'
-          | 'kitchener-rangers'
-          | 'guelph-storm'
-          | 'erie-otters'
-          | 'niagara-icedogs'
-          | 'north-bay-battalion'
-          | 'brampton-steelheads'
-          | 'sudbury-wolves'
-          | 'barrie-colts'
-          | 'flint-firebirds'
-          | 'saginaw-spirit'
-          | 'windsor-spitfires'
-          | 'sault-ste-marie-greyhound'
-          | 'sarnia-sting'
-          | 'brandon-wheat-kings'
-          | 'swift-current-broncos'
-          | 'saskatoon-blades'
-          | 'regina-pats'
-          | 'prince-albert-raiders'
-          | 'moose-jaw-warriors'
-          | 'everett-silvertips'
-          | 'wenatchee-wild'
-          | 'tri-city-americans'
-          | 'spokane-chiefs'
-          | 'seattle-thunderbirds'
-          | 'portland-winterhawks'
-          | 'penticton-vees'
-          | 'victoria-royals'
-          | 'vancouver-giants'
-          | 'prince-george-cougars'
-          | 'kelowna-rockets'
-          | 'kamloops-blazers'
-          | 'calgary-hitmen'
-          | 'edmonton-oil-kings'
-          | 'red-deer-rebels'
-          | 'medicine-hat-tigers'
-          | 'lethbridge-hurricanes'
-          | 'rimouski-oceanic'
-          | 'chicoutimi-sagueneens'
-          | 'baie-comeau'
-          | 'quebec-remparts'
-          | 'drummondville-voltigeurs'
-          | 'shawinigan-cataractes'
-          | 'sherbrooke-phoenix'
-          | 'victoriaville-tigres'
-          | 'rouyn-noranda-huskies'
-          | 'blainville-boisbriand-armada'
-          | 'val-dor-foreurs'
-          | 'gatineau-olympiques'
-          | 'moncton-wildcats'
-          | 'cape-breton-eagles'
-          | 'acadie-bathurst-titan'
-          | 'charlottetown-islanders'
-          | 'halifax-mooseheads'
-          | 'saint-john-sea-dogs';
-        team2:
-          | 'brantford-bulldogs'
-          | 'peterborough-petes'
-          | 'ottawa-67s'
-          | 'oshawa-generals'
-          | 'kingston-frontenacs'
-          | 'london-knights'
-          | 'owen-sound-attack'
-          | 'kitchener-rangers'
-          | 'guelph-storm'
-          | 'erie-otters'
-          | 'niagara-icedogs'
-          | 'north-bay-battalion'
-          | 'brampton-steelheads'
-          | 'sudbury-wolves'
-          | 'barrie-colts'
-          | 'flint-firebirds'
-          | 'saginaw-spirit'
-          | 'windsor-spitfires'
-          | 'sault-ste-marie-greyhound'
-          | 'sarnia-sting'
-          | 'brandon-wheat-kings'
-          | 'swift-current-broncos'
-          | 'saskatoon-blades'
-          | 'regina-pats'
-          | 'prince-albert-raiders'
-          | 'moose-jaw-warriors'
-          | 'everett-silvertips'
-          | 'wenatchee-wild'
-          | 'tri-city-americans'
-          | 'spokane-chiefs'
-          | 'seattle-thunderbirds'
-          | 'portland-winterhawks'
-          | 'penticton-vees'
-          | 'victoria-royals'
-          | 'vancouver-giants'
-          | 'prince-george-cougars'
-          | 'kelowna-rockets'
-          | 'kamloops-blazers'
-          | 'calgary-hitmen'
-          | 'edmonton-oil-kings'
-          | 'red-deer-rebels'
-          | 'medicine-hat-tigers'
-          | 'lethbridge-hurricanes'
-          | 'rimouski-oceanic'
-          | 'chicoutimi-sagueneens'
-          | 'baie-comeau'
-          | 'quebec-remparts'
-          | 'drummondville-voltigeurs'
-          | 'shawinigan-cataractes'
-          | 'sherbrooke-phoenix'
-          | 'victoriaville-tigres'
-          | 'rouyn-noranda-huskies'
-          | 'blainville-boisbriand-armada'
-          | 'val-dor-foreurs'
-          | 'gatineau-olympiques'
-          | 'moncton-wildcats'
-          | 'cape-breton-eagles'
-          | 'acadie-bathurst-titan'
-          | 'charlottetown-islanders'
-          | 'halifax-mooseheads'
-          | 'saint-john-sea-dogs';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_mwba_standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericStandings__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_schedule_api_v1_mwba_schedule_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'fredericton-freeze'
-              | 'port-city-fog'
-              | 'moncton-mystics'
-              | 'miramichi-her-icanes'
-              | 'halifax-hornets'
-              | 'halifax-thunder'
-              | 'lake-city-56ers'
-              | 'truro-tidal-queens'
-            )
-          | null;
-        season?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_mwba_teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'fredericton-freeze'
-          | 'port-city-fog'
-          | 'moncton-mystics'
-          | 'miramichi-her-icanes'
-          | 'halifax-hornets'
-          | 'halifax-thunder'
-          | 'lake-city-56ers'
-          | 'truro-tidal-queens';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_mwba_teams__team_name__roster_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        team_name:
-          | 'fredericton-freeze'
-          | 'port-city-fog'
-          | 'moncton-mystics'
-          | 'miramichi-her-icanes'
-          | 'halifax-hornets'
-          | 'halifax-thunder'
-          | 'lake-city-56ers'
-          | 'truro-tidal-queens';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_nsl_games_get: {
-    parameters: {
-      query?: {
-        start_date?: string | null;
-        end_date?: string | null;
-        team_name?:
-          | (
-              | 'vancouver-rise-fc'
-              | 'calgary-wild-fc'
-              | 'halifax-tides-fc'
-              | 'montreal-roses-fc'
-              | 'afc-toronto'
-              | 'ottawa-rapid-fc'
-            )
-          | null;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_nsl_standings_get: {
-    parameters: {
-      query?: {
-        season?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericStandings__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_nsl_teams_statistics_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'vancouver-rise-fc'
-              | 'calgary-wild-fc'
-              | 'halifax-tides-fc'
-              | 'montreal-roses-fc'
-              | 'afc-toronto'
-              | 'ottawa-rapid-fc'
-            )
-          | null;
-        season?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_nsl_teams_comparison_get: {
-    parameters: {
-      query: {
-        team1:
-          | 'vancouver-rise-fc'
-          | 'calgary-wild-fc'
-          | 'halifax-tides-fc'
-          | 'montreal-roses-fc'
-          | 'afc-toronto'
-          | 'ottawa-rapid-fc';
-        team2:
-          | 'vancouver-rise-fc'
-          | 'calgary-wild-fc'
-          | 'halifax-tides-fc'
-          | 'montreal-roses-fc'
-          | 'afc-toronto'
-          | 'ottawa-rapid-fc';
-        season?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_nsl_teams__team_name__info_get: {
-    parameters: {
-      query?: {
-        season?: string;
-      };
-      header?: never;
-      path: {
-        team_name:
-          | 'vancouver-rise-fc'
-          | 'calgary-wild-fc'
-          | 'halifax-tides-fc'
-          | 'montreal-roses-fc'
-          | 'afc-toronto'
-          | 'ottawa-rapid-fc';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_wrestling_rankings_api_v1_usports_wrestling__league__rankings_get: {
-    parameters: {
-      query?: {
-        /** @description Filter by weight class (e.g., '57kg') */
-        weight_class?: string | null;
-        /** @description Season year (e.g., '2024-25') */
-        season_year?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mwres or wwres */
-        league: components['schemas']['WrestlingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericAthleteResult___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_wrestling_team_rankings_api_v1_usports_wrestling__league__teams_get: {
-    parameters: {
-      query?: {
-        /** @description Season year (e.g., '2024-25') */
-        season_year?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mwres or wwres */
-        league: components['schemas']['WrestlingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericSchoolRanking__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_track_results_api_v1_usports_track_and_field__league__results_get: {
-    parameters: {
-      query?: {
-        /** @description Filter by event name */
-        event_name?: string | null;
-        /** @description Season year (e.g., '2024-25') */
-        season_year?: string | null;
-        /** @description Season type (e.g., 'indoor', 'outdoor') */
-        season_type?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mtrack or wtrack */
-        league: components['schemas']['TrackAndFieldLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericAthleteResult___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_track_qualified_api_v1_usports_track_and_field__league__qualified_get: {
-    parameters: {
-      query?: {
-        /** @description Season year (e.g., '2024-25') */
-        season_year?: string | null;
-        /** @description Season type (e.g., 'indoor', 'outdoor') */
-        season_type?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mtrack or wtrack */
-        league: components['schemas']['TrackAndFieldLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericAthleteResult___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_track_team_rankings_api_v1_usports_track_and_field__league__teams_get: {
-    parameters: {
-      query?: {
-        /** @description Season year (e.g., '2024-25') */
-        season_year?: string | null;
-        /** @description Season type (e.g., 'indoor', 'outdoor') */
-        season_type?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mtrack or wtrack */
-        league: components['schemas']['TrackAndFieldLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericSchoolRanking__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_swimming_years_api_v1_usports_swimming_years_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_int__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_swimming_results_api_v1_usports_swimming__league__results_get: {
-    parameters: {
-      query?: {
-        /** @description Championship year (e.g., '2025') */
-        year?: string;
-        /** @description Filter by event number */
-        event_number?: number | null;
-        /** @description Filter by heat type (e.g., 'final', 'prelim') */
-        heat_type?: string | null;
-        /** @description Filter by USports school name (case-insensitive) */
-        school?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mswim or wswim */
-        league: components['schemas']['SwimmingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericAthleteResult__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_swimming_events_api_v1_usports_swimming__league__events_get: {
-    parameters: {
-      query?: {
-        /** @description Championship year (e.g., '2025') */
-        year?: string;
-      };
-      header?: never;
-      path: {
-        /** @description League: mswim or wswim */
-        league: components['schemas']['SwimmingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_EventInfo__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_swimming_relays_api_v1_usports_swimming__league__relays_get: {
-    parameters: {
-      query?: {
-        /** @description Championship year (e.g., '2025') */
-        year?: string;
-        /** @description Filter by relay event number */
-        event_number?: number | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mswim or wswim */
-        league: components['schemas']['SwimmingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericRelayResult__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_swimming_standings_api_v1_usports_swimming__league__standings_get: {
-    parameters: {
-      query?: {
-        /** @description Championship year (e.g., '2025') */
-        year?: string;
-      };
-      header?: never;
-      path: {
-        /** @description League: mswim or wswim */
-        league: components['schemas']['SwimmingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericSchoolRanking__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_swimming_medals_api_v1_usports_swimming__league__medals_get: {
-    parameters: {
-      query?: {
-        /** @description Championship year (e.g., '2025') */
-        year?: string;
-      };
-      header?: never;
-      path: {
-        /** @description League: mswim or wswim */
-        league: components['schemas']['SwimmingLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_SwimMedalTally__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_track_events_api_v1_usports_track_and_field__league__events_get: {
-    parameters: {
-      query?: {
-        /** @description Season type (e.g., 'indoor', 'outdoor') */
-        season_type?: string | null;
-      };
-      header?: never;
-      path: {
-        /** @description League: mtrack or wtrack */
-        league: components['schemas']['TrackAndFieldLeague'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_EventInfo__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_usports__sport___league__games_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'Acadia'
-              | 'Alberta'
-              | 'Algoma'
-              | "Bishop's"
-              | 'Brandon'
-              | 'Brock'
-              | 'Calgary'
-              | 'Cape Breton'
-              | 'Carleton'
-              | 'Concordia'
-              | 'Dalhousie'
-              | 'ETS'
-              | 'Guelph'
-              | 'Lakehead'
-              | 'Laurentian'
-              | 'Laurier'
-              | 'Laval'
-              | 'Lethbridge'
-              | 'MacEwan'
-              | 'Manitoba'
-              | 'McGill'
-              | 'McMaster'
-              | 'Memorial'
-              | 'Moncton'
-              | 'Montreal'
-              | 'Mount Allison'
-              | 'Mount Royal'
-              | 'Nipissing'
-              | 'Ontario Tech'
-              | 'Ottawa'
-              | "Queen's"
-              | 'Regina'
-              | 'RMC'
-              | "Saint Mary's"
-              | 'Saskatchewan'
-              | 'Sherbrooke'
-              | 'StFX'
-              | 'St. Thomas'
-              | 'Thompson Rivers'
-              | 'Toronto'
-              | 'Toronto Metropolitan'
-              | 'Trent'
-              | 'Trinity Western'
-              | 'UBC'
-              | 'UBCO'
-              | 'UBC Okanagan'
-              | 'UFV'
-              | 'UNB'
-              | 'UNBC'
-              | 'UPEI'
-              | 'UQAC'
-              | 'UQAM'
-              | 'UQTR'
-              | 'Victoria'
-              | 'Waterloo'
-              | 'Western'
-              | 'Windsor'
-              | 'Winnipeg'
-              | 'York'
-            )
-          | null;
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_usports__sport___league__standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericStandings___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_leaderboard_api_v1_usports__sport___league__leaderboard_get: {
-    parameters: {
-      query?: {
-        limit?: number;
-        team_id?: number | null;
-        conference?: string | null;
-        season_option?: components['schemas']['app__api__v1__usports__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericPlayerLeaderboard___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_usports__sport___league__teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-        /** @description Team name */
-        team_name:
-          | 'Acadia'
-          | 'Alberta'
-          | 'Algoma'
-          | "Bishop's"
-          | 'Brandon'
-          | 'Brock'
-          | 'Calgary'
-          | 'Cape Breton'
-          | 'Carleton'
-          | 'Concordia'
-          | 'Dalhousie'
-          | 'ETS'
-          | 'Guelph'
-          | 'Lakehead'
-          | 'Laurentian'
-          | 'Laurier'
-          | 'Laval'
-          | 'Lethbridge'
-          | 'MacEwan'
-          | 'Manitoba'
-          | 'McGill'
-          | 'McMaster'
-          | 'Memorial'
-          | 'Moncton'
-          | 'Montreal'
-          | 'Mount Allison'
-          | 'Mount Royal'
-          | 'Nipissing'
-          | 'Ontario Tech'
-          | 'Ottawa'
-          | "Queen's"
-          | 'Regina'
-          | 'RMC'
-          | "Saint Mary's"
-          | 'Saskatchewan'
-          | 'Sherbrooke'
-          | 'StFX'
-          | 'St. Thomas'
-          | 'Thompson Rivers'
-          | 'Toronto'
-          | 'Toronto Metropolitan'
-          | 'Trent'
-          | 'Trinity Western'
-          | 'UBC'
-          | 'UBCO'
-          | 'UBC Okanagan'
-          | 'UFV'
-          | 'UNB'
-          | 'UNBC'
-          | 'UPEI'
-          | 'UQAC'
-          | 'UQAM'
-          | 'UQTR'
-          | 'Victoria'
-          | 'Waterloo'
-          | 'Western'
-          | 'Windsor'
-          | 'Winnipeg'
-          | 'York';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_usports__sport___league__teams__team_name__roster_get: {
-    parameters: {
-      query?: {
-        season_option?: components['schemas']['app__api__v1__usports__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-        /** @description Team name */
-        team_name:
-          | 'Acadia'
-          | 'Alberta'
-          | 'Algoma'
-          | "Bishop's"
-          | 'Brandon'
-          | 'Brock'
-          | 'Calgary'
-          | 'Cape Breton'
-          | 'Carleton'
-          | 'Concordia'
-          | 'Dalhousie'
-          | 'ETS'
-          | 'Guelph'
-          | 'Lakehead'
-          | 'Laurentian'
-          | 'Laurier'
-          | 'Laval'
-          | 'Lethbridge'
-          | 'MacEwan'
-          | 'Manitoba'
-          | 'McGill'
-          | 'McMaster'
-          | 'Memorial'
-          | 'Moncton'
-          | 'Montreal'
-          | 'Mount Allison'
-          | 'Mount Royal'
-          | 'Nipissing'
-          | 'Ontario Tech'
-          | 'Ottawa'
-          | "Queen's"
-          | 'Regina'
-          | 'RMC'
-          | "Saint Mary's"
-          | 'Saskatchewan'
-          | 'Sherbrooke'
-          | 'StFX'
-          | 'St. Thomas'
-          | 'Thompson Rivers'
-          | 'Toronto'
-          | 'Toronto Metropolitan'
-          | 'Trent'
-          | 'Trinity Western'
-          | 'UBC'
-          | 'UBCO'
-          | 'UBC Okanagan'
-          | 'UFV'
-          | 'UNB'
-          | 'UNBC'
-          | 'UPEI'
-          | 'UQAC'
-          | 'UQAM'
-          | 'UQTR'
-          | 'Victoria'
-          | 'Waterloo'
-          | 'Western'
-          | 'Windsor'
-          | 'Winnipeg'
-          | 'York';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_usports__sport___league__teams_statistics_get: {
-    parameters: {
-      query?: {
-        conference?: string | null;
-        team_name?:
-          | (
-              | 'Acadia'
-              | 'Alberta'
-              | 'Algoma'
-              | "Bishop's"
-              | 'Brandon'
-              | 'Brock'
-              | 'Calgary'
-              | 'Cape Breton'
-              | 'Carleton'
-              | 'Concordia'
-              | 'Dalhousie'
-              | 'ETS'
-              | 'Guelph'
-              | 'Lakehead'
-              | 'Laurentian'
-              | 'Laurier'
-              | 'Laval'
-              | 'Lethbridge'
-              | 'MacEwan'
-              | 'Manitoba'
-              | 'McGill'
-              | 'McMaster'
-              | 'Memorial'
-              | 'Moncton'
-              | 'Montreal'
-              | 'Mount Allison'
-              | 'Mount Royal'
-              | 'Nipissing'
-              | 'Ontario Tech'
-              | 'Ottawa'
-              | "Queen's"
-              | 'Regina'
-              | 'RMC'
-              | "Saint Mary's"
-              | 'Saskatchewan'
-              | 'Sherbrooke'
-              | 'StFX'
-              | 'St. Thomas'
-              | 'Thompson Rivers'
-              | 'Toronto'
-              | 'Toronto Metropolitan'
-              | 'Trent'
-              | 'Trinity Western'
-              | 'UBC'
-              | 'UBCO'
-              | 'UBC Okanagan'
-              | 'UFV'
-              | 'UNB'
-              | 'UNBC'
-              | 'UPEI'
-              | 'UQAC'
-              | 'UQAM'
-              | 'UQTR'
-              | 'Victoria'
-              | 'Waterloo'
-              | 'Western'
-              | 'Windsor'
-              | 'Winnipeg'
-              | 'York'
-            )
-          | null;
-        season_option?: components['schemas']['app__api__v1__usports__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_statistics_api_v1_usports__sport___league__players_statistics_get: {
-    parameters: {
-      query: {
-        team_name:
-          | 'Acadia'
-          | 'Alberta'
-          | 'Algoma'
-          | "Bishop's"
-          | 'Brandon'
-          | 'Brock'
-          | 'Calgary'
-          | 'Cape Breton'
-          | 'Carleton'
-          | 'Concordia'
-          | 'Dalhousie'
-          | 'ETS'
-          | 'Guelph'
-          | 'Lakehead'
-          | 'Laurentian'
-          | 'Laurier'
-          | 'Laval'
-          | 'Lethbridge'
-          | 'MacEwan'
-          | 'Manitoba'
-          | 'McGill'
-          | 'McMaster'
-          | 'Memorial'
-          | 'Moncton'
-          | 'Montreal'
-          | 'Mount Allison'
-          | 'Mount Royal'
-          | 'Nipissing'
-          | 'Ontario Tech'
-          | 'Ottawa'
-          | "Queen's"
-          | 'Regina'
-          | 'RMC'
-          | "Saint Mary's"
-          | 'Saskatchewan'
-          | 'Sherbrooke'
-          | 'StFX'
-          | 'St. Thomas'
-          | 'Thompson Rivers'
-          | 'Toronto'
-          | 'Toronto Metropolitan'
-          | 'Trent'
-          | 'Trinity Western'
-          | 'UBC'
-          | 'UBCO'
-          | 'UBC Okanagan'
-          | 'UFV'
-          | 'UNB'
-          | 'UNBC'
-          | 'UPEI'
-          | 'UQAC'
-          | 'UQAM'
-          | 'UQTR'
-          | 'Victoria'
-          | 'Waterloo'
-          | 'Western'
-          | 'Windsor'
-          | 'Winnipeg'
-          | 'York';
-        season_option?: components['schemas']['app__api__v1__usports__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericPlayerStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_usports__sport___league__teams_comparison_get: {
-    parameters: {
-      query: {
-        team1:
-          | 'Acadia'
-          | 'Alberta'
-          | 'Algoma'
-          | "Bishop's"
-          | 'Brandon'
-          | 'Brock'
-          | 'Calgary'
-          | 'Cape Breton'
-          | 'Carleton'
-          | 'Concordia'
-          | 'Dalhousie'
-          | 'ETS'
-          | 'Guelph'
-          | 'Lakehead'
-          | 'Laurentian'
-          | 'Laurier'
-          | 'Laval'
-          | 'Lethbridge'
-          | 'MacEwan'
-          | 'Manitoba'
-          | 'McGill'
-          | 'McMaster'
-          | 'Memorial'
-          | 'Moncton'
-          | 'Montreal'
-          | 'Mount Allison'
-          | 'Mount Royal'
-          | 'Nipissing'
-          | 'Ontario Tech'
-          | 'Ottawa'
-          | "Queen's"
-          | 'Regina'
-          | 'RMC'
-          | "Saint Mary's"
-          | 'Saskatchewan'
-          | 'Sherbrooke'
-          | 'StFX'
-          | 'St. Thomas'
-          | 'Thompson Rivers'
-          | 'Toronto'
-          | 'Toronto Metropolitan'
-          | 'Trent'
-          | 'Trinity Western'
-          | 'UBC'
-          | 'UBCO'
-          | 'UBC Okanagan'
-          | 'UFV'
-          | 'UNB'
-          | 'UNBC'
-          | 'UPEI'
-          | 'UQAC'
-          | 'UQAM'
-          | 'UQTR'
-          | 'Victoria'
-          | 'Waterloo'
-          | 'Western'
-          | 'Windsor'
-          | 'Winnipeg'
-          | 'York';
-        team2:
-          | 'Acadia'
-          | 'Alberta'
-          | 'Algoma'
-          | "Bishop's"
-          | 'Brandon'
-          | 'Brock'
-          | 'Calgary'
-          | 'Cape Breton'
-          | 'Carleton'
-          | 'Concordia'
-          | 'Dalhousie'
-          | 'ETS'
-          | 'Guelph'
-          | 'Lakehead'
-          | 'Laurentian'
-          | 'Laurier'
-          | 'Laval'
-          | 'Lethbridge'
-          | 'MacEwan'
-          | 'Manitoba'
-          | 'McGill'
-          | 'McMaster'
-          | 'Memorial'
-          | 'Moncton'
-          | 'Montreal'
-          | 'Mount Allison'
-          | 'Mount Royal'
-          | 'Nipissing'
-          | 'Ontario Tech'
-          | 'Ottawa'
-          | "Queen's"
-          | 'Regina'
-          | 'RMC'
-          | "Saint Mary's"
-          | 'Saskatchewan'
-          | 'Sherbrooke'
-          | 'StFX'
-          | 'St. Thomas'
-          | 'Thompson Rivers'
-          | 'Toronto'
-          | 'Toronto Metropolitan'
-          | 'Trent'
-          | 'Trinity Western'
-          | 'UBC'
-          | 'UBCO'
-          | 'UBC Okanagan'
-          | 'UFV'
-          | 'UNB'
-          | 'UNBC'
-          | 'UPEI'
-          | 'UQAC'
-          | 'UQAM'
-          | 'UQTR'
-          | 'Victoria'
-          | 'Waterloo'
-          | 'Western'
-          | 'Windsor'
-          | 'Winnipeg'
-          | 'York';
-        season_option?: components['schemas']['app__api__v1__usports__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, volleyball, etc.) */
-        sport: components['schemas']['app__api__v1__usports__constants__Sport'];
-        /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CollegeTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_basketball_team_comparison_api_v1_usports_basketball__league__teams__team_name__comparison_get: {
-    parameters: {
-      query?: {
-        season_option?: components['schemas']['app__api__v1__usports__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description League identifier (mbb, wbb) */
-        league: components['schemas']['app__api__v1__usports__constants__League'];
-        /** @description Team name */
-        team_name:
-          | 'Acadia'
-          | 'Alberta'
-          | 'Algoma'
-          | "Bishop's"
-          | 'Brandon'
-          | 'Brock'
-          | 'Calgary'
-          | 'Cape Breton'
-          | 'Carleton'
-          | 'Concordia'
-          | 'Dalhousie'
-          | 'ETS'
-          | 'Guelph'
-          | 'Lakehead'
-          | 'Laurentian'
-          | 'Laurier'
-          | 'Laval'
-          | 'Lethbridge'
-          | 'MacEwan'
-          | 'Manitoba'
-          | 'McGill'
-          | 'McMaster'
-          | 'Memorial'
-          | 'Moncton'
-          | 'Montreal'
-          | 'Mount Allison'
-          | 'Mount Royal'
-          | 'Nipissing'
-          | 'Ontario Tech'
-          | 'Ottawa'
-          | "Queen's"
-          | 'Regina'
-          | 'RMC'
-          | "Saint Mary's"
-          | 'Saskatchewan'
-          | 'Sherbrooke'
-          | 'StFX'
-          | 'St. Thomas'
-          | 'Thompson Rivers'
-          | 'Toronto'
-          | 'Toronto Metropolitan'
-          | 'Trent'
-          | 'Trinity Western'
-          | 'UBC'
-          | 'UBCO'
-          | 'UBC Okanagan'
-          | 'UFV'
-          | 'UNB'
-          | 'UNBC'
-          | 'UPEI'
-          | 'UQAC'
-          | 'UQAM'
-          | 'UQTR'
-          | 'Victoria'
-          | 'Waterloo'
-          | 'Western'
-          | 'Windsor'
-          | 'Winnipeg'
-          | 'York';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_BasketballTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_ocaa__sport___league__games_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'Algonquin'
-              | 'Boreal'
-              | 'Cambrian'
-              | 'Canadore'
-              | 'Centennial'
-              | 'Conestoga'
-              | 'Confederation'
-              | 'Durham'
-              | 'Fanshawe'
-              | 'Fleming'
-              | 'George Brown'
-              | 'Georgian'
-              | 'Humber'
-              | 'La Cite'
-              | 'Lakehead University Orillia'
-              | 'Lambton'
-              | 'Loyalist'
-              | 'Mohawk'
-              | 'Niagara'
-              | 'Northern'
-              | 'Redeemer'
-              | 'Sault'
-              | 'Seneca'
-              | 'Sheridan'
-              | 'St. Clair'
-              | 'St. Lawrence'
-              | 'St. Lawrence (K)'
-            )
-          | null;
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_ocaa__sport___league__standings_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericStandings___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_leaderboard_api_v1_ocaa__sport___league__leaderboard_get: {
-    parameters: {
-      query?: {
-        limit?: number;
-        team_id?: number | null;
-        season_option?: components['schemas']['app__api__v1__ocaa__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_dict_str__list_GenericPlayerLeaderboard___'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_ocaa__sport___league__teams__team_name__info_get: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-        /** @description Team name */
-        team_name:
-          | 'Algonquin'
-          | 'Boreal'
-          | 'Cambrian'
-          | 'Canadore'
-          | 'Centennial'
-          | 'Conestoga'
-          | 'Confederation'
-          | 'Durham'
-          | 'Fanshawe'
-          | 'Fleming'
-          | 'George Brown'
-          | 'Georgian'
-          | 'Humber'
-          | 'La Cite'
-          | 'Lakehead University Orillia'
-          | 'Lambton'
-          | 'Loyalist'
-          | 'Mohawk'
-          | 'Niagara'
-          | 'Northern'
-          | 'Redeemer'
-          | 'Sault'
-          | 'Seneca'
-          | 'Sheridan'
-          | 'St. Clair'
-          | 'St. Lawrence'
-          | 'St. Lawrence (K)';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_roster_api_v1_ocaa__sport___league__teams__team_name__roster_get: {
-    parameters: {
-      query?: {
-        season_option?: components['schemas']['app__api__v1__ocaa__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-        /** @description Team name */
-        team_name:
-          | 'Algonquin'
-          | 'Boreal'
-          | 'Cambrian'
-          | 'Canadore'
-          | 'Centennial'
-          | 'Conestoga'
-          | 'Confederation'
-          | 'Durham'
-          | 'Fanshawe'
-          | 'Fleming'
-          | 'George Brown'
-          | 'Georgian'
-          | 'Humber'
-          | 'La Cite'
-          | 'Lakehead University Orillia'
-          | 'Lambton'
-          | 'Loyalist'
-          | 'Mohawk'
-          | 'Niagara'
-          | 'Northern'
-          | 'Redeemer'
-          | 'Sault'
-          | 'Seneca'
-          | 'Sheridan'
-          | 'St. Clair'
-          | 'St. Lawrence'
-          | 'St. Lawrence (K)';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_GenericTeamRoster_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_statistics_api_v1_ocaa__sport___league__teams_statistics_get: {
-    parameters: {
-      query?: {
-        team_name?:
-          | (
-              | 'Algonquin'
-              | 'Boreal'
-              | 'Cambrian'
-              | 'Canadore'
-              | 'Centennial'
-              | 'Conestoga'
-              | 'Confederation'
-              | 'Durham'
-              | 'Fanshawe'
-              | 'Fleming'
-              | 'George Brown'
-              | 'Georgian'
-              | 'Humber'
-              | 'La Cite'
-              | 'Lakehead University Orillia'
-              | 'Lambton'
-              | 'Loyalist'
-              | 'Mohawk'
-              | 'Niagara'
-              | 'Northern'
-              | 'Redeemer'
-              | 'Sault'
-              | 'Seneca'
-              | 'Sheridan'
-              | 'St. Clair'
-              | 'St. Lawrence'
-              | 'St. Lawrence (K)'
-            )
-          | null;
-        season_option?: components['schemas']['app__api__v1__ocaa__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericTeamStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_player_statistics_api_v1_ocaa__sport___league__players_statistics_get: {
-    parameters: {
-      query: {
-        team_name:
-          | 'Algonquin'
-          | 'Boreal'
-          | 'Cambrian'
-          | 'Canadore'
-          | 'Centennial'
-          | 'Conestoga'
-          | 'Confederation'
-          | 'Durham'
-          | 'Fanshawe'
-          | 'Fleming'
-          | 'George Brown'
-          | 'Georgian'
-          | 'Humber'
-          | 'La Cite'
-          | 'Lakehead University Orillia'
-          | 'Lambton'
-          | 'Loyalist'
-          | 'Mohawk'
-          | 'Niagara'
-          | 'Northern'
-          | 'Redeemer'
-          | 'Sault'
-          | 'Seneca'
-          | 'Sheridan'
-          | 'St. Clair'
-          | 'St. Lawrence'
-          | 'St. Lawrence (K)';
-        season_option?: components['schemas']['app__api__v1__ocaa__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_list_GenericPlayerStat__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_comparison_api_v1_ocaa__sport___league__teams_comparison_get: {
-    parameters: {
-      query: {
-        team1:
-          | 'Algonquin'
-          | 'Boreal'
-          | 'Cambrian'
-          | 'Canadore'
-          | 'Centennial'
-          | 'Conestoga'
-          | 'Confederation'
-          | 'Durham'
-          | 'Fanshawe'
-          | 'Fleming'
-          | 'George Brown'
-          | 'Georgian'
-          | 'Humber'
-          | 'La Cite'
-          | 'Lakehead University Orillia'
-          | 'Lambton'
-          | 'Loyalist'
-          | 'Mohawk'
-          | 'Niagara'
-          | 'Northern'
-          | 'Redeemer'
-          | 'Sault'
-          | 'Seneca'
-          | 'Sheridan'
-          | 'St. Clair'
-          | 'St. Lawrence'
-          | 'St. Lawrence (K)';
-        team2:
-          | 'Algonquin'
-          | 'Boreal'
-          | 'Cambrian'
-          | 'Canadore'
-          | 'Centennial'
-          | 'Conestoga'
-          | 'Confederation'
-          | 'Durham'
-          | 'Fanshawe'
-          | 'Fleming'
-          | 'George Brown'
-          | 'Georgian'
-          | 'Humber'
-          | 'La Cite'
-          | 'Lakehead University Orillia'
-          | 'Lambton'
-          | 'Loyalist'
-          | 'Mohawk'
-          | 'Niagara'
-          | 'Northern'
-          | 'Redeemer'
-          | 'Sault'
-          | 'Seneca'
-          | 'Sheridan'
-          | 'St. Clair'
-          | 'St. Lawrence'
-          | 'St. Lawrence (K)';
-        season_option?: components['schemas']['app__api__v1__ocaa__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description Sport name (basketball, etc.) */
-        sport: components['schemas']['app__api__v1__ocaa__constants__Sport'];
-        /** @description League identifier (mbb, wbb, etc.) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_CollegeTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_basketball_team_comparison_api_v1_ocaa_basketball__league__teams__team_name__comparison_get: {
-    parameters: {
-      query?: {
-        season_option?: components['schemas']['app__api__v1__ocaa__constants__SeasonOption'];
-      };
-      header?: never;
-      path: {
-        /** @description League identifier (mbb, wbb) */
-        league: components['schemas']['app__api__v1__ocaa__constants__League'];
-        /** @description Team name */
-        team_name:
-          | 'Algonquin'
-          | 'Boreal'
-          | 'Cambrian'
-          | 'Canadore'
-          | 'Centennial'
-          | 'Conestoga'
-          | 'Confederation'
-          | 'Durham'
-          | 'Fanshawe'
-          | 'Fleming'
-          | 'George Brown'
-          | 'Georgian'
-          | 'Humber'
-          | 'La Cite'
-          | 'Lakehead University Orillia'
-          | 'Lambton'
-          | 'Loyalist'
-          | 'Mohawk'
-          | 'Niagara'
-          | 'Northern'
-          | 'Redeemer'
-          | 'Sault'
-          | 'Seneca'
-          | 'Sheridan'
-          | 'St. Clair'
-          | 'St. Lawrence'
-          | 'St. Lawrence (K)';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StandardResponse_BasketballTeamComparison_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_standings_api_v1_psl__league__standings_get: {
-    parameters: {
-      query?: {
-        year?: number;
-      };
-      header?: never;
-      path: {
-        league:
-          | 'ppl-mens'
-          | 'ppl-womens'
-          | 'apl-mens'
-          | 'apl-womens'
-          | 'bcpl-mens'
-          | 'bcpl-womens'
-          | 'opl-1-mens'
-          | 'opl-1-womens'
-          | 'opl-2-mens'
-          | 'opl-2-womens'
-          | 'opl-3-mens'
-          | 'opl-3-womens'
-          | 'opl-u20-mens'
-          | 'opl-u20-womens';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          /**
-           * @example {
-           *       "success": true,
-           *       "data": [
-           *         {
-           *           "team": {
-           *             "id": "Forge FC",
-           *             "name": {
-           *               "en": "Forge FC"
-           *             },
-           *             "team_entity_id": "psl_opl-1-mens_forge-fc"
-           *           },
-           *           "wins": 15,
-           *           "losses": 2,
-           *           "rank": 1,
-           *           "league_id": "psl",
-           *           "league_entity_id": "opl-1-mens",
-           *           "stats": {
-           *             "games_played": 20,
-           *             "draws": 3,
-           *             "goals_for": 48,
-           *             "goals_against": 18,
-           *             "goal_difference": 30,
-           *             "points": 48
-           *           }
-           *         }
-           *       ]
-           *     }
-           */
-          'application/json': components['schemas']['StandardResponse_list_GenericStandings__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_games_api_v1_psl__league__games_get: {
-    parameters: {
-      query?: {
-        year?: number;
-      };
-      header?: never;
-      path: {
-        league:
-          | 'ppl-mens'
-          | 'ppl-womens'
-          | 'apl-mens'
-          | 'apl-womens'
-          | 'bcpl-mens'
-          | 'bcpl-womens'
-          | 'opl-1-mens'
-          | 'opl-1-womens'
-          | 'opl-2-mens'
-          | 'opl-2-womens'
-          | 'opl-3-mens'
-          | 'opl-3-womens'
-          | 'opl-u20-mens'
-          | 'opl-u20-womens';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          /**
-           * @example {
-           *       "success": true,
-           *       "data": [
-           *         {
-           *           "id": "1752885",
-           *           "date": "2025-06-03T04:00:00",
-           *           "status": "FINAL",
-           *           "home_team": {
-           *             "team": {
-           *               "id": "Vancouver FC",
-           *               "name": {
-           *                 "en": "Vancouver FC"
-           *               },
-           *               "team_entity_id": "psl_bcpl-mens_vancouver-fc"
-           *             },
-           *             "score": 2
-           *           },
-           *           "away_team": {
-           *             "team": {
-           *               "id": "Surrey United",
-           *               "name": {
-           *                 "en": "Surrey United"
-           *               },
-           *               "team_entity_id": "psl_bcpl-mens_surrey-united"
-           *             },
-           *             "score": 1
-           *           },
-           *           "league_id": "psl",
-           *           "league_entity_id": "bcpl-mens",
-           *           "sport": "msc",
-           *           "venue": "Swangard Stadium"
-           *         }
-           *       ]
-           *     }
-           */
-          'application/json': components['schemas']['StandardResponse_list_GenericGame__'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
-  get_team_info_api_v1_psl__league__teams__team_name__info_get: {
-    parameters: {
-      query?: {
-        year?: number;
-      };
-      header?: never;
-      path: {
-        league:
-          | 'ppl-mens'
-          | 'ppl-womens'
-          | 'apl-mens'
-          | 'apl-womens'
-          | 'bcpl-mens'
-          | 'bcpl-womens'
-          | 'opl-1-mens'
-          | 'opl-1-womens'
-          | 'opl-2-mens'
-          | 'opl-2-womens'
-          | 'opl-3-mens'
-          | 'opl-3-womens'
-          | 'opl-u20-mens'
-          | 'opl-u20-womens';
-        team_name:
-          | 'bonivital-flames'
-          | 'fc-manitoba'
-          | 'forza-soccer-academy'
-          | 'lucania-fc'
-          | 'qc-united'
-          | 'saskatchewan-excel'
-          | 'thunder-bay-chill'
-          | 'calgary-blizzard'
-          | 'calgary-foothills'
-          | 'calgary-rangers-sc'
-          | 'calgary-villains-fc'
-          | 'calgary-wild-fc-u23'
-          | 'calgary-wild-fc'
-          | 'callies-united'
-          | 'cavalry-fc'
-          | 'cavalry-fc-ii'
-          | 'edmonton-btb-sc'
-          | 'edmonton-scottish'
-          | 'st-albert-impact'
-          | 'altitude-fc'
-          | 'burnaby-fc'
-          | 'evolution-fc'
-          | 'kamloops-united-fc'
-          | 'langley-united'
-          | 'nanaimo-united-fc'
-          | 'tss-rovers-fc'
-          | 'unity-fc'
-          | 'vancouver-rise-fc-academy'
-          | 'vancouver-whitecaps-academy'
-          | 'alliance-united'
-          | 'aurora-fc'
-          | 'burlington-sc'
-          | 'cambridge-united'
-          | 'fc-durham'
-          | 'fc-london'
-          | 'guelph-united'
-          | 'guelph-united-fc'
-          | 'hamilton-united'
-          | 'inter-toronto-ii'
-          | 'inter-toronto-iii'
-          | 'inter-toronto-iv'
-          | 'international-fc'
-          | 'kingston-sentinels'
-          | 'masters-fa'
-          | 'ndc-ontario'
-          | 'north-mississauga-sc'
-          | 'north-toronto'
-          | 'oakville-sc'
-          | 'pickering-fc'
-          | 'railway-city-fc'
-          | 'richmond-hill-sc'
-          | 'rush-canada-academy'
-          | 'scrosoppi-fc'
-          | 'sigma-fc'
-          | 'simcoe-county-rovers-fc'
-          | 'st-catharines-roma'
-          | 'sudbury-cyclones'
-          | 'tecumseh-united-fc'
-          | 'the-borough-fc'
-          | 'unionville-milliken-sc'
-          | 'vaughan-azzurri'
-          | 'waterloo-united'
-          | 'whitby-fc'
-          | 'windsor-city-fc'
-          | 'woodbridge-strikers'
-          | 'york-united-academy';
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          /**
-           * @example {
-           *       "success": true,
-           *       "data": {
-           *         "team": {
-           *           "id": "Forge FC",
-           *           "name": {
-           *             "en": "Forge FC"
-           *           },
-           *           "team_entity_id": "psl_opl-1-mens_forge-fc"
-           *         },
-           *         "wins": 15,
-           *         "losses": 2,
-           *         "rank": 1,
-           *         "league_id": "psl",
-           *         "league_entity_id": "opl-1-mens",
-           *         "stats": {
-           *           "games_played": 20,
-           *           "draws": 3,
-           *           "goals_for": 48,
-           *           "goals_against": 18,
-           *           "goal_difference": 30,
-           *           "points": 48
-           *         }
-           *       }
-           *     }
-           */
-          'application/json': components['schemas']['StandardResponse_GenericTeamInfo_'];
-        };
-      };
-      /** @description Not found */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HTTPValidationError'];
-        };
-      };
-    };
-  };
+    health_api_v1_health__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnifiedHealthCheckResponse"];
+                };
+            };
+        };
+    };
+    health_redis_api_v1_health_redis_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HealthCheckResponse"];
+                };
+            };
+        };
+    };
+    health_postgres_api_v1_health_postgres_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HealthCheckResponse"];
+                };
+            };
+        };
+    };
+    get_pro_games_api_v1_aggregate_games_pro_get: {
+        parameters: {
+            query?: {
+                start_date?: string;
+                end_date?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_usports_games_api_v1_aggregate_games_usports_get: {
+        parameters: {
+            query?: {
+                start_date?: string;
+                end_date?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_ocaa_games_api_v1_aggregate_games_ocaa_get: {
+        parameters: {
+            query?: {
+                start_date?: string;
+                end_date?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_cebl_games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_cebl_standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_leaders_api_v1_cebl_leaderboard_get: {
+        parameters: {
+            query: {
+                mode: "PER_GAME" | "TOTALS";
+                team_name?: ("brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg") | null;
+                competition?: ("REGULAR" | "FINALS") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_cebl_teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_cebl_teams__team_name__roster_get: {
+        parameters: {
+            query: {
+                mode: "PER_GAME" | "TOTALS";
+            };
+            header?: never;
+            path: {
+                team_name: "brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_cebl_teams_statistics_get: {
+        parameters: {
+            query: {
+                mode: "PER_GAME" | "TOTALS";
+                team_name?: ("brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg") | null;
+                competition?: ("REGULAR" | "FINALS") | null;
+                segment?: ("HOME" | "AWAY" | "L7D" | "L5G" | "L10G" | "MAY" | "JUNE" | "JULY" | "AUGUST") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_cebl_players_statistics_get: {
+        parameters: {
+            query: {
+                mode: "PER_GAME" | "TOTALS";
+                team_name?: ("brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg") | null;
+                player_id?: number | null;
+                competition?: ("REGULAR" | "FINALS") | null;
+                segment?: ("EAST" | "WEST" | "HOME" | "AWAY") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_cebl_teams_comparison_get: {
+        parameters: {
+            query: {
+                mode: "PER_GAME" | "TOTALS";
+                team1: "brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg";
+                team2: "brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg";
+                competition?: ("REGULAR" | "FINALS") | null;
+                segment?: ("HOME" | "AWAY" | "L7D" | "L5G" | "L10G" | "MAY" | "JUNE" | "JULY" | "AUGUST") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_players_api_v1_cebl_players_get: {
+        parameters: {
+            query?: {
+                team_name?: ("brampton" | "calgary" | "edmonton" | "montreal" | "niagara" | "ottawa" | "saskatoon" | "scarborough" | "vancouver" | "winnipeg") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_CeblPlayerEntry__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_comparison_api_v1_cebl_players_compare_get: {
+        parameters: {
+            query: {
+                p1: number;
+                p2: number;
+                competition?: ("REGULAR" | "FINALS") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CeblPlayerComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_box_score_api_v1_cebl_games__livestats_id__box_score_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                livestats_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CeblBoxScore_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_shots_api_v1_cebl_games__livestats_id__shots_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                livestats_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CeblShotChart_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_play_by_play_api_v1_cebl_games__livestats_id__play_by_play_get: {
+        parameters: {
+            query?: {
+                since_action_number?: number | null;
+            };
+            header?: never;
+            path: {
+                livestats_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_CeblPlayByPlayEvent__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_cebl_transactions_api_v1_cebl_transactions_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_games_api_v1_cfl_games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_cfl_standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_leaderboard_api_v1_cfl_leaderboard_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_team_info_api_v1_cfl_teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_cfl_teams__team_name__roster_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_cfl_teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_players_api_v1_cfl_players_get: {
+        parameters: {
+            query?: {
+                position?: ("QB" | "RB" | "FB" | "WR" | "TE" | "OL" | "DL" | "DE" | "DT" | "LB" | "DB" | "K" | "P" | "LS") | null;
+                team?: ("alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_CflPlayerEntry__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_comparison_api_v1_cfl_players_compare_get: {
+        parameters: {
+            query: {
+                p1: number;
+                p2: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CflPlayerComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_cfl_players_statistics__player_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                player_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericPlayerStat_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_cfl_teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+                team2: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_analytics_api_v1_cfl_analytics_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CflAnalytics_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_team_form_api_v1_cfl_teams__team_name__form_get: {
+        parameters: {
+            query?: {
+                games?: number;
+            };
+            header?: never;
+            path: {
+                team_name: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CflTeamForm_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_transactions_api_v1_cfl_transactions_get: {
+        parameters: {
+            query?: {
+                player_id?: number | null;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_LedgerTransaction__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_cpl_games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_cpl_standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_leaderboard_api_v1_cpl_leaderboard_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_team_info_api_v1_cpl_teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_cpl_teams__team_name__roster_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_cpl_teams_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_cpl_players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_cpl_teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra";
+                team2: "cavalry" | "wanderers" | "vancouver" | "pacific" | "forge" | "inter" | "atletico" | "supra";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse"] | components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_hoopqueens_games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("blaze" | "charge" | "reign" | "tide") | null;
+                season?: number | null;
+                assigned_only?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_game_box_score_api_v1_hoopqueens_games__game_id__boxscore_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                game_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericBoxScore_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_hoopqueens_standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_hoopqueens_leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_hoopqueens_teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "blaze" | "charge" | "reign" | "tide";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_hoopqueens_teams__team_name__roster_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "blaze" | "charge" | "reign" | "tide";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_hoopqueens_teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("blaze" | "charge" | "reign" | "tide") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_hoopqueens_players_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("blaze" | "charge" | "reign" | "tide") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_api_v1_hoopqueens_players_statistics__player_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                player_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericPlayerStat_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_players_api_v1_hoopqueens_players_get: {
+        parameters: {
+            query?: {
+                team_name?: ("blaze" | "charge" | "reign" | "tide") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_HoopQueensPlayerEntry__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_comparison_api_v1_hoopqueens_players_compare_get: {
+        parameters: {
+            query: {
+                p1: number;
+                p2: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_HoopQueensPlayerComparison_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_hoopqueens_teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "blaze" | "charge" | "reign" | "tide";
+                team2: "blaze" | "charge" | "reign" | "tide";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_npl_games_get: {
+        parameters: {
+            query?: {
+                season?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_game_box_score_api_v1_npl_games__game_id__boxscore_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                game_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericBoxScore_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_npl_standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_npl_teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_npl_teams__team_name__roster_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_npl_teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_npl_players_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_api_v1_npl_players_statistics__player_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                player_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericPlayerStat_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_npl_leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_npl_teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: string;
+                team2: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_chl__league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("brantford-bulldogs" | "peterborough-petes" | "ottawa-67s" | "oshawa-generals" | "kingston-frontenacs" | "london-knights" | "owen-sound-attack" | "kitchener-rangers" | "guelph-storm" | "erie-otters" | "niagara-icedogs" | "north-bay-battalion" | "brampton-steelheads" | "sudbury-wolves" | "barrie-colts" | "flint-firebirds" | "saginaw-spirit" | "windsor-spitfires" | "sault-ste-marie-greyhound" | "sarnia-sting" | "brandon-wheat-kings" | "swift-current-broncos" | "saskatoon-blades" | "regina-pats" | "prince-albert-raiders" | "moose-jaw-warriors" | "everett-silvertips" | "wenatchee-wild" | "tri-city-americans" | "spokane-chiefs" | "seattle-thunderbirds" | "portland-winterhawks" | "penticton-vees" | "victoria-royals" | "vancouver-giants" | "prince-george-cougars" | "kelowna-rockets" | "kamloops-blazers" | "calgary-hitmen" | "edmonton-oil-kings" | "red-deer-rebels" | "medicine-hat-tigers" | "lethbridge-hurricanes" | "rimouski-oceanic" | "chicoutimi-sagueneens" | "baie-comeau" | "quebec-remparts" | "drummondville-voltigeurs" | "shawinigan-cataractes" | "sherbrooke-phoenix" | "victoriaville-tigres" | "rouyn-noranda-huskies" | "blainville-boisbriand-armada" | "val-dor-foreurs" | "gatineau-olympiques" | "moncton-wildcats" | "cape-breton-eagles" | "acadie-bathurst-titan" | "charlottetown-islanders" | "halifax-mooseheads" | "saint-john-sea-dogs") | null;
+            };
+            header?: never;
+            path: {
+                league: "ohl" | "whl" | "qjmhl";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_chl__league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                league: "ohl" | "whl" | "qjmhl";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericStandings__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_chl__league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                league: "ohl" | "whl" | "qjmhl";
+                team_name: "brantford-bulldogs" | "peterborough-petes" | "ottawa-67s" | "oshawa-generals" | "kingston-frontenacs" | "london-knights" | "owen-sound-attack" | "kitchener-rangers" | "guelph-storm" | "erie-otters" | "niagara-icedogs" | "north-bay-battalion" | "brampton-steelheads" | "sudbury-wolves" | "barrie-colts" | "flint-firebirds" | "saginaw-spirit" | "windsor-spitfires" | "sault-ste-marie-greyhound" | "sarnia-sting" | "brandon-wheat-kings" | "swift-current-broncos" | "saskatoon-blades" | "regina-pats" | "prince-albert-raiders" | "moose-jaw-warriors" | "everett-silvertips" | "wenatchee-wild" | "tri-city-americans" | "spokane-chiefs" | "seattle-thunderbirds" | "portland-winterhawks" | "penticton-vees" | "victoria-royals" | "vancouver-giants" | "prince-george-cougars" | "kelowna-rockets" | "kamloops-blazers" | "calgary-hitmen" | "edmonton-oil-kings" | "red-deer-rebels" | "medicine-hat-tigers" | "lethbridge-hurricanes" | "rimouski-oceanic" | "chicoutimi-sagueneens" | "baie-comeau" | "quebec-remparts" | "drummondville-voltigeurs" | "shawinigan-cataractes" | "sherbrooke-phoenix" | "victoriaville-tigres" | "rouyn-noranda-huskies" | "blainville-boisbriand-armada" | "val-dor-foreurs" | "gatineau-olympiques" | "moncton-wildcats" | "cape-breton-eagles" | "acadie-bathurst-titan" | "charlottetown-islanders" | "halifax-mooseheads" | "saint-john-sea-dogs";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_chl__league__teams__team_name__statistics_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                league: "ohl" | "whl" | "qjmhl";
+                team_name: "brantford-bulldogs" | "peterborough-petes" | "ottawa-67s" | "oshawa-generals" | "kingston-frontenacs" | "london-knights" | "owen-sound-attack" | "kitchener-rangers" | "guelph-storm" | "erie-otters" | "niagara-icedogs" | "north-bay-battalion" | "brampton-steelheads" | "sudbury-wolves" | "barrie-colts" | "flint-firebirds" | "saginaw-spirit" | "windsor-spitfires" | "sault-ste-marie-greyhound" | "sarnia-sting" | "brandon-wheat-kings" | "swift-current-broncos" | "saskatoon-blades" | "regina-pats" | "prince-albert-raiders" | "moose-jaw-warriors" | "everett-silvertips" | "wenatchee-wild" | "tri-city-americans" | "spokane-chiefs" | "seattle-thunderbirds" | "portland-winterhawks" | "penticton-vees" | "victoria-royals" | "vancouver-giants" | "prince-george-cougars" | "kelowna-rockets" | "kamloops-blazers" | "calgary-hitmen" | "edmonton-oil-kings" | "red-deer-rebels" | "medicine-hat-tigers" | "lethbridge-hurricanes" | "rimouski-oceanic" | "chicoutimi-sagueneens" | "baie-comeau" | "quebec-remparts" | "drummondville-voltigeurs" | "shawinigan-cataractes" | "sherbrooke-phoenix" | "victoriaville-tigres" | "rouyn-noranda-huskies" | "blainville-boisbriand-armada" | "val-dor-foreurs" | "gatineau-olympiques" | "moncton-wildcats" | "cape-breton-eagles" | "acadie-bathurst-titan" | "charlottetown-islanders" | "halifax-mooseheads" | "saint-john-sea-dogs";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamStat_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_all_team_statistics_api_v1_chl__league__teams_statistics_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                league: "ohl" | "whl" | "qjmhl";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_chl_teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "brantford-bulldogs" | "peterborough-petes" | "ottawa-67s" | "oshawa-generals" | "kingston-frontenacs" | "london-knights" | "owen-sound-attack" | "kitchener-rangers" | "guelph-storm" | "erie-otters" | "niagara-icedogs" | "north-bay-battalion" | "brampton-steelheads" | "sudbury-wolves" | "barrie-colts" | "flint-firebirds" | "saginaw-spirit" | "windsor-spitfires" | "sault-ste-marie-greyhound" | "sarnia-sting" | "brandon-wheat-kings" | "swift-current-broncos" | "saskatoon-blades" | "regina-pats" | "prince-albert-raiders" | "moose-jaw-warriors" | "everett-silvertips" | "wenatchee-wild" | "tri-city-americans" | "spokane-chiefs" | "seattle-thunderbirds" | "portland-winterhawks" | "penticton-vees" | "victoria-royals" | "vancouver-giants" | "prince-george-cougars" | "kelowna-rockets" | "kamloops-blazers" | "calgary-hitmen" | "edmonton-oil-kings" | "red-deer-rebels" | "medicine-hat-tigers" | "lethbridge-hurricanes" | "rimouski-oceanic" | "chicoutimi-sagueneens" | "baie-comeau" | "quebec-remparts" | "drummondville-voltigeurs" | "shawinigan-cataractes" | "sherbrooke-phoenix" | "victoriaville-tigres" | "rouyn-noranda-huskies" | "blainville-boisbriand-armada" | "val-dor-foreurs" | "gatineau-olympiques" | "moncton-wildcats" | "cape-breton-eagles" | "acadie-bathurst-titan" | "charlottetown-islanders" | "halifax-mooseheads" | "saint-john-sea-dogs";
+                team2: "brantford-bulldogs" | "peterborough-petes" | "ottawa-67s" | "oshawa-generals" | "kingston-frontenacs" | "london-knights" | "owen-sound-attack" | "kitchener-rangers" | "guelph-storm" | "erie-otters" | "niagara-icedogs" | "north-bay-battalion" | "brampton-steelheads" | "sudbury-wolves" | "barrie-colts" | "flint-firebirds" | "saginaw-spirit" | "windsor-spitfires" | "sault-ste-marie-greyhound" | "sarnia-sting" | "brandon-wheat-kings" | "swift-current-broncos" | "saskatoon-blades" | "regina-pats" | "prince-albert-raiders" | "moose-jaw-warriors" | "everett-silvertips" | "wenatchee-wild" | "tri-city-americans" | "spokane-chiefs" | "seattle-thunderbirds" | "portland-winterhawks" | "penticton-vees" | "victoria-royals" | "vancouver-giants" | "prince-george-cougars" | "kelowna-rockets" | "kamloops-blazers" | "calgary-hitmen" | "edmonton-oil-kings" | "red-deer-rebels" | "medicine-hat-tigers" | "lethbridge-hurricanes" | "rimouski-oceanic" | "chicoutimi-sagueneens" | "baie-comeau" | "quebec-remparts" | "drummondville-voltigeurs" | "shawinigan-cataractes" | "sherbrooke-phoenix" | "victoriaville-tigres" | "rouyn-noranda-huskies" | "blainville-boisbriand-armada" | "val-dor-foreurs" | "gatineau-olympiques" | "moncton-wildcats" | "cape-breton-eagles" | "acadie-bathurst-titan" | "charlottetown-islanders" | "halifax-mooseheads" | "saint-john-sea-dogs";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_mwba_standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericStandings__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_schedule_api_v1_mwba_schedule_get: {
+        parameters: {
+            query?: {
+                team_name?: ("fredericton-freeze" | "port-city-fog" | "moncton-mystics" | "miramichi-her-icanes" | "halifax-hornets" | "halifax-thunder" | "lake-city-56ers" | "truro-tidal-queens") | null;
+                season?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_mwba_teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "fredericton-freeze" | "port-city-fog" | "moncton-mystics" | "miramichi-her-icanes" | "halifax-hornets" | "halifax-thunder" | "lake-city-56ers" | "truro-tidal-queens";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_mwba_teams__team_name__roster_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                team_name: "fredericton-freeze" | "port-city-fog" | "moncton-mystics" | "miramichi-her-icanes" | "halifax-hornets" | "halifax-thunder" | "lake-city-56ers" | "truro-tidal-queens";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_nsl_games_get: {
+        parameters: {
+            query?: {
+                start_date?: string | null;
+                end_date?: string | null;
+                team_name?: ("vancouver-rise-fc" | "calgary-wild-fc" | "halifax-tides-fc" | "montreal-roses-fc" | "afc-toronto" | "ottawa-rapid-fc") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_nsl_standings_get: {
+        parameters: {
+            query?: {
+                season?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericStandings__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_nsl_teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("vancouver-rise-fc" | "calgary-wild-fc" | "halifax-tides-fc" | "montreal-roses-fc" | "afc-toronto" | "ottawa-rapid-fc") | null;
+                season?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_nsl_teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "vancouver-rise-fc" | "calgary-wild-fc" | "halifax-tides-fc" | "montreal-roses-fc" | "afc-toronto" | "ottawa-rapid-fc";
+                team2: "vancouver-rise-fc" | "calgary-wild-fc" | "halifax-tides-fc" | "montreal-roses-fc" | "afc-toronto" | "ottawa-rapid-fc";
+                season?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_nsl_teams__team_name__info_get: {
+        parameters: {
+            query?: {
+                season?: string;
+            };
+            header?: never;
+            path: {
+                team_name: "vancouver-rise-fc" | "calgary-wild-fc" | "halifax-tides-fc" | "montreal-roses-fc" | "afc-toronto" | "ottawa-rapid-fc";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_wrestling_rankings_api_v1_usports_wrestling__league__rankings_get: {
+        parameters: {
+            query?: {
+                /** @description Filter by weight class (e.g., '57kg') */
+                weight_class?: string | null;
+                /** @description Season year (e.g., '2024-25') */
+                season_year?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mwres or wwres */
+                league: components["schemas"]["WrestlingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericAthleteResult___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_wrestling_team_rankings_api_v1_usports_wrestling__league__teams_get: {
+        parameters: {
+            query?: {
+                /** @description Season year (e.g., '2024-25') */
+                season_year?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mwres or wwres */
+                league: components["schemas"]["WrestlingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericSchoolRanking__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_track_results_api_v1_usports_track_and_field__league__results_get: {
+        parameters: {
+            query?: {
+                /** @description Filter by event name */
+                event_name?: string | null;
+                /** @description Season year (e.g., '2024-25') */
+                season_year?: string | null;
+                /** @description Season type (e.g., 'indoor', 'outdoor') */
+                season_type?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mtrack or wtrack */
+                league: components["schemas"]["TrackAndFieldLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericAthleteResult___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_track_qualified_api_v1_usports_track_and_field__league__qualified_get: {
+        parameters: {
+            query?: {
+                /** @description Season year (e.g., '2024-25') */
+                season_year?: string | null;
+                /** @description Season type (e.g., 'indoor', 'outdoor') */
+                season_type?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mtrack or wtrack */
+                league: components["schemas"]["TrackAndFieldLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericAthleteResult___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_track_team_rankings_api_v1_usports_track_and_field__league__teams_get: {
+        parameters: {
+            query?: {
+                /** @description Season year (e.g., '2024-25') */
+                season_year?: string | null;
+                /** @description Season type (e.g., 'indoor', 'outdoor') */
+                season_type?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mtrack or wtrack */
+                league: components["schemas"]["TrackAndFieldLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericSchoolRanking__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_swimming_years_api_v1_usports_swimming_years_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_int__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    get_swimming_results_api_v1_usports_swimming__league__results_get: {
+        parameters: {
+            query?: {
+                /** @description Championship year (e.g., '2025') */
+                year?: string;
+                /** @description Filter by event number */
+                event_number?: number | null;
+                /** @description Filter by heat type (e.g., 'final', 'prelim') */
+                heat_type?: string | null;
+                /** @description Filter by USports school name (case-insensitive) */
+                school?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mswim or wswim */
+                league: components["schemas"]["SwimmingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericAthleteResult__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_swimming_events_api_v1_usports_swimming__league__events_get: {
+        parameters: {
+            query?: {
+                /** @description Championship year (e.g., '2025') */
+                year?: string;
+            };
+            header?: never;
+            path: {
+                /** @description League: mswim or wswim */
+                league: components["schemas"]["SwimmingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_EventInfo__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_swimming_relays_api_v1_usports_swimming__league__relays_get: {
+        parameters: {
+            query?: {
+                /** @description Championship year (e.g., '2025') */
+                year?: string;
+                /** @description Filter by relay event number */
+                event_number?: number | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mswim or wswim */
+                league: components["schemas"]["SwimmingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericRelayResult__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_swimming_standings_api_v1_usports_swimming__league__standings_get: {
+        parameters: {
+            query?: {
+                /** @description Championship year (e.g., '2025') */
+                year?: string;
+            };
+            header?: never;
+            path: {
+                /** @description League: mswim or wswim */
+                league: components["schemas"]["SwimmingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericSchoolRanking__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_swimming_medals_api_v1_usports_swimming__league__medals_get: {
+        parameters: {
+            query?: {
+                /** @description Championship year (e.g., '2025') */
+                year?: string;
+            };
+            header?: never;
+            path: {
+                /** @description League: mswim or wswim */
+                league: components["schemas"]["SwimmingLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_SwimMedalTally__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_track_events_api_v1_usports_track_and_field__league__events_get: {
+        parameters: {
+            query?: {
+                /** @description Season type (e.g., 'indoor', 'outdoor') */
+                season_type?: string | null;
+            };
+            header?: never;
+            path: {
+                /** @description League: mtrack or wtrack */
+                league: components["schemas"]["TrackAndFieldLeague"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_EventInfo__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_usports__sport___league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York") | null;
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_usports__sport___league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_usports__sport___league__leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                team_id?: number | null;
+                conference?: string | null;
+                season_option?: components["schemas"]["app__api__v1__usports__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_usports__sport___league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+                /** @description Team name */
+                team_name: "Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_usports__sport___league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__usports__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+                /** @description Team name */
+                team_name: "Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_usports__sport___league__teams_statistics_get: {
+        parameters: {
+            query?: {
+                conference?: string | null;
+                team_name?: ("Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York") | null;
+                season_option?: components["schemas"]["app__api__v1__usports__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_usports__sport___league__players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York";
+                season_option?: components["schemas"]["app__api__v1__usports__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_usports__sport___league__teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York";
+                team2: "Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York";
+                season_option?: components["schemas"]["app__api__v1__usports__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, etc.) */
+                sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CollegeTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_basketball_team_comparison_api_v1_usports_basketball__league__teams__team_name__comparison_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__usports__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description League identifier (mbb, wbb) */
+                league: components["schemas"]["app__api__v1__usports__constants__League"];
+                /** @description Team name */
+                team_name: "Acadia" | "Alberta" | "Algoma" | "Bishop's" | "Brandon" | "Brock" | "Calgary" | "Cape Breton" | "Carleton" | "Concordia" | "Dalhousie" | "ETS" | "Guelph" | "Lakehead" | "Laurentian" | "Laurier" | "Laval" | "Lethbridge" | "MacEwan" | "Manitoba" | "McGill" | "McMaster" | "Memorial" | "Moncton" | "Montreal" | "Mount Allison" | "Mount Royal" | "Nipissing" | "Ontario Tech" | "Ottawa" | "Queen's" | "Regina" | "RMC" | "Saint Mary's" | "Saskatchewan" | "Sherbrooke" | "StFX" | "St. Thomas" | "Thompson Rivers" | "Toronto" | "Toronto Metropolitan" | "Trent" | "Trinity Western" | "UBC" | "UBCO" | "UBC Okanagan" | "UFV" | "UNB" | "UNBC" | "UPEI" | "UQAC" | "UQAM" | "UQTR" | "Victoria" | "Waterloo" | "Western" | "Windsor" | "Winnipeg" | "York";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_BasketballTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_ocaa__sport___league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)") | null;
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_ocaa__sport___league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_ocaa__sport___league__leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                team_id?: number | null;
+                season_option?: components["schemas"]["app__api__v1__ocaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_ocaa__sport___league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+                /** @description Team name */
+                team_name: "Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_ocaa__sport___league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__ocaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+                /** @description Team name */
+                team_name: "Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_ocaa__sport___league__teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)") | null;
+                season_option?: components["schemas"]["app__api__v1__ocaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_ocaa__sport___league__players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)";
+                season_option?: components["schemas"]["app__api__v1__ocaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_ocaa__sport___league__teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)";
+                team2: "Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)";
+                season_option?: components["schemas"]["app__api__v1__ocaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, etc.) */
+                sport: components["schemas"]["app__api__v1__ocaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, etc.) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CollegeTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_basketball_team_comparison_api_v1_ocaa_basketball__league__teams__team_name__comparison_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__ocaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description League identifier (mbb, wbb) */
+                league: components["schemas"]["app__api__v1__ocaa__constants__League"];
+                /** @description Team name */
+                team_name: "Algonquin" | "Boreal" | "Cambrian" | "Canadore" | "Centennial" | "Conestoga" | "Confederation" | "Durham" | "Fanshawe" | "Fleming" | "George Brown" | "Georgian" | "Humber" | "La Cite" | "Lakehead University Orillia" | "Lambton" | "Loyalist" | "Mohawk" | "Niagara" | "Northern" | "Redeemer" | "Sault" | "Seneca" | "Sheridan" | "St. Clair" | "St. Lawrence" | "St. Lawrence (K)";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_BasketballTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_psl__league__standings_get: {
+        parameters: {
+            query?: {
+                year?: number;
+            };
+            header?: never;
+            path: {
+                league: "ppl-mens" | "ppl-womens" | "apl-mens" | "apl-womens" | "bcpl-mens" | "bcpl-womens" | "opl-1-mens" | "opl-1-womens" | "opl-2-mens" | "opl-2-womens" | "opl-3-mens" | "opl-3-womens" | "opl-u20-mens" | "opl-u20-womens";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "team": {
+                     *             "id": "Forge FC",
+                     *             "name": {
+                     *               "en": "Forge FC"
+                     *             },
+                     *             "team_entity_id": "psl_opl-1-mens_forge-fc"
+                     *           },
+                     *           "wins": 15,
+                     *           "losses": 2,
+                     *           "rank": 1,
+                     *           "league_id": "psl",
+                     *           "league_entity_id": "opl-1-mens",
+                     *           "stats": {
+                     *             "games_played": 20,
+                     *             "draws": 3,
+                     *             "goals_for": 48,
+                     *             "goals_against": 18,
+                     *             "goal_difference": 30,
+                     *             "points": 48
+                     *           }
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericStandings__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_psl__league__games_get: {
+        parameters: {
+            query?: {
+                year?: number;
+            };
+            header?: never;
+            path: {
+                league: "ppl-mens" | "ppl-womens" | "apl-mens" | "apl-womens" | "bcpl-mens" | "bcpl-womens" | "opl-1-mens" | "opl-1-womens" | "opl-2-mens" | "opl-2-womens" | "opl-3-mens" | "opl-3-womens" | "opl-u20-mens" | "opl-u20-womens";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "id": "1752885",
+                     *           "date": "2025-06-03T04:00:00",
+                     *           "status": "FINAL",
+                     *           "home_team": {
+                     *             "team": {
+                     *               "id": "Vancouver FC",
+                     *               "name": {
+                     *                 "en": "Vancouver FC"
+                     *               },
+                     *               "team_entity_id": "psl_bcpl-mens_vancouver-fc"
+                     *             },
+                     *             "score": 2
+                     *           },
+                     *           "away_team": {
+                     *             "team": {
+                     *               "id": "Surrey United",
+                     *               "name": {
+                     *                 "en": "Surrey United"
+                     *               },
+                     *               "team_entity_id": "psl_bcpl-mens_surrey-united"
+                     *             },
+                     *             "score": 1
+                     *           },
+                     *           "league_id": "psl",
+                     *           "league_entity_id": "bcpl-mens",
+                     *           "sport": "msc",
+                     *           "venue": "Swangard Stadium"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_psl__league__teams__team_name__info_get: {
+        parameters: {
+            query?: {
+                year?: number;
+            };
+            header?: never;
+            path: {
+                league: "ppl-mens" | "ppl-womens" | "apl-mens" | "apl-womens" | "bcpl-mens" | "bcpl-womens" | "opl-1-mens" | "opl-1-womens" | "opl-2-mens" | "opl-2-womens" | "opl-3-mens" | "opl-3-womens" | "opl-u20-mens" | "opl-u20-womens";
+                team_name: "bonivital-flames" | "fc-manitoba" | "forza-soccer-academy" | "lucania-fc" | "qc-united" | "saskatchewan-excel" | "thunder-bay-chill" | "calgary-blizzard" | "calgary-foothills" | "calgary-rangers-sc" | "calgary-villains-fc" | "calgary-wild-fc-u23" | "calgary-wild-fc" | "callies-united" | "cavalry-fc" | "cavalry-fc-ii" | "edmonton-btb-sc" | "edmonton-scottish" | "st-albert-impact" | "altitude-fc" | "burnaby-fc" | "evolution-fc" | "kamloops-united-fc" | "langley-united" | "nanaimo-united-fc" | "tss-rovers-fc" | "unity-fc" | "vancouver-rise-fc-academy" | "vancouver-whitecaps-academy" | "alliance-united" | "aurora-fc" | "burlington-sc" | "cambridge-united" | "fc-durham" | "fc-london" | "guelph-united" | "guelph-united-fc" | "hamilton-united" | "inter-toronto-ii" | "inter-toronto-iii" | "inter-toronto-iv" | "international-fc" | "kingston-sentinels" | "masters-fa" | "ndc-ontario" | "north-mississauga-sc" | "north-toronto" | "oakville-sc" | "pickering-fc" | "railway-city-fc" | "richmond-hill-sc" | "rush-canada-academy" | "scrosoppi-fc" | "sigma-fc" | "simcoe-county-rovers-fc" | "st-catharines-roma" | "sudbury-cyclones" | "tecumseh-united-fc" | "the-borough-fc" | "unionville-milliken-sc" | "vaughan-azzurri" | "waterloo-united" | "whitby-fc" | "windsor-city-fc" | "woodbridge-strikers" | "york-united-academy";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": {
+                     *         "team": {
+                     *           "id": "Forge FC",
+                     *           "name": {
+                     *             "en": "Forge FC"
+                     *           },
+                     *           "team_entity_id": "psl_opl-1-mens_forge-fc"
+                     *         },
+                     *         "wins": 15,
+                     *         "losses": 2,
+                     *         "rank": 1,
+                     *         "league_id": "psl",
+                     *         "league_entity_id": "opl-1-mens",
+                     *         "stats": {
+                     *           "games_played": 20,
+                     *           "draws": 3,
+                     *           "goals_for": 48,
+                     *           "goals_against": 18,
+                     *           "goal_difference": 30,
+                     *           "points": 48
+                     *         }
+                     *       }
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
 }
