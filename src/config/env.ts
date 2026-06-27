@@ -1,5 +1,5 @@
 /**
- * Environment configuration for the NorthScore MCP server
+ * Environment configuration for the Northscore MCP server
  */
 
 // Load .env when present (local dev); hosted environments set vars directly
@@ -23,6 +23,7 @@ interface Config {
   port: number;
   nodeEnv: string;
   logLevel: LogLevel;
+  supabaseJwtSecret: string;
 }
 
 function getEnvVar(key: string, defaultValue?: string): string {
@@ -60,6 +61,7 @@ export const config: Config = {
   port: parseInt(getEnvVar('PORT', '3002'), 10),
   nodeEnv: getEnvVar('NODE_ENV', 'development'),
   logLevel: getLogLevel(),
+  supabaseJwtSecret: getEnvVar('SUPABASE_JWT_SECRET'),
 };
 
 /**

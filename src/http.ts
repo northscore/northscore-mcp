@@ -12,6 +12,7 @@ import type { Transport } from '@modelcontextprotocol/sdk/shared/transport.js';
 import { config } from './config/env.js';
 import { logger } from './logger.js';
 import { createServer, SERVER_INFO } from './server.js';
+import { validateJwt } from './auth.js';
 
 function methodNotAllowed(res: Response): void {
   res.status(405).json({
@@ -25,6 +26,20 @@ export function startHttpServer(): void {
   const app = createMcpExpressApp({ host: config.host });
 
   app.post('/mcp', async (req: Request, res: Response) => {
+    try {
+      validateJwt(req);
+    } catch {
+      res.status(401).json({
+        jsonrpc: '2.0',
+        error: {
+          code: -32001,
+          message: 'Unauthorized: invalid or missing JWT',
+        },
+        id: null,
+      });
+      return;
+    }
+
     const server = createServer();
     try {
       // No sessionIdGenerator -> stateless mode (no sessions to resume)
