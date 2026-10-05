@@ -1,10 +1,11 @@
 import eslint from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default defineConfig(
   { ignores: ['src/types/generated.ts', 'dist/**'] },
   eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
       parserOptions: {

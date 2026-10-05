@@ -16,7 +16,7 @@ Built with TypeScript following [MCP TypeScript SDK](https://github.com/modelcon
 
 ## Overview
 
-The Northscore MCP Server enables AI agents to query Northscore's sports data securely — 7 tools covering 10 Canadian league families (CEBL, CFL, CPL, HoopQueens, NSL, MWBA, CHL, U SPORTS, OCAA, PSL), served over **stdio** (local clients like Claude Desktop) and **Streamable HTTP** (remote hosts like ChatGPT and Claude web).
+The Northscore MCP Server enables AI agents to query Northscore's sports data securely — 7 tools covering 10 Canadian league families (CEBL, CFL, CPL, HoopQueens, NSL, MWBA, CHL, U SPORTS, CCAA colleges — OCAA, ACAC, PACWEST, ACAA, MCAC — and PSL), served over **stdio** (local clients like Claude Desktop) and **Streamable HTTP** (remote hosts like ChatGPT and Claude web).
 
 ### Tools
 
@@ -85,17 +85,33 @@ pnpm format       # Format code with Prettier
 pnpm test         # Run tests (Vitest)
 ```
 
-### Local Docker Setup
+### Docker
 
-For local development with Docker:
+The root `Dockerfile` builds the hosted image (Streamable HTTP on port 8080). Railway detects it automatically and uses it for deploys.
 
 ```bash
-docker-compose -f docker-compose.local.yml up
+docker build -t northscore-mcp .
+docker compose -f docker-compose.local.yml up   # runs against the local API container
 ```
 
 Requires: `.env` file with `NORTHSCORE_STATS_API_KEY` and `SUPABASE_JWT_SECRET`.
 
-**Note:** Railway uses native builds and does not require Docker files for deployment.
+### Claude Desktop (stdio)
+
+Run `pnpm build`, then point Claude Desktop at `dist/index.js`:
+
+```json
+"northscore": {
+  "command": "node",
+  "args": ["/absolute/path/to/northscore-mcp/dist/index.js"],
+  "env": {
+    "NORTHSCORE_STATS_API_KEY": "123",
+    "NORTHSCORE_API_BASE_URL": "http://localhost:8080/api/v1"
+  }
+}
+```
+
+`SUPABASE_JWT_SECRET` is only needed for the HTTP transport.
 
 ### Debugging with MCP Inspector
 

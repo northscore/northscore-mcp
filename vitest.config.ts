@@ -12,10 +12,5 @@ export default defineConfig({
     environment: 'node',
     include: ['tests/**/*.test.ts'],
     exclude: ['tests/integration/**'],
-    coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html'],
-      exclude: ['tests/**', 'dist/**', '**/*.config.ts'],
-    },
   },
 });

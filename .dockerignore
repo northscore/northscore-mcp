@@ -1,66 +1,9 @@
-# Environment
-.env
-.env.local
-.env.*.local
-.env.example
-
-# Version control
-.git
-.gitignore
-.gitattributes
-
-# IDE
-.vscode
-.idea
-.DS_Store
-*.swp
-*.swo
-*~
-
-# Build/Runtime
-node_modules
-npm-debug.log
-pnpm-debug.log
-yarn-error.log
-dist
-coverage
-.vitest
-
-# Tests
-tests
-*.test.ts
-*.spec.ts
-
-# Docs
-README.md
-ROADMAP.md
-CLAUDE.md
-docs/
-
-# CI/CD
-.github
-.gitlab-ci.yml
-.circleci
-
-# Development tools
-.editorconfig
-.prettierrc
-eslint.config.mjs
-tsconfig.json
-tsconfig.build.json
-vitest.config.ts
-
-# Plans and tasks
-.claude/plans
-.claude/projects
-
-# Skills
-.agents/
-.claude/skills/
-
-# Misc
-*.md
-LICENSE
-.npmrc
-.pnpmrc
-pnpm-lock.yaml
+# Allowlist: only what the image build needs reaches the build context.
+# Everything else (.env, .git, node_modules, dist, tests, docs) stays out.
+*
+!package.json
+!pnpm-lock.yaml
+!.npmrc
+!tsconfig.json
+!tsconfig.build.json
+!src/**

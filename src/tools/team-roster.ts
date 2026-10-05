@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { TEAM_ROSTER_LEAGUES } from '../constants/index.js';
 import { fetchTeamRoster } from '../services/index.js';
-import { teamRosterSchema } from './schemas.js';
+import { LEAGUE_PATTERNS, teamRosterSchema } from './schemas.js';
 import { errorResult, successResult } from './helpers.js';
 
 const inputSchema = {
@@ -14,14 +14,14 @@ const inputSchema = {
     .enum(TEAM_ROSTER_LEAGUES)
     .describe(
       'League identifier — leagues with rosters: cebl, cfl, cpl, hoopqueens, mwba, ' +
-        'usports_{mbb,wbb,mvb,wvb,mfb,msoc,wsoc,mhky,whky}, ocaa_{mbb,wbb,mvb,wvb,msoc,wsoc}. ' +
+        `${LEAGUE_PATTERNS.usports}, ${LEAGUE_PATTERNS.ccaa}. ` +
         'NSL, CHL and PSL do not publish rosters.',
     ),
   team_name: z
     .string()
     .describe(
       "Team identifier in the league's naming scheme. Pro leagues: lowercase nickname " +
-        '(e.g. "alouettes"). U SPORTS/OCAA: school name (e.g. "Carleton"). ' +
+        '(e.g. "alouettes"). U SPORTS/CCAA: school name (e.g. "Carleton", "SAIT"). ' +
         'MWBA: kebab-case slug (e.g. "halifax-thunder").',
     ),
   mode: z

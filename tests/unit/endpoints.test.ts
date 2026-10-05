@@ -45,10 +45,26 @@ describe('parseLeagueSystem', () => {
     });
   });
 
-  it('parses OCAA leagues including men’s volleyball', () => {
+  it('parses CCAA conference leagues to /{conference}/{sport}/{league}', () => {
     expect(parseLeagueSystem('ocaa_mvb')).toEqual({
-      family: 'ocaa',
+      family: 'ccaa',
       basePath: '/ocaa/volleyball/mvb',
+    });
+    expect(parseLeagueSystem('acac_mbb')).toEqual({
+      family: 'ccaa',
+      basePath: '/acac/basketball/mbb',
+    });
+    expect(parseLeagueSystem('pacwest_wsoc')).toEqual({
+      family: 'ccaa',
+      basePath: '/pacwest/soccer/wsoc',
+    });
+    expect(parseLeagueSystem('acaa_wvb')).toEqual({
+      family: 'ccaa',
+      basePath: '/acaa/volleyball/wvb',
+    });
+    expect(parseLeagueSystem('mcac_wbb')).toEqual({
+      family: 'ccaa',
+      basePath: '/mcac/basketball/wbb',
     });
   });
 
@@ -120,7 +136,10 @@ describe('buildTeamStatsEndpoint', () => {
 describe('buildTeamInfoEndpoint', () => {
   it('URL-encodes team names', () => {
     expect(buildTeamInfoEndpoint('usports_mbb', "Queen's")).toBe(
-      "/usports/basketball/mbb/teams/Queen's/info".replace("Queen's", encodeURIComponent("Queen's")),
+      "/usports/basketball/mbb/teams/Queen's/info".replace(
+        "Queen's",
+        encodeURIComponent("Queen's"),
+      ),
     );
     expect(buildTeamInfoEndpoint('usports_mbb', 'St. Lawrence (K)')).toBe(
       `/usports/basketball/mbb/teams/${encodeURIComponent('St. Lawrence (K)')}/info`,
@@ -157,6 +176,6 @@ describe('buildAggregateGamesEndpoint', () => {
   it('builds aggregate scope paths', () => {
     expect(buildAggregateGamesEndpoint('pro')).toBe('/aggregate/games/pro');
     expect(buildAggregateGamesEndpoint('usports')).toBe('/aggregate/games/usports');
-    expect(buildAggregateGamesEndpoint('ocaa')).toBe('/aggregate/games/ocaa');
+    expect(buildAggregateGamesEndpoint('ccaa')).toBe('/aggregate/games/ccaa');
   });
 });

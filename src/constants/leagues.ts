@@ -27,14 +27,42 @@ export const USPORTS_LEAGUES = [
   'usports_whky',
 ] as const;
 
-/** OCAA leagues — path /ocaa/{sport}/{league} */
-export const OCAA_LEAGUES = [
+/**
+ * CCAA college leagues — path /{conference}/{sport}/{league}.
+ * Conferences: OCAA (Ontario), ACAC (Alberta), PACWEST (BC), ACAA (Atlantic),
+ * MCAC (Manitoba). All share the same endpoints and league codes.
+ */
+export const CCAA_LEAGUES = [
   'ocaa_mbb',
   'ocaa_wbb',
   'ocaa_mvb',
   'ocaa_wvb',
   'ocaa_msoc',
   'ocaa_wsoc',
+  'acac_mbb',
+  'acac_wbb',
+  'acac_mvb',
+  'acac_wvb',
+  'acac_msoc',
+  'acac_wsoc',
+  'pacwest_mbb',
+  'pacwest_wbb',
+  'pacwest_mvb',
+  'pacwest_wvb',
+  'pacwest_msoc',
+  'pacwest_wsoc',
+  'acaa_mbb',
+  'acaa_wbb',
+  'acaa_mvb',
+  'acaa_wvb',
+  'acaa_msoc',
+  'acaa_wsoc',
+  'mcac_mbb',
+  'mcac_wbb',
+  'mcac_mvb',
+  'mcac_wvb',
+  'mcac_msoc',
+  'mcac_wsoc',
 ] as const;
 
 /** PSL soccer sub-leagues — path /psl/{league} (hyphenated slugs) */
@@ -60,7 +88,7 @@ export const ALL_LEAGUES = [
   ...SIMPLE_LEAGUES,
   ...CHL_LEAGUES,
   ...USPORTS_LEAGUES,
-  ...OCAA_LEAGUES,
+  ...CCAA_LEAGUES,
   ...PSL_LEAGUES,
 ] as const;
 
@@ -71,7 +99,7 @@ export const LEADERBOARD_LEAGUES = [
   'cpl',
   'hoopqueens',
   ...USPORTS_LEAGUES,
-  ...OCAA_LEAGUES,
+  ...CCAA_LEAGUES,
 ] as const;
 
 /** Leagues with a /teams/statistics endpoint (all except MWBA and PSL) */
@@ -83,7 +111,7 @@ export const TEAM_STATS_LEAGUES = [
   'nsl',
   ...CHL_LEAGUES,
   ...USPORTS_LEAGUES,
-  ...OCAA_LEAGUES,
+  ...CCAA_LEAGUES,
 ] as const;
 
 /** Leagues with a /teams/{team}/roster endpoint (all except NSL, CHL and PSL) */
@@ -94,17 +122,12 @@ export const TEAM_ROSTER_LEAGUES = [
   'hoopqueens',
   'mwba',
   ...USPORTS_LEAGUES,
-  ...OCAA_LEAGUES,
+  ...CCAA_LEAGUES,
 ] as const;
 
 /** Cross-league aggregate scopes — /aggregate/games/{scope} */
-export const AGGREGATE_SCOPES = ['pro', 'usports', 'ocaa'] as const;
+export const AGGREGATE_SCOPES = ['pro', 'usports', 'ccaa'] as const;
 
-export type SimpleLeague = (typeof SIMPLE_LEAGUES)[number];
-export type ChlLeague = (typeof CHL_LEAGUES)[number];
-export type USportsLeague = (typeof USPORTS_LEAGUES)[number];
-export type OcaaLeague = (typeof OCAA_LEAGUES)[number];
-export type PslLeague = (typeof PSL_LEAGUES)[number];
 export type LeagueSystem = (typeof ALL_LEAGUES)[number];
 export type LeaderboardLeague = (typeof LEADERBOARD_LEAGUES)[number];
 export type TeamStatsLeague = (typeof TEAM_STATS_LEAGUES)[number];

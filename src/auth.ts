@@ -35,6 +35,6 @@ export function validateJwt(req: Request): { userId: string } {
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'JWT validation failed';
     logger.warn('JWT validation failed', { error: message });
-    throw new Error(message);
+    throw new Error(message, { cause: err });
   }
 }

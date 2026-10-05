@@ -64,6 +64,370 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/acaa/{sport}/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get games/schedule for a sport and league from the acaa.ca feed.
+         */
+        get: operations["get_games_api_v1_acaa__sport___league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get standings for a sport and league.
+         *
+         *     Note: ACAA returns a single list (no conference grouping).
+         */
+        get: operations["get_standings_api_v1_acaa__sport___league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get statistical leaders for a sport and league
+         */
+        get: operations["get_leaderboard_api_v1_acaa__sport___league__leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team information by team name
+         */
+        get: operations["get_team_info_api_v1_acaa__sport___league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster for a sport and league
+         */
+        get: operations["get_team_roster_api_v1_acaa__sport___league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics for a sport and league
+         */
+        get: operations["get_team_statistics_api_v1_acaa__sport___league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics for a sport and league
+         */
+        get: operations["get_player_statistics_api_v1_acaa__sport___league__players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/{sport}/{league}/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get comparison between two teams
+         */
+        get: operations["get_team_comparison_api_v1_acaa__sport___league__teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acaa/basketball/{league}/teams/{team_name}/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Basketball Team Comparison
+         * @description Get basketball team vs opponent statistical comparison
+         */
+        get: operations["get_basketball_team_comparison_api_v1_acaa_basketball__league__teams__team_name__comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get games/schedule for a sport and league from the acac.ab.ca feed.
+         */
+        get: operations["get_games_api_v1_acac__sport___league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get standings for a sport and league.
+         *
+         *     Note: ACAC returns a single list (no conference grouping).
+         */
+        get: operations["get_standings_api_v1_acac__sport___league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get statistical leaders for a sport and league
+         */
+        get: operations["get_leaderboard_api_v1_acac__sport___league__leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team information by team name
+         */
+        get: operations["get_team_info_api_v1_acac__sport___league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster for a sport and league
+         */
+        get: operations["get_team_roster_api_v1_acac__sport___league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics for a sport and league
+         */
+        get: operations["get_team_statistics_api_v1_acac__sport___league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics for a sport and league
+         */
+        get: operations["get_player_statistics_api_v1_acac__sport___league__players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/{sport}/{league}/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get comparison between two teams
+         */
+        get: operations["get_team_comparison_api_v1_acac__sport___league__teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/acac/basketball/{league}/teams/{team_name}/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Basketball Team Comparison
+         * @description Get basketball team vs opponent statistical comparison
+         */
+        get: operations["get_basketball_team_comparison_api_v1_acac_basketball__league__teams__team_name__comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/aggregate/games/pro": {
         parameters: {
             query?: never;
@@ -104,7 +468,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/aggregate/games/ocaa": {
+    "/api/v1/aggregate/games/ccaa": {
         parameters: {
             query?: never;
             header?: never;
@@ -112,10 +476,32 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get Ocaa Games
-         * @description Get games from OCAA leagues (fetched sequentially).
+         * Get Ccaa Games
+         * @description Get games from every CCAA conference (OCAA, ACAC, PACWEST, ACAA, MCAC) plus national championships.
+         *
+         *     Games are grouped by conference league (e.g. ``acac_soccer``); nationals are under ``ccaa_{sport}``.
          */
-        get: operations["get_ocaa_games_api_v1_aggregate_games_ocaa_get"];
+        get: operations["get_ccaa_games_api_v1_aggregate_games_ccaa_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/aggregate/games/psl": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Psl Games
+         * @description Get games for a PSL group, fetched one league at a time (incremental loading).
+         */
+        get: operations["get_psl_games_api_v1_aggregate_games_psl_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -627,26 +1013,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/cfl/teams/{team_name}/form": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get Team Form
-         * @description Last-N-game averages vs season averages for a single CFL team.
-         */
-        get: operations["get_team_form_api_v1_cfl_teams__team_name__form_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/api/v1/cfl/transactions": {
         parameters: {
             query?: never;
@@ -1059,6 +1425,188 @@ export interface paths {
          * @description Get Team Comparison
          */
         get: operations["get_team_comparison_api_v1_hoopqueens_teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get games/schedule for a sport and league from the mcacathletics.ca feed.
+         */
+        get: operations["get_games_api_v1_mcac__sport___league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get standings for a sport and league.
+         *
+         *     Note: MCAC returns a single list (no conference grouping).
+         */
+        get: operations["get_standings_api_v1_mcac__sport___league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get statistical leaders for a sport and league
+         */
+        get: operations["get_leaderboard_api_v1_mcac__sport___league__leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team information by team name
+         */
+        get: operations["get_team_info_api_v1_mcac__sport___league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster for a sport and league
+         */
+        get: operations["get_team_roster_api_v1_mcac__sport___league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics for a sport and league
+         */
+        get: operations["get_team_statistics_api_v1_mcac__sport___league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics for a sport and league
+         */
+        get: operations["get_player_statistics_api_v1_mcac__sport___league__players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/{sport}/{league}/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get comparison between two teams
+         */
+        get: operations["get_team_comparison_api_v1_mcac__sport___league__teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/mcac/basketball/{league}/teams/{team_name}/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Basketball Team Comparison
+         * @description Get basketball team vs opponent statistical comparison
+         */
+        get: operations["get_basketball_team_comparison_api_v1_mcac_basketball__league__teams__team_name__comparison_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1817,6 +2365,8 @@ export interface paths {
         /**
          * Get Games
          * @description Get games/schedule for a sport and league.
+         *
+         *     Rugby (``wrug``) and field hockey (``wfh``) are schedule-only: this is their only route.
          */
         get: operations["get_games_api_v1_usports__sport___league__games_get"];
         put?: never;
@@ -2169,6 +2719,188 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/pacwest/{sport}/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Get games/schedule for a sport and league from the pacwestbc.ca feed.
+         */
+        get: operations["get_games_api_v1_pacwest__sport___league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Standings
+         * @description Get standings for a sport and league.
+         *
+         *     Note: PACWEST returns a single list (no conference grouping).
+         */
+        get: operations["get_standings_api_v1_pacwest__sport___league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Leaderboard
+         * @description Get statistical leaders for a sport and league
+         */
+        get: operations["get_leaderboard_api_v1_pacwest__sport___league__leaderboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Info
+         * @description Get team information by team name
+         */
+        get: operations["get_team_info_api_v1_pacwest__sport___league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Roster
+         * @description Get team roster for a sport and league
+         */
+        get: operations["get_team_roster_api_v1_pacwest__sport___league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/teams/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Statistics
+         * @description Get team statistics for a sport and league
+         */
+        get: operations["get_team_statistics_api_v1_pacwest__sport___league__teams_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/players/statistics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Player Statistics
+         * @description Get player statistics for a sport and league
+         */
+        get: operations["get_player_statistics_api_v1_pacwest__sport___league__players_statistics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/{sport}/{league}/teams/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Team Comparison
+         * @description Get comparison between two teams
+         */
+        get: operations["get_team_comparison_api_v1_pacwest__sport___league__teams_comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pacwest/basketball/{league}/teams/{team_name}/comparison": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Basketball Team Comparison
+         * @description Get basketball team vs opponent statistical comparison
+         */
+        get: operations["get_basketball_team_comparison_api_v1_pacwest_basketball__league__teams__team_name__comparison_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/psl/{league}/standings": {
         parameters: {
             query?: never;
@@ -2199,6 +2931,10 @@ export interface paths {
         /**
          * Get Games
          * @description Fetch PSL scheduled games for the given league and season.
+         *
+         *     When start_date/end_date are given (e.g. the today's-games feed), only that
+         *     date range is fetched — cached under a range-specific key so it never
+         *     collides with the full-season cache used by team and schedule pages.
          */
         get: operations["get_games_api_v1_psl__league__games_get"];
         put?: never;
@@ -2842,33 +3578,6 @@ export interface components {
             state?: string | null;
             /** Available Roster */
             available_roster: boolean;
-        };
-        /**
-         * CflTeamForm
-         * @description Last-N-games averages vs season averages for a single CFL team.
-         */
-        CflTeamForm: {
-            team: components["schemas"]["TeamInfo"];
-            /** League Id */
-            league_id: string;
-            /** Season */
-            season: number;
-            /** Games Requested */
-            games_requested: number;
-            /** Games Available */
-            games_available: number;
-            /** Last N Avg */
-            last_n_avg: {
-                [key: string]: number;
-            };
-            /** Season Avg */
-            season_avg: {
-                [key: string]: number;
-            };
-            /** Trend */
-            trend: {
-                [key: string]: number;
-            };
         };
         /**
          * CollegeLeagueAverages
@@ -4213,31 +4922,6 @@ export interface components {
             /** Message */
             message?: string | null;
         };
-        /** StandardResponse[CflTeamForm] */
-        StandardResponse_CflTeamForm_: {
-            /**
-             * Success
-             * @description Whether the request was successful
-             * @default true
-             */
-            success: boolean;
-            data?: components["schemas"]["CflTeamForm"] | null;
-            /** Error Message */
-            error_message?: string | null;
-            /**
-             * Request Id
-             * @description Unique request identifier
-             */
-            request_id?: string;
-            /**
-             * Timestamp
-             * Format: date-time
-             * @description Response timestamp in UTC
-             */
-            timestamp?: string;
-            /** Message */
-            message?: string | null;
-        };
         /** StandardResponse[CollegeTeamComparison] */
         StandardResponse_CollegeTeamComparison_: {
             /**
@@ -5114,6 +5798,10 @@ export interface components {
             msg: string;
             /** Error Type */
             type: string;
+            /** Input */
+            input?: unknown;
+            /** Context */
+            ctx?: Record<string, never>;
         };
         /**
          * WrestlingLeague
@@ -5121,6 +5809,60 @@ export interface components {
          * @enum {string}
          */
         WrestlingLeague: "mwres" | "wwres";
+        /**
+         * League
+         * @description Valid ACAA leagues
+         * @enum {string}
+         */
+        app__api__v1__acaa__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "msoc" | "wsoc";
+        /**
+         * SeasonOption
+         * @description Valid season options
+         * @enum {string}
+         */
+        app__api__v1__acaa__constants__SeasonOption: "regular" | "playoffs";
+        /**
+         * Sport
+         * @description Valid ACAA sports
+         * @enum {string}
+         */
+        app__api__v1__acaa__constants__Sport: "basketball" | "volleyball" | "soccer";
+        /**
+         * League
+         * @description Valid ACAC leagues
+         * @enum {string}
+         */
+        app__api__v1__acac__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "msoc" | "wsoc";
+        /**
+         * SeasonOption
+         * @description Valid season options
+         * @enum {string}
+         */
+        app__api__v1__acac__constants__SeasonOption: "regular" | "playoffs";
+        /**
+         * Sport
+         * @description Valid ACAC sports
+         * @enum {string}
+         */
+        app__api__v1__acac__constants__Sport: "basketball" | "volleyball" | "soccer";
+        /**
+         * League
+         * @description Valid MCAC leagues
+         * @enum {string}
+         */
+        app__api__v1__mcac__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "msoc" | "wsoc";
+        /**
+         * SeasonOption
+         * @description Valid season options
+         * @enum {string}
+         */
+        app__api__v1__mcac__constants__SeasonOption: "regular" | "playoffs";
+        /**
+         * Sport
+         * @description Valid MCAC sports
+         * @enum {string}
+         */
+        app__api__v1__mcac__constants__Sport: "basketball" | "volleyball" | "soccer";
         /**
          * League
          * @description Valid OCAA leagues
@@ -5141,10 +5883,28 @@ export interface components {
         app__api__v1__ocaa__constants__Sport: "basketball" | "volleyball" | "soccer";
         /**
          * League
+         * @description Valid PACWEST leagues
+         * @enum {string}
+         */
+        app__api__v1__pacwest__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "msoc" | "wsoc";
+        /**
+         * SeasonOption
+         * @description Valid season options
+         * @enum {string}
+         */
+        app__api__v1__pacwest__constants__SeasonOption: "regular" | "playoffs";
+        /**
+         * Sport
+         * @description Valid PACWEST sports
+         * @enum {string}
+         */
+        app__api__v1__pacwest__constants__Sport: "basketball" | "volleyball" | "soccer";
+        /**
+         * League
          * @description Valid USports leagues
          * @enum {string}
          */
-        app__api__v1__usports__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "mfb" | "msoc" | "wsoc" | "mhky" | "whky";
+        app__api__v1__usports__constants__League: "mbb" | "wbb" | "mvb" | "wvb" | "mfb" | "msoc" | "wsoc" | "mhky" | "whky" | "wrug" | "wfh";
         /**
          * SeasonOption
          * @description Valid season options
@@ -5156,7 +5916,7 @@ export interface components {
          * @description Valid USports sports
          * @enum {string}
          */
-        app__api__v1__usports__constants__Sport: "basketball" | "football" | "ice_hockey" | "soccer" | "volleyball";
+        app__api__v1__usports__constants__Sport: "basketball" | "football" | "ice_hockey" | "soccer" | "volleyball" | "rugby" | "field_hockey";
     };
     responses: never;
     parameters: never;
@@ -5222,6 +5982,792 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HealthCheckResponse"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_acaa__sport___league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA") | null;
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_acaa__sport___league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_acaa__sport___league__leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                team_id?: number | null;
+                season_option?: components["schemas"]["app__api__v1__acaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_acaa__sport___league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+                /** @description Team name */
+                team_name: "Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_acaa__sport___league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__acaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+                /** @description Team name */
+                team_name: "Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_acaa__sport___league__teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA") | null;
+                season_option?: components["schemas"]["app__api__v1__acaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_acaa__sport___league__players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA";
+                season_option?: components["schemas"]["app__api__v1__acaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_acaa__sport___league__teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA";
+                team2: "Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA";
+                season_option?: components["schemas"]["app__api__v1__acaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acaa__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CollegeTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_basketball_team_comparison_api_v1_acaa_basketball__league__teams__team_name__comparison_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__acaa__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description League identifier (mbb, wbb) */
+                league: components["schemas"]["app__api__v1__acaa__constants__League"];
+                /** @description Team name */
+                team_name: "Crandall" | "Dal Rams" | "Holland" | "MSVU" | "Mount Allison" | "STU" | "UKC" | "UNBSJ" | "USTA";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_BasketballTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_acac__sport___league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus") | null;
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_acac__sport___league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_acac__sport___league__leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                team_id?: number | null;
+                season_option?: components["schemas"]["app__api__v1__acac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_acac__sport___league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+                /** @description Team name */
+                team_name: "Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_acac__sport___league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__acac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+                /** @description Team name */
+                team_name: "Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_acac__sport___league__teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus") | null;
+                season_option?: components["schemas"]["app__api__v1__acac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_acac__sport___league__players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus";
+                season_option?: components["schemas"]["app__api__v1__acac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_acac__sport___league__teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus";
+                team2: "Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus";
+                season_option?: components["schemas"]["app__api__v1__acac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__acac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CollegeTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_basketball_team_comparison_api_v1_acac_basketball__league__teams__team_name__comparison_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__acac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description League identifier (mbb, wbb) */
+                league: components["schemas"]["app__api__v1__acac__constants__League"];
+                /** @description Team name */
+                team_name: "Ambrose University" | "Briercrest College and Seminary" | "Concordia University of Edmonton" | "Keyano College" | "Lakeland College" | "Lethbridge Polytechnic" | "Medicine Hat College" | "Northern Alberta Institute of Technology" | "Northwestern Polytechnic" | "Olds College" | "Portage College" | "Red Deer Polytechnic" | "SAIT" | "St. Mary's University" | "The King's University" | "University of Alberta, Augustana Campus";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_BasketballTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -5304,11 +6850,52 @@ export interface operations {
             };
         };
     };
-    get_ocaa_games_api_v1_aggregate_games_ocaa_get: {
+    get_ccaa_games_api_v1_aggregate_games_ccaa_get: {
         parameters: {
             query?: {
                 start_date?: string;
                 end_date?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_psl_games_api_v1_aggregate_games_psl_get: {
+        parameters: {
+            query?: {
+                start_date?: string;
+                end_date?: string;
+                /** @description PSL group: all, ppl, apl, bcpl, opl-1, opl-2, opl-3, opl-u20 */
+                group?: string;
             };
             header?: never;
             path?: never;
@@ -5875,7 +7462,7 @@ export interface operations {
     get_games_api_v1_cfl_games_get: {
         parameters: {
             query?: {
-                team_name?: ("alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks") | null;
+                team_name?: string | null;
             };
             header?: never;
             path?: never;
@@ -5969,7 +7556,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                team_name: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+                team_name: string;
             };
             cookie?: never;
         };
@@ -6007,7 +7594,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                team_name: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+                team_name: string;
             };
             cookie?: never;
         };
@@ -6043,7 +7630,7 @@ export interface operations {
     get_team_statistics_api_v1_cfl_teams_statistics_get: {
         parameters: {
             query?: {
-                team_name?: ("alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks") | null;
+                team_name?: string | null;
             };
             header?: never;
             path?: never;
@@ -6082,7 +7669,7 @@ export interface operations {
         parameters: {
             query?: {
                 position?: ("QB" | "RB" | "FB" | "WR" | "TE" | "OL" | "DL" | "DE" | "DT" | "LB" | "DB" | "K" | "P" | "LS") | null;
-                team?: ("alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks") | null;
+                team?: string | null;
             };
             header?: never;
             path?: never;
@@ -6197,8 +7784,8 @@ export interface operations {
     get_team_comparison_api_v1_cfl_teams_comparison_get: {
         parameters: {
             query: {
-                team1: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
-                team2: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
+                team1: string;
+                team2: string;
             };
             header?: never;
             path?: never;
@@ -6257,46 +7844,6 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
-            };
-        };
-    };
-    get_team_form_api_v1_cfl_teams__team_name__form_get: {
-        parameters: {
-            query?: {
-                games?: number;
-            };
-            header?: never;
-            path: {
-                team_name: "alouettes" | "argonauts" | "bombers" | "stampeders" | "lions" | "redblacks" | "roughriders" | "tigercats" | "elks";
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StandardResponse_CflTeamForm_"];
-                };
-            };
-            /** @description Not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
             };
         };
     };
@@ -6975,6 +8522,399 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["StandardResponse_GenericTeamComparison_"];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_mcac__sport___league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface") | null;
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_mcac__sport___league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_mcac__sport___league__leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                team_id?: number | null;
+                season_option?: components["schemas"]["app__api__v1__mcac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_mcac__sport___league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+                /** @description Team name */
+                team_name: "Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_mcac__sport___league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__mcac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+                /** @description Team name */
+                team_name: "Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_mcac__sport___league__teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface") | null;
+                season_option?: components["schemas"]["app__api__v1__mcac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_mcac__sport___league__players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface";
+                season_option?: components["schemas"]["app__api__v1__mcac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_mcac__sport___league__teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface";
+                team2: "Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface";
+                season_option?: components["schemas"]["app__api__v1__mcac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__mcac__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CollegeTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_basketball_team_comparison_api_v1_mcac_basketball__league__teams__team_name__comparison_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__mcac__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description League identifier (mbb, wbb) */
+                league: components["schemas"]["app__api__v1__mcac__constants__League"];
+                /** @description Team name */
+                team_name: "Assiniboine College" | "Brandon University" | "Canadian Mennonite University" | "Providence University College" | "RRC Polytech" | "Université de Saint-Boniface";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_BasketballTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {
@@ -8373,9 +10313,9 @@ export interface operations {
             };
             header?: never;
             path: {
-                /** @description Sport name (basketball, volleyball, etc.) */
+                /** @description Sport name (basketball, volleyball, rugby, field_hockey, etc.) */
                 sport: components["schemas"]["app__api__v1__usports__constants__Sport"];
-                /** @description League identifier (mbb, wbb, mvb, wvb, etc.) */
+                /** @description League identifier (mbb, wbb, mvb, wvb, wrug, wfh, etc.) */
                 league: components["schemas"]["app__api__v1__usports__constants__League"];
             };
             cookie?: never;
@@ -9154,6 +11094,399 @@ export interface operations {
             };
         };
     };
+    get_games_api_v1_pacwest__sport___league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University") | null;
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_standings_api_v1_pacwest__sport___league__standings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericStandings___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_leaderboard_api_v1_pacwest__sport___league__leaderboard_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                team_id?: number | null;
+                season_option?: components["schemas"]["app__api__v1__pacwest__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericPlayerLeaderboard___"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_pacwest__sport___league__teams__team_name__info_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+                /** @description Team name */
+                team_name: "Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_roster_api_v1_pacwest__sport___league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__pacwest__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+                /** @description Team name */
+                team_name: "Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_statistics_api_v1_pacwest__sport___league__teams_statistics_get: {
+        parameters: {
+            query?: {
+                team_name?: ("Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University") | null;
+                season_option?: components["schemas"]["app__api__v1__pacwest__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericTeamStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_player_statistics_api_v1_pacwest__sport___league__players_statistics_get: {
+        parameters: {
+            query: {
+                team_name: "Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University";
+                season_option?: components["schemas"]["app__api__v1__pacwest__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_comparison_api_v1_pacwest__sport___league__teams_comparison_get: {
+        parameters: {
+            query: {
+                team1: "Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University";
+                team2: "Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University";
+                season_option?: components["schemas"]["app__api__v1__pacwest__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description Sport name (basketball, volleyball, soccer) */
+                sport: components["schemas"]["app__api__v1__pacwest__constants__Sport"];
+                /** @description League identifier (mbb, wbb, mvb, wvb, msoc, wsoc) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_CollegeTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_basketball_team_comparison_api_v1_pacwest_basketball__league__teams__team_name__comparison_get: {
+        parameters: {
+            query?: {
+                season_option?: components["schemas"]["app__api__v1__pacwest__constants__SeasonOption"];
+            };
+            header?: never;
+            path: {
+                /** @description League identifier (mbb, wbb) */
+                league: components["schemas"]["app__api__v1__pacwest__constants__League"];
+                /** @description Team name */
+                team_name: "Camosun College" | "Capilano University" | "College of the Rockies" | "Columbia Bible College" | "Douglas College" | "Langara College" | "Okanagan College" | "Vancouver Island University";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_BasketballTeamComparison_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_standings_api_v1_psl__league__standings_get: {
         parameters: {
             query?: {
@@ -9227,6 +11560,8 @@ export interface operations {
         parameters: {
             query?: {
                 year?: number;
+                start_date?: string | null;
+                end_date?: string | null;
             };
             header?: never;
             path: {
