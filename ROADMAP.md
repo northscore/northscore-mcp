@@ -6,9 +6,9 @@ Future ideas beyond the current rebuild (tools + UI + hosted deployment). Curren
 
 Embed a chat assistant directly in the Northscore app, reusing the same MCP tools as the ChatGPT/Claude integrations — one tool surface, every client.
 
-**Stack**: AI SDK v6 (`ai` + `@ai-sdk/react`), model-agnostic (20+ providers incl. OpenAI, Anthropic, Google), runs in our own Next.js app.
+**Stack**: AI SDK v7 (`ai` + `@ai-sdk/react` + `@ai-sdk/mcp`), model-agnostic (20+ providers incl. OpenAI, Anthropic, Google), runs in our own Next.js app.
 
-- **Backend**: Next.js route handler creates an MCP client with `createMCPClient` (Streamable HTTP transport from `@modelcontextprotocol/sdk`, pointed at the hosted Northscore MCP server), pulls tools via `await client.tools()`, and passes them to `streamText` with the chosen model. Always `client.close()` in a `finally` block.
+- **Backend**: Next.js route handler creates an MCP client with `createMCPClient` from `@ai-sdk/mcp` (Streamable HTTP transport, pointed at the hosted Northscore MCP server), pulls tools via `await client.tools()`, and passes them to `streamText` with the chosen model. Always `client.close()` in a `finally` block.
 - **Frontend**: `useChat` (AI SDK UI) with custom components — reuse the same card/table designs as the MCP App UI. Optional ready-made chat layer: [assistant-ui](https://www.assistant-ui.com/).
 - Docs: [AI SDK](https://ai-sdk.dev/docs) · [MCP tools cookbook](https://ai-sdk.dev/cookbook/node/mcp-tools)
 
