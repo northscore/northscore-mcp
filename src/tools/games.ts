@@ -7,21 +7,13 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { ALL_LEAGUES } from '../constants/index.js';
 import { fetchGames } from '../services/index.js';
 import type { GenericGame } from '../types/index.js';
-import { gameSchema } from './schemas.js';
+import { ALL_LEAGUES_DESCRIPTION, gameSchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
 const RECENT_DAYS_LIMIT = 14;
 
 const inputSchema = {
-  league_system: z
-    .enum(ALL_LEAGUES)
-    .describe(
-      'League identifier. Pro: cebl, cfl, cpl, hoopqueens, nsl, mwba. ' +
-        'Hockey: chl_ohl, chl_whl, chl_qjmhl. ' +
-        'University: usports_{mbb,wbb,mvb,wvb,mfb,msoc,wsoc,mhky,whky}. ' +
-        'College: ocaa_{mbb,wbb,mvb,wvb,msoc,wsoc}. ' +
-        'Soccer pathway: psl_{ppl,apl,bcpl,opl_1,opl_2,opl_3,opl_u20}_{mens,womens}.',
-    ),
+  league_system: z.enum(ALL_LEAGUES).describe(ALL_LEAGUES_DESCRIPTION),
   team_name: z
     .string()
     .optional()

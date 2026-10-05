@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-base-to-string */
 import { config } from '../../config/env.js';
 import { logger } from '../../logger.js';
-import type { StandardResponse, ValidationErrorDetail } from '../../types/api.js';
+import type { StandardResponse } from '../../types/api.js';
 import { isApiError } from '../../types/api.js';
 import { API_TIMEOUT_MS } from '../../constants/index.js';
 
@@ -22,55 +21,12 @@ export class NorthScoreApiClientError extends Error {
   }
 }
 
-/**
- * Validation error subclass with structured errors array
- */
-export class ValidationError extends NorthScoreApiClientError {
-  public validationErrors: ValidationErrorDetail[];
-
-  constructor(message: string, statusCode: number, details: Record<string, unknown>) {
-    super(message, statusCode, 'VALIDATION_ERROR', details);
-    this.name = 'ValidationError';
-
-    // Flatten validation errors for easier access
-    this.validationErrors = this.extractValidationErrors(details);
-  }
-
-  private extractValidationErrors(details: Record<string, unknown>): ValidationErrorDetail[] {
-    if (!details.errors || !Array.isArray(details.errors)) {
-      return [];
-    }
-
-    return details.errors.map((err: unknown) => {
-      if (typeof err === 'object' && err !== null) {
-        const error = err as Record<string, unknown>;
-        return {
-          location: String(error.location || 'unknown'),
-          message: String(error.message || 'Validation error'),
-          type: String(error.type || 'unknown'),
-        };
-      }
-      return {
-        location: 'unknown',
-        message: String(err),
-        type: 'unknown',
-      };
-    });
-  }
-}
-
-/**
- * Helper to create appropriate error instances
- */
 function createApiError(
   statusCode: number,
   message: string,
   details: Record<string, unknown>,
   errorType: string,
 ): NorthScoreApiClientError {
-  if (statusCode === 422 || errorType === 'VALIDATION_ERROR') {
-    return new ValidationError(message, statusCode, details);
-  }
   return new NorthScoreApiClientError(message, statusCode, errorType, details);
 }
 

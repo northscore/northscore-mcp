@@ -9,7 +9,7 @@ try {
   // no .env file — use the process environment as-is
 }
 
-export type TransportMode = 'stdio' | 'http';
+type TransportMode = 'stdio' | 'http';
 
 // Ordered low → high; the logger relies on this order to filter by severity.
 export const LOG_LEVELS = ['debug', 'info', 'warn', 'error'] as const;
@@ -23,6 +23,9 @@ interface Config {
   port: number;
   nodeEnv: string;
   logLevel: LogLevel;
+  /** Host headers accepted over HTTP (DNS-rebinding protection); unset = SDK default */
+  allowedHosts: string[] | undefined;
+  /** Required for HTTP transport only — stdio clients are local and unauthenticated */
   supabaseJwtSecret: string;
 }
 
@@ -50,6 +53,14 @@ function getLogLevel(): LogLevel {
   return value as LogLevel;
 }
 
+function getAllowedHosts(): string[] | undefined {
+  const hosts = (process.env.MCP_ALLOWED_HOSTS ?? '')
+    .split(',')
+    .map((host) => host.trim())
+    .filter(Boolean);
+  return hosts.length > 0 ? hosts : undefined;
+}
+
 export const config: Config = {
   northScoreApiKey: getEnvVar('NORTHSCORE_STATS_API_KEY'),
   apiBaseUrl: getEnvVar('NORTHSCORE_API_BASE_URL', 'https://api.northscore.ca/api/v1').replace(
@@ -61,7 +72,8 @@ export const config: Config = {
   port: parseInt(getEnvVar('PORT', '3002'), 10),
   nodeEnv: getEnvVar('NODE_ENV', 'development'),
   logLevel: getLogLevel(),
-  supabaseJwtSecret: getEnvVar('SUPABASE_JWT_SECRET'),
+  allowedHosts: getAllowedHosts(),
+  supabaseJwtSecret: getEnvVar('SUPABASE_JWT_SECRET', ''),
 };
 
 /**
@@ -71,5 +83,8 @@ export const config: Config = {
 export function validateConfig(): void {
   if (Number.isNaN(config.port) || config.port <= 0) {
     throw new Error('PORT must be a positive integer');
+  }
+  if (config.transport === 'http' && !config.supabaseJwtSecret) {
+    throw new Error('SUPABASE_JWT_SECRET is required when MCP_TRANSPORT=http');
   }
 }

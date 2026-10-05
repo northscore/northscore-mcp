@@ -6,12 +6,26 @@
 
 import { z } from 'zod';
 
-export const localizedTextSchema = z.object({
+/** Compact league_system patterns, shared by tool input descriptions */
+export const LEAGUE_PATTERNS = {
+  usports: 'usports_{mbb,wbb,mvb,wvb,mfb,msoc,wsoc,mhky,whky}',
+  ccaa: '{ocaa,acac,pacwest,acaa,mcac}_{mbb,wbb,mvb,wvb,msoc,wsoc}',
+} as const;
+
+/** league_system description for tools that support every league family */
+export const ALL_LEAGUES_DESCRIPTION =
+  'League identifier. Pro: cebl, cfl, cpl, hoopqueens, nsl, mwba. ' +
+  'Hockey: chl_ohl, chl_whl, chl_qjmhl. ' +
+  `University: ${LEAGUE_PATTERNS.usports}. ` +
+  `College (CCAA conferences — OCAA Ontario, ACAC Alberta, PACWEST BC, ACAA Atlantic, MCAC Manitoba): ${LEAGUE_PATTERNS.ccaa}. ` +
+  'Soccer pathway: psl_{ppl,apl,bcpl,opl_1,opl_2,opl_3,opl_u20}_{mens,womens}.';
+
+const localizedTextSchema = z.object({
   en: z.string().describe('English text'),
   fr: z.string().nullish().describe('French text'),
 });
 
-export const teamIdentitySchema = z.object({
+const teamIdentitySchema = z.object({
   id: z.string().describe('Team identifier'),
   name: localizedTextSchema.describe('Team name (bilingual)'),
   short_name: localizedTextSchema.nullish(),
@@ -22,7 +36,7 @@ export const teamIdentitySchema = z.object({
     .describe('Cross-platform team entity identifier — stable across tools and leagues'),
 });
 
-export const teamScoreSchema = z.object({
+const teamScoreSchema = z.object({
   team: teamIdentitySchema,
   score: z.number().nullish(),
 });
@@ -76,7 +90,7 @@ export const teamStatSchema = z.object({
   rankings: z.record(z.string(), z.number()).optional(),
 });
 
-export const playerInfoSchema = z.object({
+const playerInfoSchema = z.object({
   id: z.string().describe('Player identifier'),
   name: z.string(),
   position: z.string().nullish(),
@@ -95,7 +109,7 @@ export const leaderboardEntrySchema = z.object({
   category: z.string().nullish().describe('Grouping category (e.g. OFFENCE, DEFENCE)'),
 });
 
-export const rosterPlayerSchema = z.object({
+const rosterPlayerSchema = z.object({
   player: playerInfoSchema,
   games_played: z.number(),
   stats: z.record(z.string(), z.unknown()).optional(),

@@ -16,7 +16,8 @@ const inputSchema = {
     .enum(AGGREGATE_SCOPES)
     .describe(
       'League group to search: "pro" (CFL, CPL, CEBL, CHL, HoopQueens, NSL), ' +
-        '"usports" (U SPORTS university leagues), or "ocaa" (Ontario college leagues)',
+        '"usports" (U SPORTS university leagues), or "ccaa" (CCAA college conferences: ' +
+        'OCAA, ACAC, PACWEST, ACAA, MCAC, plus national championships)',
     ),
   preset: z
     .enum(['today', 'this_week'])
@@ -87,10 +88,10 @@ export function registerGetGamesByDateTool(server: McpServer): void {
 Searches one league group ("scope") per call:
 - pro: CFL, CPL, CEBL, CHL (OHL/WHL/QMJHL), HoopQueens, NSL
 - usports: all U SPORTS university leagues
-- ocaa: all OCAA Ontario college leagues
+- ccaa: all CCAA college conferences (OCAA, ACAC, PACWEST, ACAA, MCAC) plus CCAA nationals
 
 Args:
-  - scope (required): "pro" | "usports" | "ocaa"
+  - scope (required): "pro" | "usports" | "ccaa"
   - preset (optional): "today" | "this_week" (America/Toronto). Defaults to "today" when no dates given.
   - start_date + end_date (optional): explicit YYYY-MM-DD range; overrides preset.
 

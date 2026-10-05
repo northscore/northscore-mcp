@@ -8,11 +8,11 @@ import { logger } from '../logger.js';
 import { NorthScoreApiClientError } from '../services/index.js';
 
 /**
- * Build a successful tool result: JSON text fallback + structured content.
+ * Build a successful tool result: compact JSON text fallback + structured content.
  */
 export function successResult(output: Record<string, unknown>): CallToolResult {
   return {
-    content: [{ type: 'text', text: JSON.stringify(output, null, 2) }],
+    content: [{ type: 'text', text: JSON.stringify(output) }],
     structuredContent: output,
   };
 }
@@ -44,7 +44,7 @@ export function errorResult(error: unknown): CallToolResult {
   logger.warn('Tool returned error', { error: message });
 
   return {
-    content: [{ type: 'text', text: JSON.stringify(output, null, 2) }],
+    content: [{ type: 'text', text: JSON.stringify(output) }],
     structuredContent: output,
     isError: true,
   };

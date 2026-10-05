@@ -23,7 +23,11 @@ function methodNotAllowed(res: Response): void {
 }
 
 export function startHttpServer(): void {
-  const app = createMcpExpressApp({ host: config.host });
+  // Host-header allowlist guards against DNS rebinding when bound to 0.0.0.0
+  const app = createMcpExpressApp({
+    host: config.host,
+    ...(config.allowedHosts && { allowedHosts: config.allowedHosts }),
+  });
 
   app.post('/mcp', async (req: Request, res: Response) => {
     try {
@@ -41,17 +45,18 @@ export function startHttpServer(): void {
     }
 
     const server = createServer();
+    // No sessionIdGenerator -> stateless mode (no sessions to resume)
+    const transport = new StreamableHTTPServerTransport({});
+    // Register cleanup before handling so an early client disconnect can't leak
+    res.on('close', () => {
+      void transport.close();
+      void server.close();
+    });
     try {
-      // No sessionIdGenerator -> stateless mode (no sessions to resume)
-      const transport = new StreamableHTTPServerTransport({});
       // Cast needed: SDK's transport classes declare `onclose: ... | undefined`,
       // which exactOptionalPropertyTypes rejects against the Transport interface.
       await server.connect(transport as Transport);
       await transport.handleRequest(req, res, req.body);
-      res.on('close', () => {
-        void transport.close();
-        void server.close();
-      });
     } catch (error) {
       logger.error('Error handling MCP request', {
         error: error instanceof Error ? error.message : String(error),

@@ -46,12 +46,18 @@ await check('MWBA games (via /schedule)', () => fetchGames('mwba'));
 await check('CHL (OHL) standings', () => fetchStandings('chl_ohl'));
 await check('U SPORTS mbb standings', () => fetchStandings('usports_mbb'));
 await check('OCAA mvb standings', () => fetchStandings('ocaa_mvb'));
+await check('ACAC mbb leaderboard', () => fetchLeaderboard('acac_mbb'));
+await check('PACWEST wvb team stats', () => fetchTeamStats('pacwest_wvb'));
+await check('ACAA msoc games', () => fetchGames('acaa_msoc'));
+await check('MCAC mbb roster (Canadian Mennonite University)', () =>
+  fetchTeamRoster('mcac_mbb', 'Canadian Mennonite University'),
+);
 await check('PSL opl-1-mens games (slug mapping)', () => fetchGames('psl_opl_1_mens'));
 
 // Aggregate scopes
 await check('Aggregate pro games (today)', () => fetchAggregateGames('pro', today, today));
 await check('Aggregate usports games (today)', () => fetchAggregateGames('usports', today, today));
-await check('Aggregate ocaa games (today)', () => fetchAggregateGames('ocaa', today, today));
+await check('Aggregate ccaa games (today)', () => fetchAggregateGames('ccaa', today, today));
 
 // Team-specific paths incl. URL encoding
 await check('CEBL team info (brampton)', () => fetchTeamInfo('cebl', 'brampton'));

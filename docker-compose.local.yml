@@ -1,0 +1,22 @@
+# Local only: runs the MCP image against the NorthScore API container
+# (start the API's own compose stack first so the shared network exists).
+services:
+  northscore-mcp:
+    build: .
+    container_name: northscore-mcp
+    ports:
+      - '3002:3002'
+    environment:
+      NODE_ENV: development
+      PORT: 3002
+      MCP_ALLOWED_HOSTS: localhost,127.0.0.1
+      NORTHSCORE_API_BASE_URL: http://northscore-api:8080/api/v1
+      NORTHSCORE_STATS_API_KEY: ${NORTHSCORE_STATS_API_KEY}
+      SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
+    networks:
+      - northscore-api_default
+    restart: unless-stopped
+
+networks:
+  northscore-api_default:
+    external: true

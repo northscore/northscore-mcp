@@ -6,24 +6,16 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { ALL_LEAGUES } from '../constants/index.js';
 import { fetchTeamInfo } from '../services/index.js';
-import { teamInfoSchema } from './schemas.js';
+import { ALL_LEAGUES_DESCRIPTION, teamInfoSchema } from './schemas.js';
 import { errorResult, successResult } from './helpers.js';
 
 const inputSchema = {
-  league_system: z
-    .enum(ALL_LEAGUES)
-    .describe(
-      'League identifier. Pro: cebl, cfl, cpl, hoopqueens, nsl, mwba. ' +
-        'Hockey: chl_ohl, chl_whl, chl_qjmhl. ' +
-        'University: usports_{mbb,wbb,mvb,wvb,mfb,msoc,wsoc,mhky,whky}. ' +
-        'College: ocaa_{mbb,wbb,mvb,wvb,msoc,wsoc}. ' +
-        'Soccer pathway: psl_{ppl,apl,bcpl,opl_1,opl_2,opl_3,opl_u20}_{mens,womens}.',
-    ),
+  league_system: z.enum(ALL_LEAGUES).describe(ALL_LEAGUES_DESCRIPTION),
   team_name: z
     .string()
     .describe(
       "Team identifier in the league's naming scheme. Pro leagues: lowercase nickname " +
-        '(e.g. "argonauts", "brampton"). U SPORTS/OCAA: school name (e.g. "Queen\'s"). ' +
+        '(e.g. "argonauts", "brampton"). U SPORTS/CCAA: school name (e.g. "Queen\'s", "SAIT"). ' +
         'CHL/NSL/MWBA/PSL: kebab-case slug (e.g. "london-knights", "afc-toronto", ' +
         '"halifax-thunder", "vaughan-azzurri"). If unsure, call get_standings first and ' +
         'use the team id from the result.',

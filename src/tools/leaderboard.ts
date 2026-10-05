@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { LEADERBOARD_LEAGUES } from '../constants/index.js';
 import { fetchLeaderboard } from '../services/index.js';
-import { leaderboardEntrySchema } from './schemas.js';
+import { LEAGUE_PATTERNS, leaderboardEntrySchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
 const inputSchema = {
@@ -14,7 +14,7 @@ const inputSchema = {
     .enum(LEADERBOARD_LEAGUES)
     .describe(
       'League identifier — only leagues with leaderboards: cebl, cfl, cpl, hoopqueens, ' +
-        'usports_{mbb,wbb,mvb,wvb,mfb,msoc,wsoc,mhky,whky}, ocaa_{mbb,wbb,mvb,wvb,msoc,wsoc}. ' +
+        `${LEAGUE_PATTERNS.usports}, ${LEAGUE_PATTERNS.ccaa}. ` +
         'NSL, MWBA, CHL and PSL do not publish leaderboards.',
     ),
   stat_type: z

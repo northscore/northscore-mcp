@@ -8,7 +8,7 @@
 import {
   CHL_LEAGUES,
   LEADERBOARD_LEAGUES,
-  OCAA_LEAGUES,
+  CCAA_LEAGUES,
   PSL_LEAGUES,
   SIMPLE_LEAGUES,
   TEAM_ROSTER_LEAGUES,
@@ -17,7 +17,7 @@ import {
 } from '../../constants/leagues.js';
 import type { AggregateScope, LeagueSystem } from '../../constants/leagues.js';
 
-/** College sport-code → sport path segment (U SPORTS and OCAA) */
+/** College sport-code → sport path segment (U SPORTS and CCAA) */
 const LEAGUE_TO_SPORT_MAP: Record<string, string> = {
   mbb: 'basketball',
   wbb: 'basketball',
@@ -31,7 +31,7 @@ const LEAGUE_TO_SPORT_MAP: Record<string, string> = {
 };
 
 export interface ParsedLeagueSystem {
-  family: 'simple' | 'chl' | 'usports' | 'ocaa' | 'psl';
+  family: 'simple' | 'chl' | 'usports' | 'ccaa' | 'psl';
   /** API base path for the league, e.g. `/usports/basketball/mbb` */
   basePath: string;
 }
@@ -57,15 +57,17 @@ export function parseLeagueSystem(leagueSystem: LeagueSystem): ParsedLeagueSyste
     return { family: 'chl', basePath: `/chl/${league}` };
   }
 
-  if (includes(USPORTS_LEAGUES, leagueSystem) || includes(OCAA_LEAGUES, leagueSystem)) {
-    const [family, league] = leagueSystem.split('_') as [string, string];
+  // U SPORTS and CCAA conferences share /{prefix}/{sport}/{league}
+  const isUsports = includes(USPORTS_LEAGUES, leagueSystem);
+  if (isUsports || includes(CCAA_LEAGUES, leagueSystem)) {
+    const [prefix, league] = leagueSystem.split('_') as [string, string];
     const sport = LEAGUE_TO_SPORT_MAP[league];
     if (!sport) {
-      throw new Error(`Unknown ${family.toUpperCase()} league code: ${league}`);
+      throw new Error(`Unknown ${prefix.toUpperCase()} league code: ${league}`);
     }
     return {
-      family: family as 'usports' | 'ocaa',
-      basePath: `/${family}/${sport}/${league}`,
+      family: isUsports ? 'usports' : 'ccaa',
+      basePath: `/${prefix}/${sport}/${league}`,
     };
   }
 
@@ -76,7 +78,7 @@ export function parseLeagueSystem(leagueSystem: LeagueSystem): ParsedLeagueSyste
 
   throw new Error(
     `Unsupported league system: ${leagueSystem}. ` +
-      `Supported families: cebl, cfl, cpl, hoopqueens, nsl, mwba, chl_*, usports_*, ocaa_*, psl_*.`,
+      `Supported families: cebl, cfl, cpl, hoopqueens, nsl, mwba, chl_*, usports_*, ocaa_*, acac_*, pacwest_*, acaa_*, mcac_*, psl_*.`,
   );
 }
 

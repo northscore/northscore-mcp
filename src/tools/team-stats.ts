@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { TEAM_STATS_LEAGUES } from '../constants/index.js';
 import { fetchTeamStats } from '../services/index.js';
-import { teamStatSchema } from './schemas.js';
+import { LEAGUE_PATTERNS, teamStatSchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
 const inputSchema = {
@@ -14,8 +14,8 @@ const inputSchema = {
     .enum(TEAM_STATS_LEAGUES)
     .describe(
       'League identifier — leagues with team statistics: cebl, cfl, cpl, hoopqueens, nsl, ' +
-        'chl_{ohl,whl,qjmhl}, usports_{mbb,wbb,mvb,wvb,mfb,msoc,wsoc,mhky,whky}, ' +
-        'ocaa_{mbb,wbb,mvb,wvb,msoc,wsoc}. MWBA and PSL do not publish team statistics.',
+        `chl_{ohl,whl,qjmhl}, ${LEAGUE_PATTERNS.usports}, ${LEAGUE_PATTERNS.ccaa}. ` +
+        'MWBA and PSL do not publish team statistics.',
     ),
   team_name: z
     .string()

@@ -19,9 +19,12 @@ export const SERVER_INFO = {
 
 export function createServer(): McpServer {
   const server = new McpServer(SERVER_INFO, {
+    // Every tool takes a handful of scalar args — reject oversized payloads early
+    maxToolInputElements: 50,
     instructions:
       'Canadian sports statistics: games, standings, leaderboards, team info/stats/rosters ' +
-      'across CEBL, CFL, CPL, HoopQueens, NSL, MWBA, CHL, U SPORTS, OCAA and PSL. ' +
+      'across CEBL, CFL, CPL, HoopQueens, NSL, MWBA, CHL, U SPORTS, CCAA colleges ' +
+      '(OCAA, ACAC, PACWEST, ACAA, MCAC) and PSL. ' +
       'For "games today/this week" across leagues use get_games_by_date; for one league\'s ' +
       'schedule use get_games. Entity IDs (league_entity_id, team_entity_id) are stable ' +
       'across tools — use them to correlate results.',
