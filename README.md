@@ -2,7 +2,7 @@
 
 > **This is an early demo/prototype.** The server is functional but still under active development.
 
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
 ![Status](https://img.shields.io/badge/status-prototype-orange)
 <a href="https://modelcontextprotocol.io/clients" target="_blank"><img src="https://badge.mcpx.dev/?type=server" /></a>
 
@@ -43,10 +43,7 @@ Project context, tool definitions, and architecture live in [CLAUDE.md](./CLAUDE
 ## Prerequisites
 
 - Node.js >= 22.17.0
-- **pnpm** >= 10.0.0 ([Installation Guide](https://pnpm.io/installation))
-- TypeScript >= 5.0.0
-
-This project uses `pnpm` as the package manager.
+- **pnpm** 10 — version pinned in `package.json` (`packageManager`); run `corepack enable` to use it automatically ([Installation Guide](https://pnpm.io/installation))
 
 ## Quick Setup
 
@@ -76,13 +73,15 @@ This project uses `pnpm` as the package manager.
 ## Development
 
 ```bash
-pnpm dev          # Run with hot reload
+pnpm dev          # Run with hot reload (stdio)
+pnpm dev:http     # Run with hot reload (Streamable HTTP on :3002)
 pnpm build        # Compile TypeScript
 pnpm start        # Run compiled version
 pnpm type-check   # Type checking
 pnpm lint         # Run ESLint
 pnpm format       # Format code with Prettier
 pnpm test         # Run tests (Vitest)
+pnpm gen:types    # Regenerate API types from the OpenAPI spec
 ```
 
 ### Docker

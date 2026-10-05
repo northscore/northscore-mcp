@@ -25,5 +25,5 @@ Thumbs.db
 *.swo
 
 .claude/
-CLAUDE.md
+CLAUDE.local.md
 CRITICAL_ISSUES.md
