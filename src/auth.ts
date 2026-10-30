@@ -15,16 +15,11 @@ export function createJwtVerifier(secret: string): OAuthTokenVerifier {
   return {
     async verifyAccessToken(token) {
       try {
-        const { payload } = await jwtVerify(token, key, {
-          algorithms: ['HS256'],
-          requiredClaims: ['sub', 'exp'],
-        });
-        return {
-          token,
-          clientId: payload.sub!,
-          scopes: [],
-          expiresAt: payload.exp!,
-        };
+        const { payload } = await jwtVerify(token, key, { algorithms: ['HS256'] });
+        if (typeof payload.sub !== 'string' || !payload.sub || typeof payload.exp !== 'number') {
+          throw new Error('JWT missing sub or exp');
+        }
+        return { token, clientId: payload.sub, scopes: [], expiresAt: payload.exp };
       } catch (err) {
         const message = err instanceof Error ? err.message : 'JWT validation failed';
         logger.warn('JWT validation failed', { error: message });
