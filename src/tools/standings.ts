@@ -3,17 +3,17 @@
  */
 
 import { z } from 'zod';
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { McpServer } from '@modelcontextprotocol/server';
 import { ALL_LEAGUES } from '../constants/index.js';
 import { fetchStandings } from '../services/index.js';
 import { ALL_LEAGUES_DESCRIPTION, standingsSchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
-const inputSchema = {
+const inputSchema = z.object({
   league_system: z.enum(ALL_LEAGUES).describe(ALL_LEAGUES_DESCRIPTION),
-};
+});
 
-const outputSchema = {
+const outputSchema = z.object({
   success: z.boolean(),
   count: z.number().optional(),
   standings: z
@@ -24,7 +24,7 @@ const outputSchema = {
   truncation_message: z.string().optional(),
   error: z.string().optional(),
   status_code: z.number().optional(),
-};
+});
 
 export function registerGetStandingsTool(server: McpServer): void {
   server.registerTool(

@@ -2,7 +2,7 @@
  * Shared helpers for MCP tool implementations.
  */
 
-import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
+import type { CallToolResult } from '@modelcontextprotocol/server';
 import { CHARACTER_LIMIT } from '../constants/index.js';
 import { logger } from '../logger.js';
 import { NorthScoreApiClientError } from '../services/index.js';
