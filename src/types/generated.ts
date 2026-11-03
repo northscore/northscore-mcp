@@ -510,6 +510,30 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/aggregate/games/cjhl": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Cjhl Games
+         * @description Get games across every CJHL member league.
+         *
+         *     CJHL is an umbrella organization like PSL, so it has its own feed rather than a
+         *     slot in the pro fan-out. Its upstream is fast enough to serve all nine member
+         *     leagues in one request, so unlike PSL there are no groups to page through.
+         */
+        get: operations["get_cjhl_games_api_v1_aggregate_games_cjhl_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/cebl/games": {
         parameters: {
             query?: never;
@@ -785,6 +809,169 @@ export interface paths {
          * @description Fetch CEBL transactions, protected players, and draft picks.
          */
         get: operations["get_cebl_transactions_api_v1_cebl_transactions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/standings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Standings */
+        get: operations["get_standings_api_v1_cjhl__league__standings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/games": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Games
+         * @description Fetch CJHL games for the given league and season, optionally filtered by team.
+         *
+         *     The upstream feed only serves whole seasons, so the season is cached once and
+         *     team_name/start_date/end_date narrow the cached result rather than fragmenting
+         *     the cache.
+         */
+        get: operations["get_games_api_v1_cjhl__league__games_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/players/skaters": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Skater Stats */
+        get: operations["get_skater_stats_api_v1_cjhl__league__players_skaters_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/players/goalies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Goalie Stats */
+        get: operations["get_goalie_stats_api_v1_cjhl__league__players_goalies_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/teams/{team_name}/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Team Info */
+        get: operations["get_team_info_api_v1_cjhl__league__teams__team_name__info_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/teams/{team_name}/skaters": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Team Skater Stats */
+        get: operations["get_team_skater_stats_api_v1_cjhl__league__teams__team_name__skaters_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/teams/{team_name}/goalies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Team Goalie Stats */
+        get: operations["get_team_goalie_stats_api_v1_cjhl__league__teams__team_name__goalies_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/teams/{team_name}/roster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Roster
+         * @description Get team roster for a CJHL league. **Note:** Roster data is not available for the LHJAAAQ league.
+         */
+        get: operations["get_roster_api_v1_cjhl__league__teams__team_name__roster_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cjhl/{league}/transactions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Transactions */
+        get: operations["get_transactions_api_v1_cjhl__league__transactions_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3014,9 +3201,8 @@ export interface components {
             /**
              * Field Goal Percentage Against
              * @description Opponent field goal shooting percentage
-             * @default 0
              */
-            field_goal_percentage_against: number;
+            field_goal_percentage_against?: number | null;
             /**
              * Three Pointers Made Per Game Against
              * @description Average three-pointers allowed per game
@@ -3026,9 +3212,8 @@ export interface components {
             /**
              * Three Point Percentage Against
              * @description Opponent three-point shooting percentage
-             * @default 0
              */
-            three_point_percentage_against: number;
+            three_point_percentage_against?: number | null;
             /**
              * Total Rebounds Per Game Against
              * @description Average rebounds allowed per game
@@ -3169,9 +3354,8 @@ export interface components {
             /**
              * Field Goal Percentage
              * @description Field goal shooting percentage
-             * @default 0
              */
-            field_goal_percentage: number;
+            field_goal_percentage?: number | null;
             /**
              * Three Pointers Made Per Game
              * @description Average three-pointers made per game
@@ -3181,9 +3365,8 @@ export interface components {
             /**
              * Three Point Percentage
              * @description Three-point shooting percentage
-             * @default 0
              */
-            three_point_percentage: number;
+            three_point_percentage?: number | null;
             /**
              * Total Rebounds Per Game
              * @description Average total rebounds per game
@@ -3238,6 +3421,83 @@ export interface components {
              * @default 0
              */
             ppp: number;
+        };
+        /**
+         * CJHLTransaction
+         * @description A single roster transaction (signing, trade, call-up, release).
+         * @example {
+         *       "player_name": "Lukasz McIsaac (D)",
+         *       "position": "D",
+         *       "team_code": "BON",
+         *       "team_name": "Bonnyville Pontiacs",
+         *       "title": "Signed",
+         *       "transaction_date": "2026-01-15",
+         *       "ttype_text": "ADD"
+         *     }
+         */
+        CJHLTransaction: {
+            /**
+             * Transaction Date
+             * @description Date the transaction was recorded (YYYY-MM-DD)
+             */
+            transaction_date: string;
+            /**
+             * Title
+             * @description Transaction headline, e.g. 'Signed'
+             */
+            title?: string | null;
+            /**
+             * Ttype Text
+             * @description Transaction type code, e.g. 'ADD'
+             */
+            ttype_text?: string | null;
+            /** Player Id */
+            player_id?: string | null;
+            /**
+             * Player Name
+             * @description Player name, may carry a position suffix
+             */
+            player_name?: string | null;
+            /** Position */
+            position?: string | null;
+            /** Team Name */
+            team_name?: string | null;
+            /** Team Code */
+            team_code?: string | null;
+            /**
+             * Detail
+             * @description Free-text detail supplied by the league
+             */
+            detail?: string | null;
+            /** Team Logo */
+            team_logo?: string | null;
+            /** Division */
+            division?: string | null;
+            /**
+             * Transaction Number
+             * @description LHJAAAQ only
+             */
+            transaction_number?: string | null;
+            /**
+             * Team From
+             * @description LHJAAAQ only — origin team in a trade
+             */
+            team_from?: string | null;
+            /**
+             * Team To
+             * @description LHJAAAQ only — destination team in a trade
+             */
+            team_to?: string | null;
+            /**
+             * Players Sent
+             * @description LHJAAAQ only — players/picks sent by team_from
+             */
+            players_sent?: string[] | null;
+            /**
+             * Players Received
+             * @description LHJAAAQ only — players/picks sent by team_to
+             */
+            players_received?: string[] | null;
         };
         /** CeblBoxScore */
         CeblBoxScore: {
@@ -3589,7 +3849,7 @@ export interface components {
              * @description Average stats across the college league
              */
             averages?: {
-                [key: string]: number;
+                [key: string]: number | null;
             };
         };
         /**
@@ -3742,7 +4002,43 @@ export interface components {
          * @description Possible statuses for a game.
          * @enum {string}
          */
-        GameStatus: "SCHEDULED" | "LIVE" | "FINAL" | "FINAL - OT" | "FINAL - 2OT" | "FINAL - 3OT" | "POSTPONED" | "CANCELLED" | "UNKNOWN";
+        GameStatus: "SCHEDULED" | "LIVE" | "FINAL" | "FINAL - OT" | "FINAL - SO" | "FINAL - 2OT" | "FINAL - 3OT" | "POSTPONED" | "CANCELLED" | "UNKNOWN";
+        /**
+         * GamesByLeague
+         * @description Games grouped by league, naming the leagues that failed to load.
+         */
+        GamesByLeague: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: {
+                [key: string]: components["schemas"]["GenericGame"][];
+            } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+            /**
+             * Failed Leagues
+             * @description Leagues that failed to load; their games are missing. Omitted when all loaded.
+             */
+            failed_leagues?: string[] | null;
+        };
         /**
          * GenericAthleteResult
          * @description Single result for an individual sport athlete.
@@ -3960,7 +4256,7 @@ export interface components {
             league_entity_id?: string | null;
             /**
              * Id
-             * @description Unique game identifier
+             * @description Source game id, or a stable id built when the source has none
              */
             id: string;
             /**
@@ -3978,6 +4274,11 @@ export interface components {
              * @description ISO 8601 date/time of the game
              */
             date?: string | null;
+            /**
+             * Time Tbd
+             * @description True when only the game's date is known; `date` is then local midnight
+             */
+            time_tbd?: boolean | null;
             /** @description Current status of the game */
             status: components["schemas"]["GameStatus"];
             /** @description Home team details and score */
@@ -4100,7 +4401,7 @@ export interface components {
              * @description Player's cumulative or average stats
              */
             stats?: {
-                [key: string]: number | string;
+                [key: string]: number | string | null;
             };
         };
         /**
@@ -4329,7 +4630,7 @@ export interface components {
              * @description Additional stats relevant to standings
              */
             stats?: {
-                [key: string]: number | string;
+                [key: string]: number | string | null;
             };
         };
         /**
@@ -4441,7 +4742,7 @@ export interface components {
              * @description Additional team info stats
              */
             stats?: {
-                [key: string]: number | string;
+                [key: string]: number | string | null;
             };
         };
         /**
@@ -4519,7 +4820,7 @@ export interface components {
              * @description Cumulative or average stats for the team
              */
             stats?: {
-                [key: string]: number | string;
+                [key: string]: number | string | null;
             };
             /**
              * Rankings
@@ -5178,34 +5479,6 @@ export interface components {
             /** Message */
             message?: string | null;
         };
-        /** StandardResponse[dict[str, list[GenericGame]]] */
-        StandardResponse_dict_str__list_GenericGame___: {
-            /**
-             * Success
-             * @description Whether the request was successful
-             * @default true
-             */
-            success: boolean;
-            /** Data */
-            data?: {
-                [key: string]: components["schemas"]["GenericGame"][];
-            } | null;
-            /** Error Message */
-            error_message?: string | null;
-            /**
-             * Request Id
-             * @description Unique request identifier
-             */
-            request_id?: string;
-            /**
-             * Timestamp
-             * Format: date-time
-             * @description Response timestamp in UTC
-             */
-            timestamp?: string;
-            /** Message */
-            message?: string | null;
-        };
         /** StandardResponse[dict[str, list[GenericPlayerLeaderboard]]] */
         StandardResponse_dict_str__list_GenericPlayerLeaderboard___: {
             /**
@@ -5246,6 +5519,32 @@ export interface components {
             data?: {
                 [key: string]: components["schemas"]["GenericStandings"][];
             } | null;
+            /** Error Message */
+            error_message?: string | null;
+            /**
+             * Request Id
+             * @description Unique request identifier
+             */
+            request_id?: string;
+            /**
+             * Timestamp
+             * Format: date-time
+             * @description Response timestamp in UTC
+             */
+            timestamp?: string;
+            /** Message */
+            message?: string | null;
+        };
+        /** StandardResponse[list[CJHLTransaction]] */
+        StandardResponse_list_CJHLTransaction__: {
+            /**
+             * Success
+             * @description Whether the request was successful
+             * @default true
+             */
+            success: boolean;
+            /** Data */
+            data?: components["schemas"]["CJHLTransaction"][] | null;
             /** Error Message */
             error_message?: string | null;
             /**
@@ -6790,7 +7089,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                    "application/json": components["schemas"]["GamesByLeague"];
                 };
             };
             /** @description Not found */
@@ -6829,7 +7128,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                    "application/json": components["schemas"]["GamesByLeague"];
                 };
             };
             /** @description Not found */
@@ -6868,7 +7167,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                    "application/json": components["schemas"]["GamesByLeague"];
                 };
             };
             /** @description Not found */
@@ -6909,7 +7208,46 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["StandardResponse_dict_str__list_GenericGame___"];
+                    "application/json": components["schemas"]["GamesByLeague"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_cjhl_games_api_v1_aggregate_games_cjhl_get: {
+        parameters: {
+            query?: {
+                start_date?: string;
+                end_date?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GamesByLeague"];
                 };
             };
             /** @description Not found */
@@ -7456,6 +7794,663 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+        };
+    };
+    get_standings_api_v1_cjhl__league__standings_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "team": {
+                     *             "id": "Bonnyville Pontiacs",
+                     *             "name": {
+                     *               "en": "Bonnyville Pontiacs"
+                     *             },
+                     *             "abbreviation": "BON",
+                     *             "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *           },
+                     *           "wins": 35,
+                     *           "losses": 10,
+                     *           "rank": 1,
+                     *           "league_id": "cjhl",
+                     *           "league_entity_id": "ajhl",
+                     *           "stats": {
+                     *             "games_played": 54,
+                     *             "points": 74,
+                     *             "goals_for": 198,
+                     *             "goals_against": 130,
+                     *             "goals_diff": 68,
+                     *             "ot_losses": 4,
+                     *             "streak": "W3",
+                     *             "past_10": "8-1-1"
+                     *           }
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericStandings__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_games_api_v1_cjhl__league__games_get: {
+        parameters: {
+            query?: {
+                team_name?: ("bonnyville-pontiacs" | "calgary-canucks" | "camrose-kodiaks" | "canmore-eagles" | "devon-xtreme" | "drayton-valley-thunder" | "drumheller-dragons" | "fort-mcmurray-oil-barons" | "grande-prairie-storm" | "lloydminster-bobcats" | "olds-grizzlys" | "whitecourt-wolverines" | "brockville-braves" | "carleton-place-canadians" | "cornwall-colts" | "hawkesbury-hawks" | "kemptville-73s" | "navan-grads" | "nepean-raiders" | "ottawa-junior-senators" | "pembroke-lumber-kings" | "pembroke-royals" | "renfrew-wolves" | "rockland-nationals" | "smiths-falls-bears" | "dauphin-kings" | "neepawa-titans" | "niverville-nighthawks" | "northern-manitoba-blizzard" | "portage-terriers" | "selkirk-steelers" | "steinbach-pistons" | "swan-valley-stampeders" | "virden-oil-capitals" | "waywayseecappo-wolverines" | "winkler-flyers" | "winnipeg-blues" | "winnipeg-monarchs" | "blind-river-beavers" | "elliot-lake-vikings" | "espanola-paper-kings" | "french-river-rapids" | "greater-sudbury-cubs" | "hearst-lumberjacks" | "iroquois-falls-storm" | "kirkland-lake-gold-miners" | "powassan-voodoos" | "soo-eagles" | "soo-thunderbirds" | "st-andrews-college" | "timmins-rock" | "aurora-tigers" | "buffalo-jr-sabres" | "burlington-cougars" | "caledon-admirals" | "cobourg-cougars" | "collingwood-blues" | "georgetown-raiders" | "haliburton-county-huskies" | "king-rebellion" | "leamington-flyers" | "lindsay-muskies" | "markham-royals" | "milton-menace" | "mississauga-chargers" | "newmarket-hurricanes" | "niagara-falls-canucks" | "north-york-rangers" | "oakville-blades" | "pickering-panthers" | "st-michaels-buzzers" | "stouffville-spirit" | "toronto-patriots" | "toronto-warriors" | "trenton-golden-hawks" | "wellington-dukes" | "dryden-gm-ice-dogs" | "fort-frances-lakers" | "ironwood-lumberjacks" | "kam-river-fighting-walleye" | "red-lake-miners" | "sioux-lookout-bombers" | "thunder-bay-north-stars" | "battlefords-north-stars" | "estevan-bruins" | "flin-flon-bombers" | "humboldt-broncos" | "kindersley-klippers" | "la-ronge-ice-wolves" | "melfort-mustangs" | "melville-millionaires" | "nipawin-hawks" | "warman-wolverines" | "weyburn-red-wings" | "yorkton-terriers" | "amherst-ramblers" | "campbellton-tigers" | "chaleur-lightning" | "edmundston-blizzard" | "grand-falls-rapids" | "miramichi-timberwolves" | "pictou-county-weeks-crushers" | "summerside-western-capitals" | "truro-bearcats" | "valley-wildcats" | "west-kent-steamers" | "yarmouth-mariners" | "braves-de-valleyfield" | "cobras-de-terrebonne" | "college-francais-de-longueuil" | "condors-du-cegep-beauce-appalaches" | "leverest-de-la-cote-du-sud" | "nomad-de-gatineau" | "lindigo-de-granby" | "pantheres-de-saint-jerome" | "phoenix-de-montreal" | "predateurs-de-joliette" | "lenergie-de-laval-hc" | "rangers-de-montreal" | "titan-de-princeville") | null;
+                start_date?: string | null;
+                end_date?: string | null;
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "id": "ajhl_28894",
+                     *           "date": "2026-01-11T02:00:00Z",
+                     *           "status": "FINAL",
+                     *           "home_team": {
+                     *             "team": {
+                     *               "id": "Bonnyville Pontiacs",
+                     *               "name": {
+                     *                 "en": "Bonnyville Pontiacs"
+                     *               },
+                     *               "abbreviation": "BON",
+                     *               "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *             },
+                     *             "score": 4
+                     *           },
+                     *           "away_team": {
+                     *             "team": {
+                     *               "id": "Calgary Canucks",
+                     *               "name": {
+                     *                 "en": "Calgary Canucks"
+                     *               },
+                     *               "abbreviation": "CGY",
+                     *               "team_entity_id": "cjhl_ajhl_calgary-canucks"
+                     *             },
+                     *             "score": 2
+                     *           },
+                     *           "league_id": "cjhl",
+                     *           "league_entity_id": "ajhl",
+                     *           "sport": "ice_hockey",
+                     *           "venue": "Bonnyville Centennial Centre"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericGame__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_skater_stats_api_v1_cjhl__league__players_skaters_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "player": {
+                     *             "id": "6271",
+                     *             "name": "Cohen Daoust",
+                     *             "position": "C",
+                     *             "jersey_number": "10"
+                     *           },
+                     *           "team": {
+                     *             "id": "Bonnyville Pontiacs",
+                     *             "name": {
+                     *               "en": "Bonnyville Pontiacs"
+                     *             },
+                     *             "abbreviation": "BON",
+                     *             "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *           },
+                     *           "games_played": 50,
+                     *           "league_id": "cjhl",
+                     *           "league_entity_id": "ajhl",
+                     *           "stats": {
+                     *             "goals": 31,
+                     *             "assists": 44,
+                     *             "points": 75,
+                     *             "points_per_game": 1.5,
+                     *             "plus_minus": 28,
+                     *             "penalty_minutes": 22,
+                     *             "shots": 180,
+                     *             "shooting_percentage": 17.2,
+                     *             "power_play_goals": 10,
+                     *             "power_play_points": 28,
+                     *             "game_winning_goals": 6
+                     *           }
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_goalie_stats_api_v1_cjhl__league__players_goalies_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "player": {
+                     *             "id": "5734",
+                     *             "name": "Alexander Scheiwiller",
+                     *             "position": "G",
+                     *             "jersey_number": "35"
+                     *           },
+                     *           "team": {
+                     *             "id": "Bonnyville Pontiacs",
+                     *             "name": {
+                     *               "en": "Bonnyville Pontiacs"
+                     *             },
+                     *             "abbreviation": "BON",
+                     *             "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *           },
+                     *           "games_played": 36,
+                     *           "league_id": "cjhl",
+                     *           "league_entity_id": "ajhl",
+                     *           "stats": {
+                     *             "wins": 22,
+                     *             "losses": 12,
+                     *             "shutouts": 2,
+                     *             "goals_against": 103,
+                     *             "goals_against_average": 2.91,
+                     *             "save_percentage": 0.921,
+                     *             "minutes_played": "2122",
+                     *             "ot_losses": 1
+                     *           }
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_info_api_v1_cjhl__league__teams__team_name__info_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+                team_name: "bonnyville-pontiacs" | "calgary-canucks" | "camrose-kodiaks" | "canmore-eagles" | "devon-xtreme" | "drayton-valley-thunder" | "drumheller-dragons" | "fort-mcmurray-oil-barons" | "grande-prairie-storm" | "lloydminster-bobcats" | "olds-grizzlys" | "whitecourt-wolverines" | "brockville-braves" | "carleton-place-canadians" | "cornwall-colts" | "hawkesbury-hawks" | "kemptville-73s" | "navan-grads" | "nepean-raiders" | "ottawa-junior-senators" | "pembroke-lumber-kings" | "pembroke-royals" | "renfrew-wolves" | "rockland-nationals" | "smiths-falls-bears" | "dauphin-kings" | "neepawa-titans" | "niverville-nighthawks" | "northern-manitoba-blizzard" | "portage-terriers" | "selkirk-steelers" | "steinbach-pistons" | "swan-valley-stampeders" | "virden-oil-capitals" | "waywayseecappo-wolverines" | "winkler-flyers" | "winnipeg-blues" | "winnipeg-monarchs" | "blind-river-beavers" | "elliot-lake-vikings" | "espanola-paper-kings" | "french-river-rapids" | "greater-sudbury-cubs" | "hearst-lumberjacks" | "iroquois-falls-storm" | "kirkland-lake-gold-miners" | "powassan-voodoos" | "soo-eagles" | "soo-thunderbirds" | "st-andrews-college" | "timmins-rock" | "aurora-tigers" | "buffalo-jr-sabres" | "burlington-cougars" | "caledon-admirals" | "cobourg-cougars" | "collingwood-blues" | "georgetown-raiders" | "haliburton-county-huskies" | "king-rebellion" | "leamington-flyers" | "lindsay-muskies" | "markham-royals" | "milton-menace" | "mississauga-chargers" | "newmarket-hurricanes" | "niagara-falls-canucks" | "north-york-rangers" | "oakville-blades" | "pickering-panthers" | "st-michaels-buzzers" | "stouffville-spirit" | "toronto-patriots" | "toronto-warriors" | "trenton-golden-hawks" | "wellington-dukes" | "dryden-gm-ice-dogs" | "fort-frances-lakers" | "ironwood-lumberjacks" | "kam-river-fighting-walleye" | "red-lake-miners" | "sioux-lookout-bombers" | "thunder-bay-north-stars" | "battlefords-north-stars" | "estevan-bruins" | "flin-flon-bombers" | "humboldt-broncos" | "kindersley-klippers" | "la-ronge-ice-wolves" | "melfort-mustangs" | "melville-millionaires" | "nipawin-hawks" | "warman-wolverines" | "weyburn-red-wings" | "yorkton-terriers" | "amherst-ramblers" | "campbellton-tigers" | "chaleur-lightning" | "edmundston-blizzard" | "grand-falls-rapids" | "miramichi-timberwolves" | "pictou-county-weeks-crushers" | "summerside-western-capitals" | "truro-bearcats" | "valley-wildcats" | "west-kent-steamers" | "yarmouth-mariners" | "braves-de-valleyfield" | "cobras-de-terrebonne" | "college-francais-de-longueuil" | "condors-du-cegep-beauce-appalaches" | "leverest-de-la-cote-du-sud" | "nomad-de-gatineau" | "lindigo-de-granby" | "pantheres-de-saint-jerome" | "phoenix-de-montreal" | "predateurs-de-joliette" | "lenergie-de-laval-hc" | "rangers-de-montreal" | "titan-de-princeville";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": {
+                     *         "team": {
+                     *           "id": "Bonnyville Pontiacs",
+                     *           "name": {
+                     *             "en": "Bonnyville Pontiacs"
+                     *           },
+                     *           "abbreviation": "BON",
+                     *           "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *         },
+                     *         "wins": 35,
+                     *         "losses": 10,
+                     *         "rank": 1,
+                     *         "streak": "W3",
+                     *         "league_id": "cjhl",
+                     *         "league_entity_id": "ajhl",
+                     *         "stats": {
+                     *           "points": 74,
+                     *           "goals_for": 198,
+                     *           "goals_against": 130,
+                     *           "goals_diff": 68,
+                     *           "ot_losses": 4,
+                     *           "past_10": "8-1-1"
+                     *         }
+                     *       }
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamInfo_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_skater_stats_api_v1_cjhl__league__teams__team_name__skaters_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+                team_name: "bonnyville-pontiacs" | "calgary-canucks" | "camrose-kodiaks" | "canmore-eagles" | "devon-xtreme" | "drayton-valley-thunder" | "drumheller-dragons" | "fort-mcmurray-oil-barons" | "grande-prairie-storm" | "lloydminster-bobcats" | "olds-grizzlys" | "whitecourt-wolverines" | "brockville-braves" | "carleton-place-canadians" | "cornwall-colts" | "hawkesbury-hawks" | "kemptville-73s" | "navan-grads" | "nepean-raiders" | "ottawa-junior-senators" | "pembroke-lumber-kings" | "pembroke-royals" | "renfrew-wolves" | "rockland-nationals" | "smiths-falls-bears" | "dauphin-kings" | "neepawa-titans" | "niverville-nighthawks" | "northern-manitoba-blizzard" | "portage-terriers" | "selkirk-steelers" | "steinbach-pistons" | "swan-valley-stampeders" | "virden-oil-capitals" | "waywayseecappo-wolverines" | "winkler-flyers" | "winnipeg-blues" | "winnipeg-monarchs" | "blind-river-beavers" | "elliot-lake-vikings" | "espanola-paper-kings" | "french-river-rapids" | "greater-sudbury-cubs" | "hearst-lumberjacks" | "iroquois-falls-storm" | "kirkland-lake-gold-miners" | "powassan-voodoos" | "soo-eagles" | "soo-thunderbirds" | "st-andrews-college" | "timmins-rock" | "aurora-tigers" | "buffalo-jr-sabres" | "burlington-cougars" | "caledon-admirals" | "cobourg-cougars" | "collingwood-blues" | "georgetown-raiders" | "haliburton-county-huskies" | "king-rebellion" | "leamington-flyers" | "lindsay-muskies" | "markham-royals" | "milton-menace" | "mississauga-chargers" | "newmarket-hurricanes" | "niagara-falls-canucks" | "north-york-rangers" | "oakville-blades" | "pickering-panthers" | "st-michaels-buzzers" | "stouffville-spirit" | "toronto-patriots" | "toronto-warriors" | "trenton-golden-hawks" | "wellington-dukes" | "dryden-gm-ice-dogs" | "fort-frances-lakers" | "ironwood-lumberjacks" | "kam-river-fighting-walleye" | "red-lake-miners" | "sioux-lookout-bombers" | "thunder-bay-north-stars" | "battlefords-north-stars" | "estevan-bruins" | "flin-flon-bombers" | "humboldt-broncos" | "kindersley-klippers" | "la-ronge-ice-wolves" | "melfort-mustangs" | "melville-millionaires" | "nipawin-hawks" | "warman-wolverines" | "weyburn-red-wings" | "yorkton-terriers" | "amherst-ramblers" | "campbellton-tigers" | "chaleur-lightning" | "edmundston-blizzard" | "grand-falls-rapids" | "miramichi-timberwolves" | "pictou-county-weeks-crushers" | "summerside-western-capitals" | "truro-bearcats" | "valley-wildcats" | "west-kent-steamers" | "yarmouth-mariners" | "braves-de-valleyfield" | "cobras-de-terrebonne" | "college-francais-de-longueuil" | "condors-du-cegep-beauce-appalaches" | "leverest-de-la-cote-du-sud" | "nomad-de-gatineau" | "lindigo-de-granby" | "pantheres-de-saint-jerome" | "phoenix-de-montreal" | "predateurs-de-joliette" | "lenergie-de-laval-hc" | "rangers-de-montreal" | "titan-de-princeville";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "player": {
+                     *             "id": "6271",
+                     *             "name": "Cohen Daoust",
+                     *             "position": "C",
+                     *             "jersey_number": "10"
+                     *           },
+                     *           "team": {
+                     *             "id": "Bonnyville Pontiacs",
+                     *             "name": {
+                     *               "en": "Bonnyville Pontiacs"
+                     *             },
+                     *             "abbreviation": "BON",
+                     *             "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *           },
+                     *           "games_played": 50,
+                     *           "league_id": "cjhl",
+                     *           "league_entity_id": "ajhl",
+                     *           "stats": {
+                     *             "goals": 31,
+                     *             "assists": 44,
+                     *             "points": 75,
+                     *             "points_per_game": 1.5,
+                     *             "plus_minus": 28,
+                     *             "penalty_minutes": 22,
+                     *             "shots": 180,
+                     *             "shooting_percentage": 17.2,
+                     *             "power_play_goals": 10,
+                     *             "power_play_points": 28,
+                     *             "game_winning_goals": 6
+                     *           }
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_team_goalie_stats_api_v1_cjhl__league__teams__team_name__goalies_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+                team_name: "bonnyville-pontiacs" | "calgary-canucks" | "camrose-kodiaks" | "canmore-eagles" | "devon-xtreme" | "drayton-valley-thunder" | "drumheller-dragons" | "fort-mcmurray-oil-barons" | "grande-prairie-storm" | "lloydminster-bobcats" | "olds-grizzlys" | "whitecourt-wolverines" | "brockville-braves" | "carleton-place-canadians" | "cornwall-colts" | "hawkesbury-hawks" | "kemptville-73s" | "navan-grads" | "nepean-raiders" | "ottawa-junior-senators" | "pembroke-lumber-kings" | "pembroke-royals" | "renfrew-wolves" | "rockland-nationals" | "smiths-falls-bears" | "dauphin-kings" | "neepawa-titans" | "niverville-nighthawks" | "northern-manitoba-blizzard" | "portage-terriers" | "selkirk-steelers" | "steinbach-pistons" | "swan-valley-stampeders" | "virden-oil-capitals" | "waywayseecappo-wolverines" | "winkler-flyers" | "winnipeg-blues" | "winnipeg-monarchs" | "blind-river-beavers" | "elliot-lake-vikings" | "espanola-paper-kings" | "french-river-rapids" | "greater-sudbury-cubs" | "hearst-lumberjacks" | "iroquois-falls-storm" | "kirkland-lake-gold-miners" | "powassan-voodoos" | "soo-eagles" | "soo-thunderbirds" | "st-andrews-college" | "timmins-rock" | "aurora-tigers" | "buffalo-jr-sabres" | "burlington-cougars" | "caledon-admirals" | "cobourg-cougars" | "collingwood-blues" | "georgetown-raiders" | "haliburton-county-huskies" | "king-rebellion" | "leamington-flyers" | "lindsay-muskies" | "markham-royals" | "milton-menace" | "mississauga-chargers" | "newmarket-hurricanes" | "niagara-falls-canucks" | "north-york-rangers" | "oakville-blades" | "pickering-panthers" | "st-michaels-buzzers" | "stouffville-spirit" | "toronto-patriots" | "toronto-warriors" | "trenton-golden-hawks" | "wellington-dukes" | "dryden-gm-ice-dogs" | "fort-frances-lakers" | "ironwood-lumberjacks" | "kam-river-fighting-walleye" | "red-lake-miners" | "sioux-lookout-bombers" | "thunder-bay-north-stars" | "battlefords-north-stars" | "estevan-bruins" | "flin-flon-bombers" | "humboldt-broncos" | "kindersley-klippers" | "la-ronge-ice-wolves" | "melfort-mustangs" | "melville-millionaires" | "nipawin-hawks" | "warman-wolverines" | "weyburn-red-wings" | "yorkton-terriers" | "amherst-ramblers" | "campbellton-tigers" | "chaleur-lightning" | "edmundston-blizzard" | "grand-falls-rapids" | "miramichi-timberwolves" | "pictou-county-weeks-crushers" | "summerside-western-capitals" | "truro-bearcats" | "valley-wildcats" | "west-kent-steamers" | "yarmouth-mariners" | "braves-de-valleyfield" | "cobras-de-terrebonne" | "college-francais-de-longueuil" | "condors-du-cegep-beauce-appalaches" | "leverest-de-la-cote-du-sud" | "nomad-de-gatineau" | "lindigo-de-granby" | "pantheres-de-saint-jerome" | "phoenix-de-montreal" | "predateurs-de-joliette" | "lenergie-de-laval-hc" | "rangers-de-montreal" | "titan-de-princeville";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": [
+                     *         {
+                     *           "player": {
+                     *             "id": "5734",
+                     *             "name": "Alexander Scheiwiller",
+                     *             "position": "G",
+                     *             "jersey_number": "35"
+                     *           },
+                     *           "team": {
+                     *             "id": "Bonnyville Pontiacs",
+                     *             "name": {
+                     *               "en": "Bonnyville Pontiacs"
+                     *             },
+                     *             "abbreviation": "BON",
+                     *             "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *           },
+                     *           "games_played": 36,
+                     *           "league_id": "cjhl",
+                     *           "league_entity_id": "ajhl",
+                     *           "stats": {
+                     *             "wins": 22,
+                     *             "losses": 12,
+                     *             "shutouts": 2,
+                     *             "goals_against": 103,
+                     *             "goals_against_average": 2.91,
+                     *             "save_percentage": 0.921,
+                     *             "minutes_played": "2122",
+                     *             "ot_losses": 1
+                     *           }
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_list_GenericPlayerStat__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_roster_api_v1_cjhl__league__teams__team_name__roster_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+                team_name: "bonnyville-pontiacs" | "calgary-canucks" | "camrose-kodiaks" | "canmore-eagles" | "devon-xtreme" | "drayton-valley-thunder" | "drumheller-dragons" | "fort-mcmurray-oil-barons" | "grande-prairie-storm" | "lloydminster-bobcats" | "olds-grizzlys" | "whitecourt-wolverines" | "brockville-braves" | "carleton-place-canadians" | "cornwall-colts" | "hawkesbury-hawks" | "kemptville-73s" | "navan-grads" | "nepean-raiders" | "ottawa-junior-senators" | "pembroke-lumber-kings" | "pembroke-royals" | "renfrew-wolves" | "rockland-nationals" | "smiths-falls-bears" | "dauphin-kings" | "neepawa-titans" | "niverville-nighthawks" | "northern-manitoba-blizzard" | "portage-terriers" | "selkirk-steelers" | "steinbach-pistons" | "swan-valley-stampeders" | "virden-oil-capitals" | "waywayseecappo-wolverines" | "winkler-flyers" | "winnipeg-blues" | "winnipeg-monarchs" | "blind-river-beavers" | "elliot-lake-vikings" | "espanola-paper-kings" | "french-river-rapids" | "greater-sudbury-cubs" | "hearst-lumberjacks" | "iroquois-falls-storm" | "kirkland-lake-gold-miners" | "powassan-voodoos" | "soo-eagles" | "soo-thunderbirds" | "st-andrews-college" | "timmins-rock" | "aurora-tigers" | "buffalo-jr-sabres" | "burlington-cougars" | "caledon-admirals" | "cobourg-cougars" | "collingwood-blues" | "georgetown-raiders" | "haliburton-county-huskies" | "king-rebellion" | "leamington-flyers" | "lindsay-muskies" | "markham-royals" | "milton-menace" | "mississauga-chargers" | "newmarket-hurricanes" | "niagara-falls-canucks" | "north-york-rangers" | "oakville-blades" | "pickering-panthers" | "st-michaels-buzzers" | "stouffville-spirit" | "toronto-patriots" | "toronto-warriors" | "trenton-golden-hawks" | "wellington-dukes" | "dryden-gm-ice-dogs" | "fort-frances-lakers" | "ironwood-lumberjacks" | "kam-river-fighting-walleye" | "red-lake-miners" | "sioux-lookout-bombers" | "thunder-bay-north-stars" | "battlefords-north-stars" | "estevan-bruins" | "flin-flon-bombers" | "humboldt-broncos" | "kindersley-klippers" | "la-ronge-ice-wolves" | "melfort-mustangs" | "melville-millionaires" | "nipawin-hawks" | "warman-wolverines" | "weyburn-red-wings" | "yorkton-terriers" | "amherst-ramblers" | "campbellton-tigers" | "chaleur-lightning" | "edmundston-blizzard" | "grand-falls-rapids" | "miramichi-timberwolves" | "pictou-county-weeks-crushers" | "summerside-western-capitals" | "truro-bearcats" | "valley-wildcats" | "west-kent-steamers" | "yarmouth-mariners" | "braves-de-valleyfield" | "cobras-de-terrebonne" | "college-francais-de-longueuil" | "condors-du-cegep-beauce-appalaches" | "leverest-de-la-cote-du-sud" | "nomad-de-gatineau" | "lindigo-de-granby" | "pantheres-de-saint-jerome" | "phoenix-de-montreal" | "predateurs-de-joliette" | "lenergie-de-laval-hc" | "rangers-de-montreal" | "titan-de-princeville";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "success": true,
+                     *       "data": {
+                     *         "team": {
+                     *           "id": "Bonnyville Pontiacs",
+                     *           "name": {
+                     *             "en": "Bonnyville Pontiacs"
+                     *           },
+                     *           "abbreviation": "BON",
+                     *           "team_entity_id": "cjhl_ajhl_bonnyville-pontiacs"
+                     *         },
+                     *         "league_id": "cjhl",
+                     *         "league_entity_id": "ajhl",
+                     *         "players": [
+                     *           {
+                     *             "player": {
+                     *               "id": "6271",
+                     *               "name": "Cohen Daoust",
+                     *               "position": "C",
+                     *               "jersey_number": "10"
+                     *             },
+                     *             "games_played": 0,
+                     *             "stats": {
+                     *               "shoots": "L",
+                     *               "rookie": false
+                     *             }
+                     *           }
+                     *         ]
+                     *       }
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StandardResponse_GenericTeamRoster_"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_transactions_api_v1_cjhl__league__transactions_get: {
+        parameters: {
+            query?: {
+                /** @description Season start year; defaults to the current season */
+                year?: number | null;
+            };
+            header?: never;
+            path: {
+                league: "ajhl" | "cchl" | "mjhl" | "nojhl" | "ojhl" | "sijhl" | "sjhl" | "mhl" | "lhjaaaq";
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StandardResponse_list_CJHLTransaction__"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
             };
         };
     };
