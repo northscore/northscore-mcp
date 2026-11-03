@@ -93,7 +93,7 @@ docker build -t northscore-mcp .
 docker compose -f docker-compose.local.yml up   # runs against the local API container
 ```
 
-Requires: `.env` file with `NORTHSCORE_STATS_API_KEY` and `SUPABASE_JWT_SECRET`.
+Requires: `.env` file with `NORTHSCORE_STATS_API_KEY` and `SUPABASE_JWT_SECRET`. The API rejects unknown `Host` headers, so the API container must allow `northscore-api`: set `ALLOWED_HOSTS=localhost,127.0.0.1,northscore-api` in the API's `.env.local` (it replaces the defaults, so keep localhost).
 
 ### Claude Desktop (stdio)
 
