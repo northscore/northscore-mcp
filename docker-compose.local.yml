@@ -1,5 +1,7 @@
 # Local only: runs the MCP image against the NorthScore API container
 # (start the API's own compose stack first so the shared network exists).
+# The API must allow the `northscore-api` host or it returns 400: set
+# ALLOWED_HOSTS=localhost,127.0.0.1,northscore-api in the API's .env.local.
 services:
   northscore-mcp:
     build: .

@@ -20,6 +20,9 @@ export const ALL_LEAGUES_DESCRIPTION =
   `College (CCAA conferences — OCAA Ontario, ACAC Alberta, PACWEST BC, ACAA Atlantic, MCAC Manitoba): ${LEAGUE_PATTERNS.ccaa}. ` +
   'Soccer pathway: psl_{ppl,apl,bcpl,opl_1,opl_2,opl_3,opl_u20}_{mens,womens}.';
 
+/** Stat values; college `*_percentage` stats can be null when the denominator is 0 */
+const statValueSchema = z.union([z.number(), z.string()]).nullable();
+
 const localizedTextSchema = z.object({
   en: z.string().describe('English text'),
   fr: z.string().nullish().describe('French text'),
@@ -65,7 +68,7 @@ export const standingsSchema = z.object({
   rank: z.number(),
   league_id: z.string(),
   division: z.string().nullish(),
-  stats: z.record(z.string(), z.union([z.number(), z.string()])).optional(),
+  stats: z.record(z.string(), statValueSchema).optional(),
 });
 
 export const teamInfoSchema = z.object({
@@ -78,7 +81,7 @@ export const teamInfoSchema = z.object({
   rank: z.number().nullish(),
   streak: z.string().nullish(),
   tickets_url: z.string().nullish(),
-  stats: z.record(z.string(), z.union([z.number(), z.string()])).optional(),
+  stats: z.record(z.string(), statValueSchema).optional(),
 });
 
 export const teamStatSchema = z.object({
@@ -86,7 +89,7 @@ export const teamStatSchema = z.object({
   team: teamIdentitySchema,
   league_id: z.string(),
   games_played: z.number().nullish(),
-  stats: z.record(z.string(), z.union([z.number(), z.string()])).optional(),
+  stats: z.record(z.string(), statValueSchema).optional(),
   rankings: z.record(z.string(), z.number()).optional(),
 });
 
