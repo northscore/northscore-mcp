@@ -15,11 +15,14 @@ export function createJwtVerifier(secret: string): OAuthTokenVerifier {
   return {
     async verifyAccessToken(token) {
       try {
-        const { payload } = await jwtVerify(token, key, { algorithms: ['HS256'] });
-        if (typeof payload.sub !== 'string' || !payload.sub || typeof payload.exp !== 'number') {
-          throw new Error('JWT missing sub or exp');
-        }
-        return { token, clientId: payload.sub, scopes: [], expiresAt: payload.exp };
+        // Supabase user access tokens carry aud "authenticated" (rejects anon/service_role keys)
+        const { payload } = await jwtVerify(token, key, {
+          algorithms: ['HS256'],
+          audience: 'authenticated',
+          requiredClaims: ['sub', 'exp'],
+        });
+        if (typeof payload.sub !== 'string' || !payload.sub) throw new Error('JWT sub is empty');
+        return { token, clientId: payload.sub, scopes: [], expiresAt: payload.exp! };
       } catch (err) {
         const message = err instanceof Error ? err.message : 'JWT validation failed';
         logger.warn('JWT validation failed', { error: message });

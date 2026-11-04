@@ -18,10 +18,14 @@ const logError = (error: Error): void =>
   logger.error('Error handling MCP request', { error: error.message });
 
 export function startHttpServer(): void {
-  // Host-header allowlist guards against DNS rebinding when bound to 0.0.0.0
+  // Host + Origin allowlists guard against DNS rebinding when bound to 0.0.0.0.
+  // The SDK only checks Origin automatically on localhost binds, so pass it explicitly.
   const app = createMcpExpressApp({
     host: config.host,
-    ...(config.allowedHosts && { allowedHosts: config.allowedHosts }),
+    ...(config.allowedHosts && {
+      allowedHosts: config.allowedHosts,
+      allowedOrigins: config.allowedHosts,
+    }),
   });
 
   const auth = requireBearerAuth({ verifier: createJwtVerifier(config.supabaseJwtSecret) });

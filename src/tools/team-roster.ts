@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/server';
 import { TEAM_ROSTER_LEAGUES } from '../constants/index.js';
 import { fetchTeamRoster } from '../services/index.js';
-import { LEAGUE_PATTERNS, teamRosterSchema } from './schemas.js';
+import { LEAGUE_PATTERNS, teamRosterSchema, toolResultSchema } from './schemas.js';
 import { errorResult, successResult } from './helpers.js';
 
 const inputSchema = z.object({
@@ -30,12 +30,9 @@ const inputSchema = z.object({
     .describe('Player stat aggregation (CEBL and U SPORTS only; defaults to PER_GAME)'),
 });
 
-const outputSchema = z.object({
-  success: z.boolean(),
+const outputSchema = toolResultSchema.extend({
   player_count: z.number().optional(),
   roster: teamRosterSchema.optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
 });
 
 export function registerGetTeamRosterTool(server: McpServer): void {

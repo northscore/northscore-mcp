@@ -122,3 +122,17 @@ export const teamRosterSchema = z.object({
   league_id: z.string(),
   players: z.array(rosterPlayerSchema).optional(),
 });
+
+/** Fields every tool result carries (see `successResult` / `errorResult`). */
+export const toolResultSchema = z.object({
+  success: z.boolean(),
+  error: z.string().optional(),
+  status_code: z.number().optional(),
+});
+
+/** Adds list count + truncation fields (see `truncateList`). */
+export const listResultSchema = toolResultSchema.extend({
+  count: z.number().optional(),
+  truncated: z.boolean().optional(),
+  truncation_message: z.string().optional(),
+});

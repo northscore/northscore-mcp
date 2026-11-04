@@ -18,7 +18,7 @@ function sign(
     exp = '5m',
   }: { secret?: string; alg?: string; exp?: string | null } = {},
 ): Promise<string> {
-  const jwt = new SignJWT(payload).setProtectedHeader({ alg });
+  const jwt = new SignJWT({ aud: 'authenticated', ...payload }).setProtectedHeader({ alg });
   if (exp) jwt.setExpirationTime(exp);
   return jwt.sign(new TextEncoder().encode(secret));
 }
@@ -56,6 +56,10 @@ describe('createJwtVerifier', () => {
 
   it('rejects a non-HS256 algorithm', async () => {
     await expectInvalid(await sign({ sub: 'user-1' }, { alg: 'HS512' }));
+  });
+
+  it.each([{ aud: 'other' }, { aud: undefined }])('rejects wrong audience %j', async (claims) => {
+    await expectInvalid(await sign({ sub: 'user-1', ...claims } as JWTPayload));
   });
 
   it('rejects garbage', async () => {

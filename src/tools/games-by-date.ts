@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/server';
 import { AGGREGATE_SCOPES } from '../constants/index.js';
 import { fetchAggregateGames } from '../services/index.js';
-import { gameSchema } from './schemas.js';
+import { gameSchema, listResultSchema } from './schemas.js';
 import { errorResult, successResult, torontoDateString, truncateList } from './helpers.js';
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -37,8 +37,7 @@ const inputSchema = z.object({
     .describe('Range end date (YYYY-MM-DD). Requires start_date.'),
 });
 
-const outputSchema = z.object({
-  success: z.boolean(),
+const outputSchema = listResultSchema.extend({
   scope: z.string().optional(),
   start_date: z.string().optional(),
   end_date: z.string().optional(),
@@ -48,10 +47,6 @@ const outputSchema = z.object({
     .optional()
     .describe('Games per league in the range'),
   games: z.array(gameSchema).optional().describe('Games sorted by date'),
-  truncated: z.boolean().optional(),
-  truncation_message: z.string().optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
 });
 
 function resolveDateRange(

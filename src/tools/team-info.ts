@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/server';
 import { ALL_LEAGUES } from '../constants/index.js';
 import { fetchTeamInfo } from '../services/index.js';
-import { ALL_LEAGUES_DESCRIPTION, teamInfoSchema } from './schemas.js';
+import { ALL_LEAGUES_DESCRIPTION, teamInfoSchema, toolResultSchema } from './schemas.js';
 import { errorResult, successResult } from './helpers.js';
 
 const inputSchema = z.object({
@@ -22,11 +22,8 @@ const inputSchema = z.object({
     ),
 });
 
-const outputSchema = z.object({
-  success: z.boolean(),
+const outputSchema = toolResultSchema.extend({
   team_info: teamInfoSchema.optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
 });
 
 export function registerGetTeamInfoTool(server: McpServer): void {

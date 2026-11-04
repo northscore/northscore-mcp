@@ -6,7 +6,7 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/server';
 import { LEADERBOARD_LEAGUES } from '../constants/index.js';
 import { fetchLeaderboard } from '../services/index.js';
-import { LEAGUE_PATTERNS, leaderboardEntrySchema } from './schemas.js';
+import { LEAGUE_PATTERNS, leaderboardEntrySchema, listResultSchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
 const inputSchema = z.object({
@@ -31,17 +31,11 @@ const inputSchema = z.object({
   limit: z.number().int().min(1).max(100).optional().describe('Max leaders per stat'),
 });
 
-const outputSchema = z.object({
-  success: z.boolean(),
-  count: z.number().optional(),
+const outputSchema = listResultSchema.extend({
   leaders: z
     .array(leaderboardEntrySchema)
     .optional()
     .describe('Ranked players with stat_type, value, team, and entity IDs'),
-  truncated: z.boolean().optional(),
-  truncation_message: z.string().optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
 });
 
 export function registerGetLeaderboardTool(server: McpServer): void {
