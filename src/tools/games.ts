@@ -3,16 +3,16 @@
  */
 
 import { z } from 'zod';
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { McpServer } from '@modelcontextprotocol/server';
 import { ALL_LEAGUES } from '../constants/index.js';
 import { fetchGames } from '../services/index.js';
 import type { GenericGame } from '../types/index.js';
-import { ALL_LEAGUES_DESCRIPTION, gameSchema } from './schemas.js';
+import { ALL_LEAGUES_DESCRIPTION, gameSchema, listResultSchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
 const RECENT_DAYS_LIMIT = 14;
 
-const inputSchema = {
+const inputSchema = z.object({
   league_system: z.enum(ALL_LEAGUES).describe(ALL_LEAGUES_DESCRIPTION),
   team_name: z
     .string()
@@ -25,17 +25,11 @@ const inputSchema = {
   recent: z.boolean().optional().describe('Only games from the past 14 days'),
   upcoming: z.boolean().optional().describe('Only upcoming games'),
   year: z.number().int().optional().describe('Season year — PSL leagues only (e.g. 2026)'),
-};
+});
 
-const outputSchema = {
-  success: z.boolean(),
-  count: z.number().optional(),
+const outputSchema = listResultSchema.extend({
   games: z.array(gameSchema).optional(),
-  truncated: z.boolean().optional(),
-  truncation_message: z.string().optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
-};
+});
 
 function filterGamesByDate(
   games: GenericGame[],

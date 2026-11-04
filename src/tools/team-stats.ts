@@ -3,13 +3,13 @@
  */
 
 import { z } from 'zod';
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { McpServer } from '@modelcontextprotocol/server';
 import { TEAM_STATS_LEAGUES } from '../constants/index.js';
 import { fetchTeamStats } from '../services/index.js';
-import { LEAGUE_PATTERNS, teamStatSchema } from './schemas.js';
+import { LEAGUE_PATTERNS, teamStatSchema, listResultSchema } from './schemas.js';
 import { errorResult, successResult, truncateList } from './helpers.js';
 
-const inputSchema = {
+const inputSchema = z.object({
   league_system: z
     .enum(TEAM_STATS_LEAGUES)
     .describe(
@@ -28,20 +28,14 @@ const inputSchema = {
     .enum(['PER_GAME', 'TOTALS'])
     .optional()
     .describe('Averages vs totals (CEBL and U SPORTS only; defaults to PER_GAME)'),
-};
+});
 
-const outputSchema = {
-  success: z.boolean(),
-  count: z.number().optional(),
+const outputSchema = listResultSchema.extend({
   team_stats: z
     .union([teamStatSchema, z.array(teamStatSchema)])
     .optional()
     .describe('Single team when team_name given, otherwise all teams'),
-  truncated: z.boolean().optional(),
-  truncation_message: z.string().optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
-};
+});
 
 export function registerGetTeamStatsTool(server: McpServer): void {
   server.registerTool(

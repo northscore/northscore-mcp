@@ -2,7 +2,7 @@
  * Shared MCP server factory — used by both stdio and Streamable HTTP entries.
  */
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { McpServer } from '@modelcontextprotocol/server';
 import { registerGetGamesByDateTool } from './tools/games-by-date.js';
 import { registerGetGamesTool } from './tools/games.js';
 import { registerGetStandingsTool } from './tools/standings.js';
