@@ -9,12 +9,15 @@
 - **MCP server** (tools) → works in Claude Desktop and any MCP client (stdio or HTTP).
 - **MCP App** (tools + UI) → renders interactive cards in ChatGPT, Claude web, and other MCP-Apps hosts (UI is progressive enhancement; tools always work even where UI is not supported).
 
-**Status**: Rebuild complete on main. Server now supports all 10 league families (CCAA covers 5 college conferences), 7 tools, dual transport (stdio for local clients, Streamable HTTP with JWT auth for remote), and types generated from the live OpenAPI spec. Deploys to Railway (`mcp.northscore.ca`) on every push to `main`. Next: SDK v2 upgrade (#18), MCP Apps UI (#16), then OAuth before public submission.
+**Status**: Rebuild complete on main. Server now supports all 10 league families (CCAA covers 5 college conferences), 7 tools, dual transport (stdio for local clients, Streamable HTTP with JWT auth for remote), and types generated from the live OpenAPI spec. Deploys to Railway (`mcp.northscore.ca`) on every push to `main`. On MCP SDK v2: serves both the 2026-07-28 (stateless) and 2025-era protocols over stdio and HTTP. Next: MCP Apps UI (#16), then OAuth before public submission.
 
 **Tech Stack**:
 
 - TypeScript, strict mode
-- MCP SDK v1 (`@modelcontextprotocol/sdk` 1.32) — v2 upgrade tracked in #18
+- MCP SDK v2: `@modelcontextprotocol/server` + `/express` + `/node`
+  - stdio: `serveStdio(createServer)`; HTTP: `toNodeHandler(createMcpHandler(createServer))`, fresh server per request
+  - Tool schemas are `z.object(...)` (raw shapes are deprecated)
+  - Auth: `requireBearerAuth` + a `jose` JWT verifier (`src/auth.ts`)
 - Transports: **stdio** (local) + **Streamable HTTP** (remote/hosted)
 - Zod for runtime validation
 - Types generated from the live OpenAPI spec

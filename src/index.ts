@@ -7,13 +7,13 @@
  *   - http: Streamable HTTP for remote hosts (ChatGPT, Claude web)
  */
 
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { serveStdio } from '@modelcontextprotocol/server/stdio';
 import { config, validateConfig } from './config/env.js';
 import { logger } from './logger.js';
 import { createServer } from './server.js';
 import { startHttpServer } from './http.js';
 
-async function main(): Promise<void> {
+function main(): void {
   validateConfig();
 
   if (config.transport === 'http') {
@@ -21,13 +21,16 @@ async function main(): Promise<void> {
     return;
   }
 
-  const server = createServer();
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
+  // serveStdio negotiates the protocol era (2025-11-25 or 2026-07-28) per connection
+  serveStdio(createServer, {
+    onerror: (error) => logger.error('stdio error', { error: error.message }),
+  });
   logger.info('northscore-mcp running on stdio', { apiBaseUrl: config.apiBaseUrl });
 }
 
-main().catch((error: unknown) => {
+try {
+  main();
+} catch (error) {
   logger.error('Server error', { error: error instanceof Error ? error.message : String(error) });
   process.exit(1);
-});
+}

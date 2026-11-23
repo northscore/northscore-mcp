@@ -1,81 +1,42 @@
 /**
  * Streamable HTTP transport (stateless) for remote MCP hosts.
  *
- * Each POST /mcp creates a fresh server + transport pair, per the SDK's
- * stateless pattern — no session state, safe behind load balancers.
+ * `createMcpHandler` builds a fresh server per request and serves both
+ * protocol eras from one endpoint: 2026-07-28 (stateless) and 2025-era
+ * clients via the stateless fallback. Safe behind load balancers.
  */
 
-import type { Request, Response } from 'express';
-import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
-import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js';
-import type { Transport } from '@modelcontextprotocol/sdk/shared/transport.js';
+import { createMcpExpressApp, requireBearerAuth } from '@modelcontextprotocol/express';
+import { toNodeHandler } from '@modelcontextprotocol/node';
+import { createMcpHandler } from '@modelcontextprotocol/server';
 import { config } from './config/env.js';
 import { logger } from './logger.js';
 import { createServer, SERVER_INFO } from './server.js';
-import { validateJwt } from './auth.js';
+import { createJwtVerifier } from './auth.js';
 
-function methodNotAllowed(res: Response): void {
-  res.status(405).json({
-    jsonrpc: '2.0',
-    error: { code: -32000, message: 'Method not allowed.' },
-    id: null,
-  });
-}
+const logError = (error: Error): void =>
+  logger.error('Error handling MCP request', { error: error.message });
 
 export function startHttpServer(): void {
-  // Host-header allowlist guards against DNS rebinding when bound to 0.0.0.0
+  // Host + Origin allowlists guard against DNS rebinding when bound to 0.0.0.0.
+  // The SDK only checks Origin automatically on localhost binds, so pass it explicitly.
   const app = createMcpExpressApp({
     host: config.host,
-    ...(config.allowedHosts && { allowedHosts: config.allowedHosts }),
+    ...(config.allowedHosts && {
+      allowedHosts: config.allowedHosts,
+      allowedOrigins: config.allowedHosts,
+    }),
   });
 
-  app.post('/mcp', async (req: Request, res: Response) => {
-    try {
-      validateJwt(req);
-    } catch {
-      res.status(401).json({
-        jsonrpc: '2.0',
-        error: {
-          code: -32001,
-          message: 'Unauthorized: invalid or missing JWT',
-        },
-        id: null,
-      });
-      return;
-    }
-
-    const server = createServer();
-    // No sessionIdGenerator -> stateless mode (no sessions to resume)
-    const transport = new StreamableHTTPServerTransport({});
-    // Register cleanup before handling so an early client disconnect can't leak
-    res.on('close', () => {
-      void transport.close();
-      void server.close();
-    });
-    try {
-      // Cast needed: SDK's transport classes declare `onclose: ... | undefined`,
-      // which exactOptionalPropertyTypes rejects against the Transport interface.
-      await server.connect(transport as Transport);
-      await transport.handleRequest(req, res, req.body);
-    } catch (error) {
-      logger.error('Error handling MCP request', {
-        error: error instanceof Error ? error.message : String(error),
-      });
-      if (!res.headersSent) {
-        res.status(500).json({
-          jsonrpc: '2.0',
-          error: { code: -32603, message: 'Internal server error' },
-          id: null,
-        });
-      }
-    }
+  const auth = requireBearerAuth({ verifier: createJwtVerifier(config.supabaseJwtSecret) });
+  const mcp = toNodeHandler(createMcpHandler(createServer, { onerror: logError }), {
+    onerror: logError,
   });
 
-  // Stateless mode: no SSE streams or sessions to resume/terminate
-  app.get('/mcp', (_req: Request, res: Response) => methodNotAllowed(res));
-  app.delete('/mcp', (_req: Request, res: Response) => methodNotAllowed(res));
+  // Body is already parsed by createMcpExpressApp — pass it through
+  app.all('/mcp', auth, (req, res) => void mcp(req, res, req.body));
 
-  app.get('/health', (_req: Request, res: Response) => {
+  app.get('/health', (_req, res) => {
     res.json({ status: 'ok', name: SERVER_INFO.name, version: SERVER_INFO.version });
   });
 

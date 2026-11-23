@@ -3,13 +3,13 @@
  */
 
 import { z } from 'zod';
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { McpServer } from '@modelcontextprotocol/server';
 import { ALL_LEAGUES } from '../constants/index.js';
 import { fetchTeamInfo } from '../services/index.js';
-import { ALL_LEAGUES_DESCRIPTION, teamInfoSchema } from './schemas.js';
+import { ALL_LEAGUES_DESCRIPTION, teamInfoSchema, toolResultSchema } from './schemas.js';
 import { errorResult, successResult } from './helpers.js';
 
-const inputSchema = {
+const inputSchema = z.object({
   league_system: z.enum(ALL_LEAGUES).describe(ALL_LEAGUES_DESCRIPTION),
   team_name: z
     .string()
@@ -20,14 +20,11 @@ const inputSchema = {
         '"halifax-thunder", "vaughan-azzurri"). If unsure, call get_standings first and ' +
         'use the team id from the result.',
     ),
-};
+});
 
-const outputSchema = {
-  success: z.boolean(),
+const outputSchema = toolResultSchema.extend({
   team_info: teamInfoSchema.optional(),
-  error: z.string().optional(),
-  status_code: z.number().optional(),
-};
+});
 
 export function registerGetTeamInfoTool(server: McpServer): void {
   server.registerTool(
