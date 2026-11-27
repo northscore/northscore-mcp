@@ -30,11 +30,11 @@ The Northscore MCP Server enables AI agents to query Northscore's sports data se
 | `get_team_stats` | Team statistics |
 | `get_team_roster` | Team roster |
 
-Each tool exposes only the leagues its endpoint actually supports (per-tool enums) — see [CLAUDE.md](./CLAUDE.md) for the full coverage matrix.
+Each tool exposes only the leagues its endpoint actually supports (per-tool enums) — see [AGENTS.md](./AGENTS.md) for the full coverage matrix.
 
 ## Documentation
 
-Project context, tool definitions, and architecture live in [CLAUDE.md](./CLAUDE.md). Future plans are in [ROADMAP.md](./ROADMAP.md). External references:
+Project context, tool definitions, and architecture live in [AGENTS.md](./AGENTS.md). Future plans are in [ROADMAP.md](./ROADMAP.md). External references:
 
 - [MCP Apps overview](https://modelcontextprotocol.io/extensions/apps/overview) and [build guide](https://modelcontextprotocol.io/extensions/apps/build)
 - [OpenAI Apps SDK — MCP Apps in ChatGPT](https://developers.openai.com/apps-sdk/mcp-apps-in-chatgpt)
